@@ -52,12 +52,22 @@
     .rstage { aspect-ratio: auto !important; height: 640px !important; }
     .rstage .sc, .rstage .scm { padding: 54px 18px 20px !important; }
     .rpt { padding-top: 40px !important; }
-    .rhero { min-height: 600px !important; }
+    .rpad0 { padding: 0 !important; }
+    .rhero { height: 100svh !important; min-height: 560px !important; }
+    .rhero .rcontent { padding: 90px 6vw 44px !important; gap: 14px !important; }
+    .rhero h1 { font-size: clamp(34px, 9.5vw, 46px) !important; }
+    .rhero .reyebrow { font-size: 10.5px !important; letter-spacing: .18em !important; }
+    .rhero .rsub { font-size: 11px !important; letter-spacing: .12em !important; line-height: 1.6; }
+    .rhero .rbtns { flex-direction: column !important; width: 100% !important; gap: 10px !important; }
+    .rhero .rbtns > a { width: 100% !important; text-align: center; padding: 13px 20px !important; font-size: 18px !important; }
   }
   @media (max-width: 640px) {
     .r2, .r2s { grid-template-columns: minmax(0, 1fr) !important; }
     .rm2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     .rsmall { font-size: 13px !important; }
+    .rz { aspect-ratio: 4 / 3 !important; }
+    .rh2 { font-size: clamp(28px, 8vw, 34px) !important; }
+    .rcard { padding: 24px 20px !important; }
   }
   @media (min-width: 1001px) { .donly { display: none !important; } }
 
@@ -183,7 +193,7 @@
   .car::-webkit-scrollbar { display: none; }
   .car > * { scroll-snap-align: start; }
 
-  @media (max-width: 1000px) { .rov { margin: 0 !important; transform: none !important; padding: 0 !important; } }
+  @media (max-width: 1000px) { .rov { margin: 0 !important; transform: none !important; } }
 </style>
 </helmet>
 
@@ -264,11 +274,11 @@
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.5) 0%,rgba(20,17,15,.22) 40%,rgba(20,17,15,.3) 70%,rgba(20,17,15,.72) 100%)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(94,23,30,.62) 0%,rgba(122,32,39,.34) 22%,rgba(122,32,39,.1) 42%,rgba(122,32,39,0) 60%)"></div>
 
-    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:90px 6vw clamp(56px,9vh,96px);gap:clamp(14px,1.8vw,22px)">
-      <span style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.8)">{{ t.heroEyebrow }}</span>
+    <div class="rcontent" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:90px 6vw clamp(56px,9vh,96px);gap:clamp(14px,1.8vw,22px)">
+      <span class="reyebrow" style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.8)">{{ t.heroEyebrow }}</span>
       <h1 style="margin:0;max-width:13em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,5.8vw,88px);line-height:1.04;color:#FFFFFF;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,.3)"><span>{{ t.heroLine1 }} </span><span style="font-weight:600">{{ t.heroLine2 }}</span></h1>
-      <span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">{{ t.heroSub }}</span>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(10px,1.6vw,22px)">
+      <span class="rsub" style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">{{ t.heroSub }}</span>
+      <div class="rbtns" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(10px,1.6vw,22px)">
         <a href="#" onClick="{{ goListings }}" style="padding:14px 36px;background:#7A2027;color:#FFFFFF;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;transition:all .3s ease" style-hover="background:#5E171E">{{ t.heroBtnComprar }}</a>
         <a href="#" onClick="{{ goSell }}" style="padding:14px 36px;background:#7A2027;color:#FFFFFF;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;transition:all .3s ease" style-hover="background:#5E171E">{{ t.heroBtnVender }}</a>
         <a href="#" onClick="{{ goValoracion }}" style="padding:14px 36px;border:2px solid rgba(255,255,255,.85);color:#FFFFFF;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;transition:all .3s ease" style-hover="background:#FFFFFF;color:#1E1A17;border-color:#FFFFFF">{{ t.heroBtnValorar }}</a>
@@ -319,15 +329,15 @@
     </div>
     <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:clamp(10px,2vw,30px) 0 0">
       <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1E1A17">{{ t.zonasEyebrow }}</span>
-      <h2 class="rv" style="margin:0;max-width:16em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance"><span>{{ t.zonasTitulo1 }} </span><span style="font-weight:600">{{ t.zonasTitulo2 }}</span><span> {{ t.zonasTitulo3 }}</span></h2>
+      <h2 class="rv rh2" style="margin:0;max-width:16em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance"><span>{{ t.zonasTitulo1 }} </span><span style="font-weight:600">{{ t.zonasTitulo2 }}</span><span> {{ t.zonasTitulo3 }}</span></h2>
       <p class="rv" style="margin:0;max-width:42em;font-size:16px;line-height:1.8;color:#5C534B">{{ t.zonasTexto }}</p>
       <a href="#" onClick="{{ goListings }}" class="rv" style="margin-top:6px;padding:11px 28px;border:2px solid #1E1A17;color:#1E1A17;font-size:14px;transition:all .3s ease" style-hover="background:#1E1A17;color:#FFFFFF">{{ t.zonasBoton }}</a>
     </div>
 
 
-    <div class="rv r2 r2s rov" style="position:relative;z-index:2;max-width:1280px;margin:clamp(50px,6vw,90px) auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)">
+    <div class="rv r2 r2s" style="position:relative;z-index:2;max-width:1280px;margin:clamp(50px,6vw,90px) auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)">
       <sc-for list="{{ zonaCards }}" as="z" hint-placeholder-count="4">
-        <a href="#" onClick="{{ z.open }}" style="position:relative;display:block;aspect-ratio:3/4;overflow:hidden;background:#F3EAD9;box-shadow:0 24px 50px -30px rgba(30,26,23,.5)">
+        <a href="#" onClick="{{ z.open }}" class="rz" style="position:relative;display:block;aspect-ratio:3/4;overflow:hidden;background:#F3EAD9;box-shadow:0 24px 50px -30px rgba(30,26,23,.5)">
           <img src="{{ z.img }}" alt="" style="{{ z.imgStyle }}" style-hover="transform:scale(1.06)">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 40%,rgba(20,17,15,.85) 100%)"></div>
           <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 20px;display:flex;flex-direction:column;gap:5px;color:#FFFFFF">
@@ -351,7 +361,7 @@
           <img src="interior-salon.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         </div>
       </div>
-      <div class="rov" style="grid-column:8 / span 5;position:relative;z-index:2;margin-left:-60px;background:#FFFFFF;padding:clamp(30px,3.2vw,48px);display:flex;flex-direction:column;gap:18px;box-shadow:0 40px 90px -50px rgba(30,26,23,.45)">
+      <div class="rov rcard" style="grid-column:8 / span 5;position:relative;z-index:2;margin-left:-60px;background:#FFFFFF;padding:clamp(30px,3.2vw,48px);display:flex;flex-direction:column;gap:18px;box-shadow:0 40px 90px -50px rgba(30,26,23,.45)">
         <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#7A2027">{{ t.destacadaEyebrow }}</span>
         <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3vw,44px);line-height:1.1">{{ destacada.nombre }}</h2>
         <span style="font-size:14px;color:#5C534B">{{ destacada.zona }}</span>
@@ -380,7 +390,7 @@
     </div>
     <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(90px,10vw,150px) 6vw calc(clamp(90px,10vw,150px) + 40px);display:flex;flex-direction:column;gap:22px;max-width:1280px">
       <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#D9B6A9">{{ t.agenciaEyebrow }}</span>
-      <h2 class="rv" style="margin:0;max-width:14em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,4vw,60px);line-height:1.06;text-wrap:balance">{{ t.agenciaTitulo }}</h2>
+      <h2 class="rv rh2" style="margin:0;max-width:14em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,4vw,60px);line-height:1.06;text-wrap:balance">{{ t.agenciaTitulo }}</h2>
       <p class="rv" style="margin:0;max-width:36em;font-size:16px;line-height:1.85;color:rgba(255,255,255,.8)">{{ t.agenciaTexto }}</p>
       <a href="#" onClick="{{ goAbout }}" class="rv" style="align-self:flex-start;margin-top:6px;padding:11px 28px;border:2px solid rgba(255,255,255,.85);color:#FFFFFF;font-size:14px;transition:all .3s ease" style-hover="background:#FFFFFF;color:#1E1A17">{{ t.ctaAgencia }}</a>
     </div>
@@ -407,7 +417,7 @@
 
       <div style="display:flex;flex-direction:column;gap:22px">
         <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#D9B6A9">{{ t.metEyebrow }}</span>
-        <h2 class="rv" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,3.8vw,58px);line-height:1.06;text-wrap:balance">{{ t.metTitulo }}</h2>
+        <h2 class="rv rh2" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,3.8vw,58px);line-height:1.06;text-wrap:balance">{{ t.metTitulo }}</h2>
         <p class="rv" style="margin:0;font-size:15.5px;line-height:1.85;color:rgba(247,240,230,.72);max-width:30em">{{ t.metTexto }}</p>
         <div class="rv" style="display:flex;flex-direction:column;margin-top:8px">
           <div class="{{ metSt1 }}" onClick="{{ metPick1 }}" style="cursor:pointer;display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid rgba(247,240,230,.14);position:relative">
@@ -589,7 +599,7 @@
   <section data-screen-label="Inicio - Exclusivas" style="position:relative;background:linear-gradient(165deg,#F6EFE3 0%,#E8DCC8 55%,#D9C7AE 100%);padding:clamp(80px,9vw,140px) 0;overflow:hidden">
     <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 6vw;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:clamp(34px,4vw,56px)">
       <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#7A2027">{{ t.coleccionEyebrow }}</span>
-      <h2 class="rv" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1"><span style="font-weight:600">{{ t.coleccionTitulo1 }}</span><span> {{ t.coleccionTitulo2 }}</span></h2>
+      <h2 class="rv rh2" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1"><span style="font-weight:600">{{ t.coleccionTitulo1 }}</span><span> {{ t.coleccionTitulo2 }}</span></h2>
       <p class="rv" style="margin:0;max-width:42em;font-size:15.5px;line-height:1.8;color:#5C534B">{{ t.coleccionTexto }}</p>
     </div>
     <div style="position:relative">
@@ -624,7 +634,7 @@
     <div style="max-width:1280px;margin:0 auto">
       <div class="rv" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:clamp(34px,4vw,56px)">
         <span style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#7A2027">{{ t.intEyebrow }}</span>
-        <h2 style="margin:0;max-width:15em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance">{{ t.intTitulo }}</h2>
+        <h2 class="rh2" style="margin:0;max-width:15em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance">{{ t.intTitulo }}</h2>
         <p style="margin:0;max-width:44em;font-size:15.5px;line-height:1.8;color:#5C534B">{{ t.intTexto }}</p>
       </div>
 
@@ -720,7 +730,7 @@
   <!-- ---------------------- OBRA NUEVA · doble imagen desplazada ---------------------- -->
   <section data-screen-label="Inicio - Obra nueva" style="background:#FFFFFF;padding:0 6vw clamp(90px,10vw,150px)">
     <div class="rv r1" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(36px,6vw,100px);align-items:center">
-      <div class="rov" style="position:relative;padding:0 60px 60px 0">
+      <div class="rov rpad0" style="position:relative;padding:0 60px 60px 0">
         <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9">
           <img class="px" src="villa-nocturna.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         </div>
@@ -730,7 +740,7 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:20px">
         <span style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#7A2027">{{ t.obraEyebrow }}</span>
-        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance">{{ t.obraTitulo }}</h2>
+        <h2 class="rh2" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance">{{ t.obraTitulo }}</h2>
         <p style="margin:0;font-size:16px;line-height:1.8;color:#5C534B;max-width:34em">{{ t.obraTexto }}</p>
         <a href="#" onClick="{{ goContact }}" style="align-self:flex-start;padding:11px 28px;border:2px solid #7A2027;color:#7A2027;font-size:14px;transition:all .3s ease" style-hover="background:#7A2027;color:#FFFFFF">{{ t.ctaAsesor }}</a>
       </div>
@@ -765,7 +775,7 @@
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.75) 100%)"></div>
     <div class="rv" style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(100px,11vw,170px) 6vw;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
       <span style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.75)">{{ t.hablemosEyebrow }}</span>
-      <h2 style="margin:0;max-width:16em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,4.4vw,64px);line-height:1.06;text-wrap:balance">{{ t.hablemosTitulo }}</h2>
+      <h2 class="rh2" style="margin:0;max-width:16em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,4.4vw,64px);line-height:1.06;text-wrap:balance">{{ t.hablemosTitulo }}</h2>
       <p style="margin:0;max-width:34em;font-size:16px;line-height:1.8;color:rgba(255,255,255,.82)">{{ t.hablemosTexto }}</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px">
         <a href="#" onClick="{{ goContact }}" style="padding:13px 34px;background:#7A2027;color:#FFFFFF;font-size:14px;transition:background .3s ease" style-hover="background:#5E171E">{{ t.ctaContactar }}</a>
