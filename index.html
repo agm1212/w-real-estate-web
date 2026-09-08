@@ -49,7 +49,7 @@
     .rsticky { position: static !important; }
     .rfull { width: 100% !important; }
     .r1 > * { grid-column: auto !important; }
-    .rstage { aspect-ratio: auto !important; height: 640px !important; }
+    .rstage { aspect-ratio: auto !important; height: 600px !important; }
     .rstage .sc, .rstage .scm { padding: 54px 18px 20px !important; }
     .rpt { padding-top: 40px !important; }
     .rpad0 { padding: 0 !important; }
@@ -419,7 +419,7 @@
         <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#D9B6A9">{{ t.metEyebrow }}</span>
         <h2 class="rv rh2" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(34px,3.8vw,58px);line-height:1.06;text-wrap:balance">{{ t.metTitulo }}</h2>
         <p class="rv" style="margin:0;font-size:15.5px;line-height:1.85;color:rgba(247,240,230,.72);max-width:30em">{{ t.metTexto }}</p>
-        <div class="rv" style="display:flex;flex-direction:column;margin-top:8px">
+        <div class="rv rhide" style="display:flex;flex-direction:column;margin-top:8px">
           <div class="{{ metSt1 }}" onClick="{{ metPick1 }}" style="cursor:pointer;display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid rgba(247,240,230,.14);position:relative">
             <span class="{{ metStb1 }}" style="position:absolute;left:0;top:-1px;height:1px;width:100%;background:#EDD7BF"></span>
             <span style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#D9B6A9">01</span>
@@ -451,11 +451,43 @@
             <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:700">{{ t.pasos.5.titulo }}</span><span style="font-size:13px;line-height:1.6;color:rgba(247,240,230,.62)">{{ t.pasos.5.texto }}</span></div>
           </div>
         </div>
-        <div class="rv" style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:8px">
+        <div class="rv rhide" style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:8px">
           <a href="#" onClick="{{ goSell }}" style="padding:12px 30px;border:2px solid #EDD7BF;background:#EDD7BF;color:#1E1A17;font-size:14px;transition:all .3s ease" style-hover="background:transparent;color:#EDD7BF">{{ t.metBoton }}</a>
           <sc-if value="{{ metManual }}" hint-placeholder-val="{{ false }}">
             <button onClick="{{ metAuto }}" style="display:flex;align-items:center;gap:8px;padding:12px 0;font-size:13px;color:#D9B6A9" style-hover="color:#F7F0E6"><svg width="12" height="13" viewBox="0 0 15 17" fill="currentColor" aria-hidden="true"><path d="M14 8.5L0 17V0z"></path></svg>{{ t.metReproducir }}</button>
           </sc-if>
+        </div>
+        <div class="donly" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:4px">
+          <button class="{{ metSt1 }}" onClick="{{ metPick1 }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;background:rgba(247,240,230,.06);border:1px solid rgba(247,240,230,.14);text-align:left;min-height:64px">
+            <span class="{{ metStb1 }}" style="position:absolute;left:0;right:0;top:-1px;height:2px;width:100%;background:#EDD7BF"></span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;color:#D9B6A9">01</span>
+            <span style="font-size:11.5px;font-weight:700;line-height:1.2">{{ t.pasos.0.titulo }}</span>
+          </button>
+          <button class="{{ metSt2 }}" onClick="{{ metPick2 }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;background:rgba(247,240,230,.06);border:1px solid rgba(247,240,230,.14);text-align:left;min-height:64px">
+            <span class="{{ metStb2 }}" style="position:absolute;left:0;right:0;top:-1px;height:2px;width:100%;background:#EDD7BF"></span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;color:#D9B6A9">02</span>
+            <span style="font-size:11.5px;font-weight:700;line-height:1.2">{{ t.pasos.1.titulo }}</span>
+          </button>
+          <button class="{{ metSt3 }}" onClick="{{ metPick3 }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;background:rgba(247,240,230,.06);border:1px solid rgba(247,240,230,.14);text-align:left;min-height:64px">
+            <span class="{{ metStb3 }}" style="position:absolute;left:0;right:0;top:-1px;height:2px;width:100%;background:#EDD7BF"></span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;color:#D9B6A9">03</span>
+            <span style="font-size:11.5px;font-weight:700;line-height:1.2">{{ t.pasos.2.titulo }}</span>
+          </button>
+          <button class="{{ metSt4 }}" onClick="{{ metPick4 }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;background:rgba(247,240,230,.06);border:1px solid rgba(247,240,230,.14);text-align:left;min-height:64px">
+            <span class="{{ metStb4 }}" style="position:absolute;left:0;right:0;top:-1px;height:2px;width:100%;background:#EDD7BF"></span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;color:#D9B6A9">04</span>
+            <span style="font-size:11.5px;font-weight:700;line-height:1.2">{{ t.pasos.3.titulo }}</span>
+          </button>
+          <button class="{{ metSt5 }}" onClick="{{ metPick5 }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;background:rgba(247,240,230,.06);border:1px solid rgba(247,240,230,.14);text-align:left;min-height:64px">
+            <span class="{{ metStb5 }}" style="position:absolute;left:0;right:0;top:-1px;height:2px;width:100%;background:#EDD7BF"></span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;color:#D9B6A9">05</span>
+            <span style="font-size:11.5px;font-weight:700;line-height:1.2">{{ t.pasos.4.titulo }}</span>
+          </button>
+          <button class="{{ metSt6 }}" onClick="{{ metPick6 }}" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;background:rgba(247,240,230,.06);border:1px solid rgba(247,240,230,.14);text-align:left;min-height:64px">
+            <span class="{{ metStb6 }}" style="position:absolute;left:0;right:0;top:-1px;height:2px;width:100%;background:#EDD7BF"></span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1;color:#D9B6A9">06</span>
+            <span style="font-size:11.5px;font-weight:700;line-height:1.2">{{ t.pasos.5.titulo }}</span>
+          </button>
         </div>
       </div>
 
@@ -463,7 +495,7 @@
       <div class="rv rstage" style="position:relative;aspect-ratio:5/4;background:linear-gradient(180deg,#241E19 0%,#1B1613 100%);border:1px solid rgba(247,240,230,.12);box-shadow:0 60px 120px -60px rgba(0,0,0,.8);overflow:hidden">
         <div style="position:absolute;left:0;right:0;top:0;height:2px;background:rgba(247,240,230,.1)"><span class="{{ metProgCls }}" style="{{ metProgStyle }}"></span></div>
         <div style="position:absolute;left:0;right:0;top:2px;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,240,230,.5)">
-          <span>{{ t.metEscena }}</span><span>Villa Marés · La Zagaleta</span>
+          <span>{{ t.metEscena }}</span><span class="rhide">Villa Marés · La Zagaleta</span>
         </div>
 
         <!-- 01 Valoracion -->
@@ -591,6 +623,13 @@
             <span class="stamp i6" style="position:absolute;right:6px;top:0;padding:10px 20px;border:3px solid #EDD7BF;color:#EDD7BF;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;letter-spacing:.06em;text-transform:uppercase">{{ t.escAceptada }}</span>
           </div>
         </div>
+      </div>
+
+      <div class="donly" style="display:flex;flex-direction:column;gap:14px">
+        <a href="#" onClick="{{ goSell }}" style="padding:13px 30px;border:2px solid #EDD7BF;background:#EDD7BF;color:#1E1A17;font-size:14px;text-align:center">{{ t.metBoton }}</a>
+        <sc-if value="{{ metManual }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ metAuto }}" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 0;font-size:13px;color:#D9B6A9"><svg width="12" height="13" viewBox="0 0 15 17" fill="currentColor" aria-hidden="true"><path d="M14 8.5L0 17V0z"></path></svg>{{ t.metReproducir }}</button>
+        </sc-if>
       </div>
     </div>
   </section>
@@ -1774,7 +1813,7 @@ class Component extends DCLogic {
       statDias: 'días desde la firma hasta la propiedad publicada',
       metEyebrow: 'El método W', metEscena: 'Caso real · simulación',
       metTitulo: 'Así vendemos una propiedad excepcional',
-      metTexto: 'Cinco pasos que se cumplen siempre en el mismo orden. Preparamos la venta antes de publicarla, producimos nosotros, buscamos al comprador donde vive y le enseñamos los números cada semana.',
+      metTexto: 'Seis pasos que se cumplen siempre en el mismo orden. Preparamos la venta antes de publicarla, producimos nosotros, buscamos al comprador donde vive y le enseñamos los números cada semana.',
       metBoton: 'Ver el proceso completo', metReproducir: 'Reproducir todo el método',
       escValor: 'Precio de salida fundamentado', escRango: 'Rango recomendado', escSalida: 'Precio de salida', escComparables: 'Comparables cerrados', escCerrada: 'Cerrada',
       escDocs: 'Expediente de la propiedad', escListo: 'Expediente listo',
@@ -2104,7 +2143,7 @@ class Component extends DCLogic {
       statDias: 'days from signing to the property going live',
       metEyebrow: 'The W method', metEscena: 'Real case · simulation',
       metTitulo: 'This is how we sell an exceptional property',
-      metTexto: 'Five steps, always in the same order. We prepare the sale before publishing, produce everything ourselves, find the buyer where they live and show you the numbers every week.',
+      metTexto: 'Six steps, always in the same order. We prepare the sale before publishing, produce everything ourselves, find the buyer where they live and show you the numbers every week.',
       metBoton: 'See the full process', metReproducir: 'Play the whole method',
       escValor: 'A well-founded asking price', escRango: 'Recommended range', escSalida: 'Asking price', escComparables: 'Closed comparables', escCerrada: 'Closed',
       escDocs: 'Property file', escListo: 'File complete',
