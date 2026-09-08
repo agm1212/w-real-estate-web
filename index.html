@@ -298,7 +298,7 @@
         <text x="470" y="345">NUEVA MILLA DE ORO</text>
         <text x="600" y="260">EL PARAÍSO</text>
         <text x="700" y="180" font-size="18" letter-spacing="5">BENAHAVÍS</text>
-        <text x="640" y="130">LA ZAGALETA</text>
+        <text x="455" y="188">LA ZAGALETA</text>
         <text x="820" y="215">EL MADROÑAL</text>
         <text x="860" y="300">LA QUINTA</text>
         <text x="1040" y="420" font-size="18" letter-spacing="5">MARBELLA</text>
@@ -755,60 +755,6 @@
             </div>
           </div>
         </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------------------- JOURNAL · revista solapada ---------------------- -->
-  <section data-screen-label="Inicio - Journal" style="background:#1E1A17;color:#F7F0E6;padding:0 6vw clamp(90px,10vw,150px);margin-top:120px">
-    <div class="r1" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(36px,6vw,100px);align-items:end">
-      <div class="rov rpt" style="position:relative;transform:translateY(-100px);margin-bottom:-40px">
-        <div style="position:relative;width:min(340px,100%);aspect-ratio:3/4.15;overflow:hidden;background:#111;box-shadow:0 60px 100px -40px rgba(0,0,0,.8);transform:rotate(-5deg);transform-origin:bottom left">
-          <img src="villa-crepusculo.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.2) 0%,rgba(20,17,15,0) 40%,rgba(20,17,15,.85) 100%)"></div>
-          <img src="w-logo-claro.png" alt="" style="position:absolute;top:22px;left:22px;height:44px;width:auto">
-          <span style="position:absolute;top:26px;right:22px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85)">{{ t.magNum }}</span>
-          <div style="position:absolute;left:22px;right:22px;bottom:24px;display:flex;flex-direction:column;gap:6px">
-            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;line-height:1.05;color:#FFFFFF">{{ t.magPortada }}</span>
-            <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)">{{ t.magTitulo }}</span>
-          </div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:20px;padding-top:clamp(70px,8vw,120px)">
-        <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#D9B6A9">{{ t.magTitulo }}</span>
-        <h2 class="rv" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance">{{ t.journalTitulo }}</h2>
-        <p class="rv" style="margin:0;font-size:15.5px;line-height:1.8;color:rgba(247,240,230,.72);max-width:36em">{{ t.magTexto }}</p>
-        <div class="rv" style="display:flex;flex-direction:column;border-top:1px solid rgba(247,240,230,.14)">
-          <sc-for list="{{ journalCards }}" as="j" hint-placeholder-count="3">
-            <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(247,240,230,.14)">
-              <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;line-height:1.2">{{ j.titulo }}</span><span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,240,230,.5)">{{ j.fecha }} &middot; {{ j.tema }}</span></div>
-              <span style="font-size:13px;color:#D9B6A9;white-space:nowrap">{{ t.leer }} &rarr;</span>
-            </div>
-          </sc-for>
-        </div>
-        <div class="rv" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
-          <span style="padding:11px 28px;border:2px solid #EDD7BF;background:#EDD7BF;color:#1E1A17;font-size:14px">{{ t.magBoton }}</span>
-          <span style="padding:11px 28px;border:2px solid rgba(247,240,230,.5);color:#F7F0E6;font-size:14px">{{ t.journalTodo }}</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------------------- BOLETIN ---------------------- -->
-  <section data-screen-label="Inicio - Boletin" style="background:#F6EFE3;padding:clamp(60px,7vw,100px) 6vw">
-    <div class="rv r1" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(30px,4vw,70px);align-items:center">
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <span style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#7A2027">{{ t.boletinEyebrow }}</span>
-        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3vw,42px);line-height:1.12;text-wrap:balance">{{ t.boletinTitulo }}</h2>
-        <p style="margin:0;font-size:15px;line-height:1.75;color:#5C534B;max-width:32em">{{ t.boletinTexto }}</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div class="rstack" style="display:flex;gap:10px">
-          <input value="{{ boletinValor }}" onChange="{{ setBoletin }}" placeholder="{{ t.boletinPlaceholder }}" class="rfull" style="flex:1;min-width:0;padding:15px 16px;border:1px solid rgba(30,26,23,.18);background:#FFFFFF;font-size:15px;outline:none" style-focus="border-color:#7A2027">
-          <button onClick="{{ enviarBoletin }}" class="rfull" style="flex:0 0 auto;padding:15px 30px;background:#7A2027;color:#FFFFFF;font-size:14px;transition:background .3s ease" style-hover="background:#5E171E">{{ t.boletinBoton }}</button>
-        </div>
-        <span style="font-size:12.5px;color:{{ boletinAvisoColorClaro }};min-height:16px">{{ boletinAviso }}</span>
-        <span style="font-size:12px;line-height:1.7;color:#786E64">{{ t.boletinNota }}</span>
       </div>
     </div>
   </section>
@@ -2128,7 +2074,7 @@ class Component extends DCLogic {
       pieCols: [
         { titulo: 'Propiedades', items: ['Villas', 'Áticos', 'Obra nueva', 'Cartera privada'] },
         { titulo: 'Servicios', items: ['Vender con W', 'Valoración', 'Comprar', 'Colaboradores'] },
-        { titulo: 'Agencia', items: ['Nosotros', 'Equipo', 'Journal', 'Contacto'] }
+        { titulo: 'Agencia', items: ['Nosotros', 'Equipo', 'Contacto'] }
       ]
     },
 
@@ -2458,7 +2404,7 @@ class Component extends DCLogic {
       pieCols: [
         { titulo: 'Properties', items: ['Villas', 'Penthouses', 'New build', 'Private portfolio'] },
         { titulo: 'Services', items: ['Selling with W', 'Valuation', 'Buying', 'Partners'] },
-        { titulo: 'Agency', items: ['About', 'Team', 'Journal', 'Contact'] }
+        { titulo: 'Agency', items: ['About', 'Team', 'Contact'] }
       ]
     }
   };
@@ -3279,7 +3225,7 @@ class Component extends DCLogic {
         titulo: c.titulo,
         items: c.items.map((label, ii) => ({
           label: label,
-          go: irA([['listings', 'listings', 'listings', 'contact'], ['sell', 'sell', 'listings', 'contact'], ['about', 'about', 'home', 'contact']][ci][ii])
+          go: irA([['listings', 'listings', 'listings', 'contact'], ['sell', 'sell', 'listings', 'contact'], ['about', 'about', 'contact']][ci][ii])
         }))
       }))
     };
