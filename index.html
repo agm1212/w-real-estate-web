@@ -962,6 +962,12 @@
       </div>
     </sc-if>
 
+    <sc-if value="{{ hayMas }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;justify-content:center;margin-top:clamp(30px,3.6vw,50px)">
+        <button onClick="{{ verMas }}" style="padding:12px 30px;border:2px solid #1E1A17;color:#1E1A17;font-size:14px;transition:all .3s ease" style-hover="background:#1E1A17;color:#FFFFFF">{{ t.verMas }} ({{ restantes }})</button>
+      </div>
+    </sc-if>
+
     <!-- Banda: no todo esta publicado -->
     <div class="r1" style="margin-top:clamp(60px,7vw,110px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#1E1A17;color:#F7F0E6">
       <div style="padding:clamp(38px,4vw,62px);display:flex;flex-direction:column;gap:18px">
@@ -2201,7 +2207,7 @@ class Component extends DCLogic {
 
       listadoEyebrow: 'Cartera', listadoTitulo: 'Propiedades',
       listadoTexto: 'Cada propiedad que publicamos ha sido visitada, verificada y fotografiada por nuestro equipo. Si no encuentra lo que busca, pregúntenos por nuestra cartera privada.',
-      limpiarBusqueda: 'Limpiar búsqueda', limpiarFiltros: 'Limpiar filtros',
+      limpiarBusqueda: 'Limpiar búsqueda', limpiarFiltros: 'Limpiar filtros', verMas: 'Ver más propiedades',
       vistaMosaico: 'Mosaico', vistaLista: 'Lista',
       vacioTitulo: 'Nada encaja todavía',
       vacioTexto: 'No tenemos ninguna propiedad publicada con esos criterios. Muchas de nuestras operaciones no llegan a publicarse: díganos qué busca y la localizamos.',
@@ -2532,7 +2538,7 @@ class Component extends DCLogic {
 
       listadoEyebrow: 'Portfolio', listadoTitulo: 'Properties',
       listadoTexto: 'Every property we publish has been visited, verified and photographed by our team. If you cannot find what you are looking for, ask us about our private portfolio.',
-      limpiarBusqueda: 'Clear search', limpiarFiltros: 'Clear filters',
+      limpiarBusqueda: 'Clear search', limpiarFiltros: 'Clear filters', verMas: 'Show more properties',
       vistaMosaico: 'Grid', vistaLista: 'List',
       vacioTitulo: 'Nothing matches yet',
       vacioTexto: 'We have nothing published under those criteria. Many of our deals never get listed: tell us what you are after and we will find it.',
@@ -2891,7 +2897,7 @@ class Component extends DCLogic {
   opts() {
     return this.es ? {
       zonas: ['Todas las zonas', 'Marbella', 'Estepona', 'Benahavís', 'Sotogrande'],
-      tipos: ['Todos los tipos', 'Villa', 'Ático'],
+      tipos: ['Todos los tipos', 'Villa', 'Ático', 'Apartamento', 'Casa', 'Parcela'],
       precios: ['Cualquier precio', 'Hasta 3 M€', '3 – 6 M€', '6 – 10 M€', 'Más de 10 M€'],
       dorms: ['Dormitorios', '3', '4', '5', '6'],
       sort: ['Destacadas', 'Precio ascendente', 'Precio descendente', 'Superficie'],
@@ -2899,7 +2905,7 @@ class Component extends DCLogic {
       vlEstados: ['Nueva o reformada', 'Buen estado', 'Para reformar']
     } : {
       zonas: ['All areas', 'Marbella', 'Estepona', 'Benahavís', 'Sotogrande'],
-      tipos: ['All types', 'Villa', 'Penthouse'],
+      tipos: ['All types', 'Villa', 'Penthouse', 'Apartment', 'House', 'Plot'],
       precios: ['Any price', 'Up to €3M', '€3 – 6M', '€6 – 10M', 'Over €10M'],
       dorms: ['Bedrooms', '3', '4', '5', '6'],
       sort: ['Featured', 'Price ascending', 'Price descending', 'Built area'],
@@ -2927,12 +2933,13 @@ class Component extends DCLogic {
     const g = this.galerias[p.ref] || [];
     const f = this.fotos[g[0]] || this.fotos.olivo;
     const favOn = this.state.favs.indexOf(p.ref) > -1;
+    const real = p.fotos && p.fotos.length ? p.fotos[0] : '';
     return {
-      ref: p.ref, nombre: p.nombre, zona: p.zona, badge: this.L(p.badge),
+      ref: p.ref, nombre: this.L(p.nombre), zona: p.zona, badge: this.L(p.badge),
       entradilla: this.L(p.entradilla),
       linea: p.dorm + (this.es ? ' dorm · ' : ' bed · ') + p.banos + (this.es ? ' baños · ' : ' bath · ') + this.num(p.built) + ' m²',
       precio: this.eur(p.precio),
-      img: this.isrc(f.src), imgStyle: this.imgCss(),
+      img: real || this.isrc(f.src), imgStyle: this.imgCss(),
       favStyle: 'position:absolute;top:11px;right:11px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(251,248,243,.9);color:' + (favOn ? '#7A2027' : '#1E1A17') + ';transition:all .3s ease',
       favFill: favOn ? 'currentColor' : 'none',
       tieneMotivo: false, motivo: '',
@@ -2940,7 +2947,7 @@ class Component extends DCLogic {
         const a = this.state.favs.slice(); const i = a.indexOf(p.ref);
         if (i > -1) a.splice(i, 1); else a.push(p.ref);
         this.setState({ favs: a }); },
-      open: (e) => { if (e) e.preventDefault(); this.go('property', { ref: p.ref, gi: 0 }); }
+      open: (e) => { if (e) e.preventDefault(); this.cargarFicha(p); this.go('property', { ref: p.ref, gi: 0 }); }
     };
   }
 
@@ -2948,7 +2955,7 @@ class Component extends DCLogic {
     const o = this.opts(), f = this.state.f;
     let out = this.data.slice();
     if (f.zona > 0) out = out.filter(p => p.municipio === o.zonas[f.zona]);
-    if (f.tipo > 0) { const wanted = f.tipo === 1 ? 'Villa' : 'Ático'; out = out.filter(p => p.tipo === wanted); }
+    if (f.tipo > 0) { const wanted = ['', 'Villa', 'Ático', 'Apartamento', 'Casa', 'Parcela'][f.tipo]; out = out.filter(p => p.tipo === wanted); }
     if (f.precio > 0) {
       const r = [[0, 1e12], [0, 3e6], [3e6, 6e6], [6e6, 1e7], [1e7, 1e12]][f.precio];
       out = out.filter(p => p.precio >= r[0] && p.precio < r[1]);
@@ -3008,7 +3015,7 @@ class Component extends DCLogic {
 
   /* ══════════════════════ BÚSQUEDA ASISTIDA ══════════════════════ */
   searchText(p) {
-    return [p.nombre, p.zona, p.municipio, p.tipo, this.L(p.entradilla), this.L(p.descripcion),
+    return [this.L(p.nombre), p.zona, p.municipio, p.urbanizacion || '', p.tipo, this.L(p.entradilla) || '', this.L(p.descripcion) || '',
       (this.L(p.features) || []).join(' '), p.dorm + ' dormitorios bedrooms', p.built + ' m2', p.precio].join(' ').toLowerCase();
   }
   localMatch(q) {
@@ -3018,7 +3025,7 @@ class Component extends DCLogic {
       const hay = this.searchText(p).normalize('NFD').replace(/[̀-ͯ]/g, '');
       const hits = words.filter(w => hay.indexOf(w) > -1);
       return { ref: p.ref, score: hits.length, motivo: hits.length ? (this.es ? 'Coincide en: ' : 'Matches: ') + hits.slice(0, 4).join(', ') : '' };
-    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score).slice(0, 4);
+    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score).slice(0, 12);
   }
   async runSearch(q) {
     const query = (q || '').trim();
@@ -3036,14 +3043,37 @@ class Component extends DCLogic {
       const raw = await window.claude.complete(prompt);
       const m = String(raw).match(/\{[\s\S]*\}/);
       const parsed = JSON.parse(m ? m[0] : raw);
-      const out = (parsed.resultados || []).filter(r => this.data.some(p => p.ref === r.ref)).slice(0, 4);
+      const out = (parsed.resultados || []).filter(r => this.data.some(p => p.ref === r.ref)).slice(0, 12);
       this.setState({ aiBusy: false, aiResults: out, aiMode: true, aiFallback: false });
     } catch (e) {
       this.setState({ aiBusy: false, aiResults: this.localMatch(query), aiMode: true, aiFallback: true });
     }
   }
 
+  cargarFicha(p) {
+    if (!p || !p.fichaUrl || p.cargada || p.cargando) return;
+    p.cargando = true;
+    fetch(p.fichaUrl).then(r => r.ok ? r.json() : null).then(fi => {
+      if (fi) { Object.assign(p, fi, { cargada: true, cargando: false }); this.forceUpdate(); } else p.cargando = false;
+    }).catch(() => { p.cargando = false; });
+  }
+  propDestacada() {
+    const conFotos = this.data.filter(p => (p.numFotos || (p.fotos && p.fotos.length) || 5) >= 12 && p.tipo === 'Villa');
+    const propias = conFotos.filter(p => p.exclusiva);
+    const lista = (propias.length ? propias : conFotos).slice().sort((a, b) => b.precio - a.precio);
+    return lista[0] || this.data[0];
+  }
+
   componentDidMount() {
+    try {
+      fetch('propiedades.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(j => {
+        if (j && Array.isArray(j.propiedades) && j.propiedades.length) {
+          this.data = j.propiedades; this.datosReales = true; this.actualizado = j.actualizado || '';
+          const dest = this.propDestacada(); this.cargarFicha(dest);
+          this.forceUpdate();
+        }
+      }).catch(() => {});
+    } catch (e) {}
     this.onScroll = () => {
       const s = window.scrollY > 70;
       if (s !== this.state.scrolled) this.setState({ scrolled: s });
@@ -3052,7 +3082,8 @@ class Component extends DCLogic {
     this.onKey = (e) => {
       if (e.key === 'Escape') this.setState({ lightbox: false, video: null, visita: false, menu: false });
       if (!this.state.lightbox) return;
-      const n = (this.galerias[this.state.ref] || []).length || 1;
+      const pa = this.data.filter(x => x.ref === this.state.ref)[0];
+      const n = (pa && pa.fotos && pa.fotos.length) || (this.galerias[this.state.ref] || []).length || 1;
       if (e.key === 'ArrowRight') this.setState({ gi: (this.state.gi + 1) % n });
       if (e.key === 'ArrowLeft') this.setState({ gi: (this.state.gi - 1 + n) % n });
     };
@@ -3087,9 +3118,13 @@ class Component extends DCLogic {
     const selStyle = 'padding:14px 15px;border:1px solid rgba(30,26,23,.18);background:#FFFFFF;font-size:13.5px;color:#1E1A17;outline:none;width:100%;appearance:none;cursor:pointer';
     const inpStyle = this.inputStyle(false);
 
+    const dest = this.propDestacada();
+
     /* ── Propiedad activa ── */
     const prop = this.data.filter(p => p.ref === st.ref)[0] || this.data[0];
-    const shots = (this.galerias[prop.ref] || []).map(k => this.fotos[k]);
+    const shots = prop.fotos && prop.fotos.length
+      ? prop.fotos.map((u, i) => ({ url: u, es: 'Foto ' + (i + 1) + ' de ' + (prop.numFotos || prop.fotos.length), en: 'Photo ' + (i + 1) + ' of ' + (prop.numFotos || prop.fotos.length) }))
+      : (this.galerias[prop.ref] || []).map(k => this.fotos[k]);
     const gi = shots.length ? (st.gi % shots.length) : 0;
     const shot = shots[gi] || this.fotos.olivo;
     const asesor = this.equipoData.filter(m => m.nombre === prop.asesor)[0] || this.equipoData[0];
@@ -3238,14 +3273,14 @@ class Component extends DCLogic {
       principios: t.principios, tecPuntos: t.tecPuntos, venderCifras: t.venderCifras,
       valPuntos: t.valPuntos, informeMetricas: t.informeMetricas,
 
-      home6: this.data.slice(1, 7).map(p => this.card(p)),
-      destacada: Object.assign(this.card(this.data[0]), {
-        heroImg: this.isrc('villa-olivo.jpg'), heroStyle: this.imgCss(),
+      home6: this.data.filter(p => p.ref !== dest.ref).slice(0, 6).map(p => this.card(p)),
+      destacada: Object.assign(this.card(dest), {
+        heroImg: (dest.fotos && dest.fotos[0]) || this.isrc('villa-olivo.jpg'), heroStyle: this.imgCss(),
         specs: [
-          { valor: this.data[0].dorm, etiqueta: es ? 'Dormitorios' : 'Bedrooms' },
-          { valor: this.data[0].banos, etiqueta: es ? 'Baños' : 'Bathrooms' },
-          { valor: this.num(this.data[0].built), etiqueta: es ? 'm² const.' : 'Built m²' },
-          { valor: this.num(this.data[0].plot), etiqueta: es ? 'm² parcela' : 'Plot m²' }
+          { valor: dest.dorm, etiqueta: es ? 'Dormitorios' : 'Bedrooms' },
+          { valor: dest.banos, etiqueta: es ? 'Baños' : 'Bathrooms' },
+          { valor: this.num(dest.built), etiqueta: es ? 'm² const.' : 'Built m²' },
+          { valor: this.num(dest.plot), etiqueta: es ? 'm² parcela' : 'Plot m²' }
         ]
       }),
 
@@ -3305,7 +3340,10 @@ class Component extends DCLogic {
       ).map(x => ({ label: x, pick: () => this.setState({ aiQ: x, aiError: '' }) })),
 
       /* ---- listado ---- */
-      listado: lista, vacio: vacio,
+      listado: lista.slice(0, st.mostrar || 24), vacio: vacio,
+      hayMas: lista.length > (st.mostrar || 24),
+      restantes: lista.length - (st.mostrar || 24),
+      verMas: () => this.setState({ mostrar: (st.mostrar || 24) + 24 }),
       showGrid: !vacio && (st.view || 'grid') === 'grid',
       showList: !vacio && st.view === 'list',
       resultado: aiOn
@@ -3318,18 +3356,18 @@ class Component extends DCLogic {
       areaStyle: this.inputStyle(false) + ';resize:vertical;line-height:1.7',
       optZonas: o.zonas, optTipos: o.tipos, optPrecios: o.precios, optDorms: o.dorms, optSort: o.sort,
       fZona: o.zonas[st.f.zona], fTipo: o.tipos[st.f.tipo], fPrecio: o.precios[st.f.precio], fDorm: o.dorms[st.f.dorm], fSort: o.sort[st.f.sort],
-      setZona: (e) => this.setState({ aiMode: false, aiResults: null, f: Object.assign({}, st.f, { zona: Math.max(0, o.zonas.indexOf(e.target.value)) }) }),
-      setTipo: (e) => this.setState({ aiMode: false, aiResults: null, f: Object.assign({}, st.f, { tipo: Math.max(0, o.tipos.indexOf(e.target.value)) }) }),
-      setPrecio: (e) => this.setState({ aiMode: false, aiResults: null, f: Object.assign({}, st.f, { precio: Math.max(0, o.precios.indexOf(e.target.value)) }) }),
-      setDorm: (e) => this.setState({ aiMode: false, aiResults: null, f: Object.assign({}, st.f, { dorm: Math.max(0, o.dorms.indexOf(e.target.value)) }) }),
-      setSort: (e) => this.setState({ aiMode: false, aiResults: null, f: Object.assign({}, st.f, { sort: Math.max(0, o.sort.indexOf(e.target.value)) }) }),
+      setZona: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { zona: Math.max(0, o.zonas.indexOf(e.target.value)) }) }),
+      setTipo: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { tipo: Math.max(0, o.tipos.indexOf(e.target.value)) }) }),
+      setPrecio: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { precio: Math.max(0, o.precios.indexOf(e.target.value)) }) }),
+      setDorm: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { dorm: Math.max(0, o.dorms.indexOf(e.target.value)) }) }),
+      setSort: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { sort: Math.max(0, o.sort.indexOf(e.target.value)) }) }),
       resetFilters: () => this.setState({ aiMode: false, aiResults: null, aiQ: '', aiError: '', f: { zona: 0, tipo: 0, precio: 0, dorm: 0, sort: 0 } }),
 
       /* ---- ficha ---- */
       prop: {
-        ref: prop.ref, nombre: prop.nombre, zona: prop.zona, asesor: prop.asesor,
-        entradilla: this.L(prop.entradilla), descripcion: this.L(prop.descripcion),
-        features: this.L(prop.features), precio: this.eur(prop.precio),
+        ref: prop.ref, nombre: this.L(prop.nombre), zona: prop.zona, asesor: prop.asesor,
+        entradilla: this.L(prop.entradilla), descripcion: this.L(prop.descripcion) || (prop.fichaUrl && !prop.cargada ? (es ? 'Cargando la ficha completa…' : 'Loading the full listing…') : ''),
+        features: this.L(prop.features) || [], precio: this.eur(prop.precio),
         precioM2: this.num(Math.round(prop.precio / prop.built)) + ' €/m²',
         plan: [
           { valor: this.num(128400), etiqueta: es ? 'Impresiones en 14 mercados' : 'Impressions across 14 markets' },
@@ -3359,7 +3397,7 @@ class Component extends DCLogic {
       asesorInicial: asesor.nombre.charAt(0),
       asesorCargo: this.L(asesor.cargo), asesorIdiomas: asesor.idiomas,
 
-      galleryImg: this.isrc(shot.src),
+      galleryImg: shot.url || this.isrc(shot.src),
       galleryImgStyle: this.imgCss('animation:fadeIn .6s ease both'),
       galleryLabel: this.L(shot), galleryCounter: (gi + 1) + ' / ' + (shots.length || 1),
       prevImg: () => this.setState({ gi: (gi - 1 + shots.length) % shots.length }),
@@ -3372,11 +3410,11 @@ class Component extends DCLogic {
         label: this.L(s),
         pick: () => this.setState({ gi: i }),
         open: () => this.setState({ gi: i, lightbox: true }),
-        img: this.isrc(s.src),
+        img: s.url || this.isrc(s.src),
         style: 'position:relative;overflow:hidden;aspect-ratio:16/11;cursor:pointer;display:flex;align-items:flex-end;padding:0;background:#F3EAD9;outline:' + (i === gi ? '2px solid #7A2027' : '1px solid rgba(30,26,23,.14)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.72') + ';transition:opacity .3s ease',
         lightboxStyle: 'position:relative;overflow:hidden;flex:none;width:104px;aspect-ratio:4/3;cursor:pointer;padding:0;background:#1E1A17;outline:' + (i === gi ? '2px solid #EDD7BF' : '1px solid rgba(247,240,230,.2)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.5')
       })),
-      similares: this.data.filter(p => p.ref !== prop.ref && p.municipio === prop.municipio)
+      similares: this.data.filter(p => p.ref !== prop.ref && p.municipio === prop.municipio && p.tipo === prop.tipo)
         .concat(this.data.filter(p => p.ref !== prop.ref && p.municipio !== prop.municipio))
         .slice(0, 3).map(p => this.card(p)),
 
@@ -3416,7 +3454,7 @@ class Component extends DCLogic {
         if (Object.keys(e).length) { this.setState({ vTouched: true }); return; }
         this.setState({ vSent: true, vTouched: false });
       },
-      resumenVisita: (st.vModo === 1 ? (es ? 'Videollamada' : 'Video call') : (es ? 'Visita' : 'Viewing')) + ' — ' + prop.nombre + ' · ' + this.diaLabel(st.vDia) + ' · ' + (st.vHora || ''),
+      resumenVisita: (st.vModo === 1 ? (es ? 'Videollamada' : 'Video call') : (es ? 'Visita' : 'Viewing')) + ' — ' + this.L(prop.nombre) + ' · ' + this.diaLabel(st.vDia) + ' · ' + (st.vHora || ''),
 
       /* ---- valoración ---- */
       vlZonas: vlZonas, vlTipos: o.vlTipos, vlEstados: o.vlEstados,
