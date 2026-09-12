@@ -3062,8 +3062,8 @@ class Component extends DCLogic {
     if (!lista.length && tipo) { lista = this.data.filter(p => (!max || p.precio <= max) && (!min || p.precio >= min) && (urbs.length ? urbs.indexOf(p.urbanizacion) > -1 : (!munis.length || munis.indexOf(p.municipio) > -1))); relajado = es ? 'no hay ' + tipo.toLowerCase() + ' con esos criterios; se muestran otros tipos' : 'no ' + tipo.toLowerCase() + ' matches; showing other types'; }
     const restr = [];
     if (relajado) restr.push(relajado);
-    if (tipo) restr.push(tipo); if (max) restr.push((es ? 'hasta ' : 'up to ') + this.eur(max)); if (min) restr.push((es ? 'desde ' : 'from ') + this.eur(min));
-    if (dormMin) restr.push(dormMin + (es ? '+ dorm.' : '+ bed.')); if (urbs.length) restr.push(urbs.join(', ')); else if (munis.length) restr.push(munis.join(', '));
+    if (tipo && !relajado) restr.push(tipo); if (max) restr.push((es ? 'hasta ' : 'up to ') + this.eur(max)); if (min) restr.push((es ? 'desde ' : 'from ') + this.eur(min));
+    if (dormMin && !relajado) restr.push(dormMin + (es ? '+ dorm.' : '+ bed.')); if (urbs.length) restr.push(urbs.join(', ')); else if (munis.length) restr.push(munis.join(', '));
     const puntuadas = lista.map(p => {
       const hay = norm(this.searchText(p)); const hits = words.filter(w => hay.indexOf(w) > -1);
       return { p, score: hits.length, hits };
