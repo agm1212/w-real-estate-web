@@ -645,7 +645,7 @@
       <div class="car" ref="{{ carRef }}" style="display:flex;gap:18px;padding:0 6vw 10px">
         <sc-for list="{{ home8 }}" as="p" hint-placeholder-count="8">
           <a href="#" onClick="{{ p.open }}" style="position:relative;flex:0 0 clamp(250px,24vw,330px);aspect-ratio:3/4.2;overflow:hidden;background:#EDE3D3;display:block;box-shadow:0 30px 60px -36px rgba(30,26,23,.6)">
-            <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)">
+            <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
             <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 45%,rgba(20,17,15,.9) 100%)"></div>
             <span style="position:absolute;top:14px;left:14px;padding:6px 11px;background:rgba(255,255,255,.94);color:#7A2027;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">{{ p.badge }}</span>
             <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px;display:flex;flex-direction:column;gap:5px;color:#FFFFFF">
@@ -868,9 +868,12 @@
 
     <!-- Filtros clasicos -->
     <sc-if value="{{ aiFilters }}" hint-placeholder-val="{{ true }}">
-      <div class="r2" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:20px">
+      <div class="r2" style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:20px">
         <select value="{{ fZona }}" onChange="{{ setZona }}" style="{{ selStyle }}">
           <sc-for list="{{ optZonas }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+        </select>
+        <select value="{{ fUrb }}" onChange="{{ setUrb }}" style="{{ selStyle }}">
+          <sc-for list="{{ optUrbs }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
         </select>
         <select value="{{ fTipo }}" onChange="{{ setTipo }}" style="{{ selStyle }}">
           <sc-for list="{{ optTipos }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
@@ -918,7 +921,7 @@
         <sc-for list="{{ listado }}" as="p" hint-placeholder-count="6">
           <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:16px">
             <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9">
-              <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)">
+              <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
               <span style="position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase">{{ p.badge }}</span>
               <button onClick="{{ p.fav }}" style="{{ p.favStyle }}" aria-label="Favorito">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="{{ p.favFill }}" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -946,7 +949,7 @@
         <sc-for list="{{ listado }}" as="p" hint-placeholder-count="4">
           <a href="#" onClick="{{ p.open }}" class="r1" style="display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,1fr);gap:clamp(20px,2.6vw,44px);align-items:center;padding:26px 0;border-top:1px solid rgba(30,26,23,.14)" style-hover="background:rgba(237,215,191,.32)">
             <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:#F3EAD9">
-              <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.05)">
+              <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.05)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
             </div>
             <div class="rstack" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
               <div style="display:flex;flex-direction:column;gap:8px;max-width:32em">
@@ -990,9 +993,9 @@
 <sc-if value="{{ isProperty }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="Ficha de propiedad" style="animation:pageIn .5s ease both;background:#FFFFFF;min-height:100vh">
 
-  <section style="position:relative;height:80vh;min-height:540px;overflow:hidden;background:#1E1A17">
-    <img src="{{ galleryImg }}" alt="" style="{{ galleryImgStyle }}">
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,10,14,.5) 0%,rgba(43,10,14,.05) 40%,rgba(43,10,14,.8) 100%)"></div>
+  <section class="rhero" style="position:relative;height:100vh;min-height:640px;overflow:hidden;background:#1E1A17">
+    <img src="{{ galleryImg }}" alt="" style="{{ galleryImgStyle }}" onLoad="{{ alCargarGaleria }}" onError="{{ alCargarGaleria }}">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.38) 0%,rgba(20,17,15,0) 30%,rgba(20,17,15,0) 55%,rgba(20,17,15,.78) 100%)"></div>
 
     <button onClick="{{ prevImg }}" style="position:absolute;left:2vw;top:50%;transform:translateY(-50%);width:52px;height:52px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,240,230,.35);color:#F7F0E6;transition:all .3s ease" style-hover="background:#F7F0E6;color:#1E1A17" aria-label="Anterior">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M15 4l-8 8 8 8"></path></svg>
@@ -1004,6 +1007,7 @@
     <div style="position:absolute;left:0;right:0;bottom:0;padding:0 6vw 5vh;display:flex;flex-direction:column;gap:20px">
       <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#EDD7BF">{{ prop.ref }} &middot; {{ prop.zona }}</span>
       <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5vw,76px);line-height:1.02;color:#F7F0E6">{{ prop.nombre }}</h1>
+      <div class="rstack" style="display:flex;align-items:baseline;gap:22px;color:#F7F0E6"><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(24px,2.6vw,36px)">{{ prop.precio }}</span><span style="font-size:14px;letter-spacing:.06em;color:rgba(247,240,230,.8)">{{ prop.zona }}</span></div>
       <div class="rstack" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;border-top:1px solid rgba(247,240,230,.2);padding-top:18px">
         <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,240,230,.7)">{{ galleryLabel }} &middot; {{ galleryCounter }}</span>
         <button onClick="{{ openLightbox }}" style="padding:12px 28px;border:2px solid rgba(247,240,230,.85);color:#F7F0E6;font-size:14px;transition:all .3s ease" style-hover="background:#F7F0E6;color:#1E1A17">{{ t.verGaleria }}</button>
@@ -1064,7 +1068,7 @@
           <div class="r2s" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
             <sc-for list="{{ thumbs }}" as="th" hint-placeholder-count="5">
               <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
-                <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+                <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
                 <span style="position:relative;width:100%;padding:9px 11px;background:linear-gradient(180deg,rgba(43,10,14,0),rgba(43,10,14,.8));color:#F7F0E6;font-size:9.5px;letter-spacing:.1em;text-align:left">{{ th.label }}</span>
               </button>
             </sc-for>
@@ -1120,7 +1124,7 @@
         <sc-for list="{{ similares }}" as="p" hint-placeholder-count="3">
           <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:14px">
             <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#FFFFFF">
-              <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)">
+              <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
             </div>
             <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15">{{ p.nombre }}</span>
               <span style="font-size:13.5px;color:#5C534B">{{ p.zona }} &middot; {{ p.ref }}</span>
@@ -2027,7 +2031,7 @@ class Component extends DCLogic {
     favs: [],
     gi: 0,
     view: 'grid',
-    f: { zona: 0, tipo: 0, precio: 0, dorm: 0, sort: 0 },
+    f: { zona: '', urb: '', tipo: 0, precio: 0, dorm: 0, sort: 0 },
     vl: { zona: 0, tipo: 0, estado: 0, metros: '', hecho: false },
     bol: { a: '', b: '', aviso: '', avisoB: '' },
     step: 1, sent: false, touched: false,
@@ -2896,7 +2900,7 @@ class Component extends DCLogic {
 
   opts() {
     return this.es ? {
-      zonas: ['Todas las zonas', 'Marbella', 'Estepona', 'Benahavís', 'Sotogrande'],
+      zonas: ['Todas las zonas'].concat(this.municipios()), urbs: ['Todas las urbanizaciones'].concat(this.urbanizaciones(this.state.f.zona)),
       tipos: ['Todos los tipos', 'Villa', 'Ático', 'Apartamento', 'Casa', 'Parcela'],
       precios: ['Cualquier precio', 'Hasta 3 M€', '3 – 6 M€', '6 – 10 M€', 'Más de 10 M€'],
       dorms: ['Dormitorios', '3', '4', '5', '6'],
@@ -2904,7 +2908,7 @@ class Component extends DCLogic {
       vlTipos: ['Villa', 'Ático', 'Apartamento'],
       vlEstados: ['Nueva o reformada', 'Buen estado', 'Para reformar']
     } : {
-      zonas: ['All areas', 'Marbella', 'Estepona', 'Benahavís', 'Sotogrande'],
+      zonas: ['All areas'].concat(this.municipios()), urbs: ['All urbanisations'].concat(this.urbanizaciones(this.state.f.zona)),
       tipos: ['All types', 'Villa', 'Penthouse', 'Apartment', 'House', 'Plot'],
       precios: ['Any price', 'Up to €3M', '€3 – 6M', '€6 – 10M', 'Over €10M'],
       dorms: ['Bedrooms', '3', '4', '5', '6'],
@@ -2912,6 +2916,17 @@ class Component extends DCLogic {
       vlTipos: ['Villa', 'Penthouse', 'Apartment'],
       vlEstados: ['New or renovated', 'Good condition', 'Needs renovation']
     };
+  }
+
+  municipios() {
+    const pri = ['Marbella', 'Benahavís', 'Estepona', 'Sotogrande'];
+    const c = {}; for (const p of this.data) if (p.municipio) c[p.municipio] = (c[p.municipio] || 0) + 1;
+    const otros = Object.keys(c).filter(m => pri.indexOf(m) < 0).sort((a, b) => c[b] - c[a]);
+    return pri.filter(m => c[m]).concat(otros);
+  }
+  urbanizaciones(muni) {
+    const c = {}; for (const p of this.data) if (p.urbanizacion && (!muni || p.municipio === muni)) c[p.urbanizacion] = (c[p.urbanizacion] || 0) + 1;
+    return Object.keys(c).sort((a, b) => a.localeCompare(b, 'es'));
   }
 
   chip(on) {
@@ -2940,6 +2955,7 @@ class Component extends DCLogic {
       linea: p.dorm + (this.es ? ' dorm · ' : ' bed · ') + p.banos + (this.es ? ' baños · ' : ' bath · ') + this.num(p.built) + ' m²',
       precio: this.eur(p.precio),
       img: real || this.isrc(f.src), imgStyle: this.imgCss(),
+      alCargar: (e) => { const el = e && e.target; if (!el || !p.fotoGrande || el.src === p.fotoGrande) return; if (e.type === 'error' || (el.naturalWidth && el.naturalWidth < 300)) el.src = p.fotoGrande; },
       favStyle: 'position:absolute;top:11px;right:11px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(251,248,243,.9);color:' + (favOn ? '#7A2027' : '#1E1A17') + ';transition:all .3s ease',
       favFill: favOn ? 'currentColor' : 'none',
       tieneMotivo: false, motivo: '',
@@ -2954,7 +2970,8 @@ class Component extends DCLogic {
   filtered() {
     const o = this.opts(), f = this.state.f;
     let out = this.data.slice();
-    if (f.zona > 0) out = out.filter(p => p.municipio === o.zonas[f.zona]);
+    if (f.zona) out = out.filter(p => p.municipio === f.zona);
+    if (f.urb) out = out.filter(p => p.urbanizacion === f.urb);
     if (f.tipo > 0) { const wanted = ['', 'Villa', 'Ático', 'Apartamento', 'Casa', 'Parcela'][f.tipo]; out = out.filter(p => p.tipo === wanted); }
     if (f.precio > 0) {
       const r = [[0, 1e12], [0, 3e6], [3e6, 6e6], [6e6, 1e7], [1e7, 1e12]][f.precio];
@@ -3019,18 +3036,42 @@ class Component extends DCLogic {
       (this.L(p.features) || []).join(' '), p.dorm + ' dormitorios bedrooms', p.built + ' m2', p.precio].join(' ').toLowerCase();
   }
   localMatch(q) {
-    const stop = ['con', 'una', 'unas', 'unos', 'para', 'que', 'los', 'las', 'del', 'por', 'mas', 'muy', 'casa', 'quiero', 'busco', 'necesito', 'cerca', 'zona', 'euros', 'with', 'that', 'want', 'looking', 'near', 'home', 'house'];
-    const words = (q || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').split(/[^a-z0-9]+/).filter(w => w.length > 3 && stop.indexOf(w) < 0);
-    return this.data.map(p => {
-      const hay = this.searchText(p).normalize('NFD').replace(/[̀-ͯ]/g, '');
-      const hits = words.filter(w => hay.indexOf(w) > -1);
-      return { ref: p.ref, score: hits.length, motivo: hits.length ? (this.es ? 'Coincide en: ' : 'Matches: ') + hits.slice(0, 4).join(', ') : '' };
-    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score).slice(0, 12);
+    const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const t = ' ' + norm(q).replace(/[^a-z0-9€.,]+/g, ' ') + ' ';
+    const es = this.es;
+    const TIPOS = [['atico', 'Ático'], ['penthouse', 'Ático'], ['villa', 'Villa'], ['chalet', 'Villa'], ['apartamento', 'Apartamento'], ['apartment', 'Apartamento'], ['piso', 'Apartamento'], ['flat', 'Apartamento'], ['adosad', 'Casa'], ['townhouse', 'Casa'], ['paread', 'Casa'], ['casa', 'Casa'], ['house', 'Casa'], ['finca', 'Casa'], ['cortijo', 'Casa'], ['parcela', 'Parcela'], ['terreno', 'Parcela'], ['plot', 'Parcela']];
+    const tipo = (TIPOS.find(([k]) => t.indexOf(k) > -1) || [])[1] || '';
+    const cifra = (m) => { if (!m) return 0; let n = parseFloat(m[1].replace(/\./g, '').replace(',', '.')); const u = m[2] || ''; if (u.startsWith('m')) n *= 1e6; else if (u === 'k') n *= 1e3; else if (n < 1000) n *= 1e6; return Math.round(n); };
+    const max = cifra(t.match(/(?:menos de|hasta|por debajo de|maximo|max|under|below|up to|less than|no mas de)\s*([\d.,]+)\s*(m|mill|millones|million|k)?/));
+    const min = cifra(t.match(/(?:mas de|desde|a partir de|minimo|over|above|more than|from|at least)\s*([\d.,]+)\s*(m|mill|millones|million|k)?/));
+    const md = t.match(/(\d+)\s*(?:\+\s*)?(?:dorm|habit|hab\b|bed)/); const dormMin = md ? parseInt(md[1], 10) : 0;
+    const munis = this.municipios().filter(m => t.indexOf(' ' + norm(m) + ' ') > -1 || t.indexOf(norm(m)) > -1);
+    const urbs = this.urbanizaciones('').filter(u => u.length > 3 && t.indexOf(norm(u)) > -1);
+    const stop = ['con', 'una', 'unas', 'unos', 'para', 'que', 'los', 'las', 'del', 'por', 'mas', 'muy', 'casa', 'quiero', 'busco', 'necesito', 'cerca', 'zona', 'euros', 'with', 'that', 'want', 'looking', 'near', 'home', 'house', 'menos', 'hasta', 'desde', 'millones', 'million', 'under', 'over', 'dormitorios', 'bedrooms'];
+    const words = t.split(' ').filter(w => w.length > 3 && stop.indexOf(w) < 0 && !/^[\d.,]+$/.test(w));
+    let lista = this.data.slice();
+    if (tipo) lista = lista.filter(p => p.tipo === tipo);
+    if (max) lista = lista.filter(p => p.precio <= max);
+    if (min) lista = lista.filter(p => p.precio >= min);
+    if (dormMin) lista = lista.filter(p => p.dorm >= dormMin);
+    if (urbs.length) lista = lista.filter(p => urbs.indexOf(p.urbanizacion) > -1);
+    else if (munis.length) lista = lista.filter(p => munis.indexOf(p.municipio) > -1);
+    const restr = [];
+    if (tipo) restr.push(tipo); if (max) restr.push((es ? 'hasta ' : 'up to ') + this.eur(max)); if (min) restr.push((es ? 'desde ' : 'from ') + this.eur(min));
+    if (dormMin) restr.push(dormMin + (es ? '+ dorm.' : '+ bed.')); if (urbs.length) restr.push(urbs.join(', ')); else if (munis.length) restr.push(munis.join(', '));
+    const puntuadas = lista.map(p => {
+      const hay = norm(this.searchText(p)); const hits = words.filter(w => hay.indexOf(w) > -1);
+      return { p, score: hits.length, hits };
+    });
+    const conPalabras = puntuadas.filter(x => x.score > 0);
+    const finales = (restr.length ? (conPalabras.length ? conPalabras.concat(puntuadas.filter(x => x.score === 0)) : puntuadas) : conPalabras)
+      .sort((a, b) => b.score - a.score || a.p.precio - b.p.precio).slice(0, 24);
+    return finales.map(x => ({ ref: x.p.ref, score: x.score, motivo: [restr.join(' · '), x.hits.length ? (es ? 'coincide en: ' : 'matches: ') + x.hits.slice(0, 3).join(', ') : ''].filter(Boolean).join(' · ') }));
   }
   async runSearch(q) {
     const query = (q || '').trim();
     if (query.length < 4) { this.setState({ aiError: this.es ? 'Descríbalo con algo más de detalle.' : 'Please describe it in a little more detail.' }); return; }
-    this.setState({ aiBusy: true, aiError: '', aiResults: null, f: { zona: 0, tipo: 0, precio: 0, dorm: 0, sort: 0 } });
+    this.setState({ aiBusy: true, aiError: '', aiResults: null, f: { zona: '', urb: '', tipo: 0, precio: 0, dorm: 0, sort: 0 } });
     const catalogo = this.data.slice(0, 120).map(p => p.ref + ' | ' + this.L(p.nombre) + ' | ' + p.zona + ' | ' + p.tipo + ' | ' + p.precio + ' EUR | ' +
       p.dorm + ' dorm | ' + p.banos + ' banos | ' + p.built + ' m2 | parcela ' + p.plot + ' m2 | ' + ((p.features && p.features.es) || []).join(', ')).join('\n');
     const idioma = this.es ? 'espanol' : 'ingles';
@@ -3122,9 +3163,12 @@ class Component extends DCLogic {
 
     /* ── Propiedad activa ── */
     const prop = this.data.filter(p => p.ref === st.ref)[0] || this.data[0];
-    const shots = prop.fotos && prop.fotos.length
-      ? prop.fotos.map((u, i) => ({ url: u, es: 'Foto ' + (i + 1) + ' de ' + (prop.numFotos || prop.fotos.length), en: 'Photo ' + (i + 1) + ' of ' + (prop.numFotos || prop.fotos.length) }))
+    const rotas = this.rotas || (this.rotas = {});
+    const fotosOk = (prop.fotos || []).filter(u => !rotas[u]);
+    const shots = fotosOk.length
+      ? fotosOk.map((u, i) => ({ url: u, es: 'Foto ' + (i + 1) + ' de ' + fotosOk.length, en: 'Photo ' + (i + 1) + ' of ' + fotosOk.length }))
       : (this.galerias[prop.ref] || []).map(k => this.fotos[k]);
+    const marcarRota = (e) => { const el = e && e.target; if (!el || !el.src || el.src.indexOf('http') !== 0) return; if (e.type === 'error' || (el.naturalWidth && el.naturalWidth < 300)) { if (!rotas[el.src]) { rotas[el.src] = 1; this.setState({ gi: 0 }); } } };
     const gi = shots.length ? (st.gi % shots.length) : 0;
     const shot = shots[gi] || this.fotos.olivo;
     const asesor = this.equipoData.filter(m => m.nombre === prop.asesor)[0] || this.equipoData[0];
@@ -3287,7 +3331,7 @@ class Component extends DCLogic {
       zonaCards: this.zonasData.map(z => ({
         nombre: z.nombre, dato: z.dato, texto: this.L(z.texto),
         img: this.isrc(z.img), imgStyle: this.imgCss(),
-        open: (e) => { if (e) e.preventDefault(); this.go('listings', { aiMode: false, aiResults: null, f: Object.assign({}, st.f, { zona: ['Marbella', 'Estepona', 'Benahavís', 'Sotogrande'].indexOf(z.municipio) + 1 }) }); }
+        open: (e) => { if (e) e.preventDefault(); this.go('listings', { aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { zona: z.municipio, urb: '' }) }); }
       })),
 
       mercados: this.mercadosData.concat(this.mercadosData),
@@ -3354,14 +3398,15 @@ class Component extends DCLogic {
       setGrid: () => this.setState({ view: 'grid' }), setList: () => this.setState({ view: 'list' }),
       selStyle: selStyle, inpStyle: inpStyle,
       areaStyle: this.inputStyle(false) + ';resize:vertical;line-height:1.7',
-      optZonas: o.zonas, optTipos: o.tipos, optPrecios: o.precios, optDorms: o.dorms, optSort: o.sort,
-      fZona: o.zonas[st.f.zona], fTipo: o.tipos[st.f.tipo], fPrecio: o.precios[st.f.precio], fDorm: o.dorms[st.f.dorm], fSort: o.sort[st.f.sort],
-      setZona: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { zona: Math.max(0, o.zonas.indexOf(e.target.value)) }) }),
+      optZonas: o.zonas, optUrbs: o.urbs, optTipos: o.tipos, optPrecios: o.precios, optDorms: o.dorms, optSort: o.sort,
+      fZona: st.f.zona || o.zonas[0], fUrb: st.f.urb || o.urbs[0], fTipo: o.tipos[st.f.tipo], fPrecio: o.precios[st.f.precio], fDorm: o.dorms[st.f.dorm], fSort: o.sort[st.f.sort],
+      setZona: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { zona: e.target.value === o.zonas[0] ? '' : e.target.value, urb: '' }) }),
+      setUrb: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { urb: e.target.value === o.urbs[0] ? '' : e.target.value }) }),
       setTipo: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { tipo: Math.max(0, o.tipos.indexOf(e.target.value)) }) }),
       setPrecio: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { precio: Math.max(0, o.precios.indexOf(e.target.value)) }) }),
       setDorm: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { dorm: Math.max(0, o.dorms.indexOf(e.target.value)) }) }),
       setSort: (e) => this.setState({ aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { sort: Math.max(0, o.sort.indexOf(e.target.value)) }) }),
-      resetFilters: () => this.setState({ aiMode: false, aiResults: null, aiQ: '', aiError: '', f: { zona: 0, tipo: 0, precio: 0, dorm: 0, sort: 0 } }),
+      resetFilters: () => this.setState({ aiMode: false, aiResults: null, aiQ: '', aiError: '', f: { zona: '', urb: '', tipo: 0, precio: 0, dorm: 0, sort: 0 } }),
 
       /* ---- ficha ---- */
       prop: {
@@ -3398,6 +3443,7 @@ class Component extends DCLogic {
       asesorCargo: this.L(asesor.cargo), asesorIdiomas: asesor.idiomas,
 
       galleryImg: shot.url || this.isrc(shot.src),
+      alCargarGaleria: marcarRota,
       galleryImgStyle: this.imgCss('animation:fadeIn .6s ease both'),
       galleryLabel: this.L(shot), galleryCounter: (gi + 1) + ' / ' + (shots.length || 1),
       prevImg: () => this.setState({ gi: (gi - 1 + shots.length) % shots.length }),
@@ -3410,7 +3456,7 @@ class Component extends DCLogic {
         label: this.L(s),
         pick: () => this.setState({ gi: i }),
         open: () => this.setState({ gi: i, lightbox: true }),
-        img: s.url || this.isrc(s.src),
+        img: s.url || this.isrc(s.src), alCargar: marcarRota,
         style: 'position:relative;overflow:hidden;aspect-ratio:16/11;cursor:pointer;display:flex;align-items:flex-end;padding:0;background:#F3EAD9;outline:' + (i === gi ? '2px solid #7A2027' : '1px solid rgba(30,26,23,.14)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.72') + ';transition:opacity .3s ease',
         lightboxStyle: 'position:relative;overflow:hidden;flex:none;width:104px;aspect-ratio:4/3;cursor:pointer;padding:0;background:#1E1A17;outline:' + (i === gi ? '2px solid #EDD7BF' : '1px solid rgba(247,240,230,.2)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.5')
       })),
