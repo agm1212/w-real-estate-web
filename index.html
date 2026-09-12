@@ -3031,8 +3031,8 @@ class Component extends DCLogic {
     const query = (q || '').trim();
     if (query.length < 4) { this.setState({ aiError: this.es ? 'Descríbalo con algo más de detalle.' : 'Please describe it in a little more detail.' }); return; }
     this.setState({ aiBusy: true, aiError: '', aiResults: null, f: { zona: 0, tipo: 0, precio: 0, dorm: 0, sort: 0 } });
-    const catalogo = this.data.map(p => p.ref + ' | ' + p.nombre + ' | ' + p.zona + ' | ' + p.tipo + ' | ' + p.precio + ' EUR | ' +
-      p.dorm + ' dorm | ' + p.banos + ' banos | ' + p.built + ' m2 | parcela ' + p.plot + ' m2 | ' + (p.features.es || []).join(', ')).join('\n');
+    const catalogo = this.data.slice(0, 120).map(p => p.ref + ' | ' + this.L(p.nombre) + ' | ' + p.zona + ' | ' + p.tipo + ' | ' + p.precio + ' EUR | ' +
+      p.dorm + ' dorm | ' + p.banos + ' banos | ' + p.built + ' m2 | parcela ' + p.plot + ' m2 | ' + ((p.features && p.features.es) || []).join(', ')).join('\n');
     const idioma = this.es ? 'espanol' : 'ingles';
     const prompt = 'Eres el asesor de una inmobiliaria de lujo en la Costa del Sol. Catalogo disponible:\n' + catalogo +
       '\n\nPeticion del cliente: "' + query + '"\n\nElige como maximo 4 propiedades que encajen, de mejor a peor. ' +
