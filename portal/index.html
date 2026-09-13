@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:,">
+<title>Portal Privado W</title>
+<meta name="description" content="Portal interno de W Real Estate para dar de alta propiedades exclusivas, segunda mano y obra nueva, con redacción asistida por IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --blanco:#FFFFFF; --champan:#F6EFE3; --crema:#EDD7BF; --carbon:#1E1A17; --burdeos:#7A2027; --burdeos2:#5E171E; --gris:#5C534B; --gris2:#786E64; --linea:rgba(30,26,23,.13); --ok:#2F6B3A; --aviso:#9A6B12; --serif:'Cormorant Garamond', Georgia, serif; --sans:'Lato','Helvetica Neue',Arial,sans-serif; }
+  html { color-scheme: light; }
+  body { margin:0; background:var(--champan); color:var(--carbon); font-family:var(--sans); font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  button { font:inherit; cursor:pointer; }
+  input, select, textarea { font:inherit; color:inherit; }
+  h1,h2,h3 { font-family:var(--serif); font-weight:500; margin:0; text-wrap:balance; }
+  .cab { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:22px; padding:0 28px; height:64px; background:var(--blanco); border-bottom:1px solid var(--linea); }
+  .cab img { height:34px; width:auto; }
+  .cab .titulo { font-family:var(--serif); font-size:22px; letter-spacing:.01em; }
+  .cab .eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--burdeos); }
+  .cab .der { margin-left:auto; display:flex; align-items:center; gap:14px; font-size:12.5px; color:var(--gris2); }
+  .cab input { width:170px; padding:7px 10px; border:1px solid var(--linea); background:var(--blanco); }
+  .app { display:grid; grid-template-columns:340px minmax(0,1fr); min-height:calc(100vh - 64px); }
+  .lista { border-right:1px solid var(--linea); background:var(--blanco); display:flex; flex-direction:column; }
+  .lista .barra { display:flex; gap:8px; padding:16px 18px; border-bottom:1px solid var(--linea); align-items:center; }
+  .lista .barra select { flex:1; padding:8px 10px; border:1px solid var(--linea); background:var(--blanco); }
+  .lista .items { overflow:auto; flex:1; }
+  .item { display:grid; grid-template-columns:72px minmax(0,1fr); gap:12px; padding:12px 18px; border-bottom:1px solid var(--linea); cursor:pointer; align-items:center; }
+  .item:hover { background:var(--champan); }
+  .item.activo { background:var(--champan); box-shadow:inset 3px 0 0 var(--burdeos); }
+  .item .foto { width:72px; height:54px; background:var(--crema); object-fit:cover; display:block; }
+  .item .nombre { font-family:var(--serif); font-size:17px; line-height:1.15; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .item .meta { font-size:11.5px; color:var(--gris2); display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .chip { display:inline-block; padding:2px 7px; font-size:10px; letter-spacing:.12em; text-transform:uppercase; border:1px solid var(--linea); color:var(--gris); }
+  .chip.borrador { color:var(--gris2); } .chip.revision { color:var(--aviso); border-color:var(--aviso); } .chip.publicada { color:var(--ok); border-color:var(--ok); } .chip.retirada { color:var(--gris2); text-decoration:line-through; }
+  .chip.obra { background:var(--carbon); color:var(--blanco); border-color:var(--carbon); }
+  .vacio { padding:40px 24px; color:var(--gris2); text-align:center; font-size:13px; }
+  .editor { padding:28px 40px 120px; max-width:1080px; }
+  .editor.oculto, .inicio.oculto { display:none; }
+  .inicio { padding:60px 40px; max-width:720px; }
+  .inicio h1 { font-size:40px; margin-bottom:12px; }
+  .inicio p { color:var(--gris); font-size:15px; max-width:38em; }
+  .inicio ol { color:var(--gris); padding-left:20px; }
+  .inicio li { margin-bottom:6px; }
+  .cabecera { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:22px; }
+  .cabecera h1 { font-size:34px; line-height:1.05; }
+  .cabecera .sub { font-size:12.5px; color:var(--gris2); margin-top:6px; }
+  .seccion { background:var(--blanco); border:1px solid var(--linea); padding:22px 26px; margin-bottom:14px; }
+  .seccion > h2 { font-size:22px; margin-bottom:4px; }
+  .seccion > .ayuda { font-size:12.5px; color:var(--gris2); margin:0 0 16px; max-width:60em; }
+  .campos { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px 16px; }
+  .campos.tres { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .campos.dos { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .campo { display:flex; flex-direction:column; gap:5px; }
+  .campo.ancho { grid-column:1 / -1; }
+  .campo.medio { grid-column:span 2; }
+  .campo label { font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gris2); }
+  .campo input, .campo select, .campo textarea { padding:9px 11px; border:1px solid var(--linea); background:var(--blanco); width:100%; }
+  .campo input:focus, .campo select:focus, .campo textarea:focus, button:focus-visible { outline:2px solid var(--burdeos); outline-offset:1px; }
+  .campo textarea { min-height:96px; resize:vertical; line-height:1.55; }
+  .campo .nota { font-size:11.5px; color:var(--gris2); }
+  .segmento { display:flex; gap:0; border:1px solid var(--linea); width:max-content; }
+  .segmento button { padding:9px 18px; background:var(--blanco); border:0; color:var(--gris); }
+  .segmento button.on { background:var(--carbon); color:var(--blanco); }
+  .extras { display:flex; flex-direction:column; gap:8px; border-top:1px solid var(--linea); padding-top:12px; }
+  .grupo { display:grid; grid-template-columns:110px minmax(0,1fr); gap:10px; align-items:baseline; }
+  .grupo .gnom { font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gris2); padding-top:4px; }
+  .chips { display:flex; flex-wrap:wrap; gap:5px; }
+  .chips label { position:relative; display:inline-flex; align-items:center; gap:5px; padding:4px 9px; border:1px solid var(--linea); font-size:12px; line-height:1.3; cursor:pointer; user-select:none; color:var(--gris); background:var(--blanco); transition:border-color .12s, background .12s; }
+  .chips label:hover { border-color:var(--carbon); color:var(--carbon); }
+  .chips label:has(input:checked) { background:var(--champan); border-color:var(--burdeos); color:var(--carbon); }
+  .chips label:has(input:checked)::before { content:''; width:5px; height:9px; border:solid var(--burdeos); border-width:0 1.5px 1.5px 0; transform:rotate(45deg) translate(-1px,-1px); margin-right:2px; }
+  .chips label:has(input:focus-visible) { outline:2px solid var(--burdeos); outline-offset:1px; }
+  .chips input { position:absolute; opacity:0; width:0; height:0; }
+  .chips .propio { display:inline-flex; align-items:center; gap:4px; padding:4px 6px 4px 9px; font-size:12px; line-height:1.3; background:var(--carbon); color:var(--blanco); border:1px solid var(--carbon); }
+  .chips .propio button { border:0; background:transparent; color:var(--crema); padding:0 0 0 2px; font-size:14px; line-height:1; cursor:pointer; }
+  .chips .propio button:hover { color:var(--blanco); }
+  .chips .anadir { display:inline-flex; align-items:center; border:1px dashed rgba(30,26,23,.35); }
+  .chips .anadir input { position:static; opacity:1; width:210px; height:auto; border:0; background:transparent; padding:4px 8px; font-size:12px; }
+  .chips .anadir input:focus { outline:none; }
+  .chips .anadir button { border:0; border-left:1px dashed rgba(30,26,23,.35); background:transparent; color:var(--burdeos); padding:4px 10px; font-size:12px; }
+  .chips .anadir button:hover { background:var(--champan); }
+  .zona-subida { border:1px dashed rgba(30,26,23,.3); padding:26px; text-align:center; color:var(--gris2); font-size:13px; background:var(--champan); cursor:pointer; }
+  .zona-subida.sobre { border-color:var(--burdeos); color:var(--burdeos); }
+  .fotos { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:14px; }
+  .fotoc { position:relative; background:var(--champan); display:flex; flex-direction:column; gap:6px; }
+  .fotoc img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:var(--crema); }
+  .fotoc select { width:100%; padding:6px 8px; border:1px solid var(--linea); background:var(--blanco); font-size:12px; }
+  .fotoc .acc { display:flex; gap:4px; padding:0 0 4px; }
+  .fotoc .acc button { flex:1; padding:5px 0; background:var(--blanco); border:1px solid var(--linea); font-size:11.5px; }
+  .fotoc .acc button:hover { border-color:var(--carbon); }
+  .fotoc .portada { position:absolute; top:8px; left:8px; padding:4px 8px; background:var(--burdeos); color:var(--blanco); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; }
+  .fotoc .num { position:absolute; top:8px; right:8px; padding:3px 7px; background:rgba(30,26,23,.7); color:var(--blanco); font-size:10.5px; }
+  .progreso { font-size:12.5px; color:var(--gris2); margin-top:10px; min-height:18px; }
+  .tipologias table { width:100%; border-collapse:collapse; font-size:13px; }
+  .tipologias th { text-align:left; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gris2); font-weight:400; padding:6px 8px 6px 0; border-bottom:1px solid var(--linea); }
+  .tipologias td { padding:6px 8px 6px 0; border-bottom:1px solid var(--linea); }
+  .tipologias input, .tipologias select { width:100%; padding:6px 8px; border:1px solid var(--linea); background:var(--blanco); }
+  .btn { padding:11px 20px; border:2px solid var(--carbon); background:var(--blanco); color:var(--carbon); font-size:13.5px; letter-spacing:.02em; }
+  .btn:hover { background:var(--carbon); color:var(--blanco); }
+  .btn.primario { background:var(--burdeos); border-color:var(--burdeos); color:var(--blanco); }
+  .btn.primario:hover { background:var(--burdeos2); border-color:var(--burdeos2); }
+  .btn.suave { border-color:var(--linea); }
+  .btn.suave:hover { background:var(--champan); color:var(--carbon); }
+  .btn.mini { padding:6px 12px; font-size:12px; border-width:1px; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .ia-caja { display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--champan); padding:16px 18px; margin-bottom:16px; }
+  .ia-caja .txt { font-size:13px; color:var(--gris); max-width:46em; }
+  .ia-caja .txt b { color:var(--carbon); }
+  .dosidiomas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  .lecturas { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .lecturas .campo textarea { min-height:120px; font-family:var(--serif); font-size:16px; }
+  .pie { position:fixed; left:340px; right:0; bottom:0; z-index:15; display:flex; align-items:center; gap:14px; padding:14px 40px; background:var(--blanco); border-top:1px solid var(--linea); }
+  .pie .estado { font-size:12.5px; color:var(--gris2); margin-right:auto; }
+  .pie .estado.err { color:var(--burdeos); }
+  .pie select { padding:10px 12px; border:1px solid var(--linea); background:var(--blanco); }
+  .aviso { background:var(--crema); color:var(--carbon); padding:10px 28px; font-size:13px; border-bottom:1px solid var(--linea); }
+  .aviso[hidden] { display:none; }
+  .rango { display:flex; align-items:center; gap:8px; }
+  .rango span { color:var(--gris2); font-size:12px; }
+  .velo { position:fixed; inset:0; z-index:40; background:rgba(30,26,23,.55); display:flex; align-items:center; justify-content:center; padding:20px; }
+  .velo[hidden] { display:none; }
+  .eleccion { background:var(--blanco); width:min(820px,100%); padding:34px 36px 30px; }
+  .eleccion h2 { font-size:30px; margin-bottom:6px; }
+  .eleccion .sub { color:var(--gris2); font-size:13.5px; margin-bottom:22px; }
+  .eleccion .opciones { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  .opcion { text-align:left; border:1px solid var(--linea); background:var(--blanco); padding:22px 22px 20px; display:flex; flex-direction:column; gap:8px; color:var(--carbon); }
+  .opcion:hover { border-color:var(--carbon); }
+  .opcion .eyebrow { font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--burdeos); }
+  .opcion .nom { font-family:var(--serif); font-size:24px; line-height:1.1; }
+  .opcion p { margin:0; font-size:13px; color:var(--gris); line-height:1.5; }
+  .opcion.ia { background:var(--carbon); color:var(--blanco); border-color:var(--carbon); }
+  .opcion.ia .eyebrow { color:var(--crema); } .opcion.ia p { color:rgba(255,255,255,.75); }
+  .opcion.ia:hover { background:#2A2521; }
+  .eleccion .cerrar { margin-top:18px; background:none; border:0; color:var(--gris2); font-size:13px; padding:0; }
+  .vistaIA { padding:28px 40px 120px; max-width:1080px; }
+  .vistaIA.oculto { display:none; }
+  .estadoIA { display:flex; gap:18px; align-items:flex-start; background:var(--carbon); color:var(--blanco); padding:26px 30px; margin-bottom:14px; }
+  .estadoIA .punto { width:12px; height:12px; margin-top:6px; border-radius:50%; background:var(--crema); flex:none; }
+  .estadoIA.pendiente .punto { animation: latir 1.6s ease-in-out infinite; }
+  .estadoIA.error .punto { background:#D9534F; }
+  .estadoIA h3 { font-family:var(--serif); font-size:24px; font-weight:500; margin:0 0 4px; }
+  .estadoIA p { margin:0; font-size:13.5px; color:rgba(255,255,255,.78); max-width:56em; line-height:1.55; }
+  .estadoIA .acc { margin-left:auto; display:flex; gap:8px; flex:none; }
+  .estadoIA .btn { border-color:rgba(255,255,255,.6); color:var(--blanco); background:transparent; }
+  .estadoIA .btn:hover { background:var(--blanco); color:var(--carbon); }
+  @keyframes latir { 0%,100% { opacity:1; transform:scale(1);} 50% { opacity:.35; transform:scale(.7);} }
+  .bannerIA { display:flex; gap:18px; align-items:flex-start; background:var(--champan); border-left:3px solid var(--burdeos); padding:16px 20px; margin-bottom:14px; }
+  .bannerIA[hidden] { display:none; }
+  .bannerIA .txt { font-size:13px; color:var(--gris); line-height:1.55; }
+  .bannerIA .txt b { color:var(--carbon); }
+  .bannerIA ul { margin:6px 0 0; padding-left:18px; }
+  .bannerIA button { margin-left:auto; flex:none; }
+  .campo.ia-on label::after, .etiqueta-ia { content:'IA'; display:inline-block; margin-left:6px; padding:1px 5px; font-size:9px; letter-spacing:.14em; background:var(--burdeos); color:var(--blanco); vertical-align:1px; }
+  .chips label.ia-on { border-color:var(--burdeos); }
+  .chip.ia-pendiente { color:var(--aviso); border-color:var(--aviso); }
+  .chip.ia-listo { color:var(--burdeos); border-color:var(--burdeos); }
+  @media (max-width: 960px) {
+    .eleccion .opciones { grid-template-columns:1fr; } .vistaIA { padding:20px 18px 130px; } .estadoIA { flex-wrap:wrap; } .estadoIA .acc { margin-left:0; }
+    .app { grid-template-columns:1fr; } .lista { border-right:0; border-bottom:1px solid var(--linea); max-height:40vh; }
+    .editor { padding:20px 18px 130px; } .campos, .campos.tres { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .fotos { grid-template-columns:repeat(2,minmax(0,1fr)); } .dosidiomas, .lecturas { grid-template-columns:1fr; }
+    .pie { left:0; padding:12px 18px; flex-wrap:wrap; } .cab { padding:0 16px; gap:12px; } .cab .der input { width:120px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+<script src="config.js"></script>
+</head>
+<body>
+<header class="cab">
+  <img src="data:image/png;base64,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" alt="W Real Estate">
+  <div><div class="eyebrow">Portal privado</div><div class="titulo">Alta de propiedades</div></div>
+  <div class="der"><label for="agente">Agente</label><input id="agente" placeholder="Su nombre" autocomplete="off"><button class="btn suave mini" id="btnSalir" hidden>Salir</button></div>
+</header>
+<div class="aviso" id="avisoModo" hidden></div>
+<div class="velo" id="login" hidden>
+  <form class="eleccion" id="formLogin" style="width:min(440px,100%)">
+    <div class="eyebrow" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--burdeos)">Portal privado W</div>
+    <h2 style="font-size:28px;margin:6px 0 4px">Identifíquese</h2>
+    <div class="sub">Acceso reservado al equipo de W Real Estate.</div>
+    <div class="campo"><label for="loginEmail">Correo</label><input id="loginEmail" type="email" autocomplete="username" required></div>
+    <div class="campo" style="margin-top:10px"><label for="loginPass">Contraseña</label><input id="loginPass" type="password" autocomplete="current-password" required></div>
+    <div class="nota" id="loginError" style="color:var(--burdeos);min-height:18px;margin-top:8px"></div>
+    <button class="btn primario" type="submit" style="margin-top:8px;width:100%">Entrar</button>
+  </form>
+</div>
+<div class="aviso" id="avisoLectura" hidden>Está viendo el portal en modo lectura: puede consultar las propiedades pero no guardar cambios ni subir fotos.</div>
+
+<div class="velo" id="velo" hidden>
+  <div class="eleccion" role="dialog" aria-labelledby="eleccionTitulo">
+    <h2 id="eleccionTitulo">¿Cómo quiere dar de alta la propiedad?</h2>
+    <div class="sub">Las dos vías acaban en la misma ficha. Elija según lo que tenga a mano.</div>
+    <div class="opciones">
+      <button class="opcion ia" id="opIA"><span class="eyebrow">W AI Agent</span><span class="nom">Empiece por las fotos</span><p>Suba el reportaje y pulse «Procesar». La IA identifica el tipo de propiedad, etiqueta las estancias, marca extras y redacta los textos. Usted añade precio, superficies y lo que la IA no puede ver, y publica.</p></button>
+      <button class="opcion" id="opManual"><span class="eyebrow">Alta manual</span><span class="nom">Rellene la ficha usted</span><p>El formulario completo desde el principio. Podrá subir fotos y usar «Redactar con IA» para los textos cuando tenga los datos.</p></button>
+    </div>
+    <button class="cerrar" id="opCerrar">Cancelar</button>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="lista">
+    <div class="barra">
+      <select id="filtroEstado" aria-label="Filtrar por estado">
+        <option value="">Todas las propiedades</option>
+        <option value="borrador">Borradores</option>
+        <option value="revision">En revisión</option>
+        <option value="publicada">Publicadas</option>
+        <option value="retirada">Retiradas</option>
+      </select>
+      <button class="btn primario mini" id="btnNueva" style="padding:9px 14px">+ Nueva</button>
+    </div>
+    <div class="items" id="items"><div class="vacio">Cargando propiedades…</div></div>
+  </aside>
+
+  <main>
+    <section class="inicio" id="inicio">
+      <div class="eyebrow" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--burdeos);margin-bottom:10px">W Real Estate · Portal privado</div>
+      <h1>Dé de alta una propiedad exclusiva</h1>
+      <p>Aquí se suben las propiedades que no pasan por ningún CRM: segunda mano y obra nueva. Rellene los datos, suba las fotos y deje que la IA redacte los textos; usted solo corrige y publica.</p>
+      <ol>
+        <li><b>Datos y ubicación.</b> Lo mínimo para identificar la propiedad. La dirección exacta nunca se publica.</li>
+        <li><b>Fotos.</b> Arrástrelas al portal; se redimensionan solas. Marque la estancia de cada una y elija la portada.</li>
+        <li><b>Notas.</b> Lo que usted sabe y no está en los datos: puntos fuertes, estado real, gastos, licencias.</li>
+        <li><b>Redactar con IA.</b> Genera título, resumen corto y descripción en español e inglés siguiendo la guía de redacción de W. Todo es editable.</li>
+        <li><b>Publicar.</b> Cambie el estado a «Publicada». En la siguiente sincronización la propiedad aparece en la web como Exclusiva W, con la ficha premium.</li>
+      </ol>
+      <p style="margin-top:22px"><button class="btn primario" id="btnNueva2">Nueva propiedad</button></p>
+    </section>
+
+    <section class="vistaIA oculto" id="vistaIA">
+      <div class="cabecera">
+        <div><div class="eyebrow" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--burdeos)">W AI Agent · Paso 1</div><h1 id="tituloIA">Suba las fotos de la propiedad</h1><div class="sub" id="subIA"></div></div>
+        <div style="display:flex;gap:8px"><button class="btn suave mini" id="btnIAaManual">Pasar a alta manual</button><button class="btn suave mini" id="btnBorrarIA">Eliminar</button></div>
+      </div>
+      <div class="estadoIA" id="estadoIA" hidden></div>
+      <div class="seccion" id="secFotosIA">
+        <h2>Fotos</h2>
+        <p class="ayuda">Todo el reportaje, incluidos exteriores, vistas y zonas comunes: cuantas más fotos, mejor identifica la IA la propiedad. Mínimo tres. Se redimensionan solas.</p>
+        <div class="zona-subida" id="zonaSubidaIA">Arrastre aquí las fotos o haga clic para elegirlas<input type="file" id="inputFotosIA" accept="image/jpeg,image/png,image/webp" multiple hidden></div>
+        <div class="progreso" id="progresoIA"></div>
+        <div class="fotos" id="fotosIA"></div>
+      </div>
+      <div class="seccion" id="secNotasIA">
+        <h2>Pistas para la IA (opcional)</h2>
+        <p class="ayuda">Municipio y urbanización, y cualquier dato que las fotos no cuenten. No hace falta precio ni superficies: eso lo añadirá después.</p>
+        <div class="campos dos">
+          <div class="campo"><label for="ia_municipio">Municipio</label><select id="ia_municipio" data-k="municipio"><option>Marbella</option><option>Benahavís</option><option>Estepona</option><option>Sotogrande</option><option>Mijas</option><option>Benalmádena</option><option>Málaga</option><option>Casares</option><option>Manilva</option><option>Otro</option></select></div>
+          <div class="campo"><label for="ia_urb">Urbanización o zona</label><input id="ia_urb" data-k="urbanizacion" placeholder="La Zagaleta, Sierra Blanca…"></div>
+          <div class="campo ancho"><label for="ia_notas">Notas</label><textarea id="ia_notas" data-k="notas" placeholder="Ej.: reformada en 2023, se vende amueblada, la parcela colinda con el golf…" style="min-height:70px"></textarea></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <button class="btn primario" id="btnProcesar" disabled>Procesar con W AI Agent</button>
+        <span class="nota" id="notaProcesar" style="font-size:12.5px;color:var(--gris2)">Suba al menos tres fotos para procesar.</span>
+      </div>
+    </section>
+
+    <section class="editor oculto" id="editor">
+      <div class="cabecera">
+        <div><h1 id="tituloEditor">Nueva propiedad</h1><div class="sub" id="subEditor"></div></div>
+        <button class="btn suave mini" id="btnBorrar">Eliminar</button>
+      </div>
+      <div class="bannerIA" id="bannerIA" hidden><div class="txt" id="bannerIAtxt"></div><button class="btn suave mini" id="bannerIAcerrar">Entendido</button></div>
+
+      <div class="seccion">
+        <h2>Operación y tipo</h2>
+        <p class="ayuda">Segunda mano o promoción de obra nueva. El tipo determina cómo se clasifica en la web.</p>
+        <div class="campos">
+          <div class="campo medio"><label>Segmento</label>
+            <div class="segmento"><button type="button" data-seg="segunda-mano" class="on">Segunda mano</button><button type="button" data-seg="obra-nueva">Obra nueva</button></div>
+          </div>
+          <div class="campo"><label for="f_ref">Referencia</label><input id="f_ref" data-k="ref"></div>
+          <div class="campo"><label for="f_tipo">Tipo</label><select id="f_tipo" data-k="tipo"><option>Villa</option><option>Ático</option><option>Apartamento</option><option>Casa</option><option>Parcela</option><option>Comercial</option></select></div>
+          <div class="campo medio"><label for="f_subtipo">Subtipo o descripción corta del tipo</label><input id="f_subtipo" data-k="subtipo" placeholder="Villa de nueva construcción, ático dúplex, adosado…"></div>
+          <div class="campo"><label for="f_estadoCons">Estado</label><select id="f_estadoCons" data-k="estadoCons"><option>Excelente</option><option>Bueno</option><option>A reformar</option><option>Nueva construcción</option><option>En construcción</option><option>Sobre plano</option></select></div>
+          <div class="campo"><label for="f_anio">Año de construcción</label><input id="f_anio" data-k="anio" type="number" min="1800" max="2100"></div>
+        </div>
+      </div>
+
+      <div class="seccion">
+        <h2>Ubicación</h2>
+        <p class="ayuda">Municipio y urbanización se publican. La dirección es privada.</p>
+        <div class="campos">
+          <div class="campo"><label for="f_municipio">Municipio</label><select id="f_municipio" data-k="municipio"><option>Marbella</option><option>Benahavís</option><option>Estepona</option><option>Sotogrande</option><option>Mijas</option><option>Benalmádena</option><option>Málaga</option><option>Casares</option><option>Manilva</option><option>Otro</option></select></div>
+          <div class="campo medio"><label for="f_urb">Urbanización o zona</label><input id="f_urb" data-k="urbanizacion" placeholder="La Zagaleta, Sierra Blanca, Nueva Andalucía…"></div>
+          <div class="campo"><label for="f_orient">Orientación</label><select id="f_orient" data-k="orientacion"><option value="">—</option><option>Sur</option><option>Suroeste</option><option>Sureste</option><option>Oeste</option><option>Este</option><option>Norte</option></select></div>
+          <div class="campo ancho"><label for="f_dir">Dirección o enlace de Google Maps (privado)</label><input id="f_dir" data-k="direccion" placeholder="Pegue el enlace de Google Maps de la casa o escriba calle y número"><span class="nota">No se publica. Sirve para calcular distancias y, más adelante, situar la propiedad en un mapa.</span></div>
+        </div>
+      </div>
+
+      <div class="seccion" id="secDatos">
+        <h2>Datos principales</h2>
+        <p class="ayuda" id="ayudaDatos"></p>
+        <div class="campos">
+          <div class="campo" id="campoPrecio"><label for="f_precio">Precio (€)</label><input id="f_precio" data-k="precio" data-num inputmode="decimal"></div>
+          <div class="campo" id="campoPrecioHasta" hidden><label for="f_precioHasta">Precio hasta (€)</label><input id="f_precioHasta" data-k="precioHasta" data-num inputmode="decimal"></div>
+          <div class="campo"><label for="f_dorm">Dormitorios</label><input id="f_dorm" data-k="dorm" type="number" min="0"></div>
+          <div class="campo"><label for="f_banos">Baños</label><input id="f_banos" data-k="banos" type="number" min="0"></div>
+          <div class="campo"><label for="f_built">Construidos (m²)</label><input id="f_built" data-k="built" data-num inputmode="decimal"></div>
+          <div class="campo"><label for="f_plot">Parcela (m²)</label><input id="f_plot" data-k="plot" data-num inputmode="decimal"></div>
+          <div class="campo"><label for="f_terraza">Terrazas (m²)</label><input id="f_terraza" data-k="terraza" data-num inputmode="decimal"></div>
+          <div class="campo"><label for="f_plantas">Plantas</label><input id="f_plantas" data-k="plantas" type="number" min="0"></div>
+          <div class="campo"><label for="f_energia">Certificación energética</label><select id="f_energia" data-k="energia"><option value="">En trámite</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option></select></div>
+          <div class="campo"><label for="f_comunidad">Comunidad (€/año)</label><input id="f_comunidad" data-k="comunidad" data-num inputmode="decimal"></div>
+          <div class="campo"><label for="f_ibi">IBI (€/año)</label><input id="f_ibi" data-k="ibi" data-num inputmode="decimal"></div>
+          <div class="campo"><label for="f_lpo">Licencia 1.ª ocupación</label><select id="f_lpo" data-k="lpo"><option value="">No consta</option><option value="si">Sí</option><option value="tramite">En trámite</option><option value="no">No</option></select></div>
+        </div>
+        <div class="campo ancho" style="margin-top:16px"><label>Extras</label>
+          <div class="nota" style="margin-bottom:2px">Marque lo que tenga la propiedad. En «Propios» añada lo que la haga única y no esté en la lista: helipuerto, bodega climatizada, muelle privado…</div>
+          <div class="extras" id="extras"></div>
+        </div>
+      </div>
+
+      <div class="seccion" id="secObra" hidden>
+        <h2>Promoción de obra nueva</h2>
+        <p class="ayuda">Los datos de la promoción y sus tipologías. El precio «desde» es el que se muestra en el listado.</p>
+        <div class="campos">
+          <div class="campo medio"><label for="f_promocion">Nombre de la promoción</label><input id="f_promocion" data-k="promocion"></div>
+          <div class="campo"><label for="f_promotor">Promotor</label><input id="f_promotor" data-k="promotor"></div>
+          <div class="campo"><label for="f_entrega">Entrega prevista</label><input id="f_entrega" data-k="entrega" placeholder="4T 2027"></div>
+          <div class="campo"><label for="f_unidades">Unidades</label><input id="f_unidades" data-k="unidades" type="number" min="0"></div>
+          <div class="campo"><label for="f_fase">Fase</label><select id="f_fase" data-k="fase"><option>Sobre plano</option><option>En construcción</option><option>Llave en mano</option></select></div>
+          <div class="campo medio"><label for="f_licenciaObra">Licencia de obras</label><select id="f_licenciaObra" data-k="licenciaObra"><option value="">No consta</option><option value="si">Concedida</option><option value="tramite">En trámite</option></select></div>
+        </div>
+        <div class="tipologias" style="margin-top:16px">
+          <table><thead><tr><th style="width:26%">Tipología</th><th>Dorm.</th><th>Desde m²</th><th>Precio desde (€)</th><th>Unidades</th><th style="width:60px"></th></tr></thead><tbody id="tipologias"></tbody></table>
+          <button class="btn suave mini" id="btnTipologia" style="margin-top:10px">+ Añadir tipología</button>
+        </div>
+      </div>
+
+      <div class="seccion">
+        <h2>Fotos</h2>
+        <p class="ayuda">JPG o PNG. Se redimensionan a 1.920 px antes de subirlas. Marque la estancia de cada foto: la IA lo usa para redactar y la web para agrupar la galería. La primera foto es la portada.</p>
+        <div class="zona-subida" id="zonaSubida">Arrastre aquí las fotos o haga clic para elegirlas<input type="file" id="inputFotos" accept="image/jpeg,image/png,image/webp" multiple hidden></div>
+        <div class="progreso" id="progreso"></div>
+        <div class="fotos" id="fotos"></div>
+        <div class="campos dos" style="margin-top:18px">
+          <div class="campo"><label for="f_planos">Planos y dossier (PDF)</label><input type="file" id="f_planos" accept="application/pdf" multiple><div class="nota" id="docsLista"></div></div>
+          <div class="campo"><label for="f_video">Vídeo o tour virtual (enlace)</label><input id="f_video" data-k="video" placeholder="https://…"></div>
+        </div>
+      </div>
+
+      <div class="seccion">
+        <h2>Notas del agente</h2>
+        <p class="ayuda">Todo lo que la IA no puede saber por los datos: por qué es especial, para quién es, estado real, reformas, vistas, vecindario, condiciones de venta, plazos. Cuanto más concreto, mejor texto.</p>
+        <div class="campos dos">
+          <div class="campo"><label for="f_notas">Puntos fuertes y contexto</label><textarea id="f_notas" data-k="notas" placeholder="Ej.: reformada en 2022 por estudio de arquitectura, vistas al mar desde todas las estancias, la parcela colinda con el campo de golf, se vende con muebles de diseño…"></textarea></div>
+          <div class="campo"><label for="f_saber">Lo que hay que saber (se publica como aviso honesto)</label><textarea id="f_saber" data-k="saber" placeholder="Ej.: comunidad alta por la seguridad 24 h, la piscina necesita climatización, el garaje es para dos coches y no cuatro…"></textarea></div>
+        </div>
+      </div>
+
+      <div class="seccion">
+        <h2>Título y descripciones</h2>
+        <div class="ia-caja">
+          <div class="txt"><b>Redactar con IA.</b> Genera título, resumen corto y descripción en español e inglés a partir de los datos, los extras, las estancias fotografiadas y sus notas, siguiendo la guía de redacción de W. Las características de la ficha salen de los extras marcados. Revise siempre antes de publicar. <span id="iaEstado"></span></div>
+          <button class="btn primario" id="btnIA">Redactar con IA</button>
+        </div>
+        <div class="dosidiomas">
+          <div>
+            <div class="campo"><label for="t_tituloEs">Título (ES)</label><input id="t_tituloEs" data-t="tituloEs"></div>
+            <div class="campo" style="margin-top:10px"><label for="t_entradillaEs">Resumen corto (ES)</label><textarea id="t_entradillaEs" data-t="entradillaEs" style="min-height:64px"></textarea></div>
+            <div class="campo" style="margin-top:10px"><label for="t_descripcionEs">Descripción (ES)</label><textarea id="t_descripcionEs" data-t="descripcionEs" style="min-height:220px"></textarea></div>
+          </div>
+          <div>
+            <div class="campo"><label for="t_tituloEn">Title (EN)</label><input id="t_tituloEn" data-t="tituloEn"></div>
+            <div class="campo" style="margin-top:10px"><label for="t_entradillaEn">Short summary (EN)</label><textarea id="t_entradillaEn" data-t="entradillaEn" style="min-height:64px"></textarea></div>
+            <div class="campo" style="margin-top:10px"><label for="t_descripcionEn">Description (EN)</label><textarea id="t_descripcionEn" data-t="descripcionEn" style="min-height:220px"></textarea></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<div class="pie" id="pie" hidden>
+  <span class="estado" id="estadoGuardado">Sin cambios</span>
+  <label for="f_asesor" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2)">Asesor</label>
+  <select id="f_asesor" data-k="asesor"><option>Álvaro Serrano</option><option>Tomás Ibáñez</option><option>Sofía Lund</option><option>Diego Pastor</option></select>
+  <label for="f_estadoPub" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2)">Estado</label>
+  <select id="f_estadoPub" data-k="estadoPublicacion"><option value="borrador">Borrador</option><option value="revision">En revisión</option><option value="publicada">Publicada</option><option value="retirada">Retirada</option></select>
+  <button class="btn primario" id="btnGuardar">Guardar</button>
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const GRUPOS_EXTRAS = [
+    ['Exterior', [['piscinaPrivada','Piscina privada'],['piscinaClimatizada','Piscina climatizada'],['piscinaComunitaria','Piscina comunitaria'],['jardin','Jardín privado'],['solarium','Solárium'],['jacuzzi','Jacuzzi'],['padel','Pista de pádel'],['garaje','Garaje'],['aparcamiento','Aparcamiento']]],
+    ['Vistas y entorno', [['vistasMar','Vistas al mar'],['vistasGolf','Vistas al golf'],['vistasMontana','Vistas a la montaña'],['primeraLinea','Primera línea de playa'],['golf','Junto a campo de golf'],['seguridad','Seguridad 24 h']]],
+    ['Interior', [['gimnasio','Gimnasio'],['spa','Spa o sauna'],['cine','Sala de cine'],['bodega','Bodega'],['servicio','Zona de servicio'],['apartamentoInvitados','Apartamento de invitados'],['trastero','Trastero'],['amueblado','Amueblado']]],
+    ['Instalaciones', [['ascensor','Ascensor'],['aireAcondicionado','Aire acondicionado'],['suelosRadiantes','Suelo radiante'],['domotica','Domótica'],['placasSolares','Placas solares']]]
+  ];
+  const EXTRAS = GRUPOS_EXTRAS.flatMap(g => g[1]);
+  const ESTANCIAS = ['Exterior','Fachada','Salón','Comedor','Cocina','Dormitorio principal','Dormitorio','Baño','Terraza','Piscina','Jardín','Vistas','Garaje','Zonas comunes','Gimnasio o spa','Plano','Otro'];
+  const ESTADOS = { borrador:'Borrador', revision:'En revisión', publicada:'Publicada', retirada:'Retirada' };
+  const claude = window.claude || {};
+  const idNuevo = (pre) => pre + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+
+  /* ---------- almacén: Claude (artifact) · Firebase (web con login) · Local (navegador, demostración) ---------- */
+  function almacenClaude(c) {
+    return { modo: 'claude', aviso: '', iniciar: async () => {}, usuario: () => null,
+      lista: (cb, err) => c.db.collection('propiedades').orderBy('actualizado', 'desc').limit(500).onSnapshot(s => cb(s.docs.filter(d => d.exists).map(d => d.data())), err),
+      vigilar: (id, cb) => c.db.doc('propiedades/' + id).onSnapshot(s => cb(s.exists ? s.data() : null, s.metadata.hasPendingWrites), () => {}),
+      guardar: (doc) => c.db.doc('propiedades/' + doc.id).set(doc),
+      borrar: (id) => c.db.doc('propiedades/' + id).delete(),
+      subir: async (blob, type) => { if (!c.assets) throw { code: 'capability_disabled' }; const r = await c.assets.upload(blob, { type }); return { id: r.id, bytes: r.sizeBytes }; },
+      url: (f) => '_blob/' + f.id,
+      redactar: typeof c.sample === 'function' ? async (prompt) => { const r = await c.sample({ prompt, modelTier: 'complex' }); return { texto: r.completion, modelo: r.modelTierApplied }; } : null };
+  }
+  function almacenFirebase(cfg) {
+    let db, st, auth;
+    const cargar = (src) => new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+    const V = '10.14.1';
+    return { modo: 'firebase', aviso: '',
+      iniciar: async () => {
+        for (const m of ['app', 'auth', 'firestore', 'storage']) await cargar(`https://www.gstatic.com/firebasejs/${V}/firebase-${m}-compat.js`);
+        firebase.initializeApp(cfg); auth = firebase.auth(); db = firebase.firestore(); st = firebase.storage();
+        await new Promise(res => { const u = auth.onAuthStateChanged(() => { u(); res(); }); });
+      },
+      usuario: () => auth.currentUser ? { email: auth.currentUser.email, nombre: auth.currentUser.displayName || auth.currentUser.email } : null,
+      entrar: (email, pass) => auth.signInWithEmailAndPassword(email, pass),
+      salir: () => auth.signOut(),
+      lista: (cb, err) => db.collection('propiedades').orderBy('actualizado', 'desc').limit(500).onSnapshot(s => cb(s.docs.map(d => d.data())), err),
+      vigilar: (id, cb) => db.collection('propiedades').doc(id).onSnapshot(s => cb(s.exists ? s.data() : null, s.metadata.hasPendingWrites), () => {}),
+      guardar: (doc) => db.collection('propiedades').doc(doc.id).set(JSON.parse(JSON.stringify(doc))),
+      borrar: (id) => db.collection('propiedades').doc(id).delete(),
+      subir: async (blob, type) => { const id = idNuevo('f'); const ref = st.ref(`propiedades/${id}.${type === 'application/pdf' ? 'pdf' : 'jpg'}`); await ref.put(blob, { contentType: type }); return { id, bytes: blob.size, url: await ref.getDownloadURL() }; },
+      url: (f) => f.url || '',
+      redactar: null };
+  }
+  function almacenLocal() {
+    let bd; const urls = new Map(); const oyentes = new Set(); const oyentesDoc = new Map();
+    const abrirBD = () => new Promise((res, rej) => { const r = indexedDB.open('portal-w', 1); r.onupgradeneeded = () => { r.result.createObjectStore('propiedades', { keyPath: 'id' }); r.result.createObjectStore('archivos', { keyPath: 'id' }); }; r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+    const op = (store, modo, fn) => new Promise((res, rej) => { const tx = bd.transaction(store, modo); const r = fn(tx.objectStore(store)); tx.oncomplete = () => res(r ? r.result : undefined); tx.onerror = () => rej(tx.error); });
+    const ordenar = (l) => l.sort((a, b) => String(b.actualizado || '').localeCompare(String(a.actualizado || '')));
+    const todas = async () => ordenar((await op('propiedades', 'readonly', s => s.getAll())) || []);
+    const avisar = async () => { const l = await todas(); oyentes.forEach(cb => cb(l)); for (const [id, cbs] of oyentesDoc) { const d = l.find(x => x.id === id) || null; cbs.forEach(cb => cb(d, false)); } };
+    return { modo: 'local', aviso: 'Versión abierta de demostración: las propiedades y las fotos se guardan solo en este navegador y no las ve nadie más. La versión definitiva, con acceso por usuario, irá en portal.wrealestate.es.',
+      iniciar: async () => { bd = await abrirBD(); ((await op('archivos', 'readonly', s => s.getAll())) || []).forEach(f => urls.set(f.id, URL.createObjectURL(f.blob))); },
+      usuario: () => null,
+      lista: (cb) => { oyentes.add(cb); todas().then(cb); return () => oyentes.delete(cb); },
+      vigilar: (id, cb) => { if (!oyentesDoc.has(id)) oyentesDoc.set(id, new Set()); oyentesDoc.get(id).add(cb); return () => oyentesDoc.get(id).delete(cb); },
+      guardar: async (doc) => { await op('propiedades', 'readwrite', s => s.put(JSON.parse(JSON.stringify(doc)))); avisar(); },
+      borrar: async (id) => { await op('propiedades', 'readwrite', s => s.delete(id)); avisar(); },
+      subir: async (blob, type, nombre) => { const id = idNuevo('l'); await op('archivos', 'readwrite', s => s.put({ id, blob, type, nombre })); urls.set(id, URL.createObjectURL(blob)); return { id, bytes: blob.size }; },
+      url: (f) => urls.get(f.id) || '',
+      redactar: null };
+  }
+  const A = claude.db ? almacenClaude(claude) : window.CONFIG_FIREBASE ? almacenFirebase(window.CONFIG_FIREBASE) : almacenLocal();
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  let lista = [], actual = null, sucio = false, guardando = null, timer = null, soloLectura = false;
+
+  const nuevoId = () => 'w' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const vacia = () => ({ id: nuevoId(), ref: '', segmento: 'segunda-mano', tipo: 'Villa', subtipo: '', estadoCons: 'Excelente', anio: '', municipio: 'Marbella', urbanizacion: '', orientacion: '', direccion: '',
+    precio: '', precioHasta: '', dorm: '', banos: '', built: '', plot: '', terraza: '', plantas: '', energia: '', comunidad: '', ibi: '', lpo: '', extras: [], extrasPropios: [],
+    promocion: '', promotor: '', entrega: '', unidades: '', fase: 'Sobre plano', licenciaObra: '', tipologias: [],
+    fotos: [], documentos: [], video: '', notas: '', saber: '',
+    textos: { tituloEs: '', tituloEn: '', entradillaEs: '', entradillaEn: '', descripcionEs: '', descripcionEn: '' },
+    estadoPublicacion: 'borrador', asesor: 'Álvaro Serrano', creadoPor: '', creado: new Date().toISOString(), actualizado: new Date().toISOString(), modo: 'manual', ia: null, iaTextos: null });
+
+  /* ---------- números con puntos de miles y coma decimal ---------- */
+  const fmtNum = (v) => { if (v === '' || v == null || !Number.isFinite(Number(v))) return ''; const [e, d] = String(v).split('.'); return e.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (d ? ',' + d : ''); };
+  const parseNum = (s) => { const limpio = String(s || '').replace(/\./g, '').replace(/[^\d,]/g, '').replace(',', '.'); if (limpio === '' || limpio === '.') return ''; const n = Number(limpio); return Number.isFinite(n) ? n : ''; };
+  function formatearEnVivo(el) {
+    const s = el.value; const pos = el.selectionStart; const antes = s.slice(0, pos).replace(/[^\d,]/g, '').length;
+    let limpio = s.replace(/[^\d,]/g, ''); const i = limpio.indexOf(','); if (i > -1) limpio = limpio.slice(0, i + 1) + limpio.slice(i + 1).replace(/,/g, '').slice(0, 2);
+    const [e, d] = limpio.split(','); const out = (e || '').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (d != null ? ',' + d : '');
+    el.value = out;
+    let c = 0, k = 0; while (k < out.length && c < antes) { if (/[\d,]/.test(out[k])) c++; k++; } el.setSelectionRange(k, k);
+  }
+
+  /* ---------- agente ---------- */
+  const agente = $('#agente');
+  try { agente.value = localStorage.getItem('portalw.agente') || ''; } catch {}
+  agente.addEventListener('change', () => { try { localStorage.setItem('portalw.agente', agente.value); } catch {} });
+
+  /* ---------- extras ---------- */
+  $('#extras').innerHTML = GRUPOS_EXTRAS.map(([g, lista]) => `<div class="grupo"><span class="gnom">${g}</span><div class="chips">${lista.map(([k, n]) => `<label><input type="checkbox" value="${k}">${n}</label>`).join('')}</div></div>`).join('')
+    + `<div class="grupo"><span class="gnom">Propios</span><div class="chips" id="propios"></div></div>`;
+  function pintarPropios() {
+    const p = (actual && actual.extrasPropios) || [];
+    $('#propios').innerHTML = p.map((n, i) => `<span class="propio">${esc(n)}<button type="button" data-quitarpropio="${i}" aria-label="Quitar">×</button></span>`).join('')
+      + `<span class="anadir"><input id="nuevoPropio" placeholder="Añadir extra propio…" maxlength="60" autocomplete="off"><button type="button" id="btnPropio">Añadir</button></span>`;
+  }
+  function anadirPropio() {
+    const inp = $('#nuevoPropio'); const v = (inp.value || '').trim().replace(/\s+/g, ' ');
+    if (!v || !actual) return;
+    actual.extrasPropios = actual.extrasPropios || [];
+    if (!actual.extrasPropios.some(x => x.toLowerCase() === v.toLowerCase())) actual.extrasPropios.push(v);
+    pintarPropios(); $('#nuevoPropio').focus(); cambiado();
+  }
+  $('#extras').addEventListener('click', (e) => {
+    if (e.target.id === 'btnPropio') return anadirPropio();
+    const b = e.target.closest('[data-quitarpropio]'); if (!b) return;
+    actual.extrasPropios.splice(Number(b.dataset.quitarpropio), 1); pintarPropios(); cambiado();
+  });
+  $('#extras').addEventListener('keydown', (e) => { if (e.target.id === 'nuevoPropio' && e.key === 'Enter') { e.preventDefault(); anadirPropio(); } });
+
+  /* ---------- lista ---------- */
+  const eur = (n) => n ? Number(n).toLocaleString('es-ES') + ' €' : 'Sin precio';
+  const nombreDe = (p) => (p.textos && p.textos.tituloEs) || [p.tipo, p.urbanizacion || p.municipio].filter(Boolean).join(' en ') || 'Nueva propiedad';
+  const portadaDe = (p) => (p.fotos && p.fotos[0]) ? A.url(p.fotos[0]) : '';
+  function pintarLista() {
+    const filtro = $('#filtroEstado').value;
+    const items = lista.filter(p => !filtro || p.estadoPublicacion === filtro);
+    const cont = $('#items');
+    if (!items.length) { cont.innerHTML = `<div class="vacio">${lista.length ? 'Ninguna propiedad con ese estado.' : 'Todavía no hay propiedades. Pulse «Nueva» para dar de alta la primera.'}</div>`; return; }
+    cont.innerHTML = items.map(p => `<div class="item ${actual && actual.id === p.id ? 'activo' : ''}" data-id="${p.id}">
+      ${portadaDe(p) ? `<img class="foto" src="${portadaDe(p)}" alt="">` : '<div class="foto"></div>'}
+      <div><div class="nombre">${esc(nombreDe(p))}</div><div class="meta"><span>${p.ref ? esc(p.ref) + ' · ' : ''}${p.segmento === 'obra-nueva' ? 'desde ' : ''}${eur(p.precio)}</span></div>
+      <div class="meta" style="margin-top:4px"><span class="chip ${p.estadoPublicacion}">${ESTADOS[p.estadoPublicacion] || p.estadoPublicacion}</span>${p.segmento === 'obra-nueva' ? '<span class="chip obra">Obra nueva</span>' : ''}${p.ia && p.ia.estado === 'pendiente' ? '<span class="chip ia-pendiente">IA en cola</span>' : p.ia && p.ia.estado === 'listo' ? '<span class="chip ia-listo">IA</span>' : p.ia && p.ia.estado === 'error' ? '<span class="chip ia-pendiente">IA con error</span>' : ''}<span>${(p.fotos || []).length} fotos</span></div></div></div>`).join('');
+  }
+  $('#items').addEventListener('click', (e) => { const it = e.target.closest('.item'); if (!it) return; const p = lista.find(x => x.id === it.dataset.id); if (p) abrir(structuredClone(p)); });
+  $('#filtroEstado').addEventListener('change', pintarLista);
+
+  function suscribir() {
+    A.lista(l => { lista = l; pintarLista(); }, err => { $('#items').innerHTML = `<div class="vacio">No se pudo cargar la lista (${esc(err && err.code || 'error')}).</div>`; });
+  }
+
+  /* ---------- editor ---------- */
+  let docUnsub = null;
+  function vigilar(id) {
+    if (docUnsub) { docUnsub(); docUnsub = null; }
+    docUnsub = A.vigilar(id, (d, pendiente) => {
+      if (!d || !actual || actual.id !== id || pendiente) return;
+      const remotoIA = d.ia && d.ia.estado, localIA = actual.ia && actual.ia.estado;
+      if (remotoIA !== localIA && (remotoIA === 'listo' || remotoIA === 'error' || remotoIA === 'pendiente')) { abrir(structuredClone(d)); }
+    });
+  }
+  function enVistaIA(p) { return p.modo === 'ia' && (!p.ia || p.ia.estado === 'pendiente' || p.ia.estado === 'error'); }
+  function abrir(p) {
+    actual = p; sucio = false;
+    $('#inicio').classList.add('oculto');
+    if (enVistaIA(p)) { $('#editor').classList.add('oculto'); $('#vistaIA').classList.remove('oculto'); $('#pie').hidden = true; pintarVistaIA(); pintarLista(); vigilar(p.id); window.scrollTo({ top: 0 }); return; }
+    $('#vistaIA').classList.add('oculto'); $('#editor').classList.remove('oculto'); $('#pie').hidden = false;
+    $$('[data-k]').forEach(el => { const v = p[el.dataset.k]; el.value = el.hasAttribute('data-num') ? fmtNum(v) : (v == null ? '' : v); });
+    $$('[data-t]').forEach(el => { el.value = (p.textos || {})[el.dataset.t] || ''; });
+    $$('#extras input[type=checkbox]').forEach(i => { i.checked = (p.extras || []).includes(i.value); });
+    pintarPropios();
+    $$('.segmento button').forEach(b => b.classList.toggle('on', b.dataset.seg === p.segmento));
+    aplicarSegmento(); pintarFotos(); pintarTipologias(); pintarDocs(); cabecera(); estado('Sin cambios'); pintarLista(); marcarIA(); bannerIA(); vigilar(p.id);
+    window.scrollTo({ top: 0 });
+  }
+  /* Marcas «IA» en los campos que rellenó el W AI Agent; se quitan al editar el campo. */
+  function marcarIA() {
+    $$('.campo.ia-on').forEach(c => c.classList.remove('ia-on')); $$('.chips label.ia-on').forEach(c => c.classList.remove('ia-on'));
+    const campos = (actual.ia && actual.ia.estado === 'listo' && actual.ia.campos) || [];
+    campos.forEach(k => {
+      const el = $(`[data-k="${k}"], [data-t="${k}"]`); if (el && el.closest('.campo')) el.closest('.campo').classList.add('ia-on');
+      if (k === 'extras') (actual.extras || []).forEach(v => { const i = $(`#extras input[value="${v}"]`); if (i) i.closest('label').classList.add('ia-on'); });
+    });
+  }
+  function bannerIA() {
+    const ia = actual.ia; const b = $('#bannerIA');
+    if (!ia || ia.estado !== 'listo' || ia.bannerCerrado) { b.hidden = true; return; }
+    const faltan = (ia.faltan || []).join(', ');
+    $('#bannerIAtxt').innerHTML = `<b>El W AI Agent ha analizado ${(actual.fotos || []).length} fotos.</b> Los campos marcados con <span class="etiqueta-ia" style="margin-left:0">IA</span> los ha rellenado la IA: revíselos y corrija lo que haga falta.${ia.observaciones ? ' ' + esc(ia.observaciones) : ''}${faltan ? `<ul><li>Pendiente de completar por el agente: ${esc(faltan)}.</li></ul>` : ''}`;
+    b.hidden = false;
+  }
+  $('#bannerIAcerrar').addEventListener('click', () => { actual.ia.bannerCerrado = true; $('#bannerIA').hidden = true; cambiado(); });
+  function cabecera() {
+    $('#tituloEditor').textContent = nombreDe(actual);
+    const f = new Date(actual.actualizado);
+    $('#subEditor').textContent = `${actual.ref ? actual.ref + ' · ' : ''}${ESTADOS[actual.estadoPublicacion]} · actualizada ${f.toLocaleDateString('es-ES')} ${f.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}${actual.creadoPor ? ' · alta de ' + actual.creadoPor : ''}`;
+  }
+  function aplicarSegmento() {
+    const obra = actual.segmento === 'obra-nueva';
+    $('#secObra').hidden = !obra; $('#campoPrecioHasta').hidden = !obra;
+    $('#campoPrecio label').textContent = obra ? 'Precio desde (€)' : 'Precio (€)';
+    $('#ayudaDatos').textContent = obra ? 'Para una promoción, indique el rango de precios y los datos de la unidad más representativa; el detalle va en las tipologías.' : ''; $('#ayudaDatos').hidden = !obra;
+  }
+  $$('.segmento button').forEach(b => b.addEventListener('click', () => { actual.segmento = b.dataset.seg; $$('.segmento button').forEach(x => x.classList.toggle('on', x === b)); aplicarSegmento(); cambiado(); }));
+  document.addEventListener('input', (e) => {
+    const el = e.target; if (!actual) return;
+    if (el.hasAttribute('data-num')) { formatearEnVivo(el); if (el.dataset.k) actual[el.dataset.k] = parseNum(el.value); }
+    else if (el.dataset.k) { actual[el.dataset.k] = el.type === 'number' ? (el.value === '' ? '' : Number(el.value)) : el.value; }
+    else if (el.dataset.t) { actual.textos = actual.textos || {}; actual.textos[el.dataset.t] = el.value; }
+    else if (el.id === 'nuevoPropio') { return; }
+    else if (el.closest('#extras')) { actual.extras = $$('#extras input[type=checkbox]:checked').map(i => i.value); }
+    else if (el.closest('#tipologias')) { if (el.hasAttribute('data-num')) formatearEnVivo(el); leerTipologias(); }
+    else return;
+    cambiado();
+  });
+  document.addEventListener('change', (e) => { if (e.target.closest('#extras') || e.target.dataset.k === 'estadoPublicacion' || e.target.dataset.k === 'asesor') { if (e.target.closest('#extras')) { if (e.target.id === 'nuevoPropio') return; actual.extras = $$('#extras input[type=checkbox]:checked').map(i => i.value); } else actual[e.target.dataset.k] = e.target.value; cambiado(); } });
+  document.addEventListener('input', (e) => { const c = e.target.closest('.campo.ia-on'); if (c) c.classList.remove('ia-on'); });
+  function cambiado() { sucio = true; estado('Cambios sin guardar'); cabecera(); clearTimeout(timer); timer = setTimeout(guardar, 1200); }
+  function estado(t, err) { const el = $('#estadoGuardado'); el.textContent = t; el.classList.toggle('err', !!err); }
+
+  async function guardar() {
+    if (!actual || soloLectura) return;
+    clearTimeout(timer);
+    if (guardando) { sucio = true; return; }
+    actual.actualizado = new Date().toISOString();
+    if (!actual.creadoPor) actual.creadoPor = agente.value || '';
+    const copia = structuredClone(actual); sucio = false;
+    estado('Guardando…');
+    guardando = Promise.resolve(A.guardar(copia)).then(() => { estado('Guardado ' + new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })); })
+      .catch(e => { if (e && e.code === 'not_granted') { soloLectura = true; $('#avisoLectura').hidden = false; estado('Modo lectura: no se puede guardar', true); } else estado('No se pudo guardar (' + (e && e.code || 'error') + '). Reintente.', true); sucio = true; })
+      .finally(() => { guardando = null; if (sucio) guardar(); });
+    return guardando;
+  }
+  $('#btnGuardar').addEventListener('click', guardar);
+  window.addEventListener('beforeunload', (e) => { if (sucio) { e.preventDefault(); e.returnValue = ''; } });
+
+  function nueva() { $('#velo').hidden = false; }
+  $('#opCerrar').addEventListener('click', () => { $('#velo').hidden = true; });
+  $('#velo').addEventListener('click', (e) => { if (e.target.id === 'velo') $('#velo').hidden = true; });
+  $('#opManual').addEventListener('click', () => { $('#velo').hidden = true; crear('manual'); });
+  $('#opIA').addEventListener('click', () => { $('#velo').hidden = true; crear('ia'); });
+  async function crear(modo) {
+    if (sucio) await guardar();
+    const p = vacia(); p.modo = modo;
+    const max = lista.reduce((m, x) => { const n = /^W-(\d+)$/i.exec(String(x.ref || '').trim()); return n ? Math.max(m, Number(n[1])) : m; }, 0);
+    p.ref = 'W-' + String(max + 1).padStart(4, '0');
+    p.creadoPor = agente.value || '';
+    abrir(p); sucio = true; if (modo === 'manual') estado('Nueva propiedad sin guardar'); else guardar();
+  }
+  $('#btnNueva').addEventListener('click', nueva); $('#btnNueva2').addEventListener('click', nueva);
+  $('#btnBorrarIA').addEventListener('click', () => $('#btnBorrar').click());
+  $('#btnIAaManual').addEventListener('click', () => { actual.modo = 'manual'; abrir(actual); cambiado(); });
+  $('#btnBorrar').addEventListener('click', async () => {
+    if (!actual) return;
+    if (!confirm(`¿Eliminar «${nombreDe(actual)}»? Las fotos subidas quedan en el almacén del portal pero la propiedad desaparece de la lista y de la próxima sincronización.`)) return;
+    clearTimeout(timer); sucio = false;
+    try { await A.borrar(actual.id); } catch (e) { estado('No se pudo eliminar (' + (e && e.code || 'error') + ')', true); return; }
+    actual = null; $('#editor').classList.add('oculto'); $('#vistaIA').classList.add('oculto'); $('#inicio').classList.remove('oculto'); $('#pie').hidden = true; if (docUnsub) { docUnsub(); docUnsub = null; }
+  });
+
+  /* ---------- tipologías ---------- */
+  function pintarTipologias() {
+    const tb = $('#tipologias');
+    tb.innerHTML = (actual.tipologias || []).map((t, i) => `<tr>
+      <td><input data-ti="${i}" data-tk="nombre" value="${esc(t.nombre)}" placeholder="Apartamento 2 dorm."></td>
+      <td><input data-ti="${i}" data-tk="dorm" type="number" min="0" value="${esc(t.dorm)}"></td>
+      <td><input data-ti="${i}" data-tk="built" data-num inputmode="decimal" value="${fmtNum(t.built)}"></td>
+      <td><input data-ti="${i}" data-tk="precio" data-num inputmode="decimal" value="${fmtNum(t.precio)}"></td>
+      <td><input data-ti="${i}" data-tk="unidades" type="number" min="0" value="${esc(t.unidades)}"></td>
+      <td><button class="btn suave mini" data-quitar="${i}" type="button">Quitar</button></td></tr>`).join('');
+  }
+  function leerTipologias() {
+    const filas = {};
+    $$('#tipologias input').forEach(i => { const k = i.dataset.ti; filas[k] = filas[k] || {}; filas[k][i.dataset.tk] = i.hasAttribute('data-num') ? parseNum(i.value) : i.type === 'number' ? (i.value === '' ? '' : Number(i.value)) : i.value; });
+    actual.tipologias = Object.keys(filas).sort((a, b) => a - b).map(k => filas[k]);
+  }
+  $('#btnTipologia').addEventListener('click', () => { actual.tipologias = actual.tipologias || []; actual.tipologias.push({ nombre: '', dorm: '', built: '', precio: '', unidades: '' }); pintarTipologias(); cambiado(); });
+  $('#tipologias').addEventListener('click', (e) => { const b = e.target.closest('[data-quitar]'); if (!b) return; actual.tipologias.splice(Number(b.dataset.quitar), 1); pintarTipologias(); cambiado(); });
+
+  /* ---------- fotos ---------- */
+  function zonaDeSubida(zona, input) {
+    zona.addEventListener('click', () => input.click());
+    ['dragenter', 'dragover'].forEach(ev => zona.addEventListener(ev, (e) => { e.preventDefault(); zona.classList.add('sobre'); }));
+    ['dragleave', 'drop'].forEach(ev => zona.addEventListener(ev, (e) => { e.preventDefault(); zona.classList.remove('sobre'); }));
+    zona.addEventListener('drop', (e) => subirFotos(Array.from(e.dataTransfer.files || [])));
+    input.addEventListener('change', () => { subirFotos(Array.from(input.files || [])); input.value = ''; });
+  }
+  zonaDeSubida($('#zonaSubida'), $('#inputFotos'));
+  zonaDeSubida($('#zonaSubidaIA'), $('#inputFotosIA'));
+  const progreso = () => enVistaIA(actual) ? $('#progresoIA') : $('#progreso');
+
+  async function redimensionar(file, max = 1920) {
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+    const esc = Math.min(1, max / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas'); c.width = Math.round(bmp.width * esc); c.height = Math.round(bmp.height * esc);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height); bmp.close && bmp.close();
+    return new Promise(res => c.toBlob(b => res({ blob: b, w: c.width, h: c.height }), 'image/jpeg', 0.86));
+  }
+  async function subirFotos(files) {
+    if (!actual) return;
+    files = files.filter(f => /^image\/(jpeg|png|webp)$/.test(f.type));
+    if (!files.length) return;
+    let n = 0;
+    for (const f of files) {
+      n++; progreso().textContent = `Subiendo foto ${n} de ${files.length}…`;
+      try {
+        const { blob, w, h } = await redimensionar(f);
+        const r = await A.subir(blob, 'image/jpeg', f.name);
+        actual.fotos = actual.fotos || [];
+        actual.fotos.push({ id: r.id, ...(r.url ? { url: r.url } : {}), etiqueta: '', ancho: w, alto: h, bytes: r.bytes, nombre: f.name });
+        pintarFotos(); cambiado();
+      } catch (e) {
+        const c = e && e.code;
+        progreso().textContent = c === 'not_granted' ? 'Solo los editores del portal pueden subir fotos.' : c === 'too_large' ? `«${f.name}» supera el tamaño permitido.` : c === 'quota_or_state' ? 'El almacén del portal está lleno; avise al administrador.' : `No se pudo subir «${f.name}» (${c || 'error'}).`;
+        if (c === 'not_granted') { soloLectura = true; $('#avisoLectura').hidden = false; return; }
+        continue;
+      }
+    }
+    progreso().textContent = `${actual.fotos.length} fotos en la propiedad.`;
+  }
+  function pintarFotos() {
+    const fs = actual.fotos || [];
+    if (enVistaIA(actual)) { pintarVistaIA(); return; }
+    $('#fotos').innerHTML = fs.map((f, i) => `<div class="fotoc">
+      <img src="${A.url(f)}" alt="" loading="lazy">${i === 0 ? '<span class="portada">Portada</span>' : ''}<span class="num">${i + 1}</span>
+      <select data-etq="${i}" aria-label="Estancia"><option value="">Estancia…</option>${ESTANCIAS.map(e => `<option ${f.etiqueta === e ? 'selected' : ''}>${e}</option>`).join('')}</select>
+      <div class="acc"><button type="button" data-mv="${i}:-1" title="Mover antes">←</button><button type="button" data-mv="${i}:1" title="Mover después">→</button><button type="button" data-portada="${i}">Portada</button><button type="button" data-borrarf="${i}">Quitar</button></div></div>`).join('');
+    $('#progreso').textContent = fs.length ? `${fs.length} fotos · ${fs.filter(x => x.etiqueta).length} con estancia` : '';
+  }
+  $('#fotos').addEventListener('change', (e) => { const s = e.target.closest('[data-etq]'); if (!s) return; actual.fotos[Number(s.dataset.etq)].etiqueta = s.value; pintarFotos(); cambiado(); });
+  $('#fotos').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    const fs = actual.fotos;
+    if (b.dataset.mv) { const [i, d] = b.dataset.mv.split(':').map(Number); const j = i + d; if (j < 0 || j >= fs.length) return; [fs[i], fs[j]] = [fs[j], fs[i]]; }
+    else if (b.dataset.portada != null) { const [f] = fs.splice(Number(b.dataset.portada), 1); fs.unshift(f); }
+    else if (b.dataset.borrarf != null) { fs.splice(Number(b.dataset.borrarf), 1); }
+    pintarFotos(); cambiado();
+  });
+
+  /* ---------- W AI Agent ---------- */
+  function pintarVistaIA() {
+    const p = actual, fs = p.fotos || [], ia = p.ia;
+    $('#tituloIA').textContent = ia && ia.estado === 'pendiente' ? 'Analizando las fotos' : ia && ia.estado === 'error' ? 'El análisis no se completó' : 'Suba las fotos de la propiedad';
+    $('#subIA').textContent = `${p.ref || ''} · ${fs.length} fotos${p.creadoPor ? ' · alta de ' + p.creadoPor : ''}`;
+    $$('#vistaIA [data-k]').forEach(el => { el.value = p[el.dataset.k] == null ? '' : p[el.dataset.k]; });
+    $('#fotosIA').innerHTML = fs.map((f, i) => `<div class="fotoc"><img src="${A.url(f)}" alt="" loading="lazy">${i === 0 ? '<span class="portada">Portada</span>' : ''}<span class="num">${i + 1}</span><div class="acc"><button type="button" data-borrarf="${i}">Quitar</button></div></div>`).join('');
+    const pendiente = ia && ia.estado === 'pendiente';
+    $('#secFotosIA').hidden = pendiente; $('#secNotasIA').hidden = pendiente; $('#btnProcesar').parentElement.hidden = pendiente;
+    $('#btnProcesar').disabled = fs.length < 3;
+    $('#notaProcesar').textContent = fs.length < 3 ? 'Suba al menos tres fotos para procesar.' : 'Al procesar, la propiedad pasa a la cola del W AI Agent. Puede cerrar la página mientras tanto.';
+    const est = $('#estadoIA');
+    if (!ia) { est.hidden = true; return; }
+    est.hidden = false; est.className = 'estadoIA ' + ia.estado;
+    const desde = ia.solicitado ? new Date(ia.solicitado).toLocaleString('es-ES', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '';
+    est.innerHTML = ia.estado === 'pendiente'
+      ? `<span class="punto"></span><div><h3>En cola del W AI Agent</h3><p>Solicitado el ${desde}${ia.por ? ' por ' + esc(ia.por) : ''}. ${A.modo === 'local' ? 'En esta versión de demostración el análisis no está conectado: se activará con el servidor de W. Puede pasar a alta manual cuando quiera.' : 'El análisis se ejecuta en el servidor de W y suele tardar unos minutos: identifica el tipo de propiedad, etiqueta las estancias, marca extras y redacta los textos. Esta página se actualiza sola cuando termine.'}</p></div><div class="acc"><button class="btn mini" id="btnCancelarIA">Cancelar y editar a mano</button></div>`
+      : `<span class="punto"></span><div><h3>No se pudo completar el análisis</h3><p>${esc(ia.error || 'Error desconocido.')} Puede volver a procesar o pasar a alta manual.</p></div><div class="acc"><button class="btn mini" id="btnReprocesar">Procesar de nuevo</button></div>`;
+  }
+  $('#fotosIA').addEventListener('click', (e) => { const b = e.target.closest('[data-borrarf]'); if (!b) return; actual.fotos.splice(Number(b.dataset.borrarf), 1); pintarVistaIA(); cambiado(); });
+  async function procesarIA() {
+    if (!actual || (actual.fotos || []).length < 3) return;
+    actual.ia = { estado: 'pendiente', solicitado: new Date().toISOString(), por: agente.value || '', intentos: ((actual.ia && actual.ia.intentos) || 0) + 1 };
+    pintarVistaIA(); pintarLista(); await guardar();
+  }
+  $('#btnProcesar').addEventListener('click', procesarIA);
+  $('#estadoIA').addEventListener('click', (e) => {
+    if (e.target.id === 'btnReprocesar') return procesarIA();
+    if (e.target.id === 'btnCancelarIA') { actual.ia = null; actual.modo = 'manual'; abrir(actual); cambiado(); }
+  });
+
+  /* ---------- documentos (PDF) ---------- */
+  $('#f_planos').addEventListener('change', async (e) => {
+    const files = Array.from(e.target.files || []).filter(f => f.type === 'application/pdf'); e.target.value = '';
+    if (!files.length || !actual) return;
+    for (const f of files) {
+      try { const r = await A.subir(f, 'application/pdf', f.name); actual.documentos = actual.documentos || []; actual.documentos.push({ id: r.id, ...(r.url ? { url: r.url } : {}), nombre: f.name, bytes: r.bytes }); pintarDocs(); cambiado(); }
+      catch (err) { $('#docsLista').textContent = `No se pudo subir «${f.name}» (${err && err.code || 'error'}).`; }
+    }
+  });
+  function pintarDocs() { const d = actual.documentos || []; $('#docsLista').innerHTML = d.length ? d.map((x, i) => `<a href="${A.url(x)}" target="_blank" rel="noopener">${esc(x.nombre)}</a> <button type="button" class="btn suave mini" data-quitardoc="${i}" style="padding:1px 6px">×</button>`).join(' · ') : 'Sin documentos.'; }
+  $('#docsLista').addEventListener('click', (e) => { const b = e.target.closest('[data-quitardoc]'); if (!b) return; actual.documentos.splice(Number(b.dataset.quitardoc), 1); pintarDocs(); cambiado(); });
+
+  /* ---------- IA ---------- */
+  function promptIA(p) {
+    const ex = [...(p.extras || []).map(k => (EXTRAS.find(e => e[0] === k) || [k, k])[1]), ...(p.extrasPropios || [])];
+    const est = {}; (p.fotos || []).forEach(f => { if (f.etiqueta) est[f.etiqueta] = (est[f.etiqueta] || 0) + 1; });
+    const fotos = Object.entries(est).map(([k, v]) => `${v} de ${k.toLowerCase()}`).join(', ') || 'sin etiquetar';
+    const obra = p.segmento === 'obra-nueva';
+    const datos = {
+      segmento: obra ? 'obra nueva (promoción)' : 'segunda mano', tipo: p.tipo, subtipo: p.subtipo, estado: p.estadoCons, anio: p.anio, municipio: p.municipio, urbanizacion: p.urbanizacion, orientacion: p.orientacion,
+      precio: obra ? `desde ${p.precio} € hasta ${p.precioHasta} €` : `${p.precio} €`, dormitorios: p.dorm, banos: p.banos, construidos_m2: p.built, parcela_m2: p.plot, terrazas_m2: p.terraza, plantas: p.plantas,
+      certificacion_energetica: p.energia || 'en trámite', comunidad_anual: p.comunidad, ibi_anual: p.ibi, licencia_primera_ocupacion: p.lpo || 'no consta', extras: ex,
+      fotos_por_estancia: fotos, total_fotos: (p.fotos || []).length,
+      ...(obra ? { promocion: p.promocion, promotor: p.promotor, entrega: p.entrega, unidades: p.unidades, fase: p.fase, licencia_obras: p.licenciaObra || 'no consta', tipologias: p.tipologias } : {}),
+      notas_del_agente: p.notas, lo_que_hay_que_saber: p.saber
+    };
+    return `Eres el redactor de W Real Estate, agencia inmobiliaria de lujo de la Costa del Sol (Marbella, Benahavís, Estepona, Sotogrande). Escribe en español de España y en inglés británico.
+
+GUÍA DE REDACCIÓN W (obligatoria):
+- Título: nombre de la casa si lo hay o el tipo + rasgo distintivo + zona. Ejemplos: «Villa Olea · Villa contemporánea de obra nueva con vistas al mar en La Zagaleta», «Ático reformado con vistas panorámicas al mar en Sierra Blanca». Sin adjetivos vacíos («espectacular», «impresionante», «de ensueño»).
+- Resumen corto: una sola frase de 25-40 palabras con los cuatro datos que un comprador quiere primero: qué es, dónde, tamaño o distribución si se conoce, y el argumento principal (vistas, privacidad, obra nueva, parcela, ocio).
+- Descripción: 200-300 palabras en cuatro párrafos, sin subtítulos.
+  1. Posicionamiento: qué es, dónde y qué la hace distinta, en dos frases. Cita superficies, parcela, dormitorios y baños si están en los datos; nunca los inventes.
+  2. Arquitectura y distribución por plantas: materiales, orientación, luz, cómo se conectan salón, cocina, comedor y terrazas; dormitorios y baños; ala de invitados o servicio.
+  3. Exterior y ocio: piscina, jardín, terrazas, pádel, gimnasio, spa, cine, garaje. Cita instalaciones y marcas solo si constan en los datos o en las notas.
+  4. Ubicación y cierre: la urbanización y qué ofrece (seguridad, golf, club, playa, colegios), distancias si constan, y una frase final sobre el tipo de vida o de comprador. Sin llamada a la acción.
+- Tono: sobrio, concreto, en tercera persona, frases de 15-25 palabras. Nada de «bienvenido a», exclamaciones, mayúsculas enfáticas ni superlativos. Verbos activos: «abre», «se prolonga», «da a».
+- Solo hechos de los datos y de las notas. Lo desconocido no se menciona.
+
+Redacta la ficha de esta propiedad a partir SOLO de estos datos (JSON):
+${JSON.stringify(datos, null, 1)}
+
+Devuelve ÚNICAMENTE un objeto JSON válido, sin comentarios ni texto alrededor, con esta forma exacta:
+{
+ "tituloEs": "...", "tituloEn": "...",
+ "entradillaEs": "resumen corto", "entradillaEn": "short summary",
+ "descripcionEs": "cuatro párrafos separados por líneas en blanco", "descripcionEn": "..."
+}`;
+  }
+  const limpiarJSON = (s) => { const m = s.match(/\{[\s\S]*\}/); return JSON.parse(m ? m[0] : s); };
+  $('#btnIA').addEventListener('click', async () => {
+    if (!actual) return;
+    if (!A.redactar) { $('#iaEstado').textContent = 'La redacción con IA se activa con el servidor de W.'; $('#btnIA').hidden = true; return; }
+    const btn = $('#btnIA'); btn.disabled = true; $('#iaEstado').textContent = 'Redactando… suele tardar entre 20 y 40 segundos.';
+    try {
+      const { texto, modelo } = await A.redactar(promptIA(actual));
+      const j = limpiarJSON(texto);
+      const t = actual.textos = actual.textos || {};
+      for (const k of ['tituloEs', 'tituloEn', 'entradillaEs', 'entradillaEn', 'descripcionEs', 'descripcionEn']) if (j[k]) t[k] = String(j[k]);
+      actual.iaTextos = { fecha: new Date().toISOString(), modelo, por: agente.value || '' };
+      $$('[data-t]').forEach(el => { el.value = t[el.dataset.t] || ''; });
+      $('#iaEstado').textContent = 'Textos generados. Revíselos y corrija lo que haga falta.'; cambiado();
+    } catch (e) {
+      const c = e && e.code;
+      $('#iaEstado').textContent = c === 'not_granted' || c === 'sampling_disabled' || c === 'not_declared' ? 'La IA no está autorizada en esta vista.' : c === 'rate_limited' ? 'Límite de uso alcanzado; inténtelo en unos minutos.' : e instanceof SyntaxError ? 'La respuesta no se pudo interpretar; pulse de nuevo.' : 'No se pudo redactar (' + (c || 'error') + '). Inténtelo de nuevo.';
+      if (c === 'not_granted' || c === 'sampling_disabled' || c === 'not_declared') btn.hidden = true;
+    } finally { btn.disabled = false; }
+  });
+
+  function arrancar() {
+    if (A.modo === 'firebase') {
+      const u = A.usuario();
+      if (!u) { $('#login').hidden = false; $('#items').innerHTML = '<div class="vacio">Identifíquese para ver las propiedades.</div>'; return; }
+      $('#login').hidden = true; agente.value = u.nombre; agente.readOnly = true; $('#btnSalir').hidden = false;
+    }
+    if (A.aviso) { $('#avisoModo').textContent = A.aviso; $('#avisoModo').hidden = false; }
+    if (!A.redactar) $('#btnIA').hidden = true;
+    suscribir();
+  }
+  $('#formLogin').addEventListener('submit', async (e) => {
+    e.preventDefault(); $('#loginError').textContent = '';
+    try { await A.entrar($('#loginEmail').value.trim(), $('#loginPass').value); arrancar(); }
+    catch (err) { $('#loginError').textContent = /user-not-found|wrong-password|invalid-credential|invalid-login/.test(err && err.code || '') ? 'Correo o contraseña incorrectos.' : /too-many/.test(err && err.code || '') ? 'Demasiados intentos. Espere unos minutos.' : 'No se pudo iniciar sesión (' + (err && err.code || 'error') + ').'; }
+  });
+  $('#btnSalir').addEventListener('click', async () => { await A.salir(); location.reload(); });
+  A.iniciar().then(arrancar).catch(e => { $('#items').innerHTML = `<div class="vacio">No se pudo iniciar el almacén (${esc(e && e.message || e)}).</div>`; });
+})();
+</script>
+</body>
+</html>
