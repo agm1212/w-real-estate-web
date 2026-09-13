@@ -159,12 +159,60 @@
   .chips label.ia-on { border-color:var(--burdeos); }
   .chip.ia-pendiente { color:var(--aviso); border-color:var(--aviso); }
   .chip.ia-listo { color:var(--burdeos); border-color:var(--burdeos); }
+  .volver { display:none; }
   @media (max-width: 960px) {
-    .eleccion .opciones { grid-template-columns:1fr; } .vistaIA { padding:20px 18px 130px; } .estadoIA { flex-wrap:wrap; } .estadoIA .acc { margin-left:0; }
-    .app { grid-template-columns:1fr; } .lista { border-right:0; border-bottom:1px solid var(--linea); max-height:40vh; }
-    .editor { padding:20px 18px 130px; } .campos, .campos.tres { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .fotos { grid-template-columns:repeat(2,minmax(0,1fr)); } .dosidiomas, .lecturas { grid-template-columns:1fr; }
-    .pie { left:0; padding:12px 18px; flex-wrap:wrap; } .cab { padding:0 16px; gap:12px; } .cab .der input { width:120px; }
+    html { -webkit-text-size-adjust:100%; }
+    input, select, textarea { font-size:16px; }
+    button, .btn { min-height:44px; }
+    .btn.mini { min-height:38px; }
+    .cab { height:auto; min-height:56px; padding:8px 14px; gap:10px; flex-wrap:wrap; }
+    .cab img { height:28px; }
+    .cab .titulo { font-size:18px; } .cab .eyebrow { font-size:9.5px; }
+    .cab .der { margin-left:auto; gap:8px; } .cab .der label { display:none; } .cab .der input { width:110px; padding:8px; font-size:14px; }
+    .aviso { padding:10px 14px; font-size:12.5px; }
+    .app { grid-template-columns:1fr; min-height:0; }
+    .lista { border-right:0; border-bottom:1px solid var(--linea); max-height:none; }
+    .lista .barra { padding:10px 14px; position:sticky; top:0; background:var(--blanco); z-index:5; }
+    .lista .items { overflow:visible; }
+    .item { padding:10px 14px; }
+    body.abierto .lista { display:none; }
+    .volver { display:inline-flex; align-items:center; gap:6px; margin-bottom:12px; padding:8px 0; background:none; border:0; color:var(--burdeos); font-size:13px; }
+    .inicio { padding:28px 16px 40px; } .inicio h1 { font-size:30px; }
+    .editor, .vistaIA { padding:16px 14px 150px; max-width:none; }
+    .cabecera { flex-direction:column; align-items:flex-start; gap:10px; margin-bottom:14px; }
+    .cabecera h1 { font-size:26px; } .cabecera > div:last-child { display:flex; gap:8px; }
+    .seccion { padding:16px 14px; margin-bottom:10px; }
+    .seccion > h2 { font-size:20px; } .seccion > .ayuda { font-size:12px; margin-bottom:12px; }
+    .campos, .campos.tres, .campos.dos { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 10px; }
+    .campo.medio, .campo.ancho { grid-column:1 / -1; }
+    .campo textarea { min-height:80px; }
+    .segmento { width:100%; } .segmento button { flex:1; padding:10px 8px; }
+    .grupo { grid-template-columns:1fr; gap:4px; } .grupo .gnom { padding-top:6px; }
+    .chips label { padding:7px 10px; font-size:13px; }
+    .chips .anadir { width:100%; } .chips .anadir input { flex:1; width:auto; min-width:0; }
+    .zona-subida { padding:18px 12px; font-size:12.5px; }
+    .fotos { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .fotoc .acc button { padding:8px 0; font-size:12px; }
+    .tipologias { overflow-x:auto; -webkit-overflow-scrolling:touch; } .tipologias table { min-width:560px; }
+    .ia-caja { flex-direction:column; align-items:stretch; padding:14px; } .ia-caja .btn { width:100%; }
+    .dosidiomas { grid-template-columns:1fr; gap:14px; }
+    .bannerIA { flex-direction:column; } .bannerIA button { margin-left:0; align-self:flex-start; }
+    .estadoIA { flex-wrap:wrap; padding:18px 16px; } .estadoIA .acc { margin-left:0; width:100%; } .estadoIA .acc .btn { width:100%; }
+    .estadoIA h3 { font-size:20px; }
+    .pie { left:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); gap:8px; flex-wrap:wrap; }
+    .pie .estado { width:100%; margin:0 0 2px; font-size:11.5px; }
+    .pie label { display:none; }
+    .pie select { flex:1; min-width:0; padding:10px 8px; }
+    .pie .btn { flex:1; padding:10px 12px; }
+    .velo { padding:10px; align-items:flex-end; }
+    .eleccion { padding:22px 18px 18px; width:100%; max-height:92vh; overflow:auto; }
+    .eleccion h2 { font-size:24px; } .eleccion .opciones { grid-template-columns:1fr; gap:10px; }
+    .opcion { padding:16px; } .opcion .nom { font-size:20px; }
+    #formLogin .campo { margin-top:8px; }
+  }
+  @media (max-width: 420px) {
+    .campos, .campos.tres, .campos.dos { grid-template-columns:1fr; }
+    .fotos { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
   @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
 </style>
@@ -233,6 +281,7 @@
     </section>
 
     <section class="vistaIA oculto" id="vistaIA">
+      <button type="button" class="volver" data-volver>← Propiedades</button>
       <div class="cabecera">
         <div><div class="eyebrow" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--burdeos)">W AI Agent · Paso 1</div><h1 id="tituloIA">Suba las fotos de la propiedad</h1><div class="sub" id="subIA"></div></div>
         <div style="display:flex;gap:8px"><button class="btn suave mini" id="btnIAaManual">Pasar a alta manual</button><button class="btn suave mini" id="btnBorrarIA">Eliminar</button></div>
@@ -261,6 +310,7 @@
     </section>
 
     <section class="editor oculto" id="editor">
+      <button type="button" class="volver" data-volver>← Propiedades</button>
       <div class="cabecera">
         <div><h1 id="tituloEditor">Nueva propiedad</h1><div class="sub" id="subEditor"></div></div>
         <button class="btn suave mini" id="btnBorrar">Eliminar</button>
@@ -381,7 +431,7 @@
 <div class="pie" id="pie" hidden>
   <span class="estado" id="estadoGuardado">Sin cambios</span>
   <label for="f_asesor" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2)">Asesor</label>
-  <select id="f_asesor" data-k="asesor"><option>Álvaro Serrano</option><option>Tomás Ibáñez</option><option>Sofía Lund</option><option>Diego Pastor</option></select>
+  <select id="f_asesor" data-k="asesor"><option>Iván</option><option>Marina</option></select>
   <label for="f_estadoPub" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2)">Estado</label>
   <select id="f_estadoPub" data-k="estadoPublicacion"><option value="borrador">Borrador</option><option value="revision">En revisión</option><option value="publicada">Publicada</option><option value="retirada">Retirada</option></select>
   <button class="btn primario" id="btnGuardar">Guardar</button>
@@ -463,7 +513,7 @@
     promocion: '', promotor: '', entrega: '', unidades: '', fase: 'Sobre plano', licenciaObra: '', tipologias: [],
     fotos: [], documentos: [], video: '', notas: '', saber: '',
     textos: { tituloEs: '', tituloEn: '', entradillaEs: '', entradillaEn: '', descripcionEs: '', descripcionEn: '' },
-    estadoPublicacion: 'borrador', asesor: 'Álvaro Serrano', creadoPor: '', creado: new Date().toISOString(), actualizado: new Date().toISOString(), modo: 'manual', ia: null, iaTextos: null });
+    estadoPublicacion: 'borrador', asesor: 'Iván', creadoPor: '', creado: new Date().toISOString(), actualizado: new Date().toISOString(), modo: 'manual', ia: null, iaTextos: null });
 
   /* ---------- números con puntos de miles y coma decimal ---------- */
   const fmtNum = (v) => { if (v === '' || v == null || !Number.isFinite(Number(v))) return ''; const [e, d] = String(v).split('.'); return e.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (d ? ',' + d : ''); };
@@ -536,7 +586,7 @@
   }
   function enVistaIA(p) { return p.modo === 'ia' && (!p.ia || p.ia.estado === 'pendiente' || p.ia.estado === 'error'); }
   function abrir(p) {
-    actual = p; sucio = false;
+    actual = p; sucio = false; document.body.classList.add('abierto');
     $('#inicio').classList.add('oculto');
     if (enVistaIA(p)) { $('#editor').classList.add('oculto'); $('#vistaIA').classList.remove('oculto'); $('#pie').hidden = true; pintarVistaIA(); pintarLista(); vigilar(p.id); window.scrollTo({ top: 0 }); return; }
     $('#vistaIA').classList.add('oculto'); $('#editor').classList.remove('oculto'); $('#pie').hidden = false;
@@ -623,6 +673,7 @@
     abrir(p); sucio = true; if (modo === 'manual') estado('Nueva propiedad sin guardar'); else guardar();
   }
   $('#btnNueva').addEventListener('click', nueva); $('#btnNueva2').addEventListener('click', nueva);
+  $$('[data-volver]').forEach(b => b.addEventListener('click', async () => { if (sucio) await guardar(); document.body.classList.remove('abierto'); window.scrollTo({ top: 0 }); }));
   $('#btnBorrarIA').addEventListener('click', () => $('#btnBorrar').click());
   $('#btnIAaManual').addEventListener('click', () => { actual.modo = 'manual'; abrir(actual); cambiado(); });
   $('#btnBorrar').addEventListener('click', async () => {
@@ -630,7 +681,7 @@
     if (!confirm(`¿Eliminar «${nombreDe(actual)}»? Las fotos subidas quedan en el almacén del portal pero la propiedad desaparece de la lista y de la próxima sincronización.`)) return;
     clearTimeout(timer); sucio = false;
     try { await A.borrar(actual.id); } catch (e) { estado('No se pudo eliminar (' + (e && e.code || 'error') + ')', true); return; }
-    actual = null; $('#editor').classList.add('oculto'); $('#vistaIA').classList.add('oculto'); $('#inicio').classList.remove('oculto'); $('#pie').hidden = true; if (docUnsub) { docUnsub(); docUnsub = null; }
+    actual = null; document.body.classList.remove('abierto'); $('#editor').classList.add('oculto'); $('#vistaIA').classList.add('oculto'); $('#inicio').classList.remove('oculto'); $('#pie').hidden = true; if (docUnsub) { docUnsub(); docUnsub = null; }
   });
 
   /* ---------- tipologías ---------- */
