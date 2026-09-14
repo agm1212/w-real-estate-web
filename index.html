@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>W Real Estate · Inmobiliaria de lujo en Marbella y la Costa del Sol</title>
 <meta name="description" content="Agencia inmobiliaria premium en Marbella, Estepona, Benahavís y Sotogrande, impulsada por tecnología y marketing internacional.">
-<meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="w-logo-tinta.png">
 <script src="./support.js"></script>
 </head>
@@ -2990,7 +2989,30 @@ class Component extends DCLogic {
   }
 
   top() { try { window.scrollTo({ top: 0, behavior: 'auto' }); } catch (e) { window.scrollTo(0, 0); } }
-  go(page, extra) { this.setState(Object.assign({ page: page, menu: false }, extra || {})); this.top(); }
+  go(page, extra) {
+    this.setState(Object.assign({ page: page, menu: false }, extra || {})); this.top();
+    try { const u = this.urlDe(page, extra && extra.ref); if (u !== location.search + '' && u !== location.pathname) history.pushState({}, '', u); } catch (e) {}
+  }
+  /* Identificador público de una propiedad: la referencia de Resales o la que pone el agente en el portal. */
+  idPublico(p) { return (p && (p.referenciaCrm || p.ref)) || ''; }
+  buscarPorId(id) {
+    const s = String(id || '').trim().toLowerCase(); if (!s) return null;
+    return this.data.find(p => String(p.referenciaCrm || '').toLowerCase() === s || String(p.ref || '').toLowerCase() === s || String(p.ref || '').toLowerCase() === 'w-' + s) || null;
+  }
+  urlDe(page, ref) {
+    const m = { listings: 'comprar', sell: 'vender', about: 'nosotros', contact: 'contacto' };
+    if (page === 'property') { const p = this.data.find(x => x.ref === ref); return '?propiedad=' + encodeURIComponent(this.idPublico(p) || ref || ''); }
+    return m[page] ? '?pagina=' + m[page] : location.pathname;
+  }
+  aplicarRuta() {
+    let q; try { q = new URLSearchParams(location.search); } catch (e) { return; }
+    const id = q.get('propiedad');
+    if (id) { const p = this.buscarPorId(id); if (p) { this.cargarFicha(p); this.setState({ page: 'property', ref: p.ref, gi: 0, menu: false }); this.top(); return; } }
+    const inv = { comprar: 'listings', vender: 'sell', nosotros: 'about', contacto: 'contact' };
+    const pg = q.get('pagina');
+    if (pg && inv[pg]) { this.setState({ page: inv[pg], menu: false }); this.top(); }
+    else if (this.state.page !== 'home') { this.setState({ page: 'home', menu: false }); this.top(); }
+  }
   setF(k, v) { this.setState({ form: Object.assign({}, this.state.form, { [k]: v }) }); }
 
   dias() {
@@ -3123,8 +3145,11 @@ class Component extends DCLogic {
           const dest = this.propDestacada(); this.cargarFicha(dest);
           this.forceUpdate();
         }
-      }).catch(() => {});
+        this.aplicarRuta();
+      }).catch(() => { this.aplicarRuta(); });
     } catch (e) {}
+    this.onPop = () => this.aplicarRuta();
+    try { window.addEventListener('popstate', this.onPop); } catch (e) {}
     this.onScroll = () => {
       const s = window.scrollY > 70;
       if (s !== this.state.scrolled) this.setState({ scrolled: s });
@@ -3141,6 +3166,7 @@ class Component extends DCLogic {
     window.addEventListener('keydown', this.onKey);
   }
   componentWillUnmount() {
+    try { window.removeEventListener('popstate', this.onPop); } catch (e) {}
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('keydown', this.onKey);
   }
