@@ -2939,7 +2939,7 @@ class Component extends DCLogic {
   /* Formulario de GoHighLevel (survey) con la propiedad y el tipo de solicitud como parámetros y UTM. */
   formSrc(tipo, p) {
     const id = this.idPublico(p) || (p && p.ref) || '';
-    const q = new URLSearchParams({ propiedad: id, tipo: tipo, utm_source: 'wrealestate.es', utm_medium: 'ficha', utm_campaign: id, utm_content: tipo, utm_term: (p && this.L(p.nombre)) || '' });
+    const q = new URLSearchParams({ id_propiedad: id, tipo: tipo, utm_source: 'wrealestate.es', utm_medium: 'ficha', utm_campaign: id, utm_content: tipo, utm_term: (p && this.L(p.nombre)) || '' });
     return 'https://link.realestaterocket.io/widget/survey/vuwWfL1IwW8vAQ8CVYqx?' + q.toString();
   }
   cargarGHL() {
@@ -2954,12 +2954,12 @@ class Component extends DCLogic {
   }
   urlDe(page, ref) {
     const m = { listings: 'comprar', sell: 'vender', about: 'nosotros', contact: 'contacto' };
-    if (page === 'property') { const p = this.data.find(x => x.ref === ref); return '?propiedad=' + encodeURIComponent(this.idPublico(p) || ref || ''); }
+    if (page === 'property') { const p = this.data.find(x => x.ref === ref); return '?id_propiedad=' + encodeURIComponent(this.idPublico(p) || ref || ''); }
     return m[page] ? '?pagina=' + m[page] : location.pathname;
   }
   aplicarRuta() {
     let q; try { q = new URLSearchParams(location.search); } catch (e) { return; }
-    const id = q.get('propiedad');
+    const id = q.get('id_propiedad') || q.get('propiedad');
     if (id) { const p = this.buscarPorId(id); if (p) { this.cargarFicha(p); this.setState({ page: 'property', ref: p.ref, gi: 0, menu: false }); this.top(); return; } }
     const inv = { comprar: 'listings', vender: 'sell', nosotros: 'about', contacto: 'contact' };
     const pg = q.get('pagina');
