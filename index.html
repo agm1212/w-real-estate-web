@@ -1085,7 +1085,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <button onClick="{{ openVisita }}" style="padding:12px 30px;border:2px solid #7A2027;background:#7A2027;color:#FFFFFF;font-size:14px;transition:background .3s ease" style-hover="background:#5E171E;border-color:#5E171E">{{ t.ctaVisita }}</button>
-            <a href="#" onClick="{{ goContact }}" style="padding:12px 28px;border:2px solid #1E1A17;color:#1E1A17;text-align:center;font-size:14px;transition:all .35s ease" style-hover="background:#1E1A17;color:#EDD7BF;border-color:#1E1A17">{{ t.ctaInfo }}</a>
+            <a href="#" onClick="{{ openInfo }}" style="padding:12px 28px;border:2px solid #1E1A17;color:#1E1A17;text-align:center;font-size:14px;transition:all .35s ease" style-hover="background:#1E1A17;color:#EDD7BF;border-color:#1E1A17">{{ t.ctaInfo }}</a>
           </div>
         </div>
 
@@ -1945,75 +1945,16 @@
     <div style="width:min(700px,100%);background:#FFFFFF;padding:clamp(26px,3vw,44px);display:flex;flex-direction:column;gap:22px">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
         <div style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.visitaEyebrow }}</span>
+          <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ formEyebrow }}</span>
           <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,34px);line-height:1.12">{{ prop.nombre }}</h2>
         </div>
         <button onClick="{{ closeVisita }}" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:14px 10px;margin:-14px -10px;color:#6B615A">{{ t.cerrar }}</button>
       </div>
 
-      <sc-if value="{{ vNotSent }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.visitaDia }}</span>
-            <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
-              <sc-for list="{{ vDias }}" as="d" hint-placeholder-count="7">
-                <button onClick="{{ d.pick }}" style="{{ d.style }}">
-                  <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7">{{ d.dow }}</span>
-                  <span style="font-family:'Cormorant Garamond',serif;font-size:22px">{{ d.num }}</span>
-                  <span style="font-size:9px;opacity:.7">{{ d.mes }}</span>
-                </button>
-              </sc-for>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.visitaHora }}</span>
-            <div style="display:flex;flex-wrap:wrap;gap:8px">
-              <sc-for list="{{ vHoras }}" as="h" hint-placeholder-count="6">
-                <button onClick="{{ h.pick }}" style="{{ h.style }}">{{ h.label }}</button>
-              </sc-for>
-            </div>
-            <span style="{{ errVCuando }}">{{ t.errVisita }}</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.visitaModo }}</span>
-            <div style="display:flex;flex-wrap:wrap;gap:8px">
-              <sc-for list="{{ vModos }}" as="m" hint-placeholder-count="2">
-                <button onClick="{{ m.pick }}" style="{{ m.style }}">{{ m.label }}</button>
-              </sc-for>
-            </div>
-            <span style="{{ errVModo }}">{{ t.errModo }}</span>
-          </div>
-          <div class="r2s" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
-            <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoNombre }}</span>
-              <input value="{{ vNombre }}" onChange="{{ setVNombre }}" style="{{ inVNombre }}" style-focus="border-color:#7A2027">
-              <span style="{{ errVNombre }}">{{ msgVNombre }}</span>
-            </label>
-            <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoEmail }}</span>
-              <input value="{{ vEmail }}" onChange="{{ setVEmail }}" style="{{ inVEmail }}" style-focus="border-color:#7A2027">
-              <span style="{{ errVEmail }}">{{ msgVEmail }}</span>
-            </label>
-          </div>
-          <label style="display:flex;flex-direction:column;gap:8px">
-            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoTel }}</span>
-            <input value="{{ vTel }}" onChange="{{ setVTel }}" placeholder="+34" style="{{ inVTel }}" style-focus="border-color:#7A2027">
-            <span style="{{ errVTel }}">{{ msgVTel }}</span>
-          </label>
-          <button onClick="{{ enviarVisita }}" style="padding:12px 30px;border:2px solid #1E1A17;background:#1E1A17;color:#FFFFFF;font-size:14px;transition:background .35s ease" style-hover="background:#1E1A17">{{ t.visitaConfirmar }}</button>
-        </div>
-      </sc-if>
-
-      <sc-if value="{{ vSent }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;flex-direction:column;gap:16px;animation:fadeIn .4s ease both">
-          <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#7A2027">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5.5 5.5L20 6.5"></path></svg>
-          </span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px">{{ t.visitaHecha }}</h3>
-          <p style="margin:0;font-size:14.5px;line-height:1.85;color:#5C534B">{{ resumenVisita }}</p>
-          <button onClick="{{ closeVisita }}" style="align-self:flex-start;padding:12px 28px;border:2px solid #1E1A17;color:#1E1A17;font-size:14px">{{ t.cerrar }}</button>
-        </div>
-      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <iframe src="{{ formSrc }}" style="border:none;width:100%;min-height:620px;display:block" scrolling="no" id="vuwWfL1IwW8vAQ8CVYqx" title="survey" data-cookie-consent="true" data-cookie-consent-provider="auto"></iframe>
+        <span style="font-size:11.5px;color:#786E64">{{ t.formNota }}</span>
+      </div>
     </div>
   </div>
 </sc-if>
@@ -2363,6 +2304,7 @@ class Component extends DCLogic {
 
       pieLema: 'Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.',
       pieCopyright: '© 2026 W Real Estate · [RAZÓN SOCIAL] · [CIF]',
+      formNota: 'Sus datos llegan directamente al equipo de W Real Estate, con la referencia de esta propiedad.',
       pieLegales: ['Aviso legal', 'Política de privacidad', 'Cookies'],
       piePortal: 'Portal privado',
       pieCols: [
@@ -2695,6 +2637,7 @@ class Component extends DCLogic {
 
       pieLema: 'Luxury real estate agency on the Costa del Sol. Marbella, Estepona, Benahavís and Sotogrande.',
       pieCopyright: '© 2026 W Real Estate · [LEGAL ENTITY] · [TAX ID]',
+      formNota: 'Your details go straight to the W Real Estate team, together with this property reference.',
       pieLegales: ['Legal notice', 'Privacy policy', 'Cookies'],
       piePortal: 'Private portal',
       pieCols: [
@@ -2992,6 +2935,16 @@ class Component extends DCLogic {
   go(page, extra) {
     this.setState(Object.assign({ page: page, menu: false }, extra || {})); this.top();
     try { const u = this.urlDe(page, extra && extra.ref); if (u !== location.search + '' && u !== location.pathname) history.pushState({}, '', u); } catch (e) {}
+  }
+  /* Formulario de GoHighLevel (survey) con la propiedad y el tipo de solicitud como parámetros y UTM. */
+  formSrc(tipo, p) {
+    const id = this.idPublico(p) || (p && p.ref) || '';
+    const q = new URLSearchParams({ propiedad: id, tipo: tipo, utm_source: 'wrealestate.es', utm_medium: 'ficha', utm_campaign: id, utm_content: tipo, utm_term: (p && this.L(p.nombre)) || '' });
+    return 'https://link.realestaterocket.io/widget/survey/vuwWfL1IwW8vAQ8CVYqx?' + q.toString();
+  }
+  cargarGHL() {
+    if (this.ghl) return; this.ghl = true;
+    try { const s = document.createElement('script'); s.src = 'https://link.realestaterocket.io/js/form_embed.js'; s.async = true; document.head.appendChild(s); } catch (e) {}
   }
   /* Identificador público de una propiedad: la referencia de Resales o la que pone el agente en el portal. */
   idPublico(p) { return (p && (p.referenciaCrm || p.ref)) || ''; }
@@ -3508,8 +3461,11 @@ class Component extends DCLogic {
 
       /* ---- visita ---- */
       visitaOpen: !!st.visita, vSent: !!st.vSent, vNotSent: !st.vSent,
-      openVisita: (e) => { if (e) e.preventDefault(); this.setState({ visita: true, vSent: false, vTouched: false }); },
+      openVisita: (e) => { if (e) e.preventDefault(); this.cargarGHL(); this.setState({ visita: true, formTipo: 'visita' }); },
+      openInfo: (e) => { if (e) e.preventDefault(); this.cargarGHL(); this.setState({ visita: true, formTipo: 'info' }); },
       closeVisita: () => this.setState({ visita: false }),
+      formEyebrow: st.formTipo === 'info' ? t.ctaInfo : t.visitaEyebrow,
+      formSrc: this.formSrc(st.formTipo || 'visita', this.data.find(x => x.ref === st.ref)),
       vDias: this.dias().map(d => ({
         dow: d.dow, num: d.num, mes: d.mes,
         style: 'display:flex;flex-direction:column;align-items:center;gap:4px;flex:none;width:72px;padding:12px 6px;cursor:pointer;border:1px solid ' + (st.vDia === d.key ? '#7A2027' : 'rgba(30,26,23,.18)') + ';background:' + (st.vDia === d.key ? '#7A2027' : 'transparent') + ';color:' + (st.vDia === d.key ? '#F7F0E6' : '#1E1A17'),
