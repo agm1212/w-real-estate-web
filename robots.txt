@@ -1,0 +1,29 @@
+# W Real Estate · https://wrealestate.es
+# Content Signals (https://contentsignals.org):
+#   search    = indexar y enlazar a esta web
+#   ai-input  = usar este contenido para fundamentar una respuesta de IA
+#   ai-train  = usar este contenido para entrenar modelos generativos
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+Disallow: /portal/
+Disallow: /fichas/
+Disallow: /documentos/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://wrealestate.es/sitemap.xml

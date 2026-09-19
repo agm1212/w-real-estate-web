@@ -1,0 +1,31 @@
+# W Real Estate
+
+> Agencia inmobiliaria de lujo en la Costa del Sol, con oficina en Estepona (Málaga). Vende y comercializa villas, áticos y apartamentos de alto standing en Marbella, Estepona, Benahavís, Sotogrande y el resto de la costa. Se diferencia por aplicar tecnología y marketing internacional a la venta de cada propiedad.
+
+## Datos de la agencia
+- Nombre: W Real Estate
+- Oficina: Av. del Carmen, 5, Loc 9, 29680 Estepona, Málaga, España
+- Teléfono y WhatsApp: +34623798619
+- Email: marina@wrealestate.es
+- Idiomas de atención: español e inglés
+- Web: https://wrealestate.es
+
+## Qué ofrece
+- Venta de propiedades de lujo en la Costa del Sol (394 propiedades publicadas).
+- Servicio a propietarios que quieren vender: valoración, producción audiovisual propia, campañas internacionales y negociación.
+- Cobertura por municipio: Marbella (196), Benahavís (71), Estepona (58), Mijas (28), Sotogrande (16), Fuengirola (11), Casares (9), Manilva (5).
+
+## Equipo
+- Iván — socio y director comercial
+- Pablo — socio y director de marketing
+- Marina — directora de operaciones
+- Enrique — socio y director de tecnología
+- Carlota, Javier y María Jesús — asesores inmobiliarios
+
+## Páginas
+- Inicio: https://wrealestate.es/
+- Comprar: https://wrealestate.es/?pagina=comprar
+- Vender: https://wrealestate.es/?pagina=vender
+- Nosotros: https://wrealestate.es/?pagina=nosotros
+- Contacto: https://wrealestate.es/?pagina=contacto
+- Ficha de una propiedad: https://wrealestate.es/?id_propiedad=REFERENCIA
