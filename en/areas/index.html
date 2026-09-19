@@ -233,6 +233,57 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .envoltorioTabla{overflow-x:auto}
 .nota{font-size:12.5px;color:var(--gris2);line-height:1.7;margin:0 0 8px;max-width:68ch}
 .tituloLista{font-size:clamp(23px,2.7vw,34px);margin:clamp(40px,4.6vw,64px) 0 22px;scroll-margin-top:110px}
+
+/* ---- Indice de zonas ---- */
+.paginaLista.sinTope{padding-top:0}
+.heroZ{position:relative;display:flex;align-items:flex-end;min-height:min(88vh,860px);background:var(--carbon);overflow:hidden}
+.heroZ>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+.heroZ .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.78) 0%,rgba(20,17,15,.14) 40%,rgba(20,17,15,.5) 72%,rgba(20,17,15,.92) 100%)}
+.heroZ .dentroH{position:relative;z-index:2;width:100%;max-width:1360px;margin:0 auto;padding:170px 6vw clamp(40px,4.4vw,70px);color:#F7F0E6}
+.heroZ .linea{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.heroZ .linea .eyebrow{color:var(--crema)}
+.heroZ .linea .raya{width:52px;height:1px;background:rgba(237,215,191,.55)}
+.heroZ h1{margin:0 0 24px;max-width:15ch;font-weight:300;font-size:clamp(40px,6.2vw,92px);line-height:1.015;letter-spacing:-.01em;text-wrap:balance;color:#FFFFFF}
+.heroZ .lead{margin:0;max-width:58ch;font-size:clamp(14.5px,1.1vw,17px);line-height:1.9;color:rgba(247,240,230,.8)}
+.cifrasZ{display:flex;flex-wrap:wrap;margin-top:clamp(32px,3.8vw,58px);border-top:1px solid rgba(237,215,191,.3)}
+.cifrasZ>div{flex:1 1 150px;padding:clamp(18px,1.8vw,26px) clamp(14px,1.6vw,26px) 0 0}
+.cifrasZ>div+div{border-left:1px solid rgba(237,215,191,.22);padding-left:clamp(18px,2vw,32px)}
+.cifrasZ .v{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,2.9vw,44px);line-height:1;color:var(--crema);font-variant-numeric:lining-nums tabular-nums}
+.cifrasZ .k{display:block;margin-top:9px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,240,230,.62)}
+.seccionZ{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 44px;margin:clamp(58px,6.6vw,108px) 0 clamp(24px,2.8vw,40px)}
+.seccionZ:first-of-type{margin-top:clamp(50px,5.4vw,84px)}
+.seccionZ .lin{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.seccionZ .lin .raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.seccionZ h2{margin:0;font-size:clamp(28px,3.5vw,50px);line-height:1.06}
+.seccionZ p{margin:0;max-width:44ch;color:var(--gris);font-size:14.5px;line-height:1.85}
+.mosaico{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(11px,1.3vw,20px)}
+.mosaicoU{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:clamp(11px,1.3vw,20px)}
+.mosaico a,.mosaicoU a{position:relative;display:block;overflow:hidden;background:var(--carbon);grid-column:span 2;aspect-ratio:3/4}
+.mosaico a.grande{grid-column:span 3;aspect-ratio:16/11}
+.mosaicoU a{grid-column:auto}
+.mosaico img,.mosaicoU img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.mosaico a:hover img,.mosaicoU a:hover img{transform:scale(1.07)}
+.mosaico .capa,.mosaicoU .capa{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 30%,rgba(20,17,15,.3) 58%,rgba(20,17,15,.88) 100%)}
+.mosaico .txt,.mosaicoU .txt{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:7px;padding:clamp(18px,1.9vw,30px);color:#FFFFFF}
+.mosaico .nom,.mosaicoU .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.1vw,34px);line-height:1.08}
+.mosaico a.grande .nom{font-size:clamp(30px,3.2vw,52px)}
+.mosaico .dato,.mosaicoU .dato{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.76);font-variant-numeric:lining-nums tabular-nums}
+.mosaico .ir,.mosaicoU .ir{display:inline-flex;align-items:center;gap:8px;margin-top:5px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--crema);opacity:0;transform:translateY(7px);transition:all .45s cubic-bezier(.2,.8,.2,1)}
+.mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
+.mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
+.cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+.cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
+.cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
+.cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){
+  .heroZ{min-height:auto}
+  .heroZ .dentroH{padding:130px 6vw 44px}
+  .cifrasZ>div{flex:1 1 44%}
+  .cifrasZ>div+div{border-left:0;padding-left:0}
+  .mosaico{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mosaico a,.mosaico a.grande{grid-column:span 1;aspect-ratio:3/4}
+  .mosaicoU{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
 
@@ -264,327 +315,348 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/zonas/">Español</a></div>
 </div>
 
-<main class="paginaLista">
+<section class="hero heroZ">
+  <img src="/costa-aerea.jpg" alt="Aerial view of the coast between Marbella and Estepona at dusk" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide</span><span class="raya"></span></div>
+    <h1>Areas and developments on the Costa del Sol</h1>
+    <p class="lead">W Real Estate works in the developments where there is a real market, from La Zagaleta and Sierra Blanca to Nueva Andalucía, Sotogrande and La Cala de Mijas. Each area has its own guide here: what it is, where it is, which golf courses and schools surround it, how long the drive is to the places that matter and what it costs to buy, with the figures calculated on the properties we list today. If you are looking in a development that is not listed, ask us: the Costa del Sol network covers far more than what is published.</p>
+    <div class="cifrasZ">
+      <div><span class="v">32</span><span class="k">Areas with a guide</span></div>
+      <div><span class="v">8</span><span class="k">Municipalities</span></div>
+      <div><span class="v">394</span><span class="k">Properties listed</span></div>
+      <div><span class="v">500.000 €</span><span class="k">From</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
+    
+
+    
+
+    
+    <div class="seccionZ">
       <div>
-        <div class="linea">
-          <span class="eyebrow">Buy</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Areas and developments on the Costa del Sol</h1>
+        <div class="lin"><span class="eyebrow">8 municipalities</span><span class="raya"></span></div>
+        <h2 id="municipios">By municipality</h2>
       </div>
-      <span class="cuenta">32 areas with a guide · 394 properties in total.</span>
+      <p>Each municipality has its own market, its own price per square metre and its own buyer. Start here if you have not settled on an area yet.</p>
     </div>
-
-    <div class="resumen">
-      <div><span class="v">394</span><span class="k">properties</span></div>
-      <div><span class="v">500.000 €</span><span class="k">From</span></div>
-      <div><span class="v">19.995.000 €</span><span class="k">to</span></div>
-      <div><span class="v">1.245.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">6932 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>W Real Estate works in the developments where there is a real market, from La Zagaleta and Sierra Blanca to Nueva Andalucía, Sotogrande and La Cala de Mijas. Each area has its own guide here: what it is, where it is, which golf courses and schools surround it, how long the drive is to the places that matter and what it costs to buy, with the figures calculated on the properties we list today. If you are looking in a development that is not listed, ask us: the Costa del Sol network covers far more than what is published.</p></div>
-
-    
-
-    
-    <h2 class="tituloLista" id="municipios">By municipality</h2>
-    <div class="rejP">
-      <a href="/en/buy/marbella/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="Marbella" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+    <div class="mosaico">
+      <a href="/en/buy/marbella/" class="grande">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="Marbella" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Marbella</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">196 properties</span>
-    <span class="pr">From 500.000 €</span>
-  </div>
+    <span class="dato">196 properties &middot; from 500.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
-      <a href="/en/buy/benahavis/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Benahavís" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+      <a href="/en/buy/benahavis/" class="grande">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Benahavís" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Benahavís</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">71 properties</span>
-    <span class="pr">From 525.000 €</span>
-  </div>
+    <span class="dato">71 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/buy/estepona/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/ed04d5086e9111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950445" alt="Estepona" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/ed04d5086e9111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950445" alt="Estepona" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Estepona</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">58 properties</span>
-    <span class="pr">From 545.000 €</span>
-  </div>
+    <span class="dato">58 properties &middot; from 545.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/buy/mijas/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="Mijas" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="Mijas" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Mijas</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">28 properties</span>
-    <span class="pr">From 520.000 €</span>
-  </div>
+    <span class="dato">28 properties &middot; from 520.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/buy/sotogrande/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/5f247460e86a11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1739292464" alt="Sotogrande" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/5f247460e86a11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1739292464" alt="Sotogrande" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Sotogrande</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">16 properties</span>
-    <span class="pr">From 590.000 €</span>
-  </div>
+    <span class="dato">16 properties &middot; from 590.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/buy/fuengirola/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/c0177421757311ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945426" alt="Fuengirola" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/c0177421757311ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945426" alt="Fuengirola" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Fuengirola</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">11 properties</span>
-    <span class="pr">From 531.000 €</span>
-  </div>
+    <span class="dato">11 properties &middot; from 531.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/buy/casares/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1c78a5bbfe0e11ee94690217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947134" alt="Casares" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1c78a5bbfe0e11ee94690217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947134" alt="Casares" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Casares</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">9 properties</span>
-    <span class="pr">From 660.000 €</span>
-  </div>
+    <span class="dato">9 properties &middot; from 660.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/buy/manilva/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/0cd2a9416c5f11ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1745241726" alt="Manilva" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/0cd2a9416c5f11ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1745241726" alt="Manilva" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Manilva</span>
-    <span class="zonaRef">Municipality</span>
-    <span class="meta">5 properties</span>
-    <span class="pr">From 565.000 €</span>
-  </div>
+    <span class="dato">5 properties &middot; from 565.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
     </div>
-    <h2 class="tituloLista" id="urbanizaciones">By development</h2>
-    <div class="rejP">
+
+    <div class="seccionZ">
+      <div>
+        <div class="lin"><span class="eyebrow">24 developments</span><span class="raya"></span></div>
+        <h2 id="urbanizaciones">By development</h2>
+      </div>
+      <p>Within each municipality, the development is what sets the price. These are the ones W Real Estate works with every day.</p>
+    </div>
+    <div class="mosaicoU">
       <a href="/en/areas/nueva-andalucia/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Nueva Andalucía" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Nueva Andalucía</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">55 properties</span>
-    <span class="pr">From 525.000 €</span>
-  </div>
+    <span class="dato">55 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/the-golden-mile/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="The Golden Mile" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">The Golden Mile</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">24 properties</span>
-    <span class="pr">From 540.000 €</span>
-  </div>
+    <span class="dato">24 properties &middot; from 540.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/puerto-banus/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Puerto Banús" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Puerto Banús</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">20 properties</span>
-    <span class="pr">From 525.000 €</span>
-  </div>
+    <span class="dato">20 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/la-quinta/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="La Quinta" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="La Quinta" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">La Quinta</span>
-    <span class="zonaRef">Benahavís</span>
-    <span class="meta">18 properties</span>
-    <span class="pr">From 599.000 €</span>
-  </div>
+    <span class="dato">18 properties &middot; from 599.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/benahavis/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/14e78f9b064311f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782193343" alt="Benahavís" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/14e78f9b064311f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782193343" alt="Benahavís" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Benahavís</span>
-    <span class="zonaRef">Benahavís</span>
-    <span class="meta">13 properties</span>
-    <span class="pr">From 525.000 €</span>
-  </div>
+    <span class="dato">13 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/san-pedro-de-alcantara/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="San Pedro de Alcántara" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">San Pedro de Alcántara</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">11 properties</span>
-    <span class="pr">From 649.000 €</span>
-  </div>
+    <span class="dato">11 properties &middot; from 649.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/el-paraiso/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/0028658skg/properties/d02fe161a6b311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788356543" alt="El Paraiso" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/0028658skg/properties/d02fe161a6b311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788356543" alt="El Paraiso" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">El Paraiso</span>
-    <span class="zonaRef">Estepona</span>
-    <span class="meta">8 properties</span>
-    <span class="pr">From 580.000 €</span>
-  </div>
+    <span class="dato">8 properties &middot; from 580.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/la-cala-golf/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/c1f1fa96cb4e11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945048" alt="La Cala Golf" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/c1f1fa96cb4e11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945048" alt="La Cala Golf" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">La Cala Golf</span>
-    <span class="zonaRef">Mijas</span>
-    <span class="meta">7 properties</span>
-    <span class="pr">From 529.000 €</span>
-  </div>
+    <span class="dato">7 properties &middot; from 529.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/estepona/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ba5658577c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662136" alt="Estepona" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ba5658577c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662136" alt="Estepona" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Estepona</span>
-    <span class="zonaRef">Estepona</span>
-    <span class="meta">7 properties</span>
-    <span class="pr">From 549.000 €</span>
-  </div>
+    <span class="dato">7 properties &middot; from 549.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/riviera-del-sol/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/c3c66e96954311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786428970" alt="Riviera del Sol" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/c3c66e96954311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786428970" alt="Riviera del Sol" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Riviera del Sol</span>
-    <span class="zonaRef">Mijas</span>
-    <span class="meta">6 properties</span>
-    <span class="pr">From 560.000 €</span>
-  </div>
+    <span class="dato">6 properties &middot; from 560.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/la-cala-de-mijas/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="La Cala de Mijas" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="La Cala de Mijas" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">La Cala de Mijas</span>
-    <span class="zonaRef">Mijas</span>
-    <span class="meta">6 properties</span>
-    <span class="pr">From 525.000 €</span>
-  </div>
+    <span class="dato">6 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/los-arqueros/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/sdgb87dcla/properties/50b83e9660da11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788968800" alt="Los Arqueros" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/sdgb87dcla/properties/50b83e9660da11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788968800" alt="Los Arqueros" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Los Arqueros</span>
-    <span class="zonaRef">Benahavís</span>
-    <span class="meta">6 properties</span>
-    <span class="pr">From 550.000 €</span>
-  </div>
+    <span class="dato">6 properties &middot; from 550.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/atalaya/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/0028658skg/properties/592895f029a811f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786029571" alt="Atalaya" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/0028658skg/properties/592895f029a811f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786029571" alt="Atalaya" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Atalaya</span>
-    <span class="zonaRef">Estepona</span>
-    <span class="meta">6 properties</span>
-    <span class="pr">From 735.000 €</span>
-  </div>
+    <span class="dato">6 properties &middot; from 735.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/elviria/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/1da4649b191f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947799" alt="Elviria" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/le17760puz/properties/1da4649b191f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947799" alt="Elviria" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Elviria</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">6 properties</span>
-    <span class="pr">From 735.000 €</span>
-  </div>
+    <span class="dato">6 properties &middot; from 735.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/sierra-blanca/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Sierra Blanca" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Sierra Blanca" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Sierra Blanca</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">5 properties</span>
-    <span class="pr">From 615.000 €</span>
-  </div>
+    <span class="dato">5 properties &middot; from 615.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/guadalmina-alta/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/6ba70b546c6211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781934139" alt="Guadalmina Alta" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/6ba70b546c6211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781934139" alt="Guadalmina Alta" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Guadalmina Alta</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">5 properties</span>
-    <span class="pr">From 799.000 €</span>
-  </div>
+    <span class="dato">5 properties &middot; from 799.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/guadalmina-baja/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/fscrmlopdlwvxuy/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951220" alt="Guadalmina Baja" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/fscrmlopdlwvxuy/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951220" alt="Guadalmina Baja" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Guadalmina Baja</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">5 properties</span>
-    <span class="pr">From 780.000 €</span>
-  </div>
+    <span class="dato">5 properties &middot; from 780.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/casares/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1c78a5bbfe0e11ee94690217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947134" alt="Casares" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1c78a5bbfe0e11ee94690217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947134" alt="Casares" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Casares</span>
-    <span class="zonaRef">Casares</span>
-    <span class="meta">5 properties</span>
-    <span class="pr">From 4.800.000 €</span>
-  </div>
+    <span class="dato">5 properties &middot; from 4.800.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/la-mairena/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/346a93da95dc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947698" alt="La Mairena" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/346a93da95dc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947698" alt="La Mairena" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">La Mairena</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">5 properties</span>
-    <span class="pr">From 515.000 €</span>
-  </div>
+    <span class="dato">5 properties &middot; from 515.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/cabopino/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Cabopino" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Cabopino" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Cabopino</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">4 properties</span>
-    <span class="pr">From 925.000 €</span>
-  </div>
+    <span class="dato">4 properties &middot; from 925.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/calahonda/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/d3eb6d3180d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784875051" alt="Calahonda" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/d3eb6d3180d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784875051" alt="Calahonda" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Calahonda</span>
-    <span class="zonaRef">Mijas</span>
-    <span class="meta">4 properties</span>
-    <span class="pr">From 585.000 €</span>
-  </div>
+    <span class="dato">4 properties &middot; from 585.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/marbella/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/722ae5b550e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785390105" alt="Marbella" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/722ae5b550e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785390105" alt="Marbella" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Marbella</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">4 properties</span>
-    <span class="pr">From 500.000 €</span>
-  </div>
+    <span class="dato">4 properties &middot; from 500.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/bel-air/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/e3b4c1fc220d11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946236" alt="Bel Air" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/cdugn808as/properties/e3b4c1fc220d11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946236" alt="Bel Air" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Bel Air</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">4 properties</span>
-    <span class="pr">From 550.000 €</span>
-  </div>
+    <span class="dato">4 properties &middot; from 550.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
       <a href="/en/areas/altos-de-los-monteros/">
-  <div class="foto"><span class="sel">Read the guide</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/bde7063aa10311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787720886" alt="Altos de los Monteros" loading="lazy" width="600" height="450"></div>
-  <div class="datos">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/bde7063aa10311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787720886" alt="Altos de los Monteros" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
     <span class="nom">Altos de los Monteros</span>
-    <span class="zonaRef">Marbella</span>
-    <span class="meta">4 properties</span>
-    <span class="pr">From 515.000 €</span>
-  </div>
+    <span class="dato">4 properties &middot; from 515.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
 </a>
     </div>
+
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/buy/">See all properties</a>
+      </div>
+    </section>
     
 
     <section class="faq" id="preguntas">
@@ -627,5 +699,22 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   </div>
   <div class="abajo"><span>© 2026 W Real Estate · All rights reserved</span><span>Estepona · Marbella · Benahavís · Sotogrande</span></div>
 </footer>
+<script>
+(function(){
+  var cab = document.getElementById('cab');
+  if (!cab) return;
+  if (cab.getAttribute('data-solida') !== '1') {
+    var heroAlto = function(){ var h = document.querySelector('.hero'); return h ? h.offsetHeight - 120 : 400; };
+    var alDesplazar = function(){ cab.classList.toggle('fija', window.scrollY > heroAlto()); };
+    alDesplazar();
+    window.addEventListener('scroll', alDesplazar, { passive: true });
+  }
+  var panel = document.getElementById('menuPanel');
+  var abrir = document.getElementById('menuBtn');
+  var cerrar = document.getElementById('menuCerrar');
+  if (panel && abrir) abrir.addEventListener('click', function(){ panel.classList.add('abierto'); });
+  if (panel && cerrar) cerrar.addEventListener('click', function(){ panel.classList.remove('abierto'); });
+})();
+</script>
 </body>
 </html>

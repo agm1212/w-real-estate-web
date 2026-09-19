@@ -349,7 +349,8 @@ Tasación Oficial ‌de ‌fecha ‌04/10/2024 ‌por ‌importe ‌de ‌1.718.
   var i = 0;
   var cab = document.getElementById('cab');
   var heroAlto = function(){ var h = document.querySelector('.hero'); return h ? h.offsetHeight - 120 : 400; };
-  var alDesplazar = function(){ cab.classList.toggle('fija', window.scrollY > heroAlto()); };
+  var solida = cab.getAttribute('data-solida') === '1';
+  var alDesplazar = function(){ if (solida) return; cab.classList.toggle('fija', window.scrollY > heroAlto()); };
   alDesplazar(); window.addEventListener('scroll', alDesplazar, { passive: true });
 
   var panel = document.getElementById('menuPanel');

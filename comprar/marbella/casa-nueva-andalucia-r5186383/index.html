@@ -377,7 +377,8 @@ En la entrada hay un ‌piso ‌con ‌1 ‌dormitorio, ‌1 baño y 1 ‌salón
   var i = 0;
   var cab = document.getElementById('cab');
   var heroAlto = function(){ var h = document.querySelector('.hero'); return h ? h.offsetHeight - 120 : 400; };
-  var alDesplazar = function(){ cab.classList.toggle('fija', window.scrollY > heroAlto()); };
+  var solida = cab.getAttribute('data-solida') === '1';
+  var alDesplazar = function(){ if (solida) return; cab.classList.toggle('fija', window.scrollY > heroAlto()); };
   alDesplazar(); window.addEventListener('scroll', alDesplazar, { passive: true });
 
   var panel = document.getElementById('menuPanel');

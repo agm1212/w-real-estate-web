@@ -233,6 +233,57 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .envoltorioTabla{overflow-x:auto}
 .nota{font-size:12.5px;color:var(--gris2);line-height:1.7;margin:0 0 8px;max-width:68ch}
 .tituloLista{font-size:clamp(23px,2.7vw,34px);margin:clamp(40px,4.6vw,64px) 0 22px;scroll-margin-top:110px}
+
+/* ---- Indice de zonas ---- */
+.paginaLista.sinTope{padding-top:0}
+.heroZ{position:relative;display:flex;align-items:flex-end;min-height:min(88vh,860px);background:var(--carbon);overflow:hidden}
+.heroZ>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+.heroZ .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.78) 0%,rgba(20,17,15,.14) 40%,rgba(20,17,15,.5) 72%,rgba(20,17,15,.92) 100%)}
+.heroZ .dentroH{position:relative;z-index:2;width:100%;max-width:1360px;margin:0 auto;padding:170px 6vw clamp(40px,4.4vw,70px);color:#F7F0E6}
+.heroZ .linea{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.heroZ .linea .eyebrow{color:var(--crema)}
+.heroZ .linea .raya{width:52px;height:1px;background:rgba(237,215,191,.55)}
+.heroZ h1{margin:0 0 24px;max-width:15ch;font-weight:300;font-size:clamp(40px,6.2vw,92px);line-height:1.015;letter-spacing:-.01em;text-wrap:balance;color:#FFFFFF}
+.heroZ .lead{margin:0;max-width:58ch;font-size:clamp(14.5px,1.1vw,17px);line-height:1.9;color:rgba(247,240,230,.8)}
+.cifrasZ{display:flex;flex-wrap:wrap;margin-top:clamp(32px,3.8vw,58px);border-top:1px solid rgba(237,215,191,.3)}
+.cifrasZ>div{flex:1 1 150px;padding:clamp(18px,1.8vw,26px) clamp(14px,1.6vw,26px) 0 0}
+.cifrasZ>div+div{border-left:1px solid rgba(237,215,191,.22);padding-left:clamp(18px,2vw,32px)}
+.cifrasZ .v{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,2.9vw,44px);line-height:1;color:var(--crema);font-variant-numeric:lining-nums tabular-nums}
+.cifrasZ .k{display:block;margin-top:9px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,240,230,.62)}
+.seccionZ{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 44px;margin:clamp(58px,6.6vw,108px) 0 clamp(24px,2.8vw,40px)}
+.seccionZ:first-of-type{margin-top:clamp(50px,5.4vw,84px)}
+.seccionZ .lin{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.seccionZ .lin .raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.seccionZ h2{margin:0;font-size:clamp(28px,3.5vw,50px);line-height:1.06}
+.seccionZ p{margin:0;max-width:44ch;color:var(--gris);font-size:14.5px;line-height:1.85}
+.mosaico{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(11px,1.3vw,20px)}
+.mosaicoU{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:clamp(11px,1.3vw,20px)}
+.mosaico a,.mosaicoU a{position:relative;display:block;overflow:hidden;background:var(--carbon);grid-column:span 2;aspect-ratio:3/4}
+.mosaico a.grande{grid-column:span 3;aspect-ratio:16/11}
+.mosaicoU a{grid-column:auto}
+.mosaico img,.mosaicoU img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.mosaico a:hover img,.mosaicoU a:hover img{transform:scale(1.07)}
+.mosaico .capa,.mosaicoU .capa{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 30%,rgba(20,17,15,.3) 58%,rgba(20,17,15,.88) 100%)}
+.mosaico .txt,.mosaicoU .txt{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:7px;padding:clamp(18px,1.9vw,30px);color:#FFFFFF}
+.mosaico .nom,.mosaicoU .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.1vw,34px);line-height:1.08}
+.mosaico a.grande .nom{font-size:clamp(30px,3.2vw,52px)}
+.mosaico .dato,.mosaicoU .dato{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.76);font-variant-numeric:lining-nums tabular-nums}
+.mosaico .ir,.mosaicoU .ir{display:inline-flex;align-items:center;gap:8px;margin-top:5px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--crema);opacity:0;transform:translateY(7px);transition:all .45s cubic-bezier(.2,.8,.2,1)}
+.mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
+.mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
+.cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+.cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
+.cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
+.cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){
+  .heroZ{min-height:auto}
+  .heroZ .dentroH{padding:130px 6vw 44px}
+  .cifrasZ>div{flex:1 1 44%}
+  .cifrasZ>div+div{border-left:0;padding-left:0}
+  .mosaico{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mosaico a,.mosaico a.grande{grid-column:span 1;aspect-ratio:3/4}
+  .mosaicoU{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"The Golden Mile","url":"https://wrealestate.es/zonas/the-golden-mile/","description":"La Milla de Oro es el tramo de costa que une el centro de Marbella con Puerto Banús: unos cinco kilómetros de avenida ajardinada con hoteles históricos, villas y urbanizaciones a pie de playa. El nombre nació para describir el trecho entre el Marbella Club y el Puente Romano, y con los años se extendió a todo el corredor.","containedInPlace":{"@type":"AdministrativeArea","name":"Marbella"},"address":{"@type":"PostalAddress","addressRegion":"Marbella","addressCountry":"ES"}}</script>
@@ -242,7 +293,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </head>
 <body>
 
-<header class="cab" id="cab">
+<header class="cab fija" id="cab" data-solida="1">
   <nav class="izq"><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
@@ -263,6 +314,8 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <nav><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a><a href="/nosotros/">Nosotros</a><a href="/contacto/">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/areas/the-golden-mile/">English</a></div>
 </div>
+
+
 
 <main class="paginaLista">
   <div class="dentro">
@@ -574,5 +627,22 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   </div>
   <div class="abajo"><span>© 2026 W Real Estate · Todos los derechos reservados</span><span>Estepona · Marbella · Benahavís · Sotogrande</span></div>
 </footer>
+<script>
+(function(){
+  var cab = document.getElementById('cab');
+  if (!cab) return;
+  if (cab.getAttribute('data-solida') !== '1') {
+    var heroAlto = function(){ var h = document.querySelector('.hero'); return h ? h.offsetHeight - 120 : 400; };
+    var alDesplazar = function(){ cab.classList.toggle('fija', window.scrollY > heroAlto()); };
+    alDesplazar();
+    window.addEventListener('scroll', alDesplazar, { passive: true });
+  }
+  var panel = document.getElementById('menuPanel');
+  var abrir = document.getElementById('menuBtn');
+  var cerrar = document.getElementById('menuCerrar');
+  if (panel && abrir) abrir.addEventListener('click', function(){ panel.classList.add('abierto'); });
+  if (panel && cerrar) cerrar.addEventListener('click', function(){ panel.classList.remove('abierto'); });
+})();
+</script>
 </body>
 </html>
