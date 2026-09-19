@@ -30,21 +30,63 @@ body{margin:0;background:var(--blanco);color:var(--carbon);font-family:'Lato','H
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;margin:0;text-wrap:balance}
-.cab{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 6vw;color:#fff}
-.cab nav{display:flex;gap:26px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
-.cab .logo{height:44px;width:auto}
-.cab a:hover{color:var(--crema)}
-.hero{position:relative;height:min(86vh,760px);min-height:460px;overflow:hidden;background:var(--carbon)}
+.cab{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:18px clamp(16px,2.4vw,44px);padding:24px 6vw;transition:all .45s cubic-bezier(.2,.8,.2,1);background:transparent;color:#F7F0E6}
+.cab.fija{padding:14px 6vw;background:rgba(255,255,255,.96);color:var(--carbon);border-bottom:1px solid rgba(30,26,23,.1);backdrop-filter:blur(12px)}
+.cab nav{display:flex;flex:1 1 0;align-items:center;gap:clamp(20px,2.6vw,46px)}
+.cab nav.izq{justify-content:flex-end;padding-right:clamp(30px,4vw,70px)}
+.cab nav.der{justify-content:flex-start;padding-left:clamp(30px,4vw,70px)}
+.cab nav a,.cab .idi a{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;transition:opacity .3s}
+.cab nav a:hover{opacity:.6}
+.cab .tel{font-size:12.5px;letter-spacing:.06em;opacity:.85;text-transform:none;white-space:nowrap}
+.cab .tel:hover{opacity:1}
+.cab .sep{flex:1}
+.cab .marca{display:flex;flex:0 0 auto;align-items:center;justify-content:center}
+.cab .logo{height:56px;width:auto;display:block;transition:height .45s cubic-bezier(.2,.8,.2,1)}
+.cab.fija .logo{height:36px}
+.cab .claro{display:block}.cab .tinta{display:none}
+.cab.fija .claro{display:none}.cab.fija .tinta{display:block}
+.cab .idi{display:flex;align-items:center;gap:4px;font-size:11.5px;letter-spacing:.08em}
+.cab .idi a{padding:15px 7px;margin:-15px 0;opacity:.5;font-size:11.5px}
+.cab .idi a.on{opacity:1;font-weight:700}
+.cab .idi .barra{opacity:.35}
+.menuBtn{display:none;flex:1 1 0;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 12px 0;background:none;border:0;color:inherit;cursor:pointer}
+.menuBtn span{display:block;height:1px;background:currentColor}
+.menuBtn span:first-child{width:26px}.menuBtn span:last-child{width:18px}
+.menuPanel{position:fixed;inset:0;z-index:90;background:var(--burdeos);color:#F7F0E6;display:none;flex-direction:column;padding:22px 7vw 40px;overflow:auto}
+.menuPanel.abierto{display:flex}
+.menuPanel .arriba{display:flex;align-items:center;justify-content:space-between;margin-bottom:6vh}
+.menuPanel img{height:40px;width:auto}
+.menuPanel .cerrarM{background:none;border:0;color:inherit;font-family:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:14px 0 14px 14px;cursor:pointer}
+.menuPanel nav{display:flex;flex-direction:column}
+.menuPanel nav a{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)}
+.menuPanel .pieM{margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:15px}
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:var(--carbon)}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,0) 32%,rgba(20,17,15,0) 48%,rgba(20,17,15,.84) 100%)}
-.heroTxt{position:absolute;left:6vw;right:6vw;bottom:clamp(28px,4vw,52px);color:#fff;display:flex;flex-direction:column;gap:12px}
-.miga{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78)}
-.miga a:hover{color:var(--crema)}
-.hero h1{font-size:clamp(30px,5vw,60px);line-height:1.04}
-.heroDatos{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px}
-.heroPrecio{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(24px,3vw,34px)}
+.velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.38) 0%,rgba(20,17,15,0) 30%,rgba(20,17,15,0) 55%,rgba(20,17,15,.78) 100%)}
+.flecha{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(247,240,230,.35);background:none;color:#F7F0E6;cursor:pointer;transition:all .3s ease}
+.flecha:hover{background:#F7F0E6;color:var(--carbon)}
+.flecha.ant{left:2vw}.flecha.sig{right:2vw}
+.heroTxt{position:absolute;left:0;right:0;bottom:0;padding:0 6vw 5vh;display:flex;flex-direction:column;gap:20px;color:#F7F0E6}
+.miga{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--crema)}
+.miga a:hover{color:#fff}
+.hero h1{margin:0;font-size:clamp(34px,5vw,76px);line-height:1.02;color:#F7F0E6}
+.heroDatos{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
+.heroPrecio{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(24px,2.6vw,36px)}
+.zona{font-size:14px;letter-spacing:.06em;color:rgba(247,240,230,.8)}
 .sello{padding:5px 11px;background:var(--burdeos);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
-.zona{font-size:14px;color:rgba(255,255,255,.85)}
+.heroPie{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;border-top:1px solid rgba(247,240,230,.2);padding-top:18px}
+.heroPie .contador{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,240,230,.7)}
+.heroPie .verG{padding:12px 28px;border:2px solid rgba(247,240,230,.85);background:none;color:#F7F0E6;font-family:inherit;font-size:14px;cursor:pointer;transition:all .3s ease}
+.heroPie .verG:hover{background:#F7F0E6;color:var(--carbon)}
+.lightbox{position:fixed;inset:0;z-index:120;background:rgba(20,17,15,.96);display:none;flex-direction:column;padding:2vh 2vw}
+.lightbox.abierto{display:flex}
+.lightbox .barraL{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#F7F0E6;padding-bottom:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.lightbox .barraL button{background:none;border:0;color:inherit;font-family:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:10px}
+.lightbox .grande{flex:1;min-height:0;width:100%;object-fit:contain;display:block}
+.lightbox .tira{display:flex;gap:8px;overflow-x:auto;padding-top:12px}
+.lightbox .tira button{position:relative;flex:none;width:104px;aspect-ratio:4/3;padding:0;border:0;background:var(--carbon);cursor:pointer;opacity:.5;outline:1px solid rgba(247,240,230,.2);outline-offset:-1px}
+.lightbox .tira button.on{opacity:1;outline:2px solid var(--crema)}
+.lightbox .tira img{width:100%;height:100%;object-fit:cover}
 .env{max-width:1280px;margin:0 auto;padding:0 6vw}
 .specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:22px 26px;padding:clamp(34px,4vw,56px) 0;border-bottom:1px solid var(--linea)}
 .specs div{display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(30,26,23,.16);padding-top:14px}
@@ -109,6 +151,13 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .nota{font-size:11.5px;color:var(--gris2)}
 :focus-visible{outline:2px solid var(--burdeos);outline-offset:2px}
 @media (max-width:900px){
+ .cab nav{display:none}
+ .cab .menuBtn{display:flex}
+ .cab{padding:14px 6vw}
+ .cab .logo{height:40px}
+ .hero{height:100svh;min-height:520px}
+ .heroTxt{padding:0 6vw 4vh;gap:14px}
+ .flecha{width:44px;height:44px}
  .dos{grid-template-columns:1fr;gap:30px}
  .panel{position:static}
  .rej{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -124,29 +173,45 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </head>
 <body>
 
-<header class="cab">
-  <a href="/en/" aria-label="W Real Estate"><img class="logo" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105"></a>
-  <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a>
-    <a href="https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4777798/" hreflang="es">Español</a>
+<header class="cab" id="cab">
+  <nav class="izq"><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a></nav>
+  <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
+  <a class="marca" href="/en/" aria-label="W Real Estate">
+    <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
+    <img class="logo tinta" src="/w-logo-tinta.png" alt="W Real Estate" width="123" height="105">
+  </a>
+  <nav class="der"><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a>
+    <span class="sep"></span>
+    <a class="tel" href="tel:+34623798619">+34 623 79 86 19</a>
+    <span class="idi"><a class="on" href="https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4777798/" hreflang="es">ES</a><span class="barra">|</span><a class="on" href="#" hreflang="en">EN</a></span>
   </nav>
 </header>
+<div class="menuPanel" id="menuPanel">
+  <div class="arriba">
+    <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
+    <button class="cerrarM" type="button" id="menuCerrar">Close</button>
+  </div>
+  <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+  <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4777798/">Español</a></div>
+</div>
 
 <main>
   <section class="hero">
-    <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949737" alt="Commercial in Puerto Banús" fetchpriority="high" width="1600" height="1067">
+    <img id="heroImg" src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949737" alt="Commercial in Puerto Banús" fetchpriority="high" width="1600" height="1067">
     <div class="velo"></div>
+    <button class="flecha ant" type="button" id="ant" aria-label="Previous"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M15 4l-8 8 8 8"></path></svg></button>
+    <button class="flecha sig" type="button" id="sig" aria-label="Next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M9 4l8 8-8 8"></path></svg></button>
     <div class="heroTxt">
-      <nav class="miga" aria-label="Home">
-        <a href="/en/">Home</a> ·
-        <a href="/en/buy/marbella/">Marbella</a> ·
-        <span>R4777798</span>
-      </nav>
+      <span class="miga">R4777798 &middot; <a href="/en/buy/marbella/">Puerto Banús, Marbella</a></span>
       <h1>Commercial in Puerto Banús</h1>
       <div class="heroDatos">
         <span class="heroPrecio">750.000 €</span>
         <span class="zona">Puerto Banús, Marbella</span>
         
-        <span class="zona">9 photos</span>
+      </div>
+      <div class="heroPie">
+        <span class="contador" id="contador">Photo 1 of 9</span>
+        <button class="verG" type="button" id="verGaleria">View gallery</button>
       </div>
     </div>
   </section>
@@ -266,6 +331,17 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="abajo"><span>© 2026 W Real Estate · All rights reserved</span><span>Estepona · Marbella · Benahavís · Sotogrande</span></div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery">
+  <div class="barraL">
+    <span id="lbContador"></span>
+    <button type="button" id="lbCerrar">Close</button>
+  </div>
+  <img class="grande" id="lbImg" src="" alt="Commercial in Puerto Banús">
+  <div class="tira" id="lbTira">
+    <button type="button" data-i="0" class="on"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="1"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/2-3c674067db687cc5fc07f68cdcb46212.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="2"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/3-644887ed831e8682853ff700c7704b89.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="3"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/4-498bdfab4a7fcf25df40c2176acd63a0.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="4"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/5-9a73ad0a57b4354c2b6c8eec813cdbf8.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="5"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/6-fa543ff60f4e104718a0562ed3ccbf30.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="6"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/7-9d1c36982be8358e21ef303f14c1e73d.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="7"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/8-486e0113f924038db3f76992aac3bb44.jpg?v=1779949737" alt="" loading="lazy"></button><button type="button" data-i="8"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/9-ba0c67ecbb388dd113c14271dae4c6a3.jpg?v=1779949737" alt="" loading="lazy"></button>
+  </div>
+</div>
+
 <dialog id="dlg">
   <div class="modal">
     <div class="fila">
@@ -279,6 +355,45 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
 <script>
 (function(){
+  var fotos = ["https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/2-3c674067db687cc5fc07f68cdcb46212.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/3-644887ed831e8682853ff700c7704b89.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/4-498bdfab4a7fcf25df40c2176acd63a0.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/5-9a73ad0a57b4354c2b6c8eec813cdbf8.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/6-fa543ff60f4e104718a0562ed3ccbf30.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/7-9d1c36982be8358e21ef303f14c1e73d.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/8-486e0113f924038db3f76992aac3bb44.jpg?v=1779949737","https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/9-ba0c67ecbb388dd113c14271dae4c6a3.jpg?v=1779949737"];
+  var i = 0;
+  var cab = document.getElementById('cab');
+  var heroAlto = function(){ var h = document.querySelector('.hero'); return h ? h.offsetHeight - 120 : 400; };
+  var alDesplazar = function(){ cab.classList.toggle('fija', window.scrollY > heroAlto()); };
+  alDesplazar(); window.addEventListener('scroll', alDesplazar, { passive: true });
+
+  var panel = document.getElementById('menuPanel');
+  document.getElementById('menuBtn').addEventListener('click', function(){ panel.classList.add('abierto'); });
+  document.getElementById('menuCerrar').addEventListener('click', function(){ panel.classList.remove('abierto'); });
+
+  var heroImg = document.getElementById('heroImg'), contador = document.getElementById('contador');
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCont = document.getElementById('lbContador');
+  var textoFoto = "Photo", textoDe = "of";
+  function pintar(){
+    if (heroImg) heroImg.src = fotos[i];
+    if (contador) contador.textContent = textoFoto + ' ' + (i + 1) + ' ' + textoDe + ' ' + fotos.length;
+    if (lbImg) lbImg.src = fotos[i];
+    if (lbCont) lbCont.textContent = textoFoto + ' ' + (i + 1) + ' ' + textoDe + ' ' + fotos.length;
+    var ts = document.querySelectorAll('#lbTira button');
+    for (var k = 0; k < ts.length; k++) ts[k].classList.toggle('on', k === i);
+  }
+  function mover(d){ i = (i + d + fotos.length) % fotos.length; pintar(); }
+  var ant = document.getElementById('ant'), sig = document.getElementById('sig');
+  if (ant) ant.addEventListener('click', function(){ mover(-1); });
+  if (sig) sig.addEventListener('click', function(){ mover(1); });
+  var verG = document.getElementById('verGaleria');
+  if (verG) verG.addEventListener('click', function(){ pintar(); lb.classList.add('abierto'); document.body.style.overflow = 'hidden'; });
+  document.getElementById('lbCerrar').addEventListener('click', function(){ lb.classList.remove('abierto'); document.body.style.overflow = ''; });
+  document.getElementById('lbTira').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return; i = Number(b.getAttribute('data-i')); pintar();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { lb.classList.remove('abierto'); panel.classList.remove('abierto'); document.body.style.overflow = ''; }
+    if (!lb.classList.contains('abierto')) return;
+    if (e.key === 'ArrowRight') mover(1);
+    if (e.key === 'ArrowLeft') mover(-1);
+  });
+
   var urls = { visita: "https://link.realestaterocket.io/widget/survey/vuwWfL1IwW8vAQ8CVYqx?id_propiedad=R4777798&tipo=visita&utm_source=wrealestate.es&utm_medium=ficha&utm_campaign=R4777798&utm_content=visita&utm_term=Commercial+in+Puerto+Ban%C3%BAs", info: "https://link.realestaterocket.io/widget/survey/vuwWfL1IwW8vAQ8CVYqx?id_propiedad=R4777798&tipo=info&utm_source=wrealestate.es&utm_medium=ficha&utm_campaign=R4777798&utm_content=info&utm_term=Commercial+in+Puerto+Ban%C3%BAs" };
   var etiquetas = { visita: "Book a viewing", info: "Request information" };
   var dlg = document.getElementById('dlg'), marco = document.getElementById('dlgForm'), cargado = false;

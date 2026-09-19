@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://wrealestate.es/comprar/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://wrealestate.es/en/buy/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://wrealestate.es/zonas/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.75</priority></url>
+  <url><loc>https://wrealestate.es/en/areas/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.75</priority></url>
   <url><loc>https://wrealestate.es/comprar/marbella/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
   <url><loc>https://wrealestate.es/en/buy/marbella/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
   <url><loc>https://wrealestate.es/comprar/benahavis/</loc><lastmod>2026-09-19</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
