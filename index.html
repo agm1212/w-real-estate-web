@@ -1048,6 +1048,29 @@
           </div>
         </div>
 
+        <sc-if value="{{ hayEstancias }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <div class="rstack" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px">
+            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.galeriaEstancias }}</span>
+            <span style="font-size:12px;color:#786E64">{{ galeriaContador }}</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+            <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="5">
+              <button onClick="{{ g.pick }}" style="{{ g.style }}">{{ g.label }}</button>
+            </sc-for>
+          </div>
+          <div class="rgal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+            <sc-for list="{{ fotosGrupo }}" as="th" hint-placeholder-count="6">
+              <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
+                <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
+                <span style="position:relative;width:100%;padding:9px 11px;background:linear-gradient(180deg,rgba(43,10,14,0),rgba(43,10,14,.8));color:#F7F0E6;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase">{{ th.label }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ sinEstancias }}" hint-placeholder-val="{{ true }}">
         <div>
           <span style="display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027;margin-bottom:20px">{{ t.galeria }}</span>
           <div class="rgal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
@@ -1059,6 +1082,7 @@
             </sc-for>
           </div>
         </div>
+        </sc-if>
       </div>
 
       <!-- Columna lateral -->
@@ -1103,6 +1127,75 @@
       </aside>
     </div>
   </section>
+
+
+  <sc-if value="{{ esExclusiva }}" hint-placeholder-val="{{ false }}">
+  <section style="background:#1E1A17;color:#F7F0E6;padding:clamp(50px,6vw,90px) 6vw">
+    <div class="r1" style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,4vw,70px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D9B6A9">{{ t.ubicacionEyebrow }}</span>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,3vw,42px);line-height:1.1;max-width:14em">{{ ubicacionTitulo }}</h2>
+        <p style="margin:0;font-size:14.5px;line-height:1.85;color:rgba(247,240,230,.72);max-width:34em">{{ t.ubicacionTexto }}</p>
+      </div>
+      <div class="r2s" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 28px">
+        <sc-for list="{{ distancias }}" as="d" hint-placeholder-count="6">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid rgba(247,240,230,.14);padding:12px 0;font-size:14px">
+            <span>{{ d.punto }}</span>
+            <span style="color:#EDD7BF;white-space:nowrap">{{ d.tiempo }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(50px,6vw,90px) 6vw">
+    <div class="r1" style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(30px,4vw,70px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.costesEyebrow }}</span>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,3vw,42px);line-height:1.1;max-width:13em">{{ t.costesTitulo }}</h2>
+        <p style="margin:0;font-size:14.5px;line-height:1.85;color:#5C534B;max-width:30em">{{ t.costesTexto }}</p>
+      </div>
+      <div class="r2s" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,2.6vw,40px);background:#F6EFE3;padding:clamp(24px,2.6vw,36px)">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.costesCompra }}</span>
+          <sc-for list="{{ costes }}" as="c" hint-placeholder-count="4">
+            <span style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(30,26,23,.1);padding:8px 0;font-size:13.5px;color:#5C534B">
+              {{ c.concepto }}<span style="color:#1E1A17;white-space:nowrap">{{ c.importe }}</span>
+            </span>
+          </sc-for>
+          <span style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0;font-size:15px;font-weight:700">
+            {{ t.costesTotal }}<span style="white-space:nowrap">{{ costeTotal }}</span>
+          </span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.costesFinanciacion }}</span>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span style="font-size:12.5px;color:#5C534B">{{ t.costesEntrada }}</span>
+            <div style="display:flex;gap:6px">
+              <sc-for list="{{ entradas }}" as="e" hint-placeholder-count="3">
+                <button onClick="{{ e.pick }}" style="{{ e.style }}">{{ e.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span style="font-size:12.5px;color:#5C534B">{{ t.costesPlazo }}</span>
+            <div style="display:flex;gap:6px">
+              <sc-for list="{{ plazos }}" as="p" hint-placeholder-count="3">
+                <button onClick="{{ p.pick }}" style="{{ p.style }}">{{ p.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;margin-top:4px">
+            <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#786E64">{{ t.costesCuota }}</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.2vw,42px);font-weight:500;line-height:1;color:#7A2027">{{ cuotaMensual }}</span>
+            <span style="font-size:12px;color:#786E64">{{ hipotecaDetalle }}</span>
+          </div>
+          <span style="font-size:11.5px;line-height:1.65;color:#786E64">{{ t.costesAviso }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
 
   <section style="background:#F6EFE3;padding:clamp(60px,8vw,120px) 6vw">
     <div style="max-width:1360px;margin:0 auto">
@@ -2153,6 +2246,13 @@ class Component extends DCLogic {
       galeria: 'Galería', precio: 'Precio', ctaVisita: 'Reservar visita', ctaInfo: 'Solicitar información',
       asesor: 'Su asesor para esta propiedad',
       docsTitulo: 'Documentación disponible', docsPie: 'Entregamos el expediente completo tras la primera visita.',
+      galeriaEstancias: 'La casa por estancias',
+      ubicacionEyebrow: 'Ubicación', ubicacionTexto: 'Tiempos orientativos en coche desde la urbanización. La dirección exacta se comparte tras la primera toma de contacto.',
+      costesEyebrow: 'Cuánto cuesta de verdad', costesTitulo: 'Gastos de compra y cuota, sin sorpresas',
+      costesTexto: 'Calculado con los impuestos vigentes en Andalucía para vivienda de segunda mano. Cambie la entrada y el plazo para ver la cuota.',
+      costesCompra: 'Gastos de compra', costesTotal: 'Total aproximado', costesFinanciacion: 'Financiación',
+      costesEntrada: 'Entrada', costesPlazo: 'Plazo', costesCuota: 'Cuota mensual estimada',
+      costesAviso: 'Estimación orientativa. No constituye oferta de financiación.',
       similares: 'Propiedades similares',
 
       venderEyebrow: 'Vender con W',
@@ -2482,6 +2582,13 @@ class Component extends DCLogic {
       galeria: 'Gallery', precio: 'Price', ctaVisita: 'Book a viewing', ctaInfo: 'Request information',
       asesor: 'Your advisor for this property',
       docsTitulo: 'Available documentation', docsPie: 'The full file is handed over after the first viewing.',
+      galeriaEstancias: 'The house room by room',
+      ubicacionEyebrow: 'Location', ubicacionTexto: 'Indicative drive times from the development. The exact address is shared after the first contact.',
+      costesEyebrow: 'What it really costs', costesTitulo: 'Purchase costs and monthly payment, no surprises',
+      costesTexto: 'Calculated with the taxes in force in Andalusia for resale homes. Change the deposit and the term to see the payment.',
+      costesCompra: 'Purchase costs', costesTotal: 'Approximate total', costesFinanciacion: 'Financing',
+      costesEntrada: 'Deposit', costesPlazo: 'Term', costesCuota: 'Estimated monthly payment',
+      costesAviso: 'Indicative estimate. This is not a financing offer.',
       similares: 'Similar properties',
 
       venderEyebrow: 'Selling with W',
@@ -2736,6 +2843,50 @@ class Component extends DCLogic {
       descripcion: { es: 'Promoción boutique de dieciocho viviendas a dos calles de la plaza de las Flores. El ático ocupa la última planta con terraza envolvente de 70 m² y solárium privado. Acabados de gama alta, cocina Gaggenau y aparcamiento en el mismo edificio, algo excepcional en el centro de Estepona.', en: 'A boutique development of eighteen homes two streets from Plaza de las Flores. The penthouse occupies the top floor with a 70 m² wrap-around terrace and private solarium. High-end finishes, a Gaggenau kitchen and parking in the building itself, exceptional in central Estepona.' },
       features: { es: ['Terraza envolvente de 70 m²', 'Solárium privado', 'Cocina Gaggenau', 'Aparcamiento en el edificio', 'Piscina comunitaria', 'A dos calles del centro', 'Ascensor directo', 'Solo 18 viviendas'], en: ['70 m² wrap-around terrace', 'Private solarium', 'Gaggenau kitchen', 'Parking in the building', 'Community pool', 'Two streets from the centre', 'Direct lift', 'Only 18 homes'] } }
   ];
+
+  /* Distancias orientativas en coche por urbanización; si no está, se usan las del municipio. No se calculan por propiedad. */
+  puntos = {
+    playa: { es: 'Playa', en: 'Beach' }, banus: { es: 'Puerto Banús', en: 'Puerto Banús' },
+    marbella: { es: 'Marbella centro', en: 'Marbella centre' }, estepona: { es: 'Estepona centro', en: 'Estepona centre' },
+    golf: { es: 'Campo de golf más cercano', en: 'Nearest golf course' }, colegio: { es: 'Colegio internacional', en: 'International school' },
+    aeropuerto: { es: 'Aeropuerto de Málaga', en: 'Málaga airport' }, gibraltar: { es: 'Aeropuerto de Gibraltar', en: 'Gibraltar airport' },
+    puertoSoto: { es: 'Puerto de Sotogrande', en: 'Sotogrande marina' }, malaga: { es: 'Málaga capital', en: 'Málaga city' }
+  };
+  distUrb = {
+    'La Zagaleta': [['golf', 3], ['playa', 14], ['banus', 15], ['colegio', 17], ['marbella', 22], ['aeropuerto', 55]],
+    'El Madroñal': [['golf', 8], ['playa', 12], ['banus', 12], ['colegio', 15], ['marbella', 20], ['aeropuerto', 50]],
+    'La Quinta': [['golf', 2], ['banus', 8], ['playa', 10], ['colegio', 12], ['marbella', 15], ['aeropuerto', 48]],
+    'Los Flamingos': [['golf', 2], ['playa', 5], ['estepona', 12], ['banus', 15], ['marbella', 20], ['aeropuerto', 55]],
+    'Los Arqueros': [['golf', 2], ['playa', 10], ['banus', 12], ['marbella', 18], ['aeropuerto', 50]],
+    'Sierra Blanca': [['marbella', 5], ['playa', 6], ['banus', 10], ['colegio', 10], ['golf', 12], ['aeropuerto', 40]],
+    'Nagüeles': [['playa', 4], ['marbella', 5], ['banus', 7], ['golf', 10], ['aeropuerto', 40]],
+    'Nueva Andalucía': [['golf', 3], ['banus', 5], ['playa', 6], ['colegio', 8], ['marbella', 12], ['aeropuerto', 45]],
+    'Las Brisas': [['golf', 2], ['banus', 6], ['playa', 8], ['marbella', 14], ['aeropuerto', 45]],
+    'Aloha': [['golf', 2], ['banus', 6], ['playa', 8], ['marbella', 13], ['aeropuerto', 45]],
+    'Los Monteros': [['playa', 3], ['golf', 6], ['marbella', 8], ['banus', 18], ['aeropuerto', 35]],
+    'Elviria': [['playa', 4], ['golf', 5], ['colegio', 6], ['marbella', 15], ['aeropuerto', 30]],
+    'Guadalmina Baja': [['playa', 3], ['golf', 3], ['banus', 10], ['marbella', 18], ['aeropuerto', 50]],
+    'Guadalmina Alta': [['golf', 2], ['playa', 6], ['banus', 12], ['marbella', 20], ['aeropuerto', 50]],
+    'La Reserva': [['golf', 3], ['puertoSoto', 8], ['playa', 10], ['gibraltar', 30], ['aeropuerto', 90]],
+    'Sotogrande Alto': [['golf', 4], ['puertoSoto', 8], ['playa', 10], ['gibraltar', 30], ['aeropuerto', 90]],
+    'Sotogrande Costa': [['puertoSoto', 4], ['playa', 5], ['golf', 5], ['gibraltar', 28], ['aeropuerto', 90]],
+    'El Paraíso': [['golf', 2], ['playa', 6], ['estepona', 10], ['banus', 12], ['aeropuerto', 55]],
+    'Atalaya': [['golf', 2], ['playa', 5], ['estepona', 8], ['banus', 14], ['aeropuerto', 55]],
+    'Cancelada': [['playa', 5], ['golf', 5], ['estepona', 8], ['banus', 16], ['aeropuerto', 58]],
+    'La Cala de Mijas': [['playa', 3], ['golf', 5], ['marbella', 20], ['aeropuerto', 25]],
+    'Calahonda': [['playa', 4], ['golf', 5], ['marbella', 15], ['aeropuerto', 28]]
+  };
+  distMuni = {
+    'Marbella': [['playa', 5], ['marbella', 8], ['golf', 10], ['banus', 12], ['colegio', 12], ['aeropuerto', 40]],
+    'Benahavís': [['golf', 5], ['playa', 12], ['banus', 14], ['marbella', 20], ['aeropuerto', 52]],
+    'Estepona': [['playa', 5], ['golf', 6], ['estepona', 8], ['banus', 18], ['aeropuerto', 60]],
+    'Sotogrande': [['golf', 5], ['puertoSoto', 6], ['playa', 8], ['gibraltar', 30], ['aeropuerto', 90]],
+    'Mijas': [['playa', 6], ['golf', 6], ['marbella', 20], ['aeropuerto', 28]],
+    'Benalmádena': [['playa', 5], ['golf', 8], ['malaga', 20], ['aeropuerto', 15]],
+    'Málaga': [['playa', 8], ['malaga', 5], ['golf', 15], ['aeropuerto', 15]],
+    'Casares': [['playa', 8], ['golf', 5], ['estepona', 15], ['aeropuerto', 70]],
+    'Manilva': [['playa', 5], ['golf', 6], ['estepona', 18], ['aeropuerto', 75]]
+  };
 
   equipoData = [
     { nombre: 'Iván', cargo: { es: 'Asesor inmobiliario', en: 'Real estate advisor' }, idiomas: 'ES · EN' },
@@ -3139,6 +3290,39 @@ class Component extends DCLogic {
       : (this.galerias[prop.ref] || []).map(k => this.fotos[k]);
     const marcarRota = (e) => { const el = e && e.target; if (!el || !el.src || el.src.indexOf('http') !== 0) return; if (e.type === 'error' || (el.naturalWidth && el.naturalWidth < 300)) { if (!rotas[el.src]) { rotas[el.src] = 1; this.setState({ gi: 0 }); } } };
     const gi = shots.length ? (st.gi % shots.length) : 0;
+    /* ── Extras de las exclusivas de W: estancias, distancias por urbanización y costes de compra ── */
+    const exclusiva = prop.exclusiva === true;
+    const etiquetaDe = {};
+    (prop.estancias || []).forEach(e => { if (e && e.url) etiquetaDe[e.url] = e.etiqueta; });
+    const hayEstancias = exclusiva && shots.filter(s => etiquetaDe[s.url]).length >= 3;
+    const gruposEst = [];
+    if (hayEstancias) {
+      gruposEst.push({ label: es ? 'Todo' : 'All', fotos: shots.map((s, i) => i) });
+      const orden = [];
+      shots.forEach((s, i) => {
+        const et = etiquetaDe[s.url] || (es ? 'Otras' : 'Other');
+        let g = orden.filter(x => x.label === et)[0];
+        if (!g) { g = { label: et, fotos: [] }; orden.push(g); }
+        g.fotos.push(i);
+      });
+      orden.forEach(g => gruposEst.push(g));
+    }
+    const gSel = Math.min(st.gEst || 0, Math.max(0, gruposEst.length - 1));
+    const itp = Math.round(prop.precio * 0.07);
+    const notaria = Math.round(prop.precio * 0.0004) + 1500;
+    const abogado = Math.round(prop.precio * 0.01);
+    const entrada = st.ent || 40, plazo = st.plz || 25;
+    const capital = prop.precio * (1 - entrada / 100), tipoInt = 0.031 / 12, cuotas = plazo * 12;
+    const cuota = capital * tipoInt / (1 - Math.pow(1 + tipoInt, -cuotas));
+    const distancias = this.distUrb[prop.urbanizacion] || this.distMuni[prop.municipio] || this.distMuni['Marbella'];
+    const thumbsAll = shots.map((s, i) => ({
+      label: etiquetaDe[s.url] || this.L(s),
+      pick: () => this.setState({ gi: i }),
+      open: () => this.setState({ gi: i, lightbox: true }),
+      img: s.url || this.isrc(s.src), alCargar: marcarRota,
+      style: 'position:relative;overflow:hidden;aspect-ratio:16/11;cursor:pointer;display:flex;align-items:flex-end;padding:0;background:#F3EAD9;outline:' + (i === gi ? '2px solid #7A2027' : '1px solid rgba(30,26,23,.14)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.72') + ';transition:opacity .3s ease',
+      lightboxStyle: 'position:relative;overflow:hidden;flex:none;width:104px;aspect-ratio:4/3;cursor:pointer;padding:0;background:#1E1A17;outline:' + (i === gi ? '2px solid #EDD7BF' : '1px solid rgba(247,240,230,.2)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.5')
+    }));
     const shot = shots[gi] || this.fotos.olivo;
     const asesor = this.equipoData.filter(m => m.nombre === prop.asesor)[0] || this.equipoData[0];
 
@@ -3387,6 +3571,26 @@ class Component extends DCLogic {
       },
       /* El expediente solo se anuncia en las exclusivas de W con documentos cargados desde el portal. */
       hayDocs: prop.exclusiva === true && (prop.documentos || []).length > 0,
+      esExclusiva: exclusiva, hayEstancias: hayEstancias, sinEstancias: !hayEstancias,
+      galeriaContador: shots.length + (es ? ' fotos' : ' photos'),
+      grupos: gruposEst.map((g, i) => ({
+        label: g.label + ' · ' + g.fotos.length,
+        style: this.chip(i === gSel) + ';padding:8px 14px;font-size:12.5px',
+        pick: () => this.setState({ gEst: i })
+      })),
+      fotosGrupo: (gruposEst[gSel] || { fotos: [] }).fotos.map(i => thumbsAll[i]),
+      ubicacionTitulo: prop.urbanizacion ? prop.urbanizacion + ', ' + prop.municipio : prop.municipio,
+      distancias: distancias.map(d => ({ punto: this.L(this.puntos[d[0]]) || d[0], tiempo: d[1] + ' min' })),
+      costes: [
+        { concepto: es ? 'ITP Andalucía · 7 %' : 'Transfer tax · 7%', importe: this.eur(itp) },
+        { concepto: es ? 'Notaría y registro' : 'Notary and land registry', importe: '≈ ' + this.eur(notaria) },
+        { concepto: es ? 'Abogado · 1 %' : 'Lawyer · 1%', importe: this.eur(abogado) }
+      ],
+      costeTotal: this.eur(prop.precio + itp + notaria + abogado),
+      entradas: [30, 40, 50].map(v => ({ label: v + ' %', style: this.chip(v === entrada) + ';padding:8px 14px;font-size:12.5px', pick: () => this.setState({ ent: v }) })),
+      plazos: [20, 25, 30].map(v => ({ label: v + (es ? ' años' : ' years'), style: this.chip(v === plazo) + ';padding:8px 14px;font-size:12.5px', pick: () => this.setState({ plz: v }) })),
+      cuotaMensual: this.eur(Math.round(cuota)) + (es ? '/mes' : '/month'),
+      hipotecaDetalle: this.eur(Math.round(prop.precio * (1 - entrada / 100))) + (es ? ' a ' + plazo + ' años · 3,1 % fijo' : ' over ' + plazo + ' years · 3.1% fixed'),
       specs: [
         { valor: prop.dorm, etiqueta: es ? 'Dormitorios' : 'Bedrooms' },
         { valor: prop.banos, etiqueta: es ? 'Baños' : 'Bathrooms' },
@@ -3408,14 +3612,8 @@ class Component extends DCLogic {
       closeLightbox: () => this.setState({ lightbox: false }),
       lightboxOpen: !!st.lightbox,
       lightboxImgStyle: 'flex:1;min-height:0;width:100%;object-fit:contain;display:block;animation:fadeIn .3s ease both',
-      thumbs: shots.map((s, i) => ({
-        label: this.L(s),
-        pick: () => this.setState({ gi: i }),
-        open: () => this.setState({ gi: i, lightbox: true }),
-        img: s.url || this.isrc(s.src), alCargar: marcarRota,
-        style: 'position:relative;overflow:hidden;aspect-ratio:16/11;cursor:pointer;display:flex;align-items:flex-end;padding:0;background:#F3EAD9;outline:' + (i === gi ? '2px solid #7A2027' : '1px solid rgba(30,26,23,.14)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.72') + ';transition:opacity .3s ease',
-        lightboxStyle: 'position:relative;overflow:hidden;flex:none;width:104px;aspect-ratio:4/3;cursor:pointer;padding:0;background:#1E1A17;outline:' + (i === gi ? '2px solid #EDD7BF' : '1px solid rgba(247,240,230,.2)') + ';outline-offset:-1px;opacity:' + (i === gi ? '1' : '.5')
-      })),
+      thumbs: thumbsAll,
+
       similares: this.data.filter(p => p.ref !== prop.ref && p.municipio === prop.municipio && p.tipo === prop.tipo)
         .concat(this.data.filter(p => p.ref !== prop.ref && p.municipio !== prop.municipio))
         .slice(0, 3).map(p => this.card(p)),
