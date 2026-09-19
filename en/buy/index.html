@@ -237,7 +237,7 @@
   <nav class="rhide" style="display:flex;flex:1 1 0;align-items:center;justify-content:flex-end;gap:clamp(20px,2.6vw,46px);padding-right:clamp(30px,4vw,70px)">
     <a href="#" onClick="{{ goListings }}" style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase" style-hover="opacity:.6">{{ t.navComprar }}</a>
     <a href="#" onClick="{{ goSell }}" style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase" style-hover="opacity:.6">{{ t.navVender }}</a>
-    <a href="#" onClick="{{ goZonas }}" style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase" style-hover="opacity:.6">{{ t.navZonas }}</a>
+    <a href="{{ rutaZonas }}" style="font-size:12.5px;letter-spacing:.16em;text-transform:uppercase" style-hover="opacity:.6">{{ t.navZonas }}</a>
   </nav>
 
   <button class="donly" onClick="{{ openMenu }}" style="display:flex;flex:1 1 0;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 12px 0">
@@ -278,7 +278,7 @@
     <nav style="display:flex;flex-direction:column">
       <a href="#" onClick="{{ mListings }}" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)">{{ t.navComprar }}</a>
       <a href="#" onClick="{{ mSell }}" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)">{{ t.navVender }}</a>
-      <a href="#" onClick="{{ mZonas }}" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)">{{ t.navZonas }}</a>
+      <a href="{{ rutaZonas }}" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)">{{ t.navZonas }}</a>
       <a href="#" onClick="{{ mAbout }}" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)">{{ t.navNosotros }}</a>
       <a href="#" onClick="{{ mContact }}" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;padding:14px 0;border-bottom:1px solid rgba(247,240,230,.2)">{{ t.navContacto }}</a>
     </nav>
@@ -364,7 +364,7 @@
       <span class="rv" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1E1A17">{{ t.zonasEyebrow }}</span>
       <h2 class="rv rh2" style="margin:0;max-width:16em;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,3.6vw,52px);line-height:1.1;text-wrap:balance"><span>{{ t.zonasTitulo1 }} </span><span style="font-weight:600">{{ t.zonasTitulo2 }}</span><span> {{ t.zonasTitulo3 }}</span></h2>
       <p class="rv" style="margin:0;max-width:42em;font-size:16px;line-height:1.8;color:#5C534B">{{ t.zonasTexto }}</p>
-      <a href="#" onClick="{{ goListings }}" class="rv" style="margin-top:6px;padding:11px 28px;border:2px solid #1E1A17;color:#1E1A17;font-size:14px;transition:all .3s ease" style-hover="background:#1E1A17;color:#FFFFFF">{{ t.zonasBoton }}</a>
+      <a href="{{ rutaZonas }}" class="rv" style="margin-top:6px;padding:11px 28px;border:2px solid #1E1A17;color:#1E1A17;font-size:14px;transition:all .3s ease" style-hover="background:#1E1A17;color:#FFFFFF">{{ t.zonasBoton }}</a>
     </div>
 
 
@@ -3056,6 +3056,8 @@ class Component extends DCLogic {
       ? { home: '/', listings: '/comprar/', sell: '/vender/', about: '/nosotros/', contact: '/contacto/' }
       : { home: '/en/', listings: '/en/buy/', sell: '/en/sell/', about: '/en/about/', contact: '/en/contact/' };
   }
+  /* Página de guías de zona. La generan las herramientas de catalogo-w. */
+  get rutaZonas() { return this.es ? '/zonas/' : '/en/areas/'; }
   urlDe(page, ref) {
     if (page === 'property') { const p = this.data.find(x => x.ref === ref); return p ? this.rutaPropiedad(p) : '/'; }
     return this.rutasSeccion[page] || this.rutasSeccion.home;
@@ -3442,21 +3444,12 @@ class Component extends DCLogic {
       isHome: page === 'home', isListings: page === 'listings', isProperty: page === 'property',
       isSell: page === 'sell', isAbout: page === 'about', isContact: page === 'contact',
 
+      rutaZonas: this.rutaZonas,
       goHome: irA('home'), goListings: irA('listings'), goAbout: irA('about'), goSell: irA('sell'),
       mListings: irA('listings'), mSell: irA('sell'), mAbout: irA('about'),
       goContact: (e) => { if (e) e.preventDefault(); this.go('contact', { step: 1, sent: false, touched: false, sellerMode: false }); },
       goValoracion: (e) => { if (e) e.preventDefault(); this.go('contact', { step: 1, sent: false, touched: false, sellerMode: true }); },
       mContact: (e) => { if (e) e.preventDefault(); this.go('contact', { step: 1, sent: false, touched: false, sellerMode: false }); },
-      goZonas: (e) => {
-        if (e) e.preventDefault();
-        this.setState({ page: 'home', menu: false });
-        setTimeout(() => { const el = document.getElementById('zonas'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 90);
-      },
-      mZonas: (e) => {
-        if (e) e.preventDefault();
-        this.setState({ page: 'home', menu: false });
-        setTimeout(() => { const el = document.getElementById('zonas'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 120);
-      },
 
       /* ---- inicio ---- */
       pilares: t.pilares, cifras: t.cifras, pasos: t.pasos, canales: t.canales,
