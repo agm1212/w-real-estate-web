@@ -60,6 +60,9 @@
     .rhero .rbtns { flex-direction: column !important; width: 100% !important; gap: 10px !important; }
     .rhero .rbtns > a { width: 100% !important; text-align: center; padding: 13px 20px !important; font-size: 18px !important; }
   }
+  @media (max-width: 1000px) {
+    .rgal { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  }
   @media (max-width: 640px) {
     .r2, .r2s { grid-template-columns: minmax(0, 1fr) !important; }
     /* Galería de la ficha en móvil: tira horizontal con ajuste por foto en lugar de una columna interminable */
@@ -1048,41 +1051,6 @@
           </div>
         </div>
 
-        <sc-if value="{{ hayEstancias }}" hint-placeholder-val="{{ false }}">
-        <div>
-          <div class="rstack" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px">
-            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.galeriaEstancias }}</span>
-            <span style="font-size:12px;color:#786E64">{{ galeriaContador }}</span>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
-            <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="5">
-              <button onClick="{{ g.pick }}" style="{{ g.style }}">{{ g.label }}</button>
-            </sc-for>
-          </div>
-          <div class="rgal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
-            <sc-for list="{{ fotosGrupo }}" as="th" hint-placeholder-count="6">
-              <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
-                <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
-                <span style="position:relative;width:100%;padding:9px 11px;background:linear-gradient(180deg,rgba(43,10,14,0),rgba(43,10,14,.8));color:#F7F0E6;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase">{{ th.label }}</span>
-              </button>
-            </sc-for>
-          </div>
-        </div>
-        </sc-if>
-
-        <sc-if value="{{ sinEstancias }}" hint-placeholder-val="{{ true }}">
-        <div>
-          <span style="display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027;margin-bottom:20px">{{ t.galeria }}</span>
-          <div class="rgal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
-            <sc-for list="{{ thumbs }}" as="th" hint-placeholder-count="5">
-              <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
-                <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
-                <span style="position:relative;width:100%;padding:9px 11px;background:linear-gradient(180deg,rgba(43,10,14,0),rgba(43,10,14,.8));color:#F7F0E6;font-size:9.5px;letter-spacing:.1em;text-align:left">{{ th.label }}</span>
-              </button>
-            </sc-for>
-          </div>
-        </div>
-        </sc-if>
       </div>
 
       <!-- Columna lateral -->
@@ -1125,6 +1093,46 @@
         </div>
         </sc-if>
       </aside>
+    </div>
+  </section>
+
+  <section style="padding:0 6vw clamp(40px,5vw,70px)">
+    <div style="max-width:1360px;margin:0 auto">
+          <sc-if value="{{ hayEstancias }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div class="rstack" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px">
+              <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.galeriaEstancias }}</span>
+              <span style="font-size:12px;color:#786E64">{{ galeriaContador }}</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+              <sc-for list="{{ grupos }}" as="g" hint-placeholder-count="5">
+                <button onClick="{{ g.pick }}" style="{{ g.style }}">{{ g.label }}</button>
+              </sc-for>
+            </div>
+            <div class="rgal" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+              <sc-for list="{{ fotosGrupo }}" as="th" hint-placeholder-count="6">
+                <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
+                  <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
+                  <span style="position:relative;width:100%;padding:9px 11px;background:linear-gradient(180deg,rgba(43,10,14,0),rgba(43,10,14,.8));color:#F7F0E6;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase">{{ th.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
+
+          <sc-if value="{{ sinEstancias }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <span style="display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027;margin-bottom:20px">{{ t.galeria }}</span>
+            <div class="rgal" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+              <sc-for list="{{ thumbs }}" as="th" hint-placeholder-count="5">
+                <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
+                  <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
+                  <span style="position:relative;width:100%;padding:9px 11px;background:linear-gradient(180deg,rgba(43,10,14,0),rgba(43,10,14,.8));color:#F7F0E6;font-size:9.5px;letter-spacing:.1em;text-align:left">{{ th.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
     </div>
   </section>
 
