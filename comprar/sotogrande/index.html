@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Sotogrande","url":"https://wrealestate.es/comprar/sotogrande/","description":"Sotogrande es una urbanización privada fundada en 1962 por Joseph McMicking, en el término de San Roque, ya en la provincia de Cádiz. Su primer campo de golf, obra de Robert Trent Jones, abrió en 1964, y de ahí nació todo lo demás.","address":{"@type":"PostalAddress","addressRegion":"Sotogrande","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Sotogrande","url":"https://wrealestate.es/comprar/sotogrande/","description":"Sotogrande es una urbanización privada fundada en 1962 por el empresario filipino-estadounidense Joseph McMicking, en el término municipal de San Roque, ya en la provincia de Cádiz. No creció como un pueblo que se fue llenando, sino como un proyecto planificado desde el principio alrededor del golf, el polo y el mar. Su primer campo, obra de Robert Trent Jones, abrió en 1964, y de ahí nació todo lo demás.","address":{"@type":"PostalAddress","addressRegion":"Sotogrande","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Sotogrande","url":"https://wrealestate.es/comprar/sotogrande/","numberOfItems":16,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r4955374/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-costa-r5272627/","name":"Villa en Sotogrande Costa"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r4892221/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r4917904/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/sotogrande/villa-la-alcaidesa-r5177761/","name":"Villa en La Alcaidesa"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r5119030/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r5066233/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-alto-r5066647/","name":"Villa en Sotogrande Alto"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r5066236/","name":"Parcela en Sotogrande"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-costa-r5066656/","name":"Parcela en Sotogrande Costa"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r5289055/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-costa-r5204977/","name":"Villa en Sotogrande Costa"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r5366341/","name":"Parcela en Sotogrande"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/sotogrande/apartamento-sotogrande-marina-r5462098/","name":"Apartamento en Sotogrande Marina"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r4225339/","name":"Parcela en Sotogrande"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r5065627/","name":"Parcela en Sotogrande"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 16 propiedades en venta en Sotogrande. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Sotogrande van desde 590.000 € hasta 18.000.000 €, con un precio mediano de 3.350.000 € y una media de 4258 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 10 villas, 5 parcelas, 1 apartamentos."}},{"@type":"Question","name":"¿Sotogrande está en Málaga?","acceptedAnswer":{"@type":"Answer","text":"No. Sotogrande pertenece al municipio de San Roque, en la provincia de Cádiz, aunque funcionalmente forma parte del mismo mercado que la Costa del Sol occidental."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 16 propiedades en venta en Sotogrande. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Sotogrande van desde 590.000 € hasta 18.000.000 €, con un precio mediano de 3.350.000 € y una media de 4258 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 10 villas, 5 parcelas, 1 apartamentos."}},{"@type":"Question","name":"¿Sotogrande está en Málaga?","acceptedAnswer":{"@type":"Answer","text":"No. Sotogrande pertenece al municipio de San Roque, en la provincia de Cádiz, aunque funcionalmente forma parte del mismo mercado que la Costa del Sol occidental."}},{"@type":"Question","name":"¿Cuántos campos de golf hay en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"Cuatro dentro del recinto: el Real Club de Golf Sotogrande, Valderrama, La Reserva Club y The Alto Club."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://wrealestate.es/"},{"@type":"ListItem","position":2,"name":"Comprar","item":"https://wrealestate.es/comprar/"},{"@type":"ListItem","position":3,"name":"Sotogrande","item":"https://wrealestate.es/comprar/sotogrande/"},{"@type":"ListItem","position":4,"name":"Sotogrande","item":"https://wrealestate.es/comprar/sotogrande/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
@@ -345,54 +373,68 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/sotogrande/">English</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/5f247460e86a11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1739292464" alt="Sotogrande" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Guía de zona</span><span class="raya"></span></div>
+    <h1>Sotogrande</h1>
+    <p class="lead">Sotogrande es un mundo aparte: urbanización privada de los años sesenta, con puerto deportivo, polo, cuatro campos de golf y un colegio internacional dentro del propio recinto. Está a hora y media del aeropuerto de Málaga y a media hora del de Gibraltar, y su mercado se mueve con lógica propia.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">16</span><span class="k">Propiedades publicadas</span></div>
+      <div><span class="v">590.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">3.350.000 €</span><span class="k">Precio mediano</span></div>
+      <div><span class="v">4258 &euro;</span><span class="k">Media por m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Guía de zona</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Sotogrande</h1>
-      </div>
-      <span class="cuenta">16 propiedades disponibles.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">16</span><span class="k">propiedades</span></div>
-      <div><span class="v">590.000 €</span><span class="k">Desde</span></div>
-      <div><span class="v">18.000.000 €</span><span class="k">hasta</span></div>
-      <div><span class="v">3.350.000 €</span><span class="k">Precio medio</span></div>
-      <div><span class="v">4258 €</span><span class="k">Media por m² construido</span></div>
-    </div>
-
-    <div class="texto"><p>Sotogrande es un mundo aparte: urbanización privada de los años sesenta, con puerto deportivo, polo, cuatro campos de golf y un colegio internacional dentro del propio recinto. Está a hora y media del aeropuerto de Málaga y a media hora del de Gibraltar, y su mercado se mueve con lógica propia.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="En esta guía">
       <span class="eyebrow">En esta guía</span>
-      <ol><li><a href="#z1">Qué es Sotogrande</a></li><li><a href="#z2">Golf, puerto y polo</a></li><li><a href="#z3">La Reserva</a></li><li><a href="#z4">Colegio y seguridad</a></li><li><a href="#distancias">Dónde está y cómo se llega</a></li><li><a href="#precios">Cuánto cuesta comprar en Sotogrande</a></li><li><a href="#enventa">Qué hay en venta ahora mismo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol>
+      <ol><li><a href="#z1">Qué es Sotogrande</a></li><li><a href="#z2">Golf</a></li><li><a href="#z3">Puerto y polo</a></li><li><a href="#z4">Colegio y seguridad</a></li><li><a href="#z5">Accesos</a></li><li><a href="#z6">Qué se compra en Sotogrande</a></li><li><a href="#distancias">Dónde está y cómo se llega</a></li><li><a href="#precios">Cuánto cuesta comprar en Sotogrande</a></li><li><a href="#enventa">Qué hay en venta ahora mismo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">Qué es Sotogrande</h2><p>Sotogrande es una urbanización privada fundada en 1962 por Joseph McMicking, en el término de San Roque, ya en la provincia de Cádiz. Su primer campo de golf, obra de Robert Trent Jones, abrió en 1964, y de ahí nació todo lo demás.</p>
-      <h2 id="z2">Golf, puerto y polo</h2><p>El recinto reúne el Real Club de Golf Sotogrande, Valderrama, La Reserva Club y The Alto Club. El puerto deportivo es el mayor de Andalucía, con 1.382 amarres. El polo, con temporada de verano propia, es la otra seña de identidad de la zona.</p>
-      <h2 id="z3">La Reserva</h2><p>La Reserva Club es la parte alta y más reciente de Sotogrande. Su campo de golf, diseñado por Cabell Robinson, abrió en 2003, y el club añade club de playa, tenis y pádel.</p>
-      <h2 id="z4">Colegio y seguridad</h2><p>Sotogrande tiene un colegio internacional dentro del propio recinto y seguridad permanente, dos factores que explican por qué muchas familias se instalan aquí todo el año y no solo en verano.</p>
-      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destino</th><th>En coche</th></tr></thead>
-          <tbody><tr><td>Campo de golf más cercano</td><td class="n">5 min</td></tr><tr><td>Puerto de Sotogrande</td><td class="n">6 min</td></tr><tr><td>Playa</td><td class="n">8 min</td></tr><tr><td>Aeropuerto de Gibraltar</td><td class="n">30 min</td></tr><tr><td>Aeropuerto de Málaga</td><td class="n">90 min</td></tr></tbody>
-        </table></div><p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
-      <h2 id="precios">Cuánto cuesta comprar en Sotogrande</h2><p class="nota">Cifras calculadas sobre las 16 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Tipo</th><th>En venta</th><th>Desde</th><th>Hasta</th><th>Precio mediano</th><th>Media por m²</th></tr></thead>
-        <tbody><tr><td>Villas</td><td class="n">10</td><td class="n">1.350.000 €</td><td class="n">18.000.000 €</td><td class="n">5.000.000 €</td><td class="n">4885 &euro;</td></tr><tr><td>Parcelas</td><td class="n">5</td><td class="n">590.000 €</td><td class="n">2.917.583 €</td><td class="n">750.000 €</td><td class="n">769 &euro;</td></tr><tr><td>Apartamentos</td><td class="n">1</td><td class="n">690.000 €</td><td class="n">690.000 €</td><td class="n">690.000 €</td><td class="n">4964 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">Qué es Sotogrande</h2><p>Sotogrande es una urbanización privada fundada en 1962 por el empresario filipino-estadounidense Joseph McMicking, en el término municipal de San Roque, ya en la provincia de Cádiz. No creció como un pueblo que se fue llenando, sino como un proyecto planificado desde el principio alrededor del golf, el polo y el mar. Su primer campo, obra de Robert Trent Jones, abrió en 1964, y de ahí nació todo lo demás.</p>
+      <h2 id="z2">Golf</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>El recinto reúne el Real Club de Golf Sotogrande, Valderrama, La Reserva Club y The Alto Club. Valderrama es, probablemente, el campo más conocido de España. La Reserva Club, en la parte alta, abrió su recorrido en 2003 con diseño de Cabell Robinson y añade club de playa, tenis y pádel. Es una concentración de golf de nivel que no tiene equivalente en el resto de la costa.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/0fb62e75f10c11f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949613" alt="Sotogrande" loading="lazy" width="800" height="600"><figcaption>Sotogrande</figcaption></figure>
+    </div>
+      <h2 id="z3">Puerto y polo</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>El puerto deportivo de Sotogrande es el mayor de Andalucía, con 1.382 amarres, y organiza la vida social del recinto en verano. El polo es la otra seña de identidad: la temporada estival concentra torneos y llena la urbanización durante agosto. Fuera de esos meses, Sotogrande es un sitio notablemente tranquilo.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/cdugn808as/properties/5874c94aac0e11ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946037" alt="Sotogrande" loading="lazy" width="800" height="600"><figcaption>Sotogrande</figcaption></figure>
+    </div>
+      <h2 id="z4">Colegio y seguridad</h2><p>Sotogrande tiene un colegio internacional dentro del propio recinto y seguridad permanente. Son los dos factores que explican por qué muchas familias se instalan aquí todo el año y no solo en verano, algo que no ocurre en la mayoría de urbanizaciones costeras de este nivel.</p>
+      <h2 id="z5">Accesos</h2><p>Sotogrande queda al final de la costa occidental: el aeropuerto de Gibraltar está a una media hora y el de Málaga a alrededor de hora y media por autopista. Esa distancia es parte de su carácter, y explica que el mercado se mueva con lógica propia respecto al de Marbella.</p>
+      <h2 id="z6">Qué se compra en Sotogrande</h2><p>Villas de parcela grande en Sotogrande Alto y La Reserva, producto a pie de puerto y de playa en Sotogrande Costa, y apartamentos en las promociones más recientes de la parte alta. El comprador suele ser de perfil familiar y de estancia larga, no de fin de semana.</p>
+      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="rejDato"><div><span class="v">5 min</span><span class="k">Campo de golf más cercano</span></div><div><span class="v">6 min</span><span class="k">Puerto de Sotogrande</span></div><div><span class="v">8 min</span><span class="k">Playa</span></div><div><span class="v">30 min</span><span class="k">Aeropuerto de Gibraltar</span></div><div><span class="v">90 min</span><span class="k">Aeropuerto de Málaga</span></div></div>
+        <p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
+      <h2 id="precios">Cuánto cuesta comprar en Sotogrande</h2><div class="precioCards"><article>
+        <span class="tp"><b>Villas</b><span>10 en venta</span></span>
+        <span class="med">5.000.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 1.350.000 € &middot; hasta 18.000.000 €<br>4885 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Parcelas</b><span>5 en venta</span></span>
+        <span class="med">750.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 590.000 € &middot; hasta 2.917.583 €<br>769 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Apartamentos</b><span>1 en venta</span></span>
+        <span class="med">690.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 690.000 € &middot; hasta 690.000 €<br>4964 &euro; por m² construido</span>
+      </article></div>
+      <p class="nota">Cifras calculadas sobre las 16 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Propiedades en Sotogrande</h2>
     <div class="rejP">
       <a href="/comprar/sotogrande/villa-sotogrande-r4955374/">
@@ -542,12 +584,24 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     
 
+    <section class="cierreZ">
+      <div>
+        <h2>¿No encuentra su zona?</h2>
+        <p>La red de la Costa del Sol cubre mucho más de lo que se publica. Díganos qué busca y le decimos dónde está.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/contacto/">Hablar con W</a>
+        <a class="btn sec" href="/zonas/">Ver todas las zonas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Sotogrande?</summary><p>W Real Estate publica 16 propiedades en venta en Sotogrande. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Sotogrande?</summary><p>Los precios de nuestra selección en Sotogrande van desde 590.000 € hasta 18.000.000 €, con un precio mediano de 3.350.000 € y una media de 4258 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Sotogrande?</summary><p>La oferta actual se reparte en 10 villas, 5 parcelas, 1 apartamentos.</p></details>
       <details><summary>¿Sotogrande está en Málaga?</summary><p>No. Sotogrande pertenece al municipio de San Roque, en la provincia de Cádiz, aunque funcionalmente forma parte del mismo mercado que la Costa del Sol occidental.</p></details>
+      <details><summary>¿Cuántos campos de golf hay en Sotogrande?</summary><p>Cuatro dentro del recinto: el Real Club de Golf Sotogrande, Valderrama, La Reserva Club y The Alto Club.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
     </section>
 

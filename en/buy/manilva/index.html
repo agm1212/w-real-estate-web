@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Manilva","url":"https://wrealestate.es/en/buy/manilva/","description":"Manilva is the last municipality in the province of Málaga before crossing into Cádiz, right beside Sotogrande. The village sits about two kilometres inland, and coastal life is split between Sabinillas and Puerto de la Duquesa.","address":{"@type":"PostalAddress","addressRegion":"Manilva","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Manilva","url":"https://wrealestate.es/en/buy/manilva/","description":"Manilva is the last municipality in the province of Málaga before crossing into Cádiz, right beside Sotogrande. It has more than seven kilometres of coast and an inland landscape of Muscat of Alexandria vineyards that have given its sweet wines their reputation since the sixteenth century. The village sits about two kilometres inland, surrounded by those vines, and from the viewpoint beside the church you can see the valley, the Mediterranean and, on clear days, Gibraltar and the African coast.","address":{"@type":"PostalAddress","addressRegion":"Manilva","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Properties in Manilva","url":"https://wrealestate.es/en/buy/manilva/","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/manilva/commercial-manilva-r4827649/","name":"Commercial in Manilva"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/manilva/villa-manilva-r5395921/","name":"Villa in Manilva"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/manilva/plot-manilva-r4870753/","name":"Plot in Manilva"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/manilva/apartment-la-duquesa-r5453791/","name":"Apartment in La Duquesa"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/manilva/apartment-la-duquesa-r5370436/","name":"Apartment in La Duquesa"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Manilva?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 5 properties for sale in Manilva. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Manilva?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Manilva selection range from 565.000 € to 1.295.000 €, with a median of 950.000 € and an average of 3695 € per built square metre."}},{"@type":"Question","name":"What property types are available in Manilva?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 2 apartments, 1 commercial premises, 1 villas, 1 plots."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Manilva?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 5 properties for sale in Manilva. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Manilva?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Manilva selection range from 565.000 € to 1.295.000 €, with a median of 950.000 € and an average of 3695 € per built square metre."}},{"@type":"Question","name":"What property types are available in Manilva?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 2 apartments, 1 commercial premises, 1 villas, 1 plots."}},{"@type":"Question","name":"Why is Manilva wine known?","acceptedAnswer":{"@type":"Answer","text":"For its Muscat of Alexandria vineyards, which produce sweet wines documented since the sixteenth century."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://wrealestate.es/en/"},{"@type":"ListItem","position":2,"name":"Buy","item":"https://wrealestate.es/en/buy/"},{"@type":"ListItem","position":3,"name":"Manilva","item":"https://wrealestate.es/en/buy/manilva/"},{"@type":"ListItem","position":4,"name":"Manilva","item":"https://wrealestate.es/en/buy/manilva/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/en/buy/">Buy</a><a href="/en/sell/">Sell</a><a href="/en/areas/">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
@@ -345,52 +373,70 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/comprar/manilva/">Español</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/0cd2a9416c5f11ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1745241726" alt="Manilva" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide</span><span class="raya"></span></div>
+    <h1>Manilva</h1>
+    <p class="lead">Manilva closes the province of Málaga next to Sotogrande. La Duquesa has a marina and golf, and the area offers coastal property at the lowest prices in the whole region we cover.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">5</span><span class="k">Properties listed</span></div>
+      <div><span class="v">565.000 €</span><span class="k">From</span></div>
+      <div><span class="v">950.000 €</span><span class="k">Median price</span></div>
+      <div><span class="v">3695 &euro;</span><span class="k">Average per m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Area guide</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Manilva</h1>
-      </div>
-      <span class="cuenta">5 properties available.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">5</span><span class="k">properties</span></div>
-      <div><span class="v">565.000 €</span><span class="k">From</span></div>
-      <div><span class="v">1.295.000 €</span><span class="k">to</span></div>
-      <div><span class="v">950.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">3695 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>Manilva closes the province of Málaga next to Sotogrande. La Duquesa has a marina and golf, and the area offers coastal property at the lowest prices in the whole region we cover.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="In this guide">
       <span class="eyebrow">In this guide</span>
-      <ol><li><a href="#z1">What Manilva is</a></li><li><a href="#z2">Marina and golf</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Manilva</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
+      <ol><li><a href="#z1">Vineyards by the sea</a></li><li><a href="#z2">Puerto de la Duquesa and Sabinillas</a></li><li><a href="#z3">Golf and surroundings</a></li><li><a href="#z4">What people buy in Manilva</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Manilva</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">What Manilva is</h2><p>Manilva is the last municipality in the province of Málaga before crossing into Cádiz, right beside Sotogrande. The village sits about two kilometres inland, and coastal life is split between Sabinillas and Puerto de la Duquesa.</p>
-      <h2 id="z2">Marina and golf</h2><p>Puerto de la Duquesa is a Mediterranean-style marina with restaurants around the basin. La Duquesa Golf &amp; Country Club lies immediately behind, and Finca Cortesín and Valderrama are a few minutes away by car.</p>
-      <h2 id="distancias">Where it is and how to get there</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destination</th><th>By car</th></tr></thead>
-          <tbody><tr><td>Beach</td><td class="n">5 min</td></tr><tr><td>Nearest golf course</td><td class="n">6 min</td></tr><tr><td>Estepona centre</td><td class="n">18 min</td></tr><tr><td>Málaga airport</td><td class="n">75 min</td></tr></tbody>
-        </table></div><p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
-      <h2 id="precios">What it costs to buy in Manilva</h2><p class="nota">Figures calculated on the 5 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Type</th><th>For sale</th><th>From</th><th>To</th><th>Median price</th><th>Average per m²</th></tr></thead>
-        <tbody><tr><td>Apartments</td><td class="n">2</td><td class="n">565.000 €</td><td class="n">695.000 €</td><td class="n">695.000 €</td><td class="n">4663 &euro;</td></tr><tr><td>Commercial premises</td><td class="n">1</td><td class="n">1.295.000 €</td><td class="n">1.295.000 €</td><td class="n">1.295.000 €</td><td class="n">1603 &euro;</td></tr><tr><td>Villas</td><td class="n">1</td><td class="n">1.100.000 €</td><td class="n">1.100.000 €</td><td class="n">1.100.000 €</td><td class="n">3064 &euro;</td></tr><tr><td>Plots</td><td class="n">1</td><td class="n">950.000 €</td><td class="n">950.000 €</td><td class="n">950.000 €</td><td class="n">4481 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">Vineyards by the sea</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>Manilva is the last municipality in the province of Málaga before crossing into Cádiz, right beside Sotogrande. It has more than seven kilometres of coast and an inland landscape of Muscat of Alexandria vineyards that have given its sweet wines their reputation since the sixteenth century. The village sits about two kilometres inland, surrounded by those vines, and from the viewpoint beside the church you can see the valley, the Mediterranean and, on clear days, Gibraltar and the African coast.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/f7fd50005a8e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785413576" alt="Manilva" loading="lazy" width="800" height="600"><figcaption>Manilva</figcaption></figure>
+    </div>
+      <h2 id="z2">Puerto de la Duquesa and Sabinillas</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>Coastal life is split between two centres. Puerto de la Duquesa is a Mediterranean-scale marina with restaurants around the basin. San Luis de Sabinillas is the urban beach town, with a promenade and beach bars grilling sardines. Castillo beach takes its name from an eighteenth-century fortress watching over the bay.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/b038fd8d92bb11ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949254" alt="Manilva" loading="lazy" width="800" height="600"><figcaption>Manilva</figcaption></figure>
+    </div>
+      <h2 id="z3">Golf and surroundings</h2><p>La Duquesa Golf &amp; Country Club lies immediately behind the marina. And the position of the municipality is its great advantage for golfers: Finca Cortesín and Valderrama are a few minutes away by car, so you live at the most affordable end of the coast with two of the best courses in the country next door.</p>
+      <h2 id="z4">What people buy in Manilva</h2><p>Apartments and townhouses in developments with pools, many with sea views thanks to the slope, and villas on the higher ground. It is the most affordable coastal property per square metre in the whole region we cover, in exchange for being far from Málaga airport.</p>
+      <h2 id="distancias">Where it is and how to get there</h2><div class="rejDato"><div><span class="v">5 min</span><span class="k">Beach</span></div><div><span class="v">6 min</span><span class="k">Nearest golf course</span></div><div><span class="v">18 min</span><span class="k">Estepona centre</span></div><div><span class="v">75 min</span><span class="k">Málaga airport</span></div></div>
+        <p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
+      <h2 id="precios">What it costs to buy in Manilva</h2><div class="precioCards"><article>
+        <span class="tp"><b>Apartments</b><span>2 for sale</span></span>
+        <span class="med">695.000 €<small>Median price</small></span>
+        <span class="rango">From 565.000 € &middot; to 695.000 €<br>4663 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Commercial premises</b><span>1 for sale</span></span>
+        <span class="med">1.295.000 €<small>Median price</small></span>
+        <span class="rango">From 1.295.000 € &middot; to 1.295.000 €<br>1603 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Villas</b><span>1 for sale</span></span>
+        <span class="med">1.100.000 €<small>Median price</small></span>
+        <span class="rango">From 1.100.000 € &middot; to 1.100.000 €<br>3064 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Plots</b><span>1 for sale</span></span>
+        <span class="med">950.000 €<small>Median price</small></span>
+        <span class="rango">From 950.000 € &middot; to 950.000 €<br>4481 &euro; per built m²</span>
+      </article></div>
+      <p class="nota">Figures calculated on the 5 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Properties in Manilva</h2>
     <div class="rejP">
       <a href="/en/buy/manilva/commercial-manilva-r4827649/">
@@ -441,11 +487,23 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     
 
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/areas/">See all areas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Frequently asked questions</h2>
       <details open><summary>How many properties are for sale in Manilva?</summary><p>W Real Estate lists 5 properties for sale in Manilva. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates.</p></details>
       <details><summary>How much does a property cost in Manilva?</summary><p>Prices in our Manilva selection range from 565.000 € to 1.295.000 €, with a median of 950.000 € and an average of 3695 € per built square metre.</p></details>
       <details><summary>What property types are available in Manilva?</summary><p>The current offer breaks down into 2 apartments, 1 commercial premises, 1 villas, 1 plots.</p></details>
+      <details><summary>Why is Manilva wine known?</summary><p>For its Muscat of Alexandria vineyards, which produce sweet wines documented since the sixteenth century.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
     </section>
 

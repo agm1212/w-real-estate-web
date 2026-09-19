@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -323,7 +351,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/en/buy/">Buy</a><a href="/en/sell/">Sell</a><a href="/en/areas/">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
@@ -345,31 +373,28 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/zonas/la-quinta/">Español</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="La Quinta" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide &amp;middot; Benahavís</span><span class="raya"></span></div>
+    <h1>La Quinta</h1>
+    <p class="lead">La Quinta is a south-facing hillside in Benahavís with its own golf course and views that take in the entire coastline from above. It is eight minutes from Puerto Banús and two from the clubhouse, which makes it more practical than other hillside developments.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">18</span><span class="k">Properties listed</span></div>
+      <div><span class="v">599.000 €</span><span class="k">From</span></div>
+      <div><span class="v">1.595.000 €</span><span class="k">Median price</span></div>
+      <div><span class="v">8275 &euro;</span><span class="k">Average per m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Area guide</span>
-          <span class="raya"></span>
-        </div>
-        <h1>La Quinta</h1>
-      </div>
-      <span class="cuenta">18 properties available.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">18</span><span class="k">properties</span></div>
-      <div><span class="v">599.000 €</span><span class="k">From</span></div>
-      <div><span class="v">18.650.000 €</span><span class="k">to</span></div>
-      <div><span class="v">1.595.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">8275 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>La Quinta is a south-facing hillside in Benahavís with its own golf course and views that take in the entire coastline from above. It is eight minutes from Puerto Banús and two from the clubhouse, which makes it more practical than other hillside developments.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="In this guide">
       <span class="eyebrow">In this guide</span>
@@ -378,20 +403,40 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
     <div class="guia">
       <h2 id="z1">What is La Quinta?</h2><p>La Quinta is a hillside development in the municipality of Benahavís, organised around La Quinta Golf &amp; Country Club. The club has 27 holes designed by the Spanish player Manuel Piñero and sits some seven minutes by car from Puerto Banús, which explains its appeal: a country setting with the coast next door.</p>
-      <h2 id="z2">The views</h2><p>Because it sits on a slope above the Nueva Andalucía valley, almost the whole development has open views to the sea and, on clear days, to North Africa. That is the main reason people buy here and what separates one plot from another within the same area.</p>
+      <h2 id="z2">The views</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>Because it sits on a slope above the Nueva Andalucía valley, almost the whole development has open views to the sea and, on clear days, to North Africa. That is the main reason people buy here and what separates one plot from another within the same area.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/39e46e82d7bd11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950435" alt="La Quinta" loading="lazy" width="800" height="600"><figcaption>La Quinta</figcaption></figure>
+    </div>
       <h2 id="z3">What people buy here</h2><p>Apartment and townhouse complexes around the course sit alongside detached villas on the higher levels. New developments appear here regularly because land is still available, which is unusual this close to Puerto Banús.</p>
-      <h2 id="distancias">Where it is and how to get there</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destination</th><th>By car</th></tr></thead>
-          <tbody><tr><td>Nearest golf course</td><td class="n">2 min</td></tr><tr><td>Puerto Banús</td><td class="n">8 min</td></tr><tr><td>Beach</td><td class="n">10 min</td></tr><tr><td>International school</td><td class="n">12 min</td></tr><tr><td>Marbella centre</td><td class="n">15 min</td></tr><tr><td>Málaga airport</td><td class="n">48 min</td></tr></tbody>
-        </table></div><p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
-      <h2 id="precios">What it costs to buy in La Quinta</h2><p class="nota">Figures calculated on the 18 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Type</th><th>For sale</th><th>From</th><th>To</th><th>Median price</th><th>Average per m²</th></tr></thead>
-        <tbody><tr><td>Villas</td><td class="n">7</td><td class="n">1.980.000 €</td><td class="n">18.650.000 €</td><td class="n">6.995.000 €</td><td class="n">11.467 &euro;</td></tr><tr><td>Apartments</td><td class="n">6</td><td class="n">599.000 €</td><td class="n">1.595.000 €</td><td class="n">799.000 €</td><td class="n">6836 &euro;</td></tr><tr><td>Houses</td><td class="n">2</td><td class="n">1.195.000 €</td><td class="n">1.795.000 €</td><td class="n">1.795.000 €</td><td class="n">7351 &euro;</td></tr><tr><td>Plots</td><td class="n">2</td><td class="n">1.250.000 €</td><td class="n">1.290.000 €</td><td class="n">1.290.000 €</td><td class="n">2264 &euro;</td></tr><tr><td>Penthouses</td><td class="n">1</td><td class="n">1.300.000 €</td><td class="n">1.300.000 €</td><td class="n">1.300.000 €</td><td class="n">8442 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="distancias">Where it is and how to get there</h2><div class="rejDato"><div><span class="v">2 min</span><span class="k">Nearest golf course</span></div><div><span class="v">8 min</span><span class="k">Puerto Banús</span></div><div><span class="v">10 min</span><span class="k">Beach</span></div><div><span class="v">12 min</span><span class="k">International school</span></div><div><span class="v">15 min</span><span class="k">Marbella centre</span></div><div><span class="v">48 min</span><span class="k">Málaga airport</span></div></div>
+        <p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
+      <h2 id="precios">What it costs to buy in La Quinta</h2><div class="precioCards"><article>
+        <span class="tp"><b>Villas</b><span>7 for sale</span></span>
+        <span class="med">6.995.000 €<small>Median price</small></span>
+        <span class="rango">From 1.980.000 € &middot; to 18.650.000 €<br>11.467 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Apartments</b><span>6 for sale</span></span>
+        <span class="med">799.000 €<small>Median price</small></span>
+        <span class="rango">From 599.000 € &middot; to 1.595.000 €<br>6836 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Houses</b><span>2 for sale</span></span>
+        <span class="med">1.795.000 €<small>Median price</small></span>
+        <span class="rango">From 1.195.000 € &middot; to 1.795.000 €<br>7351 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Plots</b><span>2 for sale</span></span>
+        <span class="med">1.290.000 €<small>Median price</small></span>
+        <span class="rango">From 1.250.000 € &middot; to 1.290.000 €<br>2264 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Penthouses</b><span>1 for sale</span></span>
+        <span class="med">1.300.000 €<small>Median price</small></span>
+        <span class="rango">From 1.300.000 € &middot; to 1.300.000 €<br>8442 &euro; per built m²</span>
+      </article></div>
+      <p class="nota">Figures calculated on the 18 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Properties in La Quinta</h2>
     <div class="rejP">
       <a href="/en/buy/benahavis/villa-la-quinta-r5217985/">
@@ -558,6 +603,17 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </a>
     </div>
     
+
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/areas/">See all areas</a>
+      </div>
+    </section>
 
     <section class="faq" id="preguntas">
       <h2>Frequently asked questions</h2>

@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Mijas","url":"https://wrealestate.es/comprar/mijas/","description":"Mijas son dos realidades: Mijas Pueblo, el pueblo blanco colgado en la sierra sobre Fuengirola, y Mijas Costa, la franja litoral que va de Calahonda a La Cala de Mijas. El mercado de vivienda internacional está casi todo en la costa.","address":{"@type":"PostalAddress","addressRegion":"Mijas","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Mijas","url":"https://wrealestate.es/comprar/mijas/","description":"Mijas son dos realidades unidas por una carretera de montaña. Mijas Pueblo es el pueblo blanco colgado en la sierra sobre Fuengirola, con sus burros taxi, una tradición que nació en los años sesenta cuando los turistas pedían fotos a los jornaleros que volvían a casa, y el Mirador de la Muralla, resto de la antigua fortaleza, desde el que se domina toda la bahía. Mijas Costa es la franja litoral, que es donde está casi todo el mercado internacional.","address":{"@type":"PostalAddress","addressRegion":"Mijas","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Mijas","url":"https://wrealestate.es/comprar/mijas/","numberOfItems":28,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/mijas/local-comercial-la-cala-de-mijas-r5445382/","name":"Comercial en La Cala de Mijas"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/mijas/villa-la-cala-de-mijas-r5325463/","name":"Villa en La Cala de Mijas"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/mijas/villa-la-cala-golf-r5234734/","name":"Villa en La Cala Golf"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/mijas/villa-la-cala-golf-r5318263/","name":"Villa en La Cala Golf"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/mijas/villa-mijas-golf-r5274484/","name":"Villa en Mijas Golf"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/mijas/villa-mijas-costa-r5469349/","name":"Villa en Mijas Costa"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/mijas/villa-mijas-costa-r5463232/","name":"Villa en Mijas Costa"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/mijas/villa-riviera-del-sol-r5457814/","name":"Villa en Riviera del Sol"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/mijas/casa-riviera-del-sol-r5362975/","name":"Casa en Riviera del Sol"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/mijas/casa-la-cala-de-mijas-r5357926/","name":"Casa en La Cala de Mijas"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/mijas/parcela-la-cala-de-mijas-r5321995/","name":"Parcela en La Cala de Mijas"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/mijas/apartamento-la-cala-de-mijas-r5159641/","name":"Apartamento en La Cala de Mijas"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/mijas/atico-la-cala-golf-r5388241/","name":"Ático en La Cala Golf"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/mijas/atico-la-cala-golf-r5433946/","name":"Ático en La Cala Golf"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/mijas/parcela-la-cala-golf-r5444440/","name":"Parcela en La Cala Golf"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/mijas/apartamento-la-cala-golf-r5427283/","name":"Apartamento en La Cala Golf"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/mijas/atico-calahonda-r5440219/","name":"Ático en Calahonda"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/mijas/apartamento-calahonda-r5473468/","name":"Apartamento en Calahonda"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/mijas/casa-riviera-del-sol-r5330005/","name":"Casa en Riviera del Sol"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/mijas/casa-riviera-del-sol-r5359168/","name":"Casa en Riviera del Sol"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Mijas?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 28 propiedades en venta en Mijas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Mijas?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Mijas van desde 520.000 € hasta 5.495.000 €, con un precio mediano de 695.000 € y una media de 4394 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Mijas?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 7 villas, 7 casas, 7 apartamentos, 4 áticos, 2 parcelas, 1 locales comerciales."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Mijas?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 28 propiedades en venta en Mijas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Mijas?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Mijas van desde 520.000 € hasta 5.495.000 €, con un precio mediano de 695.000 € y una media de 4394 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Mijas?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 7 villas, 7 casas, 7 apartamentos, 4 áticos, 2 parcelas, 1 locales comerciales."}},{"@type":"Question","name":"¿Cuál es la diferencia entre Mijas Pueblo y Mijas Costa?","acceptedAnswer":{"@type":"Answer","text":"Mijas Pueblo es el casco histórico, en la sierra sobre Fuengirola, con casas blancas y vistas a la bahía. Mijas Costa es la franja litoral, de Calahonda a La Cala de Mijas, donde se concentran las urbanizaciones y casi todo el mercado internacional."}},{"@type":"Question","name":"¿A cuánto está Mijas del aeropuerto de Málaga?","acceptedAnswer":{"@type":"Answer","text":"Menos de media hora por autopista desde la mayor parte del municipio, bastante menos que desde Marbella o Estepona."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://wrealestate.es/"},{"@type":"ListItem","position":2,"name":"Comprar","item":"https://wrealestate.es/comprar/"},{"@type":"ListItem","position":3,"name":"Mijas","item":"https://wrealestate.es/comprar/mijas/"},{"@type":"ListItem","position":4,"name":"Mijas","item":"https://wrealestate.es/comprar/mijas/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
@@ -345,52 +373,124 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/mijas/">English</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="Mijas" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Guía de zona</span><span class="raya"></span></div>
+    <h1>Mijas</h1>
+    <p class="lead">Mijas combina el pueblo blanco de la sierra con una franja costera de urbanizaciones y golf. La Cala de Mijas y Calahonda ofrecen producto de calidad a precios por metro más contenidos, con el aeropuerto a menos de media hora.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">28</span><span class="k">Propiedades publicadas</span></div>
+      <div><span class="v">520.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">695.000 €</span><span class="k">Precio mediano</span></div>
+      <div><span class="v">4394 &euro;</span><span class="k">Media por m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Guía de zona</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Mijas</h1>
-      </div>
-      <span class="cuenta">28 propiedades disponibles.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">28</span><span class="k">propiedades</span></div>
-      <div><span class="v">520.000 €</span><span class="k">Desde</span></div>
-      <div><span class="v">5.495.000 €</span><span class="k">hasta</span></div>
-      <div><span class="v">695.000 €</span><span class="k">Precio medio</span></div>
-      <div><span class="v">4394 €</span><span class="k">Media por m² construido</span></div>
-    </div>
-
-    <div class="texto"><p>Mijas combina el pueblo blanco de la sierra con una franja costera de urbanizaciones y golf. La Cala de Mijas y Calahonda ofrecen producto de calidad a precios por metro más contenidos, con el aeropuerto a menos de media hora.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="En esta guía">
       <span class="eyebrow">En esta guía</span>
-      <ol><li><a href="#z1">Pueblo y costa</a></li><li><a href="#z2">Golf</a></li><li><a href="#distancias">Dónde está y cómo se llega</a></li><li><a href="#precios">Cuánto cuesta comprar en Mijas</a></li><li><a href="#enventa">Qué hay en venta ahora mismo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol>
+      <ol><li><a href="#z1">Pueblo y costa</a></li><li><a href="#z2">Doce kilómetros de costa</a></li><li><a href="#z3">El mayor complejo de golf de España</a></li><li><a href="#z4">La ventaja del aeropuerto</a></li><li><a href="#z5">Qué se compra en Mijas</a></li><li><a href="#distancias">Dónde está y cómo se llega</a></li><li><a href="#precios">Cuánto cuesta comprar en Mijas</a></li><li><a href="#zonas">Zonas de Mijas</a></li><li><a href="#enventa">Qué hay en venta ahora mismo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">Pueblo y costa</h2><p>Mijas son dos realidades: Mijas Pueblo, el pueblo blanco colgado en la sierra sobre Fuengirola, y Mijas Costa, la franja litoral que va de Calahonda a La Cala de Mijas. El mercado de vivienda internacional está casi todo en la costa.</p>
-      <h2 id="z2">Golf</h2><p>La Cala Resort, en el interior del municipio, reúne tres campos de 18 hoyos diseñados por Cabell B. Robinson y está reconocido por la Real Federación Española de Golf como el mayor complejo de golf de España. Miraflores y Calanova completan la oferta en la franja costera.</p>
-      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destino</th><th>En coche</th></tr></thead>
-          <tbody><tr><td>Playa</td><td class="n">6 min</td></tr><tr><td>Campo de golf más cercano</td><td class="n">6 min</td></tr><tr><td>Marbella centro</td><td class="n">20 min</td></tr><tr><td>Aeropuerto de Málaga</td><td class="n">28 min</td></tr></tbody>
-        </table></div><p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
-      <h2 id="precios">Cuánto cuesta comprar en Mijas</h2><p class="nota">Cifras calculadas sobre las 28 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Tipo</th><th>En venta</th><th>Desde</th><th>Hasta</th><th>Precio mediano</th><th>Media por m²</th></tr></thead>
-        <tbody><tr><td>Villas</td><td class="n">7</td><td class="n">965.000 €</td><td class="n">2.245.000 €</td><td class="n">1.380.000 €</td><td class="n">4449 &euro;</td></tr><tr><td>Casas</td><td class="n">7</td><td class="n">529.000 €</td><td class="n">895.000 €</td><td class="n">645.000 €</td><td class="n">3636 &euro;</td></tr><tr><td>Apartamentos</td><td class="n">7</td><td class="n">520.000 €</td><td class="n">739.000 €</td><td class="n">635.000 €</td><td class="n">4698 &euro;</td></tr><tr><td>Áticos</td><td class="n">4</td><td class="n">560.000 €</td><td class="n">725.000 €</td><td class="n">695.000 €</td><td class="n">5741 &euro;</td></tr><tr><td>Parcelas</td><td class="n">2</td><td class="n">685.000 €</td><td class="n">750.000 €</td><td class="n">750.000 €</td><td class="n">1990 &euro;</td></tr><tr><td>Locales comerciales</td><td class="n">1</td><td class="n">5.495.000 €</td><td class="n">5.495.000 €</td><td class="n">5.495.000 €</td><td class="n">6605 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">Pueblo y costa</h2><p>Mijas son dos realidades unidas por una carretera de montaña. Mijas Pueblo es el pueblo blanco colgado en la sierra sobre Fuengirola, con sus burros taxi, una tradición que nació en los años sesenta cuando los turistas pedían fotos a los jornaleros que volvían a casa, y el Mirador de la Muralla, resto de la antigua fortaleza, desde el que se domina toda la bahía. Mijas Costa es la franja litoral, que es donde está casi todo el mercado internacional.</p>
+      <h2 id="z2">Doce kilómetros de costa</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>El litoral del municipio mide unos 12 kilómetros, con La Cala de Mijas como centro. Sus playas suman tres banderas azules y nueve banderas Q de calidad turística. La Senda Litoral, el paseo peatonal y ciclable, recorre seis kilómetros entre la playa de la Luna y el núcleo de La Cala, y es una de las razones por las que la zona funciona tan bien para quien busca vida al aire libre todo el año.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/43fc760d1d0811f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945924" alt="Mijas" loading="lazy" width="800" height="600"><figcaption>Mijas</figcaption></figure>
+    </div>
+      <h2 id="z3">El mayor complejo de golf de España</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>La Cala Resort, en el interior del municipio, reúne tres campos de 18 hoyos diseñados por Cabell B. Robinson, llamados Campo América, Campo Asia y Campo Europa, y está reconocido por la Real Federación Española de Golf como el mayor complejo de golf del país. En la franja costera, Miraflores y Calanova completan la oferta. Es un municipio donde se puede jugar todo el año sin repetir recorrido en una semana.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/c1f1fa96cb4e11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945048" alt="Mijas" loading="lazy" width="800" height="600"><figcaption>Mijas</figcaption></figure>
+    </div>
+      <h2 id="z4">La ventaja del aeropuerto</h2><p>Mijas está a medio camino entre Marbella y Málaga, y esa posición es su mejor argumento: el aeropuerto queda a menos de media hora por autopista desde casi cualquier punto del municipio. Para quien viene por temporadas o viaja a menudo, eso pesa más que veinte minutos de diferencia en el precio por metro.</p>
+      <h2 id="z5">Qué se compra en Mijas</h2><p>Sobre todo apartamentos y adosados en urbanizaciones con jardín y piscina, y villas en las zonas de golf y en la parte alta. Los precios por metro son de los más contenidos de la costa occidental y la demanda de alquiler es sólida, lo que hace del municipio un mercado clásico de segunda residencia y de inversión.</p>
+      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="rejDato"><div><span class="v">6 min</span><span class="k">Playa</span></div><div><span class="v">6 min</span><span class="k">Campo de golf más cercano</span></div><div><span class="v">20 min</span><span class="k">Marbella centro</span></div><div><span class="v">28 min</span><span class="k">Aeropuerto de Málaga</span></div></div>
+        <p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
+      <h2 id="precios">Cuánto cuesta comprar en Mijas</h2><div class="precioCards"><article>
+        <span class="tp"><b>Villas</b><span>7 en venta</span></span>
+        <span class="med">1.380.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 965.000 € &middot; hasta 2.245.000 €<br>4449 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Casas</b><span>7 en venta</span></span>
+        <span class="med">645.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 529.000 € &middot; hasta 895.000 €<br>3636 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Apartamentos</b><span>7 en venta</span></span>
+        <span class="med">635.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 520.000 € &middot; hasta 739.000 €<br>4698 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Áticos</b><span>4 en venta</span></span>
+        <span class="med">695.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 560.000 € &middot; hasta 725.000 €<br>5741 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Parcelas</b><span>2 en venta</span></span>
+        <span class="med">750.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 685.000 € &middot; hasta 750.000 €<br>1990 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Locales comerciales</b><span>1 en venta</span></span>
+        <span class="med">5.495.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 5.495.000 € &middot; hasta 5.495.000 €<br>6605 &euro; por m² construido</span>
+      </article></div>
+      <p class="nota">Cifras calculadas sobre las 28 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
     </div>
 
     
+    
+    <div class="seccionZ">
+      <div>
+        <div class="lin"><span class="eyebrow">4 urbanizaciones</span><span class="raya"></span></div>
+        <h2 id="zonas">Zonas de Mijas</h2>
+      </div>
+      <p>Dentro del municipio, la urbanización es la que marca el precio. Cada una tiene su guía.</p>
+    </div>
+    <div class="mosaicoU">
+      <a href="/zonas/la-cala-golf/">
+  <img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/c1f1fa96cb4e11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945048" alt="La Cala Golf" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">La Cala Golf</span>
+    <span class="dato">7 propiedades &middot; desde 529.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+      <a href="/zonas/riviera-del-sol/">
+  <img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/c3c66e96954311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786428970" alt="Riviera del Sol" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Riviera del Sol</span>
+    <span class="dato">6 propiedades &middot; desde 560.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+      <a href="/zonas/la-cala-de-mijas/">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="La Cala de Mijas" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">La Cala de Mijas</span>
+    <span class="dato">6 propiedades &middot; desde 525.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+      <a href="/zonas/calahonda/">
+  <img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/d3eb6d3180d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784875051" alt="Calahonda" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Calahonda</span>
+    <span class="dato">4 propiedades &middot; desde 585.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+    </div>
+
     <h2 class="tituloLista" id="enventa">Propiedades en Mijas</h2>
     <div class="rejP">
       <a href="/comprar/mijas/local-comercial-la-cala-de-mijas-r5445382/">
@@ -648,11 +748,24 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     
 
+    <section class="cierreZ">
+      <div>
+        <h2>¿No encuentra su zona?</h2>
+        <p>La red de la Costa del Sol cubre mucho más de lo que se publica. Díganos qué busca y le decimos dónde está.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/contacto/">Hablar con W</a>
+        <a class="btn sec" href="/zonas/">Ver todas las zonas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Mijas?</summary><p>W Real Estate publica 28 propiedades en venta en Mijas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Mijas?</summary><p>Los precios de nuestra selección en Mijas van desde 520.000 € hasta 5.495.000 €, con un precio mediano de 695.000 € y una media de 4394 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Mijas?</summary><p>La oferta actual se reparte en 7 villas, 7 casas, 7 apartamentos, 4 áticos, 2 parcelas, 1 locales comerciales.</p></details>
+      <details><summary>¿Cuál es la diferencia entre Mijas Pueblo y Mijas Costa?</summary><p>Mijas Pueblo es el casco histórico, en la sierra sobre Fuengirola, con casas blancas y vistas a la bahía. Mijas Costa es la franja litoral, de Calahonda a La Cala de Mijas, donde se concentran las urbanizaciones y casi todo el mercado internacional.</p></details>
+      <details><summary>¿A cuánto está Mijas del aeropuerto de Málaga?</summary><p>Menos de media hora por autopista desde la mayor parte del municipio, bastante menos que desde Marbella o Estepona.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
     </section>
 

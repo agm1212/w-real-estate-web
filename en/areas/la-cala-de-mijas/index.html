@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -323,7 +351,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/en/buy/">Buy</a><a href="/en/sell/">Sell</a><a href="/en/areas/">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
@@ -345,31 +373,28 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/zonas/la-cala-de-mijas/">Español</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="La Cala de Mijas" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide &amp;middot; Mijas</span><span class="raya"></span></div>
+    <h1>La Cala de Mijas</h1>
+    <p class="lead">La Cala de Mijas has grown without losing its village core: a promenade, restaurants and a long beach, with the airport twenty-five minutes away. The area with most new development in Mijas.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">6</span><span class="k">Properties listed</span></div>
+      <div><span class="v">525.000 €</span><span class="k">From</span></div>
+      <div><span class="v">825.000 €</span><span class="k">Median price</span></div>
+      <div><span class="v">3910 &euro;</span><span class="k">Average per m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Area guide</span>
-          <span class="raya"></span>
-        </div>
-        <h1>La Cala de Mijas</h1>
-      </div>
-      <span class="cuenta">6 properties available.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">6</span><span class="k">properties</span></div>
-      <div><span class="v">525.000 €</span><span class="k">From</span></div>
-      <div><span class="v">5.495.000 €</span><span class="k">to</span></div>
-      <div><span class="v">825.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">3910 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>La Cala de Mijas has grown without losing its village core: a promenade, restaurants and a long beach, with the airport twenty-five minutes away. The area with most new development in Mijas.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="In this guide">
       <span class="eyebrow">In this guide</span>
@@ -378,20 +403,40 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
     <div class="guia">
       <h2 id="z1">What is La Cala de Mijas?</h2><p>La Cala de Mijas is the coastal town of the municipality of Mijas, between Marbella and Fuengirola. It keeps a village structure, with its square, shops and seafront promenade, and has grown a great deal over the past decade without losing that scale.</p>
-      <h2 id="z2">The location</h2><p>It sits halfway between Marbella and Málaga airport, which makes it practical for frequent travellers. La Cala Resort and its three golf courses lie just behind, inland.</p>
+      <h2 id="z2">The location</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>It sits halfway between Marbella and Málaga airport, which makes it practical for frequent travellers. La Cala Resort and its three golf courses lie just behind, inland.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/43fc760d1d0811f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945924" alt="La Cala de Mijas" loading="lazy" width="800" height="600"><figcaption>La Cala de Mijas</figcaption></figure>
+    </div>
       <h2 id="z3">What people buy here</h2><p>Apartments and penthouses near the promenade, and villas and townhouses in the surrounding developments. It is one of the areas where seasonal rental works best, thanks to the village atmosphere.</p>
-      <h2 id="distancias">Where it is and how to get there</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destination</th><th>By car</th></tr></thead>
-          <tbody><tr><td>Beach</td><td class="n">3 min</td></tr><tr><td>Nearest golf course</td><td class="n">5 min</td></tr><tr><td>Fuengirola</td><td class="n">10 min</td></tr><tr><td>Marbella centre</td><td class="n">20 min</td></tr><tr><td>Málaga airport</td><td class="n">25 min</td></tr></tbody>
-        </table></div><p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
-      <h2 id="precios">What it costs to buy in La Cala de Mijas</h2><p class="nota">Figures calculated on the 6 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Type</th><th>For sale</th><th>From</th><th>To</th><th>Median price</th><th>Average per m²</th></tr></thead>
-        <tbody><tr><td>Apartments</td><td class="n">2</td><td class="n">525.000 €</td><td class="n">739.000 €</td><td class="n">739.000 €</td><td class="n">3089 &euro;</td></tr><tr><td>Commercial premises</td><td class="n">1</td><td class="n">5.495.000 €</td><td class="n">5.495.000 €</td><td class="n">5.495.000 €</td><td class="n">6605 &euro;</td></tr><tr><td>Villas</td><td class="n">1</td><td class="n">2.245.000 €</td><td class="n">2.245.000 €</td><td class="n">2.245.000 €</td><td class="n">5543 &euro;</td></tr><tr><td>Houses</td><td class="n">1</td><td class="n">825.000 €</td><td class="n">825.000 €</td><td class="n">825.000 €</td><td class="n">3056 &euro;</td></tr><tr><td>Plots</td><td class="n">1</td><td class="n">750.000 €</td><td class="n">750.000 €</td><td class="n">750.000 €</td><td class="n">2078 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="distancias">Where it is and how to get there</h2><div class="rejDato"><div><span class="v">3 min</span><span class="k">Beach</span></div><div><span class="v">5 min</span><span class="k">Nearest golf course</span></div><div><span class="v">10 min</span><span class="k">Fuengirola</span></div><div><span class="v">20 min</span><span class="k">Marbella centre</span></div><div><span class="v">25 min</span><span class="k">Málaga airport</span></div></div>
+        <p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
+      <h2 id="precios">What it costs to buy in La Cala de Mijas</h2><div class="precioCards"><article>
+        <span class="tp"><b>Apartments</b><span>2 for sale</span></span>
+        <span class="med">739.000 €<small>Median price</small></span>
+        <span class="rango">From 525.000 € &middot; to 739.000 €<br>3089 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Commercial premises</b><span>1 for sale</span></span>
+        <span class="med">5.495.000 €<small>Median price</small></span>
+        <span class="rango">From 5.495.000 € &middot; to 5.495.000 €<br>6605 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Villas</b><span>1 for sale</span></span>
+        <span class="med">2.245.000 €<small>Median price</small></span>
+        <span class="rango">From 2.245.000 € &middot; to 2.245.000 €<br>5543 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Houses</b><span>1 for sale</span></span>
+        <span class="med">825.000 €<small>Median price</small></span>
+        <span class="rango">From 825.000 € &middot; to 825.000 €<br>3056 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Plots</b><span>1 for sale</span></span>
+        <span class="med">750.000 €<small>Median price</small></span>
+        <span class="rango">From 750.000 € &middot; to 750.000 €<br>2078 &euro; per built m²</span>
+      </article></div>
+      <p class="nota">Figures calculated on the 6 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Properties in La Cala de Mijas</h2>
     <div class="rejP">
       <a href="/en/buy/mijas/commercial-la-cala-de-mijas-r5445382/">
@@ -450,6 +495,17 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </a>
     </div>
     
+
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/areas/">See all areas</a>
+      </div>
+    </section>
 
     <section class="faq" id="preguntas">
       <h2>Frequently asked questions</h2>

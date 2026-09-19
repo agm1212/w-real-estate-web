@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Fuengirola","url":"https://wrealestate.es/en/buy/fuengirola/","description":"Fuengirola is a coastal city with life all year round, between Mijas and Benalmádena. It has a continuous seafront promenade several kilometres long, a commuter rail link to Málaga and the airport, and Sohail castle above the river mouth.","address":{"@type":"PostalAddress","addressRegion":"Fuengirola","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Fuengirola","url":"https://wrealestate.es/en/buy/fuengirola/","description":"Fuengirola is a real coastal city, not a development: it has shops, schools, a market and residents twelve months a year. It sits between Mijas and Benalmádena, and its advantage over the rest of the western coast is the connection: it is the end of the C-1 commuter line, linking it with Benalmádena, Torremolinos, the airport and Málaga city.","address":{"@type":"PostalAddress","addressRegion":"Fuengirola","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Properties in Fuengirola","url":"https://wrealestate.es/en/buy/fuengirola/","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r4836406/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r5005801/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r5372995/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r4806652/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/fuengirola/penthouse-fuengirola-r5425393/","name":"Penthouse in Fuengirola"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r5422210/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/en/buy/fuengirola/penthouse-fuengirola-r5432974/","name":"Penthouse in Fuengirola"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r5372821/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r5292424/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/en/buy/fuengirola/apartment-fuengirola-r5373685/","name":"Apartment in Fuengirola"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/en/buy/fuengirola/house-fuengirola-r4672018/","name":"House in Fuengirola"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Fuengirola?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 11 properties for sale in Fuengirola. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Fuengirola?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Fuengirola selection range from 531.000 € to 1.640.000 €, with a median of 720.000 € and an average of 6209 € per built square metre."}},{"@type":"Question","name":"What property types are available in Fuengirola?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 8 apartments, 2 penthouses, 1 houses."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Fuengirola?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 11 properties for sale in Fuengirola. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Fuengirola?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Fuengirola selection range from 531.000 € to 1.640.000 €, with a median of 720.000 € and an average of 6209 € per built square metre."}},{"@type":"Question","name":"What property types are available in Fuengirola?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 8 apartments, 2 penthouses, 1 houses."}},{"@type":"Question","name":"Can you reach Fuengirola by train from the airport?","acceptedAnswer":{"@type":"Answer","text":"Yes. The C-1 commuter line connects Málaga María Zambrano with Fuengirola via the airport, Torremolinos and Benalmádena, with trains every twenty minutes. It is the only town on the western coast with a train."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://wrealestate.es/en/"},{"@type":"ListItem","position":2,"name":"Buy","item":"https://wrealestate.es/en/buy/"},{"@type":"ListItem","position":3,"name":"Fuengirola","item":"https://wrealestate.es/en/buy/fuengirola/"},{"@type":"ListItem","position":4,"name":"Fuengirola","item":"https://wrealestate.es/en/buy/fuengirola/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/en/buy/">Buy</a><a href="/en/sell/">Sell</a><a href="/en/areas/">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
@@ -345,52 +373,66 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/comprar/fuengirola/">Español</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/c0177421757311ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945426" alt="Fuengirola" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide</span><span class="raya"></span></div>
+    <h1>Fuengirola</h1>
+    <p class="lead">Fuengirola is an urban coastal market: beachfront, a long promenade and life all year round. Apartments with sea views dominate, with solid rental demand that makes them attractive as an investment.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">11</span><span class="k">Properties listed</span></div>
+      <div><span class="v">531.000 €</span><span class="k">From</span></div>
+      <div><span class="v">720.000 €</span><span class="k">Median price</span></div>
+      <div><span class="v">6209 &euro;</span><span class="k">Average per m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Area guide</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Fuengirola</h1>
-      </div>
-      <span class="cuenta">11 properties available.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">11</span><span class="k">properties</span></div>
-      <div><span class="v">531.000 €</span><span class="k">From</span></div>
-      <div><span class="v">1.640.000 €</span><span class="k">to</span></div>
-      <div><span class="v">720.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">6209 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>Fuengirola is an urban coastal market: beachfront, a long promenade and life all year round. Apartments with sea views dominate, with solid rental demand that makes them attractive as an investment.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="In this guide">
       <span class="eyebrow">In this guide</span>
-      <ol><li><a href="#z1">What Fuengirola is</a></li><li><a href="#z2">What people buy here</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Fuengirola</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
+      <ol><li><a href="#z1">An urban coast all year round</a></li><li><a href="#z2">Eight kilometres of beach and promenade</a></li><li><a href="#z3">The castle and the Bioparc</a></li><li><a href="#z4">What people buy in Fuengirola</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Fuengirola</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">What Fuengirola is</h2><p>Fuengirola is a coastal city with life all year round, between Mijas and Benalmádena. It has a continuous seafront promenade several kilometres long, a commuter rail link to Málaga and the airport, and Sohail castle above the river mouth.</p>
-      <h2 id="z2">What people buy here</h2><p>Apartments dominate, often with sea views, and rental demand is among the most solid on the coast thanks to the urban life and the train. It is an investment market rather than a villa market.</p>
-      <h2 id="distancias">Where it is and how to get there</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destination</th><th>By car</th></tr></thead>
-          <tbody><tr><td>Beach</td><td class="n">3 min</td></tr><tr><td>Fuengirola</td><td class="n">1 min</td></tr><tr><td>Nearest golf course</td><td class="n">8 min</td></tr><tr><td>Marbella centre</td><td class="n">25 min</td></tr><tr><td>Málaga airport</td><td class="n">20 min</td></tr></tbody>
-        </table></div><p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
-      <h2 id="precios">What it costs to buy in Fuengirola</h2><p class="nota">Figures calculated on the 11 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Type</th><th>For sale</th><th>From</th><th>To</th><th>Median price</th><th>Average per m²</th></tr></thead>
-        <tbody><tr><td>Apartments</td><td class="n">8</td><td class="n">535.000 €</td><td class="n">1.640.000 €</td><td class="n">845.000 €</td><td class="n">6337 &euro;</td></tr><tr><td>Penthouses</td><td class="n">2</td><td class="n">680.000 €</td><td class="n">775.000 €</td><td class="n">775.000 €</td><td class="n">7649 &euro;</td></tr><tr><td>Houses</td><td class="n">1</td><td class="n">531.000 €</td><td class="n">531.000 €</td><td class="n">531.000 €</td><td class="n">2309 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">An urban coast all year round</h2><p>Fuengirola is a real coastal city, not a development: it has shops, schools, a market and residents twelve months a year. It sits between Mijas and Benalmádena, and its advantage over the rest of the western coast is the connection: it is the end of the C-1 commuter line, linking it with Benalmádena, Torremolinos, the airport and Málaga city.</p>
+      <h2 id="z2">Eight kilometres of beach and promenade</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>The seafront promenade runs about eight kilometres without interruption, lined by the beaches of Los Boliches, Carvajal and Santa Amalia. It is probably the longest continuous promenade on the western coast, and explains much of the appeal of the town for anyone after a life on foot.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/le17760puz/properties/dd17ffa3104511f08cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948562" alt="Fuengirola" loading="lazy" width="800" height="600"><figcaption>Fuengirola</figcaption></figure>
+    </div>
+      <h2 id="z3">The castle and the Bioparc</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>Sohail castle, from the tenth century, stands over the mouth of the Fuengirola river and today hosts concerts and historical markets. In the centre, five minutes from the beach, the Bioparc is one of the best-known immersion zoos in Andalusia. The two of them give the town a cultural life that the neighbouring developments do not have.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/8e459e3d488f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778063757" alt="Fuengirola" loading="lazy" width="800" height="600"><figcaption>Fuengirola</figcaption></figure>
+    </div>
+      <h2 id="z4">What people buy in Fuengirola</h2><p>Apartments dominate, often with sea views, in buildings on the promenade or a street back. Rental demand is among the most solid on the coast thanks to the urban life and the train, so it is an investment market rather than a villa market. Those after a plot and a garden buy in Mijas, just above.</p>
+      <h2 id="distancias">Where it is and how to get there</h2><div class="rejDato"><div><span class="v">3 min</span><span class="k">Beach</span></div><div><span class="v">1 min</span><span class="k">Fuengirola</span></div><div><span class="v">8 min</span><span class="k">Nearest golf course</span></div><div><span class="v">25 min</span><span class="k">Marbella centre</span></div><div><span class="v">20 min</span><span class="k">Málaga airport</span></div></div>
+        <p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
+      <h2 id="precios">What it costs to buy in Fuengirola</h2><div class="precioCards"><article>
+        <span class="tp"><b>Apartments</b><span>8 for sale</span></span>
+        <span class="med">845.000 €<small>Median price</small></span>
+        <span class="rango">From 535.000 € &middot; to 1.640.000 €<br>6337 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Penthouses</b><span>2 for sale</span></span>
+        <span class="med">775.000 €<small>Median price</small></span>
+        <span class="rango">From 680.000 € &middot; to 775.000 €<br>7649 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Houses</b><span>1 for sale</span></span>
+        <span class="med">531.000 €<small>Median price</small></span>
+        <span class="rango">From 531.000 € &middot; to 531.000 €<br>2309 &euro; per built m²</span>
+      </article></div>
+      <p class="nota">Figures calculated on the 11 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Properties in Fuengirola</h2>
     <div class="rejP">
       <a href="/en/buy/fuengirola/apartment-fuengirola-r4836406/">
@@ -495,11 +537,23 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     
 
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/areas/">See all areas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Frequently asked questions</h2>
       <details open><summary>How many properties are for sale in Fuengirola?</summary><p>W Real Estate lists 11 properties for sale in Fuengirola. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates.</p></details>
       <details><summary>How much does a property cost in Fuengirola?</summary><p>Prices in our Fuengirola selection range from 531.000 € to 1.640.000 €, with a median of 720.000 € and an average of 6209 € per built square metre.</p></details>
       <details><summary>What property types are available in Fuengirola?</summary><p>The current offer breaks down into 8 apartments, 2 penthouses, 1 houses.</p></details>
+      <details><summary>Can you reach Fuengirola by train from the airport?</summary><p>Yes. The C-1 commuter line connects Málaga María Zambrano with Fuengirola via the airport, Torremolinos and Benalmádena, with trains every twenty minutes. It is the only town on the western coast with a train.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
     </section>
 

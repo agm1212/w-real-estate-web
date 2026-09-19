@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -323,7 +351,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
@@ -345,31 +373,28 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/areas/benahavis/">English</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/14e78f9b064311f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782193343" alt="Benahavís" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Guía de zona</span><span class="raya"></span></div>
+    <h1>Benahavís</h1>
+    <p class="lead">El pueblo de Benahavís, conocido como el comedor de la Costa del Sol, está a siete kilómetros de la costa entre montañas y debe el apodo a la densidad de restaurantes de su casco.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">13</span><span class="k">Propiedades publicadas</span></div>
+      <div><span class="v">525.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">2.150.000 €</span><span class="k">Precio mediano</span></div>
+      <div><span class="v">5955 &euro;</span><span class="k">Media por m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Guía de zona</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Benahavís</h1>
-      </div>
-      <span class="cuenta">13 propiedades disponibles.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">13</span><span class="k">propiedades</span></div>
-      <div><span class="v">525.000 €</span><span class="k">Desde</span></div>
-      <div><span class="v">8.250.000 €</span><span class="k">hasta</span></div>
-      <div><span class="v">2.150.000 €</span><span class="k">Precio medio</span></div>
-      <div><span class="v">5955 €</span><span class="k">Media por m² construido</span></div>
-    </div>
-
-    <div class="texto"><p>El pueblo de Benahavís, conocido como el comedor de la Costa del Sol, está a siete kilómetros de la costa entre montañas y debe el apodo a la densidad de restaurantes de su casco.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="En esta guía">
       <span class="eyebrow">En esta guía</span>
@@ -378,20 +403,36 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
     <div class="guia">
       <h2 id="z1">¿Qué es Benahavís?</h2><p>Benahavís es un pueblo blanco de interior encajado entre montañas, a pocos kilómetros de la costa entre Marbella y Estepona. Se le conoce como el comedor de la Costa del Sol por la densidad de restaurantes de su casco, y su término municipal es mucho mayor que el pueblo: llega hasta la costa y contiene algunas de las urbanizaciones cerradas más conocidas de la zona.</p>
-      <h2 id="z2">Qué contiene el municipio</h2><p>Dentro de Benahavís están La Zagaleta, El Madroñal, La Quinta, Los Arqueros y Los Flamingos, entre otras. Es, por tanto, el municipio de las parcelas grandes y las urbanizaciones con control de acceso, a cambio de estar unos minutos más lejos de la playa que Marbella.</p>
+      <h2 id="z2">Qué contiene el municipio</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>Dentro de Benahavís están La Zagaleta, El Madroñal, La Quinta, Los Arqueros y Los Flamingos, entre otras. Es, por tanto, el municipio de las parcelas grandes y las urbanizaciones con control de acceso, a cambio de estar unos minutos más lejos de la playa que Marbella.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/8d6ad5165bba11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949399" alt="Benahavís" loading="lazy" width="800" height="600"><figcaption>Benahavís</figcaption></figure>
+    </div>
       <h2 id="z3">El entorno</h2><p>El pueblo está en el curso del río Guadalmina, rodeado de pinar y alcornocal, y el desfiladero de Las Angosturas es una de sus rutas más conocidas. La carretera de Ronda, la A-397, atraviesa el municipio y es el acceso a las urbanizaciones altas.</p>
-      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destino</th><th>En coche</th></tr></thead>
-          <tbody><tr><td>Campo de golf más cercano</td><td class="n">6 min</td></tr><tr><td>Playa</td><td class="n">14 min</td></tr><tr><td>San Pedro de Alcántara</td><td class="n">14 min</td></tr><tr><td>Puerto Banús</td><td class="n">18 min</td></tr><tr><td>Marbella centro</td><td class="n">25 min</td></tr><tr><td>Aeropuerto de Málaga</td><td class="n">55 min</td></tr></tbody>
-        </table></div><p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
-      <h2 id="precios">Cuánto cuesta comprar en Benahavís</h2><p class="nota">Cifras calculadas sobre las 13 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Tipo</th><th>En venta</th><th>Desde</th><th>Hasta</th><th>Precio mediano</th><th>Media por m²</th></tr></thead>
-        <tbody><tr><td>Villas</td><td class="n">5</td><td class="n">2.200.000 €</td><td class="n">8.250.000 €</td><td class="n">6.495.000 €</td><td class="n">6334 &euro;</td></tr><tr><td>Apartamentos</td><td class="n">4</td><td class="n">525.000 €</td><td class="n">3.499.500 €</td><td class="n">1.650.000 €</td><td class="n">5890 &euro;</td></tr><tr><td>Casas</td><td class="n">2</td><td class="n">550.000 €</td><td class="n">2.150.000 €</td><td class="n">2.150.000 €</td><td class="n">5139 &euro;</td></tr><tr><td>Parcelas</td><td class="n">2</td><td class="n">850.000 €</td><td class="n">1.600.000 €</td><td class="n">1.600.000 €</td><td class="n">&mdash;</td></tr></tbody>
-      </table></div>
+      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="rejDato"><div><span class="v">6 min</span><span class="k">Campo de golf más cercano</span></div><div><span class="v">14 min</span><span class="k">Playa</span></div><div><span class="v">14 min</span><span class="k">San Pedro de Alcántara</span></div><div><span class="v">18 min</span><span class="k">Puerto Banús</span></div><div><span class="v">25 min</span><span class="k">Marbella centro</span></div><div><span class="v">55 min</span><span class="k">Aeropuerto de Málaga</span></div></div>
+        <p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
+      <h2 id="precios">Cuánto cuesta comprar en Benahavís</h2><div class="precioCards"><article>
+        <span class="tp"><b>Villas</b><span>5 en venta</span></span>
+        <span class="med">6.495.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 2.200.000 € &middot; hasta 8.250.000 €<br>6334 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Apartamentos</b><span>4 en venta</span></span>
+        <span class="med">1.650.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 525.000 € &middot; hasta 3.499.500 €<br>5890 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Casas</b><span>2 en venta</span></span>
+        <span class="med">2.150.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 550.000 € &middot; hasta 2.150.000 €<br>5139 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Parcelas</b><span>2 en venta</span></span>
+        <span class="med">1.600.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 850.000 € &middot; hasta 1.600.000 €</span>
+      </article></div>
+      <p class="nota">Cifras calculadas sobre las 13 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Propiedades en Benahavís</h2>
     <div class="rejP">
       <a href="/comprar/benahavis/villa-benahavis-r5300689/">
@@ -513,6 +554,17 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </a>
     </div>
     
+
+    <section class="cierreZ">
+      <div>
+        <h2>¿No encuentra su zona?</h2>
+        <p>La red de la Costa del Sol cubre mucho más de lo que se publica. Díganos qué busca y le decimos dónde está.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/contacto/">Hablar con W</a>
+        <a class="btn sec" href="/zonas/">Ver todas las zonas</a>
+      </div>
+    </section>
 
     <section class="faq" id="preguntas">
       <h2>Preguntas frecuentes</h2>

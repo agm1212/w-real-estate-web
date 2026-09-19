@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Marbella","url":"https://wrealestate.es/en/buy/marbella/","description":"The municipality reads from west to east: Guadalmina and San Pedro de Alcántara, then Nueva Andalucía and Puerto Banús, then the Golden Mile and the centre, and finally eastern Marbella with Los Monteros, Elviria and Cabopino. Each stretch has its own market, its own price per square metre and its own buyer.","address":{"@type":"PostalAddress","addressRegion":"Marbella","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Marbella","url":"https://wrealestate.es/en/buy/marbella/","description":"Marbella is not one town but several. The municipality reads from west to east: first Guadalmina and San Pedro de Alcántara, with their own centre and their own beach; then the Nueva Andalucía valley and Puerto Banús; then the Golden Mile and the old town; and finally eastern Marbella, with Los Monteros, Elviria and Cabopino. Each stretch has its own market, its own price per square metre and its own buyer, and mixing them up is the most common mistake newcomers make.","address":{"@type":"PostalAddress","addressRegion":"Marbella","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Properties in Marbella","url":"https://wrealestate.es/en/buy/marbella/","numberOfItems":196,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5211253/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5073526/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5360857/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5181508/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5352754/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5442331/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/en/buy/marbella/villa-la-mairena-r5166769/","name":"Villa in La Mairena"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5229859/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/en/buy/marbella/house-marbella-r5232514/","name":"House in Marbella"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/en/buy/marbella/penthouse-nueva-andalucia-r5435302/","name":"Penthouse in Nueva Andalucía"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5400265/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5461600/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5452222/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/en/buy/marbella/house-the-golden-mile-r5330080/","name":"House in The Golden Mile"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5365636/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/en/buy/marbella/house-the-golden-mile-r5352748/","name":"House in The Golden Mile"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5391400/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5430715/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5391448/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/en/buy/marbella/villa-las-chapas-r5425456/","name":"Villa in Las Chapas"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Marbella?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 196 properties for sale in Marbella. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Marbella?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Marbella selection range from 500.000 € to 19.995.000 €, with a median of 1.495.000 € and an average of 7673 € per built square metre."}},{"@type":"Question","name":"What property types are available in Marbella?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 85 apartments, 55 villas, 35 houses, 9 penthouses, 7 commercial premises, 5 plots."}},{"@type":"Question","name":"Which part of Marbella suits which use?","acceptedAnswer":{"@type":"Answer","text":"For year-round living with services on foot, the centre, San Pedro and Nueva Andalucía. For beach and family life, Guadalmina, Los Monteros and Elviria. For investment and rental, Puerto Banús and the Golden Mile. For privacy and land, the upper estates of the Golden Mile and neighbouring Benahavís."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Marbella?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 196 properties for sale in Marbella. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Marbella?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Marbella selection range from 500.000 € to 19.995.000 €, with a median of 1.495.000 € and an average of 7673 € per built square metre."}},{"@type":"Question","name":"What property types are available in Marbella?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 85 apartments, 55 villas, 35 houses, 9 penthouses, 7 commercial premises, 5 plots."}},{"@type":"Question","name":"Which part of Marbella suits which use?","acceptedAnswer":{"@type":"Answer","text":"For year-round living with services on foot, the centre, San Pedro and Nueva Andalucía. For beach and family life, Guadalmina, Los Monteros and Elviria. For investment and rental, Puerto Banús and the Golden Mile. For privacy and land, the upper estates of the Golden Mile and neighbouring Benahavís."}},{"@type":"Question","name":"How long is the drive from Marbella to Málaga airport?","acceptedAnswer":{"@type":"Answer","text":"About forty minutes by motorway from the centre in normal traffic. In summer and at peak times the AP-7 toll road is the safer choice."}},{"@type":"Question","name":"Is there a train to Marbella?","acceptedAnswer":{"@type":"Answer","text":"No. The C-1 commuter line links Málaga, the airport, Torremolinos, Benalmádena and Fuengirola, but does not continue west. Marbella is reached by road."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://wrealestate.es/en/"},{"@type":"ListItem","position":2,"name":"Buy","item":"https://wrealestate.es/en/buy/"},{"@type":"ListItem","position":3,"name":"Marbella","item":"https://wrealestate.es/en/buy/marbella/"},{"@type":"ListItem","position":4,"name":"Marbella","item":"https://wrealestate.es/en/buy/marbella/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/en/buy/">Buy</a><a href="/en/sell/">Sell</a><a href="/en/areas/">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
@@ -345,53 +373,207 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/comprar/marbella/">Español</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="Marbella" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide</span><span class="raya"></span></div>
+    <h1>Marbella</h1>
+    <p class="lead">Marbella holds the widest and most liquid market on the Costa del Sol: from apartments in the old town to villas in Sierra Blanca or on the Golden Mile. It attracts the most international buyers on the western coast and is one of the few markets where demand holds up out of season.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">196</span><span class="k">Properties listed</span></div>
+      <div><span class="v">500.000 €</span><span class="k">From</span></div>
+      <div><span class="v">1.495.000 €</span><span class="k">Median price</span></div>
+      <div><span class="v">7673 &euro;</span><span class="k">Average per m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Area guide</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Marbella</h1>
-      </div>
-      <span class="cuenta">Showing 48 of 196 properties.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">196</span><span class="k">properties</span></div>
-      <div><span class="v">500.000 €</span><span class="k">From</span></div>
-      <div><span class="v">19.995.000 €</span><span class="k">to</span></div>
-      <div><span class="v">1.495.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">7673 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>Marbella holds the widest and most liquid market on the Costa del Sol: from apartments in the old town to villas in Sierra Blanca or on the Golden Mile. It attracts the most international buyers on the western coast and is one of the few markets where demand holds up out of season.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="In this guide">
       <span class="eyebrow">In this guide</span>
-      <ol><li><a href="#z1">How Marbella is laid out</a></li><li><a href="#z2">The old town</a></li><li><a href="#z3">Golf</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Marbella</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
+      <ol><li><a href="#z1">How Marbella is laid out</a></li><li><a href="#z2">Twenty-seven kilometres of coast</a></li><li><a href="#z3">One of the densest golf areas in Europe</a></li><li><a href="#z4">The international schools</a></li><li><a href="#z5">The old town</a></li><li><a href="#z6">Services and access</a></li><li><a href="#z7">What people buy in Marbella</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Marbella</a></li><li><a href="#zonas">Areas in Marbella</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">How Marbella is laid out</h2><p>The municipality reads from west to east: Guadalmina and San Pedro de Alcántara, then Nueva Andalucía and Puerto Banús, then the Golden Mile and the centre, and finally eastern Marbella with Los Monteros, Elviria and Cabopino. Each stretch has its own market, its own price per square metre and its own buyer.</p>
-      <h2 id="z2">The old town</h2><p>The historic centre is organised around the Plaza de los Naranjos, the town hall since the sixteenth century, and preserves part of the walls and the castle. By the sea, Avenida del Mar displays a group of Salvador Dalí sculptures in the open air.</p>
-      <h2 id="z3">Golf</h2><p>Within the municipality and its immediate surroundings sit Las Brisas, Aloha and Los Naranjos in Nueva Andalucía; Guadalmina to the west; and Río Real, Santa Clara, Santa María and Greenlife to the east. It is one of the densest concentrations of courses in Europe.</p>
-      <h2 id="distancias">Where it is and how to get there</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destination</th><th>By car</th></tr></thead>
-          <tbody><tr><td>Beach</td><td class="n">5 min</td></tr><tr><td>Marbella centre</td><td class="n">8 min</td></tr><tr><td>Nearest golf course</td><td class="n">10 min</td></tr><tr><td>Puerto Banús</td><td class="n">12 min</td></tr><tr><td>International school</td><td class="n">12 min</td></tr><tr><td>Málaga airport</td><td class="n">40 min</td></tr></tbody>
-        </table></div><p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
-      <h2 id="precios">What it costs to buy in Marbella</h2><p class="nota">Figures calculated on the 196 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Type</th><th>For sale</th><th>From</th><th>To</th><th>Median price</th><th>Average per m²</th></tr></thead>
-        <tbody><tr><td>Apartments</td><td class="n">85</td><td class="n">515.000 €</td><td class="n">4.500.000 €</td><td class="n">880.000 €</td><td class="n">7983 &euro;</td></tr><tr><td>Villas</td><td class="n">55</td><td class="n">730.000 €</td><td class="n">19.995.000 €</td><td class="n">3.995.000 €</td><td class="n">7917 &euro;</td></tr><tr><td>Houses</td><td class="n">35</td><td class="n">500.000 €</td><td class="n">7.500.000 €</td><td class="n">1.090.000 €</td><td class="n">6603 &euro;</td></tr><tr><td>Penthouses</td><td class="n">9</td><td class="n">649.000 €</td><td class="n">6.900.000 €</td><td class="n">1.499.000 €</td><td class="n">8783 &euro;</td></tr><tr><td>Commercial premises</td><td class="n">7</td><td class="n">550.000 €</td><td class="n">2.500.000 €</td><td class="n">850.000 €</td><td class="n">6980 &euro;</td></tr><tr><td>Plots</td><td class="n">5</td><td class="n">1.100.000 €</td><td class="n">3.000.000 €</td><td class="n">2.750.000 €</td><td class="n">3911 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">How Marbella is laid out</h2><p>Marbella is not one town but several. The municipality reads from west to east: first Guadalmina and San Pedro de Alcántara, with their own centre and their own beach; then the Nueva Andalucía valley and Puerto Banús; then the Golden Mile and the old town; and finally eastern Marbella, with Los Monteros, Elviria and Cabopino. Each stretch has its own market, its own price per square metre and its own buyer, and mixing them up is the most common mistake newcomers make.</p>
+      <h2 id="z2">Twenty-seven kilometres of coast</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>The municipal coastline runs about 27 kilometres and changes completely from end to end. To the west, Guadalmina and San Pedro have wide beaches beside the Roman remains of Las Bóvedas. In the centre, Fontanilla and La Venus are urban beaches, with the promenade and the old town on foot. To the east, Los Monteros and Elviria open into long stretches of sand, and Cabopino closes the municipality with the protected Artola dunes. The Senda Litoral, the coastal walkway being stitched together between Manilva and Nerja, already crosses much of the municipality.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/986c0e184bfe11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753335744" alt="Marbella" loading="lazy" width="800" height="600"><figcaption>Marbella</figcaption></figure>
+    </div>
+      <h2 id="z3">One of the densest golf areas in Europe</h2><p>Within the municipality and its immediate surroundings there are more than a dozen layouts. In Nueva Andalucía, Real Club de Golf Las Brisas, Aloha Golf Club and Los Naranjos Golf Club, the last of these opened in 1977 with a Robert Trent Jones Senior design. To the west, Real Club de Golf Guadalmina, whose South course opened in 1959 to a Javier Arana design. To the east, Río Real, which opened in 1965, Santa Clara, Santa María and Greenlife. Buyers who come here for golf do not pick a course: they pick from many, all within twenty minutes.</p>
+      <h2 id="z4">The international schools</h2><p>This is why many families settle here all year and not just for the summer. Aloha College, in Nueva Andalucía, was founded in 1982 as the first fully bilingual school in Marbella and today teaches the British curriculum from ages 3 to 18, with IGCSE, A-levels and the International Baccalaureate. Swans International, founded in 1971, has two centres in the municipality. The English International College opened in 1978. To these you can add the German school of Málaga, in La Mairena, above Elviria.</p>
+      <h2 id="z5">The old town</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>Marbella keeps a historic centre of narrow streets and whitewashed houses around the Plaza de los Naranjos, the town hall square since the sixteenth century, with remains of the walls and the castle. By the sea, Avenida del Mar displays a group of Salvador Dalí sculptures in the open air, and the Alameda park links the centre with the promenade. It is the part of the municipality where you can genuinely live without a car.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/cdb897203ae011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946991" alt="Marbella" loading="lazy" width="800" height="600"><figcaption>Marbella</figcaption></figure>
+    </div>
+      <h2 id="z6">Services and access</h2><p>Hospital Universitario Costa del Sol sits inside the municipality, beside the A-7 at Los Monteros, and is the reference hospital for the whole western district. Málaga airport is about forty minutes away by motorway from the centre; the AP-7 toll road avoids the traffic lights of the N-340 at peak times. There is no train: the commuter line reaches Fuengirola and does not continue west.</p>
+      <h2 id="z7">What people buy in Marbella</h2><p>This is the widest and most liquid market on the coast, and also the most expensive per square metre. There are urban apartments in the centre, large-plot villas in Guadalmina and Los Monteros, gated estates with security in Sierra Blanca and the Golden Mile, and golf product in Nueva Andalucía. Land is practically exhausted along the beach strip, so what moves is resale and full renovation; new developments appear mostly on the hillsides and to the east.</p>
+      <h2 id="distancias">Where it is and how to get there</h2><div class="rejDato"><div><span class="v">5 min</span><span class="k">Beach</span></div><div><span class="v">8 min</span><span class="k">Marbella centre</span></div><div><span class="v">10 min</span><span class="k">Nearest golf course</span></div><div><span class="v">12 min</span><span class="k">Puerto Banús</span></div><div><span class="v">12 min</span><span class="k">International school</span></div><div><span class="v">40 min</span><span class="k">Málaga airport</span></div></div>
+        <p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
+      <h2 id="precios">What it costs to buy in Marbella</h2><div class="precioCards"><article>
+        <span class="tp"><b>Apartments</b><span>85 for sale</span></span>
+        <span class="med">880.000 €<small>Median price</small></span>
+        <span class="rango">From 515.000 € &middot; to 4.500.000 €<br>7983 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Villas</b><span>55 for sale</span></span>
+        <span class="med">3.995.000 €<small>Median price</small></span>
+        <span class="rango">From 730.000 € &middot; to 19.995.000 €<br>7917 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Houses</b><span>35 for sale</span></span>
+        <span class="med">1.090.000 €<small>Median price</small></span>
+        <span class="rango">From 500.000 € &middot; to 7.500.000 €<br>6603 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Penthouses</b><span>9 for sale</span></span>
+        <span class="med">1.499.000 €<small>Median price</small></span>
+        <span class="rango">From 649.000 € &middot; to 6.900.000 €<br>8783 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Commercial premises</b><span>7 for sale</span></span>
+        <span class="med">850.000 €<small>Median price</small></span>
+        <span class="rango">From 550.000 € &middot; to 2.500.000 €<br>6980 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Plots</b><span>5 for sale</span></span>
+        <span class="med">2.750.000 €<small>Median price</small></span>
+        <span class="rango">From 1.100.000 € &middot; to 3.000.000 €<br>3911 &euro; per built m²</span>
+      </article></div>
+      <p class="nota">Figures calculated on the 196 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
     </div>
 
     
+    
+    <div class="seccionZ">
+      <div>
+        <div class="lin"><span class="eyebrow">13 developments</span><span class="raya"></span></div>
+        <h2 id="zonas">Areas in Marbella</h2>
+      </div>
+      <p>Within the municipality, the development is what sets the price. Each one has its own guide.</p>
+    </div>
+    <div class="mosaicoU">
+      <a href="/en/areas/nueva-andalucia/">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Nueva Andalucía" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Nueva Andalucía</span>
+    <span class="dato">55 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/the-golden-mile/">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="The Golden Mile" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">The Golden Mile</span>
+    <span class="dato">24 properties &middot; from 540.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/puerto-banus/">
+  <img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Puerto Banús" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Puerto Banús</span>
+    <span class="dato">20 properties &middot; from 525.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/san-pedro-de-alcantara/">
+  <img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="San Pedro de Alcántara" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">San Pedro de Alcántara</span>
+    <span class="dato">11 properties &middot; from 649.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/elviria/">
+  <img src="https://cdn.resales-online.com/public/le17760puz/properties/1da4649b191f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947799" alt="Elviria" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Elviria</span>
+    <span class="dato">6 properties &middot; from 735.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/sierra-blanca/">
+  <img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Sierra Blanca" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Sierra Blanca</span>
+    <span class="dato">5 properties &middot; from 615.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/guadalmina-alta/">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/6ba70b546c6211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781934139" alt="Guadalmina Alta" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Guadalmina Alta</span>
+    <span class="dato">5 properties &middot; from 799.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/guadalmina-baja/">
+  <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/fscrmlopdlwvxuy/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951220" alt="Guadalmina Baja" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Guadalmina Baja</span>
+    <span class="dato">5 properties &middot; from 780.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/la-mairena/">
+  <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/346a93da95dc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947698" alt="La Mairena" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">La Mairena</span>
+    <span class="dato">5 properties &middot; from 515.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/cabopino/">
+  <img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Cabopino" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Cabopino</span>
+    <span class="dato">4 properties &middot; from 925.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/marbella/">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/722ae5b550e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785390105" alt="Marbella" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Marbella</span>
+    <span class="dato">4 properties &middot; from 500.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/bel-air/">
+  <img src="https://cdn.resales-online.com/public/cdugn808as/properties/e3b4c1fc220d11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946236" alt="Bel Air" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Bel Air</span>
+    <span class="dato">4 properties &middot; from 550.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+      <a href="/en/areas/altos-de-los-monteros/">
+  <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/bde7063aa10311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787720886" alt="Altos de los Monteros" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Altos de los Monteros</span>
+    <span class="dato">4 properties &middot; from 515.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+    </div>
+
     <h2 class="tituloLista" id="enventa">Properties in Marbella</h2>
     <div class="rejP">
       <a href="/en/buy/marbella/villa-the-golden-mile-r5211253/">
@@ -829,12 +1011,25 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     <p style="margin-top:34px"><a class="btn sec" style="display:inline-block" href="/en/buy/">See the rest in the search (148)</a></p>
 
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/areas/">See all areas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Frequently asked questions</h2>
       <details open><summary>How many properties are for sale in Marbella?</summary><p>W Real Estate lists 196 properties for sale in Marbella. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates.</p></details>
       <details><summary>How much does a property cost in Marbella?</summary><p>Prices in our Marbella selection range from 500.000 € to 19.995.000 €, with a median of 1.495.000 € and an average of 7673 € per built square metre.</p></details>
       <details><summary>What property types are available in Marbella?</summary><p>The current offer breaks down into 85 apartments, 55 villas, 35 houses, 9 penthouses, 7 commercial premises, 5 plots.</p></details>
       <details><summary>Which part of Marbella suits which use?</summary><p>For year-round living with services on foot, the centre, San Pedro and Nueva Andalucía. For beach and family life, Guadalmina, Los Monteros and Elviria. For investment and rental, Puerto Banús and the Golden Mile. For privacy and land, the upper estates of the Golden Mile and neighbouring Benahavís.</p></details>
+      <details><summary>How long is the drive from Marbella to Málaga airport?</summary><p>About forty minutes by motorway from the centre in normal traffic. In summer and at peak times the AP-7 toll road is the safer choice.</p></details>
+      <details><summary>Is there a train to Marbella?</summary><p>No. The C-1 commuter line links Málaga, the airport, Torremolinos, Benalmádena and Fuengirola, but does not continue west. Marbella is reached by road.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
     </section>
 

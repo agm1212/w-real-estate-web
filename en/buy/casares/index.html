@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Casares","url":"https://wrealestate.es/en/buy/casares/","description":"Casares has its white village up in the hills, below the remains of its castle, and its own coastal strip between Estepona and Manilva, where the new developments are concentrated. The Roman baths of La Hedionda, over a sulphurous spring, lie within its municipality.","address":{"@type":"PostalAddress","addressRegion":"Casares","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Casares","url":"https://wrealestate.es/en/buy/casares/","description":"Casares hangs on the hillside below the remains of its castle, and its profile of stepped white houses is among the most recognisable in the province of Málaga. But the municipality is not only the village: it has its own coast, Casares Playa and Casares Costa, between Estepona and Manilva, where the new developments are concentrated.","address":{"@type":"PostalAddress","addressRegion":"Casares","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Properties in Casares","url":"https://wrealestate.es/en/buy/casares/","numberOfItems":9,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/casares/villa-casares-r4709350/","name":"Villa in Casares"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/casares/villa-casares-r5130049/","name":"Villa in Casares"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/casares/villa-casares-r5181502/","name":"Villa in Casares"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/casares/villa-casares-r5478223/","name":"Villa in Casares"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/casares/villa-casares-r4709332/","name":"Villa in Casares"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/en/buy/casares/villa-casares-r4709353/","name":"Villa in Casares"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/en/buy/casares/villa-casares-playa-r5180059/","name":"Villa in Casares Playa"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/en/buy/casares/villa-casares-playa-r5463088/","name":"Villa in Casares Playa"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/en/buy/casares/apartment-casares-r5362261/","name":"Apartment in Casares"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Casares?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 9 properties for sale in Casares. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Casares?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Casares selection range from 660.000 € to 8.700.000 €, with a median of 5.750.000 € and an average of 8194 € per built square metre."}},{"@type":"Question","name":"What property types are available in Casares?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 8 villas, 1 apartments."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Casares?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 9 properties for sale in Casares. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Casares?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Casares selection range from 660.000 € to 8.700.000 €, with a median of 5.750.000 € and an average of 8194 € per built square metre."}},{"@type":"Question","name":"What property types are available in Casares?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 8 villas, 1 apartments."}},{"@type":"Question","name":"Where is Finca Cortesín?","acceptedAnswer":{"@type":"Answer","text":"In the municipality of Casares, between Estepona and Sotogrande. Its golf course hosted the 2023 Solheim Cup."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://wrealestate.es/en/"},{"@type":"ListItem","position":2,"name":"Buy","item":"https://wrealestate.es/en/buy/"},{"@type":"ListItem","position":3,"name":"Casares","item":"https://wrealestate.es/en/buy/casares/"},{"@type":"ListItem","position":4,"name":"Casares","item":"https://wrealestate.es/en/buy/casares/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/en/buy/">Buy</a><a href="/en/sell/">Sell</a><a href="/en/areas/">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
@@ -345,52 +373,80 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/comprar/casares/">Español</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1c78a5bbfe0e11ee94690217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947134" alt="Casares" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Area guide</span><span class="raya"></span></div>
+    <h1>Casares</h1>
+    <p class="lead">Casares keeps the lowest price per square metre on the western coast while staying on the same shoreline. Finca Cortesín sets the local ceiling, and the Casares Playa strip gathers new developments aimed at buyers looking for quiet.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">9</span><span class="k">Properties listed</span></div>
+      <div><span class="v">660.000 €</span><span class="k">From</span></div>
+      <div><span class="v">5.750.000 €</span><span class="k">Median price</span></div>
+      <div><span class="v">8194 &euro;</span><span class="k">Average per m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Area guide</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Casares</h1>
-      </div>
-      <span class="cuenta">9 properties available.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">9</span><span class="k">properties</span></div>
-      <div><span class="v">660.000 €</span><span class="k">From</span></div>
-      <div><span class="v">8.700.000 €</span><span class="k">to</span></div>
-      <div><span class="v">5.750.000 €</span><span class="k">Average price</span></div>
-      <div><span class="v">8194 €</span><span class="k">Average per built m²</span></div>
-    </div>
-
-    <div class="texto"><p>Casares keeps the lowest price per square metre on the western coast while staying on the same shoreline. Finca Cortesín sets the local ceiling, and the Casares Playa strip gathers new developments aimed at buyers looking for quiet.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="In this guide">
       <span class="eyebrow">In this guide</span>
-      <ol><li><a href="#z1">Village and coast</a></li><li><a href="#z2">Finca Cortesín</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Casares</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
+      <ol><li><a href="#z1">One of the most photographed white villages</a></li><li><a href="#z2">Finca Cortesín</a></li><li><a href="#z3">The Roman baths of La Hedionda</a></li><li><a href="#z4">What people buy in Casares</a></li><li><a href="#distancias">Where it is and how to get there</a></li><li><a href="#precios">What it costs to buy in Casares</a></li><li><a href="#zonas">Areas in Casares</a></li><li><a href="#enventa">What is for sale right now</a></li><li><a href="#preguntas">Frequently asked questions</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">Village and coast</h2><p>Casares has its white village up in the hills, below the remains of its castle, and its own coastal strip between Estepona and Manilva, where the new developments are concentrated. The Roman baths of La Hedionda, over a sulphurous spring, lie within its municipality.</p>
-      <h2 id="z2">Finca Cortesín</h2><p>Finca Cortesín brings together a five-star hotel, a spa and an 18-hole Cabell B. Robinson course that has hosted three editions of the Volvo World Match Play Championship and the 2023 Solheim Cup.</p>
-      <h2 id="distancias">Where it is and how to get there</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destination</th><th>By car</th></tr></thead>
-          <tbody><tr><td>Beach</td><td class="n">8 min</td></tr><tr><td>Nearest golf course</td><td class="n">5 min</td></tr><tr><td>Estepona centre</td><td class="n">15 min</td></tr><tr><td>Málaga airport</td><td class="n">70 min</td></tr></tbody>
-        </table></div><p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
-      <h2 id="precios">What it costs to buy in Casares</h2><p class="nota">Figures calculated on the 9 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Type</th><th>For sale</th><th>From</th><th>To</th><th>Median price</th><th>Average per m²</th></tr></thead>
-        <tbody><tr><td>Villas</td><td class="n">8</td><td class="n">1.450.000 €</td><td class="n">8.700.000 €</td><td class="n">6.500.000 €</td><td class="n">8519 &euro;</td></tr><tr><td>Apartments</td><td class="n">1</td><td class="n">660.000 €</td><td class="n">660.000 €</td><td class="n">660.000 €</td><td class="n">5593 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">One of the most photographed white villages</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>Casares hangs on the hillside below the remains of its castle, and its profile of stepped white houses is among the most recognisable in the province of Málaga. But the municipality is not only the village: it has its own coast, Casares Playa and Casares Costa, between Estepona and Manilva, where the new developments are concentrated.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/c4cb43e3734811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947120" alt="Casares" loading="lazy" width="800" height="600"><figcaption>Casares</figcaption></figure>
+    </div>
+      <h2 id="z2">Finca Cortesín</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>Finca Cortesín is the resort that sets the local ceiling: a five-star hotel with 67 suites, a spa, a beach club and an 18-hole course designed by Cabell B. Robinson. That course has hosted three editions of the Volvo World Match Play Championship and the 2023 Solheim Cup, played from 22 to 24 September, which put Casares on the world golf map.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1cc89a76a01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947107" alt="Casares" loading="lazy" width="800" height="600"><figcaption>Casares</figcaption></figure>
+    </div>
+      <h2 id="z3">The Roman baths of La Hedionda</h2><p>Within the municipality of Casares stand the Roman baths of La Hedionda, a vaulted four-chamber structure built over a sulphurous spring. It is still used as a natural bathing spot and is one of the most unusual places to visit in the whole district.</p>
+      <h2 id="z4">What people buy in Casares</h2><p>The coastal strip holds new developments and complexes with pools at some of the most contained prices per square metre on the western coast, on the same shoreline as Estepona a few kilometres further east. The village and its surroundings offer houses and country properties, a different product for a different buyer.</p>
+      <h2 id="distancias">Where it is and how to get there</h2><div class="rejDato"><div><span class="v">8 min</span><span class="k">Beach</span></div><div><span class="v">5 min</span><span class="k">Nearest golf course</span></div><div><span class="v">15 min</span><span class="k">Estepona centre</span></div><div><span class="v">70 min</span><span class="k">Málaga airport</span></div></div>
+        <p class="nota">Indicative driving times in normal traffic conditions, not measured.</p>
+      <h2 id="precios">What it costs to buy in Casares</h2><div class="precioCards"><article>
+        <span class="tp"><b>Villas</b><span>8 for sale</span></span>
+        <span class="med">6.500.000 €<small>Median price</small></span>
+        <span class="rango">From 1.450.000 € &middot; to 8.700.000 €<br>8519 &euro; per built m²</span>
+      </article><article>
+        <span class="tp"><b>Apartments</b><span>1 for sale</span></span>
+        <span class="med">660.000 €<small>Median price</small></span>
+        <span class="rango">From 660.000 € &middot; to 660.000 €<br>5593 &euro; per built m²</span>
+      </article></div>
+      <p class="nota">Figures calculated on the 9 properties W Real Estate lists in this area today. They are not whole-market statistics: they are the price of what is available right now.</p>
     </div>
 
     
+    
+    <div class="seccionZ">
+      <div>
+        <div class="lin"><span class="eyebrow">1 developments</span><span class="raya"></span></div>
+        <h2 id="zonas">Areas in Casares</h2>
+      </div>
+      <p>Within the municipality, the development is what sets the price. Each one has its own guide.</p>
+    </div>
+    <div class="mosaicoU">
+      <a href="/en/areas/casares/">
+  <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/1c78a5bbfe0e11ee94690217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947134" alt="Casares" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Casares</span>
+    <span class="dato">5 properties &middot; from 4.800.000 €</span>
+    <span class="ir"><span></span>Read the guide</span>
+  </span>
+</a>
+    </div>
+
     <h2 class="tituloLista" id="enventa">Properties in Casares</h2>
     <div class="rejP">
       <a href="/en/buy/casares/villa-casares-r4709350/">
@@ -477,11 +533,23 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     
 
+    <section class="cierreZ">
+      <div>
+        <h2>Cannot find your area?</h2>
+        <p>The Costa del Sol network covers far more than what is published. Tell us what you are looking for and we will tell you where it is.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/en/contact/">Talk to W</a>
+        <a class="btn sec" href="/en/areas/">See all areas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Frequently asked questions</h2>
       <details open><summary>How many properties are for sale in Casares?</summary><p>W Real Estate lists 9 properties for sale in Casares. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates.</p></details>
       <details><summary>How much does a property cost in Casares?</summary><p>Prices in our Casares selection range from 660.000 € to 8.700.000 €, with a median of 5.750.000 € and an average of 8194 € per built square metre.</p></details>
       <details><summary>What property types are available in Casares?</summary><p>The current offer breaks down into 8 villas, 1 apartments.</p></details>
+      <details><summary>Where is Finca Cortesín?</summary><p>In the municipality of Casares, between Estepona and Sotogrande. Its golf course hosted the 2023 Solheim Cup.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
     </section>
 

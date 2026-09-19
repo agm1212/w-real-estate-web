@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -316,14 +344,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Estepona","url":"https://wrealestate.es/comprar/estepona/","description":"El municipio tiene dos mercados distintos. El centro, con su casco reformado, su puerto y su paseo marítimo, es producto urbano. El este, la llamada Nueva Milla de Oro, concentra urbanizaciones de golf como El Paraíso y Atalaya y la obra nueva de más nivel.","address":{"@type":"PostalAddress","addressRegion":"Estepona","addressCountry":"ES"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Estepona","url":"https://wrealestate.es/comprar/estepona/","description":"El municipio tiene dos mercados que apenas se parecen. El centro, con su casco reformado, su puerto y su paseo marítimo, es producto urbano y vida de ciudad todo el año. El este, la llamada Nueva Milla de Oro, es el corredor que va de Guadalmina hasta pasado el Kempinski y concentra las urbanizaciones de golf y la obra nueva de más nivel. Quien busca ciudad compra en el centro; quien busca urbanización compra en el este.","address":{"@type":"PostalAddress","addressRegion":"Estepona","addressCountry":"ES"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Estepona","url":"https://wrealestate.es/comprar/estepona/","numberOfItems":58,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5125372/","name":"Villa en Estepona"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5322793/","name":"Villa en Estepona"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/estepona/local-comercial-estepona-r5454124/","name":"Comercial en Estepona"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/estepona/villa-atalaya-r5032111/","name":"Villa en Atalaya"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/estepona/apartamento-estepona-r5444227/","name":"Apartamento en Estepona"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5435305/","name":"Villa en Estepona"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/estepona/villa-el-paraiso-r5474743/","name":"Villa en El Paraiso"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r4675324/","name":"Villa en Estepona"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5250319/","name":"Villa en Estepona"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5460616/","name":"Villa en Estepona"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/estepona/apartamento-estepona-r5455165/","name":"Apartamento en Estepona"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/estepona/apartamento-estepona-r4921405/","name":"Apartamento en Estepona"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/estepona/villa-el-paraiso-r5374885/","name":"Villa en El Paraiso"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/estepona/villa-selwo-r5342341/","name":"Villa en Selwo"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/estepona/parcela-estepona-r4981426/","name":"Parcela en Estepona"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5476186/","name":"Villa en Estepona"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/estepona/apartamento-estepona-r5468398/","name":"Apartamento en Estepona"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5134837/","name":"Villa en Estepona"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/estepona/casa-estepona-r5401828/","name":"Casa en Estepona"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/estepona/villa-estepona-r5362345/","name":"Villa en Estepona"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Estepona?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 58 propiedades en venta en Estepona. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Estepona?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Estepona van desde 545.000 € hasta 15.000.000 €, con un precio mediano de 1.050.000 € y una media de 7017 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Estepona?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 20 apartamentos, 14 villas, 11 casas, 5 parcelas, 4 locales comerciales, 4 áticos."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Estepona?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 58 propiedades en venta en Estepona. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Estepona?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Estepona van desde 545.000 € hasta 15.000.000 €, con un precio mediano de 1.050.000 € y una media de 7017 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Estepona?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 20 apartamentos, 14 villas, 11 casas, 5 parcelas, 4 locales comerciales, 4 áticos."}},{"@type":"Question","name":"¿Qué es la Nueva Milla de Oro?","acceptedAnswer":{"@type":"Answer","text":"Es el corredor costero del este de Estepona, entre Guadalmina y el entorno del hotel Kempinski. Concentra urbanizaciones de golf como El Paraíso y Atalaya y buena parte de la obra nueva de nivel alto del municipio."}},{"@type":"Question","name":"¿Estepona tiene hospital?","acceptedAnswer":{"@type":"Answer","text":"Sí, el Hospital de Alta Resolución de Estepona, de la red pública. El hospital de referencia de la comarca es el Universitario Costa del Sol, en Marbella."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://wrealestate.es/"},{"@type":"ListItem","position":2,"name":"Comprar","item":"https://wrealestate.es/comprar/"},{"@type":"ListItem","position":3,"name":"Estepona","item":"https://wrealestate.es/comprar/estepona/"},{"@type":"ListItem","position":4,"name":"Estepona","item":"https://wrealestate.es/comprar/estepona/"}]}</script>
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
@@ -345,52 +373,116 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/estepona/">English</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/ed04d5086e9111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950445" alt="Estepona" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Guía de zona</span><span class="raya"></span></div>
+    <h1>Estepona</h1>
+    <p class="lead">Estepona ha pasado de alternativa económica a mercado propio. El casco antiguo reformado, el paseo marítimo y la Nueva Milla de Oro han atraído obra nueva de calidad a precios por metro sensiblemente menores que en Marbella, con la misma costa y menos masificación.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">58</span><span class="k">Propiedades publicadas</span></div>
+      <div><span class="v">545.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">1.050.000 €</span><span class="k">Precio mediano</span></div>
+      <div><span class="v">7017 &euro;</span><span class="k">Media por m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Guía de zona</span>
-          <span class="raya"></span>
-        </div>
-        <h1>Estepona</h1>
-      </div>
-      <span class="cuenta">Mostrando 48 de 58 propiedades.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">58</span><span class="k">propiedades</span></div>
-      <div><span class="v">545.000 €</span><span class="k">Desde</span></div>
-      <div><span class="v">15.000.000 €</span><span class="k">hasta</span></div>
-      <div><span class="v">1.050.000 €</span><span class="k">Precio medio</span></div>
-      <div><span class="v">7017 €</span><span class="k">Media por m² construido</span></div>
-    </div>
-
-    <div class="texto"><p>Estepona ha pasado de alternativa económica a mercado propio. El casco antiguo reformado, el paseo marítimo y la Nueva Milla de Oro han atraído obra nueva de calidad a precios por metro sensiblemente menores que en Marbella, con la misma costa y menos masificación.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="En esta guía">
       <span class="eyebrow">En esta guía</span>
-      <ol><li><a href="#z1">Dos Esteponas</a></li><li><a href="#z2">La reforma del casco</a></li><li><a href="#distancias">Dónde está y cómo se llega</a></li><li><a href="#precios">Cuánto cuesta comprar en Estepona</a></li><li><a href="#enventa">Qué hay en venta ahora mismo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol>
+      <ol><li><a href="#z1">Dos Esteponas</a></li><li><a href="#z2">La reforma del casco antiguo</a></li><li><a href="#z3">Veintitrés kilómetros de playa</a></li><li><a href="#z4">Qué ver</a></li><li><a href="#z5">Golf y servicios</a></li><li><a href="#z6">Qué se compra en Estepona</a></li><li><a href="#distancias">Dónde está y cómo se llega</a></li><li><a href="#precios">Cuánto cuesta comprar en Estepona</a></li><li><a href="#zonas">Zonas de Estepona</a></li><li><a href="#enventa">Qué hay en venta ahora mismo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol>
     </nav>
 
     <div class="guia">
-      <h2 id="z1">Dos Esteponas</h2><p>El municipio tiene dos mercados distintos. El centro, con su casco reformado, su puerto y su paseo marítimo, es producto urbano. El este, la llamada Nueva Milla de Oro, concentra urbanizaciones de golf como El Paraíso y Atalaya y la obra nueva de más nivel.</p>
-      <h2 id="z2">La reforma del casco</h2><p>Estepona ha peatonalizado y encalado buena parte de su centro, ha llenado las fachadas de macetas y ha creado una ruta de murales artísticos que supera las sesenta obras. El Orquidario, con sus tres cúpulas de cristal, y el Mirador del Carmen completan la oferta cultural.</p>
-      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destino</th><th>En coche</th></tr></thead>
-          <tbody><tr><td>Playa</td><td class="n">5 min</td></tr><tr><td>Campo de golf más cercano</td><td class="n">6 min</td></tr><tr><td>Estepona centro</td><td class="n">8 min</td></tr><tr><td>Puerto Banús</td><td class="n">18 min</td></tr><tr><td>Aeropuerto de Málaga</td><td class="n">60 min</td></tr></tbody>
-        </table></div><p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
-      <h2 id="precios">Cuánto cuesta comprar en Estepona</h2><p class="nota">Cifras calculadas sobre las 58 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Tipo</th><th>En venta</th><th>Desde</th><th>Hasta</th><th>Precio mediano</th><th>Media por m²</th></tr></thead>
-        <tbody><tr><td>Apartamentos</td><td class="n">20</td><td class="n">545.000 €</td><td class="n">4.200.000 €</td><td class="n">985.000 €</td><td class="n">8707 &euro;</td></tr><tr><td>Villas</td><td class="n">14</td><td class="n">1.095.000 €</td><td class="n">15.000.000 €</td><td class="n">2.959.000 €</td><td class="n">6400 &euro;</td></tr><tr><td>Casas</td><td class="n">11</td><td class="n">549.000 €</td><td class="n">1.355.000 €</td><td class="n">735.000 €</td><td class="n">5507 &euro;</td></tr><tr><td>Parcelas</td><td class="n">5</td><td class="n">595.000 €</td><td class="n">1.500.000 €</td><td class="n">1.050.000 €</td><td class="n">2459 &euro;</td></tr><tr><td>Locales comerciales</td><td class="n">4</td><td class="n">1.000.000 €</td><td class="n">4.305.000 €</td><td class="n">1.195.000 €</td><td class="n">5612 &euro;</td></tr><tr><td>Áticos</td><td class="n">4</td><td class="n">649.000 €</td><td class="n">899.000 €</td><td class="n">895.000 €</td><td class="n">7077 &euro;</td></tr></tbody>
-      </table></div>
+      <h2 id="z1">Dos Esteponas</h2><p>El municipio tiene dos mercados que apenas se parecen. El centro, con su casco reformado, su puerto y su paseo marítimo, es producto urbano y vida de ciudad todo el año. El este, la llamada Nueva Milla de Oro, es el corredor que va de Guadalmina hasta pasado el Kempinski y concentra las urbanizaciones de golf y la obra nueva de más nivel. Quien busca ciudad compra en el centro; quien busca urbanización compra en el este.</p>
+      <h2 id="z2">La reforma del casco antiguo</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>Estepona ha peatonalizado y encalado buena parte de su centro y ha llenado las fachadas de macetas, hasta convertirlo en uno de los cascos más cuidados de la provincia. La ruta de murales artísticos reparte más de sesenta obras por la ciudad y se puede recorrer a pie en poco más de una hora. No es un decorado turístico: el centro tiene comercio, mercado y vecinos todo el año.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/le17760puz/properties/454876fb19e811f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781156583" alt="Estepona" loading="lazy" width="800" height="600"><figcaption>Estepona</figcaption></figure>
+    </div>
+      <h2 id="z3">Veintitrés kilómetros de playa</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>El litoral del municipio mide unos 23 kilómetros repartidos en más de quince playas de arena fina. El puerto deportivo y pesquero está a kilómetro y medio al este del casco, entre las dos playas más conocidas, la Rada y el Cristo, y tiene 447 amarres para barcos de hasta 35 metros. Los domingos por la mañana el propio puerto acoge un mercadillo que es una cita fija de la ciudad.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/c5e4c129908c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785910571" alt="Estepona" loading="lazy" width="800" height="600"><figcaption>Estepona</figcaption></figure>
+    </div>
+      <h2 id="z4">Qué ver</h2><p>El Orquidario es un jardín botánico alojado en tres cúpulas de cristal, la mayor de diecisiete metros de altura, con más de tres mil especies vegetales y más de mil quinientas orquídeas. El Mirador del Carmen, en el bulevar que abre la ciudad al mar, reúne biblioteca vertical, conservatorio de música, auditorio, sala de exposiciones y una torre mirador. Y hacia el oeste, el parque de fauna Selwo Aventura es la salida clásica con niños.</p>
+      <h2 id="z5">Golf y servicios</h2><p>En el este del municipio están El Paraíso Golf y el Atalaya Golf &amp; Country Club, este último con dos recorridos de 18 hoyos. El municipio cuenta además con el Hospital de Alta Resolución de Estepona, y el aeropuerto de Málaga queda a alrededor de una hora por autopista, algo más que desde Marbella.</p>
+      <h2 id="z6">Qué se compra en Estepona</h2><p>En el centro y el paseo marítimo, apartamentos y áticos, muchos en edificios recientes con piscina. En la Nueva Milla de Oro, villas de golf y promociones de obra nueva con más metros por euro que en Marbella y el mismo litoral. Es el municipio donde más se nota la diferencia de precio por metro respecto a Marbella sin cambiar de costa.</p>
+      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="rejDato"><div><span class="v">5 min</span><span class="k">Playa</span></div><div><span class="v">6 min</span><span class="k">Campo de golf más cercano</span></div><div><span class="v">8 min</span><span class="k">Estepona centro</span></div><div><span class="v">18 min</span><span class="k">Puerto Banús</span></div><div><span class="v">60 min</span><span class="k">Aeropuerto de Málaga</span></div></div>
+        <p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
+      <h2 id="precios">Cuánto cuesta comprar en Estepona</h2><div class="precioCards"><article>
+        <span class="tp"><b>Apartamentos</b><span>20 en venta</span></span>
+        <span class="med">985.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 545.000 € &middot; hasta 4.200.000 €<br>8707 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Villas</b><span>14 en venta</span></span>
+        <span class="med">2.959.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 1.095.000 € &middot; hasta 15.000.000 €<br>6400 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Casas</b><span>11 en venta</span></span>
+        <span class="med">735.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 549.000 € &middot; hasta 1.355.000 €<br>5507 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Parcelas</b><span>5 en venta</span></span>
+        <span class="med">1.050.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 595.000 € &middot; hasta 1.500.000 €<br>2459 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Locales comerciales</b><span>4 en venta</span></span>
+        <span class="med">1.195.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 1.000.000 € &middot; hasta 4.305.000 €<br>5612 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Áticos</b><span>4 en venta</span></span>
+        <span class="med">895.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 649.000 € &middot; hasta 899.000 €<br>7077 &euro; por m² construido</span>
+      </article></div>
+      <p class="nota">Cifras calculadas sobre las 58 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
     </div>
 
     
+    
+    <div class="seccionZ">
+      <div>
+        <div class="lin"><span class="eyebrow">3 urbanizaciones</span><span class="raya"></span></div>
+        <h2 id="zonas">Zonas de Estepona</h2>
+      </div>
+      <p>Dentro del municipio, la urbanización es la que marca el precio. Cada una tiene su guía.</p>
+    </div>
+    <div class="mosaicoU">
+      <a href="/zonas/el-paraiso/">
+  <img src="https://cdn.resales-online.com/public/0028658skg/properties/d02fe161a6b311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788356543" alt="El Paraiso" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">El Paraiso</span>
+    <span class="dato">8 propiedades &middot; desde 580.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+      <a href="/zonas/estepona/">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ba5658577c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662136" alt="Estepona" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Estepona</span>
+    <span class="dato">7 propiedades &middot; desde 549.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+      <a href="/zonas/atalaya/">
+  <img src="https://cdn.resales-online.com/public/0028658skg/properties/592895f029a811f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786029571" alt="Atalaya" loading="lazy" width="800" height="600">
+  <span class="capa"></span>
+  <span class="txt">
+    <span class="nom">Atalaya</span>
+    <span class="dato">6 propiedades &middot; desde 735.000 €</span>
+    <span class="ir"><span></span>Ver la guía</span>
+  </span>
+</a>
+    </div>
+
     <h2 class="tituloLista" id="enventa">Propiedades en Estepona</h2>
     <div class="rejP">
       <a href="/comprar/estepona/villa-estepona-r5125372/">
@@ -828,11 +920,24 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     <p style="margin-top:34px"><a class="btn sec" style="display:inline-block" href="/comprar/">Ver el resto en el buscador (10)</a></p>
 
+    <section class="cierreZ">
+      <div>
+        <h2>¿No encuentra su zona?</h2>
+        <p>La red de la Costa del Sol cubre mucho más de lo que se publica. Díganos qué busca y le decimos dónde está.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/contacto/">Hablar con W</a>
+        <a class="btn sec" href="/zonas/">Ver todas las zonas</a>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Estepona?</summary><p>W Real Estate publica 58 propiedades en venta en Estepona. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Estepona?</summary><p>Los precios de nuestra selección en Estepona van desde 545.000 € hasta 15.000.000 €, con un precio mediano de 1.050.000 € y una media de 7017 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Estepona?</summary><p>La oferta actual se reparte en 20 apartamentos, 14 villas, 11 casas, 5 parcelas, 4 locales comerciales, 4 áticos.</p></details>
+      <details><summary>¿Qué es la Nueva Milla de Oro?</summary><p>Es el corredor costero del este de Estepona, entre Guadalmina y el entorno del hotel Kempinski. Concentra urbanizaciones de golf como El Paraíso y Atalaya y buena parte de la obra nueva de nivel alto del municipio.</p></details>
+      <details><summary>¿Estepona tiene hospital?</summary><p>Sí, el Hospital de Alta Resolución de Estepona, de la red pública. El hospital de referencia de la comarca es el Universitario Costa del Sol, en Marbella.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
     </section>
 

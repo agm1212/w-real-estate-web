@@ -272,11 +272,39 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .mosaico a:hover .ir,.mosaicoU a:hover .ir{opacity:1;transform:translateY(0)}
 .mosaico .ir span,.mosaicoU .ir span{width:22px;height:1px;background:var(--crema)}
 .cierreZ{margin-top:clamp(64px,7.4vw,118px);background:var(--champan);padding:clamp(40px,4.8vw,76px) clamp(26px,4vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 44px}
+/* ---- Guia de zona ---- */
+.bloqueFoto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(26px,3.4vw,58px);align-items:center;margin:clamp(30px,3.4vw,48px) 0 clamp(38px,4.4vw,62px)}
+.bloqueFoto.inv>figure{order:-1}
+.bloqueFoto .cuerpo p{max-width:56ch}
+.bloqueFoto figure{margin:0;position:relative;overflow:hidden;background:#F3EAD9}
+.bloqueFoto figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bloqueFoto figure:hover img{transform:scale(1.045)}
+.bloqueFoto figure figcaption{position:absolute;left:0;bottom:0;padding:9px 14px;background:rgba(30,26,23,.78);color:#F7F0E6;font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}
+.rejDato{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:1px;background:var(--linea);margin:4px 0 14px;border:1px solid var(--linea)}
+.rejDato div{background:#fff;padding:20px 20px 17px;display:flex;flex-direction:column;gap:7px}
+.rejDato .v{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.rejDato .k{font-size:11.5px;color:var(--gris2);line-height:1.45}
+.precioCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:clamp(11px,1.3vw,18px);margin:4px 0 14px}
+.precioCards article{background:var(--champan);padding:clamp(20px,2.1vw,28px);display:flex;flex-direction:column;gap:9px}
+.precioCards .tp{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.precioCards .tp b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.1}
+.precioCards .tp span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris2);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.precioCards .med{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.7vw,40px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
+.precioCards .med small{display:block;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris2);margin-top:8px}
+.precioCards .rango{border-top:1px solid rgba(30,26,23,.14);padding-top:11px;font-size:12.5px;color:var(--gris);line-height:1.6;font-variant-numeric:lining-nums tabular-nums}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
 .cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:860px){
+  .bloqueFoto{grid-template-columns:1fr;gap:22px}
+  .bloqueFoto.inv>figure{order:0}
+  .bloqueFoto .cuerpo p{max-width:none}
+}
 @media (max-width:560px){
+  .rejDato{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rejDato div{padding:15px 15px 13px}
+  .precioCards{grid-template-columns:1fr}
   /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
   .mosaico{grid-template-columns:1fr}
   .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
@@ -323,7 +351,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </head>
 <body>
 
-<header class="cab fija" id="cab" data-solida="1">
+<header class="cab" id="cab">
   <nav class="izq"><a href="/comprar/">Comprar</a><a href="/vender/">Vender</a><a href="/zonas/">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
@@ -345,31 +373,28 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/areas/the-golden-mile/">English</a></div>
 </div>
 
+<section class="hero heroZ">
+  <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="The Golden Mile" width="1600" height="1067" fetchpriority="high">
+  <span class="velo"></span>
+  <div class="dentroH">
+    <div class="linea"><span class="eyebrow">Guía de zona &amp;middot; Marbella</span><span class="raya"></span></div>
+    <h1>The Golden Mile</h1>
+    <p class="lead">La Milla de Oro une el centro de Marbella con Puerto Banús a lo largo de unos cinco kilómetros, con el Marbella Club y Puente Romano como referencias. Comprar aquí es comprar ubicación pura, a pie de playa y a pie de todo.</p>
+    <div class="cifrasZ">
+      
+      <div><span class="v">24</span><span class="k">Propiedades publicadas</span></div>
+      <div><span class="v">540.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">3.200.000 €</span><span class="k">Precio mediano</span></div>
+      <div><span class="v">12.989 &euro;</span><span class="k">Media por m²</span></div>
+    </div>
+  </div>
+</section>
 
-
-<main class="paginaLista">
+<main class="paginaLista sinTope">
   <div class="dentro">
 
-    <div class="encabezado">
-      <div>
-        <div class="linea">
-          <span class="eyebrow">Guía de zona</span>
-          <span class="raya"></span>
-        </div>
-        <h1>The Golden Mile</h1>
-      </div>
-      <span class="cuenta">24 propiedades disponibles.</span>
-    </div>
-
-    <div class="resumen">
-      <div><span class="v">24</span><span class="k">propiedades</span></div>
-      <div><span class="v">540.000 €</span><span class="k">Desde</span></div>
-      <div><span class="v">19.995.000 €</span><span class="k">hasta</span></div>
-      <div><span class="v">3.200.000 €</span><span class="k">Precio medio</span></div>
-      <div><span class="v">12.989 €</span><span class="k">Media por m² construido</span></div>
-    </div>
-
-    <div class="texto"><p>La Milla de Oro une el centro de Marbella con Puerto Banús a lo largo de unos cinco kilómetros, con el Marbella Club y Puente Romano como referencias. Comprar aquí es comprar ubicación pura, a pie de playa y a pie de todo.</p></div>
+    
+    <div style="height:clamp(30px,3.6vw,54px)"></div>
 
     <nav class="indice" aria-label="En esta guía">
       <span class="eyebrow">En esta guía</span>
@@ -378,21 +403,40 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
     <div class="guia">
       <h2 id="z1">¿Qué es la Milla de Oro de Marbella?</h2><p>La Milla de Oro es el tramo de costa que une el centro de Marbella con Puerto Banús: unos cinco kilómetros de avenida ajardinada con hoteles históricos, villas y urbanizaciones a pie de playa. El nombre nació para describir el trecho entre el Marbella Club y el Puente Romano, y con los años se extendió a todo el corredor.</p>
-      <h2 id="z2">Los dos hoteles que la definen</h2><p>El Marbella Club abrió en los años cincuenta impulsado por el príncipe Alfonso von Hohenlohe y es el origen del Marbella internacional. Enfrente, el Puente Romano Beach Resort alberga hoy el hotel Nobu y un spa Six Senses, además de una de las mayores concentraciones de restaurantes de la costa.</p>
+      <h2 id="z2">Los dos hoteles que la definen</h2><div class="bloqueFoto">
+      <div class="cuerpo"><p>El Marbella Club abrió en los años cincuenta impulsado por el príncipe Alfonso von Hohenlohe y es el origen del Marbella internacional. Enfrente, el Puente Romano Beach Resort alberga hoy el hotel Nobu y un spa Six Senses, además de una de las mayores concentraciones de restaurantes de la costa.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/986c0e184bfe11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753335744" alt="The Golden Mile" loading="lazy" width="800" height="600"><figcaption>The Golden Mile</figcaption></figure>
+    </div>
       <h2 id="z3">La parte alta</h2><p>Por encima de la carretera, en la falda de La Concha, están Sierra Blanca, Cascada de Camoján y Marbella Hill Club: urbanizaciones de villas con seguridad privada y vistas al mar. La parte baja, entre la avenida y la arena, concentra las villas y los conjuntos a pie de playa.</p>
-      <h2 id="z4">Qué se compra aquí</h2><p>Comprar en la Milla de Oro es comprar ubicación: se paga por estar andando de la playa, de los hoteles y del centro. La oferta incluye desde apartamentos en conjuntos cerrados hasta villas frente al mar, y la reposición es escasa porque el suelo está prácticamente agotado.</p>
-      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="envoltorioTabla"><table class="tablaZ">
-          <thead><tr><th>Destino</th><th>En coche</th></tr></thead>
-          <tbody><tr><td>Playa</td><td class="n">2 min</td></tr><tr><td>Marbella centro</td><td class="n">5 min</td></tr><tr><td>Puerto Banús</td><td class="n">7 min</td></tr><tr><td>Campo de golf más cercano</td><td class="n">10 min</td></tr><tr><td>Colegio internacional</td><td class="n">10 min</td></tr><tr><td>Aeropuerto de Málaga</td><td class="n">42 min</td></tr></tbody>
-        </table></div><p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
-      <h2 id="precios">Cuánto cuesta comprar en The Golden Mile</h2><p class="nota">Cifras calculadas sobre las 24 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
-      <div class="envoltorioTabla"><table class="tablaZ">
-        <thead><tr><th>Tipo</th><th>En venta</th><th>Desde</th><th>Hasta</th><th>Precio mediano</th><th>Media por m²</th></tr></thead>
-        <tbody><tr><td>Apartamentos</td><td class="n">12</td><td class="n">540.000 €</td><td class="n">4.500.000 €</td><td class="n">3.200.000 €</td><td class="n">14.353 &euro;</td></tr><tr><td>Villas</td><td class="n">7</td><td class="n">730.000 €</td><td class="n">19.995.000 €</td><td class="n">6.500.000 €</td><td class="n">9123 &euro;</td></tr><tr><td>Casas</td><td class="n">4</td><td class="n">1.195.000 €</td><td class="n">6.300.000 €</td><td class="n">5.995.000 €</td><td class="n">15.659 &euro;</td></tr><tr><td>Parcelas</td><td class="n">1</td><td class="n">2.260.000 €</td><td class="n">2.260.000 €</td><td class="n">2.260.000 €</td><td class="n">&mdash;</td></tr></tbody>
-      </table></div>
+      <h2 id="z4">Qué se compra aquí</h2><div class="bloqueFoto inv">
+      <div class="cuerpo"><p>Comprar en la Milla de Oro es comprar ubicación: se paga por estar andando de la playa, de los hoteles y del centro. La oferta incluye desde apartamentos en conjuntos cerrados hasta villas frente al mar, y la reposición es escasa porque el suelo está prácticamente agotado.</p></div>
+      <figure><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/cdb897203ae011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946991" alt="The Golden Mile" loading="lazy" width="800" height="600"><figcaption>The Golden Mile</figcaption></figure>
+    </div>
+      <h2 id="distancias">Dónde está y cómo se llega</h2><div class="rejDato"><div><span class="v">2 min</span><span class="k">Playa</span></div><div><span class="v">5 min</span><span class="k">Marbella centro</span></div><div><span class="v">7 min</span><span class="k">Puerto Banús</span></div><div><span class="v">10 min</span><span class="k">Campo de golf más cercano</span></div><div><span class="v">10 min</span><span class="k">Colegio internacional</span></div><div><span class="v">42 min</span><span class="k">Aeropuerto de Málaga</span></div></div>
+        <p class="nota">Tiempos orientativos en coche en condiciones normales de tráfico, no medidos.</p>
+      <h2 id="precios">Cuánto cuesta comprar en The Golden Mile</h2><div class="precioCards"><article>
+        <span class="tp"><b>Apartamentos</b><span>12 en venta</span></span>
+        <span class="med">3.200.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 540.000 € &middot; hasta 4.500.000 €<br>14.353 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Villas</b><span>7 en venta</span></span>
+        <span class="med">6.500.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 730.000 € &middot; hasta 19.995.000 €<br>9123 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Casas</b><span>4 en venta</span></span>
+        <span class="med">5.995.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 1.195.000 € &middot; hasta 6.300.000 €<br>15.659 &euro; por m² construido</span>
+      </article><article>
+        <span class="tp"><b>Parcelas</b><span>1 en venta</span></span>
+        <span class="med">2.260.000 €<small>Precio mediano</small></span>
+        <span class="rango">Desde 2.260.000 € &middot; hasta 2.260.000 €</span>
+      </article></div>
+      <p class="nota">Cifras calculadas sobre las 24 propiedades que W Real Estate publica en esta zona hoy. No son estadísticas del mercado completo: son el precio de lo que hay disponible ahora.</p>
     </div>
 
     
+    
+
     <h2 class="tituloLista" id="enventa">Propiedades en The Golden Mile</h2>
     <div class="rejP">
       <a href="/comprar/marbella/villa-the-golden-mile-r5211253/">
@@ -613,6 +657,17 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 </a>
     </div>
     
+
+    <section class="cierreZ">
+      <div>
+        <h2>¿No encuentra su zona?</h2>
+        <p>La red de la Costa del Sol cubre mucho más de lo que se publica. Díganos qué busca y le decimos dónde está.</p>
+      </div>
+      <div class="bts">
+        <a class="btn" href="/contacto/">Hablar con W</a>
+        <a class="btn sec" href="/zonas/">Ver todas las zonas</a>
+      </div>
+    </section>
 
     <section class="faq" id="preguntas">
       <h2>Preguntas frecuentes</h2>
