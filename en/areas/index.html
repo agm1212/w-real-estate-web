@@ -195,7 +195,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
-.resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
+.resumen .v{font-family:'Cormorant Garamond',serif;font-size:clamp(23px,5.4vw,30px);line-height:1;color:var(--burdeos);font-variant-numeric:lining-nums tabular-nums}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
 .texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
@@ -243,12 +243,12 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .heroZ .linea{display:flex;align-items:center;gap:14px;margin-bottom:20px}
 .heroZ .linea .eyebrow{color:var(--crema)}
 .heroZ .linea .raya{width:52px;height:1px;background:rgba(237,215,191,.55)}
-.heroZ h1{margin:0 0 24px;max-width:15ch;font-weight:300;font-size:clamp(40px,6.2vw,92px);line-height:1.015;letter-spacing:-.01em;text-wrap:balance;color:#FFFFFF}
+.heroZ h1{margin:0 0 24px;max-width:15ch;font-weight:300;font-size:clamp(31px,6.2vw,92px);line-height:1.015;letter-spacing:-.01em;text-wrap:balance;color:#FFFFFF}
 .heroZ .lead{margin:0;max-width:58ch;font-size:clamp(14.5px,1.1vw,17px);line-height:1.9;color:rgba(247,240,230,.8)}
 .cifrasZ{display:flex;flex-wrap:wrap;margin-top:clamp(32px,3.8vw,58px);border-top:1px solid rgba(237,215,191,.3)}
 .cifrasZ>div{flex:1 1 150px;padding:clamp(18px,1.8vw,26px) clamp(14px,1.6vw,26px) 0 0}
 .cifrasZ>div+div{border-left:1px solid rgba(237,215,191,.22);padding-left:clamp(18px,2vw,32px)}
-.cifrasZ .v{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,2.9vw,44px);line-height:1;color:var(--crema);font-variant-numeric:lining-nums tabular-nums}
+.cifrasZ .v{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(23px,2.9vw,44px);line-height:1;color:var(--crema);font-variant-numeric:lining-nums tabular-nums}
 .cifrasZ .k{display:block;margin-top:9px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,240,230,.62)}
 .seccionZ{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 44px;margin:clamp(58px,6.6vw,108px) 0 clamp(24px,2.8vw,40px)}
 .seccionZ:first-of-type{margin-top:clamp(50px,5.4vw,84px)}
@@ -275,6 +275,36 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .cierreZ h2{margin:0 0 12px;font-size:clamp(26px,3.1vw,42px);line-height:1.08}
 .cierreZ p{margin:0;max-width:50ch;color:var(--gris);line-height:1.85;font-size:15px}
 .cierreZ .bts{display:flex;flex-wrap:wrap;gap:12px}
+.cierreZ .bts a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media (max-width:560px){
+  /* Municipios a una columna y apaisados: en vertical el nombre no cabe. */
+  .mosaico{grid-template-columns:1fr}
+  .mosaico a,.mosaico a.grande{grid-column:1;aspect-ratio:4/3}
+  .mosaico a.grande .nom{font-size:30px}
+  /* Urbanizaciones a dos columnas, con el nombre ajustado al ancho real. */
+  .mosaicoU{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .mosaicoU a{aspect-ratio:4/5}
+  .mosaicoU .txt{padding:13px;gap:5px}
+  .mosaicoU .nom{font-size:18px;overflow-wrap:anywhere}
+  .mosaicoU .dato{font-size:10px;letter-spacing:.08em}
+  /* Sin ratón no hay hover: el reclamo no llegaría a verse nunca. */
+  .mosaico .ir,.mosaicoU .ir{display:none}
+  .mosaico .nom{overflow-wrap:anywhere}
+  .heroZ .dentroH{padding:112px 6vw 38px}
+  .cifrasZ>div{flex:1 1 46%;padding-right:12px}
+  .seccionZ{gap:14px}
+  .seccionZ>div,.seccionZ p{width:100%;max-width:none}
+  .cierreZ{padding:34px 22px}
+  .cierreZ .bts{width:100%}
+  .cierreZ .bts a{flex:1 1 100%;display:inline-flex;align-items:center;justify-content:center}
+  /* A dos columnas, 19.995.000 no cabe en 118px. Una sola columna y se lee entero. */
+  .resumen{grid-template-columns:1fr}
+  .resumen div{padding:14px 18px 13px}
+  .encabezado{gap:12px}
+  .tablaZ{font-size:13px}
+  .tablaZ th,.tablaZ td{padding:10px 12px 10px 0}
+  .guia h2,.tituloLista,.seccionZ h2{overflow-wrap:anywhere}
+}
 @media (max-width:900px){
   .heroZ{min-height:auto}
   .heroZ .dentroH{padding:130px 6vw 44px}
