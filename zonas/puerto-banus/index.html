@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Puerto Banús","url":"https://wrealestate.es/zonas/puerto-banus/","numberOfItems":20,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5395744/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/marbella/parcela-puerto-banus-r5263591/","name":"Parcela en Puerto Banús"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/marbella/casa-puerto-banus-r5226208/","name":"Casa en Puerto Banús"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r2763281/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/marbella/casa-puerto-banus-r5395735/","name":"Casa en Puerto Banús"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5058907/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5358604/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5259643/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5306809/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4771051/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5384125/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5376028/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r4178665/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4777798/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r5440699/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r4021597/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5191630/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5449795/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5141020/","name":"Apartamento en Puerto Banús"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/marbella/apartamento-puerto-banus-r5388883/","name":"Apartamento en Puerto Banús"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Puerto Banús?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 20 propiedades en venta en Puerto Banús. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Puerto Banús?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Puerto Banús van desde 525.000 € hasta 3.195.000 €, con un precio mediano de 850.000 € y una media de 7663 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Puerto Banús?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 13 apartamentos, 4 locales comerciales, 2 casas, 1 parcelas."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,175 +233,226 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/areas/puerto-banus/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Propiedades en Puerto Banús" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a> ·
-        <a href="/comprar/marbella/">Marbella</a>
-      </nav>
-      <h1>Propiedades en Puerto Banús</h1>
-      <span class="zona">20 propiedades disponibles.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Propiedades en Puerto Banús</h1>
+      </div>
+      <span class="cuenta">20 propiedades disponibles.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">20</span><span class="k">propiedades</span></div>
-        <div><span class="v">525.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">3.195.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">850.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">7663 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">20</span><span class="k">propiedades</span></div>
+      <div><span class="v">525.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">3.195.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">850.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">7663 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>Puerto Banús es el puerto deportivo que hizo famosa a Marbella. Alrededor del muelle se concentran apartamentos y áticos con vistas al puerto y a la Concha, con la mejor oferta de restauración y ocio de la costa a pie de calle.</p></div>
+    <div class="texto"><p>Puerto Banús es el puerto deportivo que hizo famosa a Marbella. Alrededor del muelle se concentran apartamentos y áticos con vistas al puerto y a la Concha, con la mejor oferta de restauración y ocio de la costa a pie de calle.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5395744/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 3 dorm · 275 m²</span>
-  <span class="pr">3.195.000 €</span>
-</a>
-        <a href="/comprar/marbella/parcela-puerto-banus-r5263591/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/0d14eb9aea2d11f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946644" alt="Parcela en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 555 m²</span>
-  <span class="pr">2.750.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-puerto-banus-r5226208/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/6013d5d3c37511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947996" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 5 dorm · 297 m²</span>
-  <span class="pr">2.675.000 €</span>
-</a>
-        <a href="/comprar/marbella/local-comercial-puerto-banus-r2763281/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/ysocgtqsiydfzuk/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950769" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Comercial en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 160 m²</span>
-  <span class="pr">2.500.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-puerto-banus-r5395735/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3c8c1cad5a6f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960523" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 7 dorm · 401 m²</span>
-  <span class="pr">2.395.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5058907/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/804e1ae140fe11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1756446156" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 3 dorm · 225 m²</span>
-  <span class="pr">2.300.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5358604/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/7a779dfc394e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947559" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 88 m²</span>
-  <span class="pr">1.245.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5259643/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/2c4f7a64e61011f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949906" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 3 dorm · 118 m²</span>
-  <span class="pr">945.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5306809/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/610d1a710b3411f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1771251651" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 130 m²</span>
-  <span class="pr">880.000 €</span>
-</a>
-        <a href="/comprar/marbella/local-comercial-puerto-banus-r4771051/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/0fc26ed931fe11ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1719218873" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Comercial en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 150 m²</span>
-  <span class="pr">850.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5384125/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/4a7b5dbb50e611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950699" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 3 dorm · 154 m²</span>
-  <span class="pr">840.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5376028/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/d88eab044ad711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946729" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 116 m²</span>
-  <span class="pr">760.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r4178665/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/d4fc5b455d0711ed98460217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1763405949" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 107 m²</span>
-  <span class="pr">750.000 €</span>
-</a>
-        <a href="/comprar/marbella/local-comercial-puerto-banus-r4777798/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949737" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Comercial en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 150 m²</span>
-  <span class="pr">750.000 €</span>
-</a>
-        <a href="/comprar/marbella/local-comercial-puerto-banus-r5440699/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/01620472819a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784266987" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Comercial en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 134 m²</span>
-  <span class="pr">749.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r4021597/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/c2fbd972a39411eca97d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932590" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 127 m²</span>
-  <span class="pr">700.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5191630/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/c0421a54a84311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1763642338" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 110 m²</span>
-  <span class="pr">674.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5449795/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/30d366538c0a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788791469" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 120 m²</span>
-  <span class="pr">595.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5141020/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/66c5f5b77ead11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1763405451" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 64 m²</span>
-  <span class="pr">595.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-puerto-banus-r5388883/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/uef44a61k2/properties/45a94f2f543111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779803924" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 dorm · 91 m²</span>
-  <span class="pr">525.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5395744/">
+  <div class="foto"><span class="sel">Dúplex</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5395744</span>
+    <span class="meta">3 dorm · 3 baños · 275 m²</span>
+    <span class="pr">3.195.000 €</span>
   </div>
+</a>
+      <a href="/comprar/marbella/parcela-puerto-banus-r5263591/">
+  <div class="foto"><span class="sel">Terreno Urbano</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/0d14eb9aea2d11f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946644" alt="Parcela en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5263591</span>
+    <span class="meta">555 m²</span>
+    <span class="pr">2.750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-puerto-banus-r5226208/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/6013d5d3c37511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947996" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5226208</span>
+    <span class="meta">5 dorm · 3.5 baños · 297 m²</span>
+    <span class="pr">2.675.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/local-comercial-puerto-banus-r2763281/">
+  <div class="foto"><span class="sel">Bar</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/ysocgtqsiydfzuk/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950769" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Comercial en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R2763281</span>
+    <span class="meta">160 m²</span>
+    <span class="pr">2.500.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-puerto-banus-r5395735/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3c8c1cad5a6f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960523" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5395735</span>
+    <span class="meta">7 dorm · 3.5 baños · 401 m²</span>
+    <span class="pr">2.395.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5058907/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/804e1ae140fe11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1756446156" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5058907</span>
+    <span class="meta">3 dorm · 4.5 baños · 225 m²</span>
+    <span class="pr">2.300.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5358604/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/7a779dfc394e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947559" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5358604</span>
+    <span class="meta">2 dorm · 1.5 baños · 88 m²</span>
+    <span class="pr">1.245.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5259643/">
+  <div class="foto"><span class="sel">Apartamento Planta Baja</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/2c4f7a64e61011f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949906" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5259643</span>
+    <span class="meta">3 dorm · 2 baños · 118 m²</span>
+    <span class="pr">945.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5306809/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/610d1a710b3411f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1771251651" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5306809</span>
+    <span class="meta">2 dorm · 2 baños · 130 m²</span>
+    <span class="pr">880.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/local-comercial-puerto-banus-r4771051/">
+  <div class="foto"><span class="sel">Local comercial</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/0fc26ed931fe11ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1719218873" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Comercial en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R4771051</span>
+    <span class="meta">150 m²</span>
+    <span class="pr">850.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5384125/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/4a7b5dbb50e611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950699" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5384125</span>
+    <span class="meta">3 dorm · 2 baños · 154 m²</span>
+    <span class="pr">840.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5376028/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/d88eab044ad711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946729" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5376028</span>
+    <span class="meta">2 dorm · 2 baños · 116 m²</span>
+    <span class="pr">760.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r4178665/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/d4fc5b455d0711ed98460217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1763405949" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R4178665</span>
+    <span class="meta">2 dorm · 2 baños · 107 m²</span>
+    <span class="pr">750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/local-comercial-puerto-banus-r4777798/">
+  <div class="foto"><span class="sel">Oficina</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/57f1798e383011ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949737" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Comercial en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R4777798</span>
+    <span class="meta">150 m²</span>
+    <span class="pr">750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/local-comercial-puerto-banus-r5440699/">
+  <div class="foto"><span class="sel">Oficina</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/01620472819a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784266987" alt="Comercial en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Comercial en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5440699</span>
+    <span class="meta">0.5 baños · 134 m²</span>
+    <span class="pr">749.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r4021597/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/c2fbd972a39411eca97d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932590" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R4021597</span>
+    <span class="meta">2 dorm · 2 baños · 127 m²</span>
+    <span class="pr">700.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5191630/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/c0421a54a84311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1763642338" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5191630</span>
+    <span class="meta">2 dorm · 2 baños · 110 m²</span>
+    <span class="pr">674.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5449795/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/30d366538c0a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788791469" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5449795</span>
+    <span class="meta">2 dorm · 2 baños · 120 m²</span>
+    <span class="pr">595.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5141020/">
+  <div class="foto"><span class="sel">Apartamento en Planta Última</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/66c5f5b77ead11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1763405451" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5141020</span>
+    <span class="meta">2 dorm · 2 baños · 64 m²</span>
+    <span class="pr">595.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-puerto-banus-r5388883/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/uef44a61k2/properties/45a94f2f543111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779803924" alt="Apartamento en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5388883</span>
+    <span class="meta">2 dorm · 2 baños · 91 m²</span>
+    <span class="pr">525.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Puerto Banús?</summary><p>W Real Estate publica 20 propiedades en venta en Puerto Banús. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Puerto Banús?</summary><p>Los precios de nuestra selección en Puerto Banús van desde 525.000 € hasta 3.195.000 €, con un precio mediano de 850.000 € y una media de 7663 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Puerto Banús?</summary><p>La oferta actual se reparte en 13 apartamentos, 4 locales comerciales, 2 casas, 1 parcelas.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -412,6 +468,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/benahavis/">Benahavís (71)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/sotogrande/">Sotogrande (16)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -421,7 +478,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

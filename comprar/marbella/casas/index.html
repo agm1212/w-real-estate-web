@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Casas en Marbella","url":"https://wrealestate.es/comprar/marbella/casas/","numberOfItems":35,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/marbella/casa-marbella-r5232514/","name":"Casa en Marbella"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/marbella/casa-the-golden-mile-r5330080/","name":"Casa en The Golden Mile"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/marbella/casa-the-golden-mile-r5352748/","name":"Casa en The Golden Mile"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/marbella/casa-puerto-banus-r5226208/","name":"Casa en Puerto Banús"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/marbella/casa-puerto-banus-r5395735/","name":"Casa en Puerto Banús"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/marbella/casa-bahia-de-marbella-r5461684/","name":"Casa en Bahía de Marbella"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/marbella/casa-rio-real-r5106727/","name":"Casa en Río Real"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/marbella/casa-los-monteros-r5122906/","name":"Casa en Los Monteros"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/marbella/casa-marbella-r5189632/","name":"Casa en Marbella"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/marbella/casa-marbella-r5395765/","name":"Casa en Marbella"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/marbella/casa-marbella-r5465002/","name":"Casa en Marbella"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/marbella/casa-sierra-blanca-r4840969/","name":"Casa en Sierra Blanca"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/marbella/casa-san-pedro-de-alcantara-r5387671/","name":"Casa en San Pedro de Alcántara"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/marbella/casa-the-golden-mile-r5080300/","name":"Casa en The Golden Mile"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/marbella/casa-marbella-r5448217/","name":"Casa en Marbella"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/marbella/casa-the-golden-mile-r4887607/","name":"Casa en The Golden Mile"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/marbella/casa-san-pedro-de-alcantara-r5338780/","name":"Casa en San Pedro de Alcántara"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/marbella/casa-nagueles-r5354653/","name":"Casa en Nagüeles"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/marbella/casa-sierra-blanca-r5018857/","name":"Casa en Sierra Blanca"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/marbella/casa-nueva-andalucia-r5336842/","name":"Casa en Nueva Andalucía"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Marbella?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 35 propiedades en venta en Marbella del tipo casas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una casa en Marbella?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Marbella van desde 500.000 € hasta 7.500.000 €, con un precio mediano de 1.090.000 € y una media de 6603 € por metro construido."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,264 +233,360 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/marbella/houses/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/cb1d7b84c95611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1764007234" alt="Casas en Marbella" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a> ·
-        <a href="/comprar/marbella/">Marbella</a>
-      </nav>
-      <h1>Casas en Marbella</h1>
-      <span class="zona">35 propiedades disponibles.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Casas en Marbella</h1>
+      </div>
+      <span class="cuenta">35 propiedades disponibles.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">35</span><span class="k">propiedades</span></div>
-        <div><span class="v">500.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">7.500.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">1.090.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">6603 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">35</span><span class="k">propiedades</span></div>
+      <div><span class="v">500.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">7.500.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">1.090.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">6603 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>Marbella concentra la oferta más amplia y más líquida de la Costa del Sol: desde apartamentos en el casco antiguo hasta villas en Sierra Blanca o en la Milla de Oro. Es el mercado con más compradores internacionales, mejor conectado con el aeropuerto de Málaga, y el único de la costa con demanda estable todo el año.</p></div>
+    <div class="texto"><p>Marbella concentra la oferta más amplia y más líquida de la Costa del Sol: desde apartamentos en el casco antiguo hasta villas en Sierra Blanca o en la Milla de Oro. Es el mercado con más compradores internacionales, mejor conectado con el aeropuerto de Málaga, y el único de la costa con demanda estable todo el año.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/marbella/casa-marbella-r5232514/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/cb1d7b84c95611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1764007234" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 4 dorm · 693 m²</span>
-  <span class="pr">7.500.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-the-golden-mile-r5330080/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/38790f6d1e9f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948433" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 dorm · 373 m²</span>
-  <span class="pr">6.300.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-the-golden-mile-r5352748/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/74edfe52330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949332" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 dorm · 194 m²</span>
-  <span class="pr">5.995.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-puerto-banus-r5226208/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/6013d5d3c37511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947996" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 5 dorm · 297 m²</span>
-  <span class="pr">2.675.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-puerto-banus-r5395735/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3c8c1cad5a6f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960523" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 7 dorm · 401 m²</span>
-  <span class="pr">2.395.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-bahia-de-marbella-r5461684/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/9d314760986c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195282" alt="Casa en Bahía de Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Bahía de Marbella</span>
-  <span class="meta">Bahía de Marbella, Marbella · 4 dorm · 295 m²</span>
-  <span class="pr">2.350.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-rio-real-r5106727/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/j50iqa74vg/properties/53ce8ef15bf411f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1751981639" alt="Casa en Río Real" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Río Real</span>
-  <span class="meta">Río Real, Marbella · 5 dorm · 356 m²</span>
-  <span class="pr">2.100.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-los-monteros-r5122906/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/6bf5cf136c7011f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1776184815" alt="Casa en Los Monteros" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Los Monteros</span>
-  <span class="meta">Los Monteros, Marbella · 7 dorm · 238 m²</span>
-  <span class="pr">1.850.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5189632/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/0cfb8194a66111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381527" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 5 dorm · 242 m²</span>
-  <span class="pr">1.695.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5395765/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/ccac47da5a7111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779961623" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 4 dorm · 330 m²</span>
-  <span class="pr">1.695.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5465002/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/af38748d9d1a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787290935" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 5 dorm · 305 m²</span>
-  <span class="pr">1.595.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-sierra-blanca-r4840969/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/uef44a61k2/properties/7c307a4f7a6d11ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1727183693" alt="Casa en Sierra Blanca" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Sierra Blanca</span>
-  <span class="meta">Sierra Blanca, Marbella · 2 dorm · 204 m²</span>
-  <span class="pr">1.495.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-san-pedro-de-alcantara-r5387671/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/e0279332534311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789021870" alt="Casa en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 dorm · 256 m²</span>
-  <span class="pr">1.395.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-the-golden-mile-r5080300/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/jja1jz8h5h/properties/54e12623530c11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946344" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 2 dorm · 210 m²</span>
-  <span class="pr">1.350.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5448217/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/onqgbg2a0k/properties/bb4b61248a7c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785245281" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 3 dorm · 130 m²</span>
-  <span class="pr">1.200.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-the-golden-mile-r4887607/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/0d246310a64611ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949134" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 dorm · 142 m²</span>
-  <span class="pr">1.195.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-san-pedro-de-alcantara-r5338780/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/a5a553ed26a311f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778765163" alt="Casa en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 dorm · 349 m²</span>
-  <span class="pr">1.195.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nagueles-r5354653/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/b320ef07349711f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948038" alt="Casa en Nagüeles" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nagüeles</span>
-  <span class="meta">Nagüeles, Marbella · 4 dorm · 181 m²</span>
-  <span class="pr">1.090.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-sierra-blanca-r5018857/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/2c2f84781ffd11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948591" alt="Casa en Sierra Blanca" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Sierra Blanca</span>
-  <span class="meta">Sierra Blanca, Marbella · 3 dorm · 169 m²</span>
-  <span class="pr">865.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5336842/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/060115c1235b11f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950215" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 179 m²</span>
-  <span class="pr">826.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5374426/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/984cab4949d511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950472" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 174 m²</span>
-  <span class="pr">825.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5076373/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/8a3c37704dea11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788785034" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 421 m²</span>
-  <span class="pr">799.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5348101/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/14b8a2d52dd611f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778152752" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 3 dorm · 184 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5212939/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/729a0d64b6e511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950244" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 139 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5108635/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/50e5f8845d8811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753349569" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 132 m²</span>
-  <span class="pr">725.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5234815/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/c6d4935ecb5311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947796" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 125 m²</span>
-  <span class="pr">695.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5186383/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/a9ab7d0ea45a11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1775058806" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 165 m²</span>
-  <span class="pr">690.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5455510/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/445579ca919a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786033587" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 129 m²</span>
-  <span class="pr">640.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5464090/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/666881349bd811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787152516" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 215 m²</span>
-  <span class="pr">625.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5294245/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/5dc52b6afcd511f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950998" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella · 3 dorm · 172 m²</span>
-  <span class="pr">625.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-altos-de-los-monteros-r5464921/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/f09583a49d1511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787375274" alt="Casa en Altos de los Monteros" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Altos de los Monteros</span>
-  <span class="meta">Altos de los Monteros, Marbella · 4 dorm · 223 m²</span>
-  <span class="pr">620.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-bel-air-r5418031/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/91c53243698611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784634065" alt="Casa en Bel Air" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Bel Air</span>
-  <span class="meta">Bel Air, Marbella · 3 dorm · 136 m²</span>
-  <span class="pr">550.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5316343/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ef50b7bf12d511f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949203" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 103 m²</span>
-  <span class="pr">525.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-la-mairena-r5346583/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/9c6dcf9a2c4511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1774885293" alt="Casa en La Mairena" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en La Mairena</span>
-  <span class="meta">La Mairena, Marbella · 3 dorm · 275 m²</span>
-  <span class="pr">515.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-marbella-r5391484/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/59d6ad0e566011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951413" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Marbella</span>
-  <span class="meta">Marbella, Marbella · 2 dorm · 95 m²</span>
-  <span class="pr">500.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/comprar/marbella/casa-marbella-r5232514/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/cb1d7b84c95611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1764007234" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5232514</span>
+    <span class="meta">4 dorm · 5 baños · 693 m²</span>
+    <span class="pr">7.500.000 €</span>
   </div>
+</a>
+      <a href="/comprar/marbella/casa-the-golden-mile-r5330080/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/38790f6d1e9f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948433" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5330080</span>
+    <span class="meta">3 dorm · 4.5 baños · 373 m²</span>
+    <span class="pr">6.300.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-the-golden-mile-r5352748/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/74edfe52330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949332" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5352748</span>
+    <span class="meta">3 dorm · 3.5 baños · 194 m²</span>
+    <span class="pr">5.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-puerto-banus-r5226208/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/6013d5d3c37511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947996" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5226208</span>
+    <span class="meta">5 dorm · 3.5 baños · 297 m²</span>
+    <span class="pr">2.675.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-puerto-banus-r5395735/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3c8c1cad5a6f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960523" alt="Casa en Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5395735</span>
+    <span class="meta">7 dorm · 3.5 baños · 401 m²</span>
+    <span class="pr">2.395.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-bahia-de-marbella-r5461684/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/9d314760986c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195282" alt="Casa en Bahía de Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Bahía de Marbella</span>
+    <span class="zonaRef">Bahía de Marbella, Marbella &middot; R5461684</span>
+    <span class="meta">4 dorm · 3 baños · 295 m²</span>
+    <span class="pr">2.350.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-rio-real-r5106727/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/j50iqa74vg/properties/53ce8ef15bf411f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1751981639" alt="Casa en Río Real" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Río Real</span>
+    <span class="zonaRef">Río Real, Marbella &middot; R5106727</span>
+    <span class="meta">5 dorm · 5.5 baños · 356 m²</span>
+    <span class="pr">2.100.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-los-monteros-r5122906/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/6bf5cf136c7011f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1776184815" alt="Casa en Los Monteros" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Los Monteros</span>
+    <span class="zonaRef">Los Monteros, Marbella &middot; R5122906</span>
+    <span class="meta">7 dorm · 7 baños · 238 m²</span>
+    <span class="pr">1.850.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5189632/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/0cfb8194a66111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381527" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5189632</span>
+    <span class="meta">5 dorm · 3 baños · 242 m²</span>
+    <span class="pr">1.695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5395765/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/ccac47da5a7111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779961623" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5395765</span>
+    <span class="meta">4 dorm · 4 baños · 330 m²</span>
+    <span class="pr">1.695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5465002/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/af38748d9d1a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787290935" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5465002</span>
+    <span class="meta">5 dorm · 4.5 baños · 305 m²</span>
+    <span class="pr">1.595.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-sierra-blanca-r4840969/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/uef44a61k2/properties/7c307a4f7a6d11ef9d2d0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1727183693" alt="Casa en Sierra Blanca" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Sierra Blanca</span>
+    <span class="zonaRef">Sierra Blanca, Marbella &middot; R4840969</span>
+    <span class="meta">2 dorm · 3 baños · 204 m²</span>
+    <span class="pr">1.495.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-san-pedro-de-alcantara-r5387671/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/e0279332534311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789021870" alt="Casa en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5387671</span>
+    <span class="meta">4 dorm · 4 baños · 256 m²</span>
+    <span class="pr">1.395.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-the-golden-mile-r5080300/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/jja1jz8h5h/properties/54e12623530c11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946344" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5080300</span>
+    <span class="meta">2 dorm · 3 baños · 210 m²</span>
+    <span class="pr">1.350.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5448217/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/onqgbg2a0k/properties/bb4b61248a7c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785245281" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5448217</span>
+    <span class="meta">3 dorm · 4 baños · 130 m²</span>
+    <span class="pr">1.200.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-the-golden-mile-r4887607/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/0d246310a64611ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949134" alt="Casa en The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R4887607</span>
+    <span class="meta">3 dorm · 3 baños · 142 m²</span>
+    <span class="pr">1.195.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-san-pedro-de-alcantara-r5338780/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/a5a553ed26a311f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778765163" alt="Casa en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5338780</span>
+    <span class="meta">4 dorm · 4 baños · 349 m²</span>
+    <span class="pr">1.195.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nagueles-r5354653/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/b320ef07349711f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948038" alt="Casa en Nagüeles" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nagüeles</span>
+    <span class="zonaRef">Nagüeles, Marbella &middot; R5354653</span>
+    <span class="meta">4 dorm · 3.5 baños · 181 m²</span>
+    <span class="pr">1.090.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-sierra-blanca-r5018857/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/2c2f84781ffd11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948591" alt="Casa en Sierra Blanca" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Sierra Blanca</span>
+    <span class="zonaRef">Sierra Blanca, Marbella &middot; R5018857</span>
+    <span class="meta">3 dorm · 3 baños · 169 m²</span>
+    <span class="pr">865.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5336842/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/060115c1235b11f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950215" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5336842</span>
+    <span class="meta">3 dorm · 2.5 baños · 179 m²</span>
+    <span class="pr">826.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5374426/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/984cab4949d511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950472" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5374426</span>
+    <span class="meta">3 dorm · 3 baños · 174 m²</span>
+    <span class="pr">825.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5076373/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/8a3c37704dea11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788785034" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5076373</span>
+    <span class="meta">4 dorm · 5 baños · 421 m²</span>
+    <span class="pr">799.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5348101/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/14b8a2d52dd611f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778152752" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5348101</span>
+    <span class="meta">3 dorm · 3 baños · 184 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5212939/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/729a0d64b6e511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950244" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5212939</span>
+    <span class="meta">2 dorm · 2.5 baños · 139 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5108635/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/50e5f8845d8811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753349569" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5108635</span>
+    <span class="meta">3 dorm · 3 baños · 132 m²</span>
+    <span class="pr">725.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5234815/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/c6d4935ecb5311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947796" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5234815</span>
+    <span class="meta">2 dorm · 2 baños · 125 m²</span>
+    <span class="pr">695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5186383/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/a9ab7d0ea45a11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1775058806" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5186383</span>
+    <span class="meta">3 dorm · 3 baños · 165 m²</span>
+    <span class="pr">690.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5455510/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/445579ca919a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786033587" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5455510</span>
+    <span class="meta">3 dorm · 2 baños · 129 m²</span>
+    <span class="pr">640.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5464090/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/666881349bd811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787152516" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5464090</span>
+    <span class="meta">4 dorm · 2 baños · 215 m²</span>
+    <span class="pr">625.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5294245/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/5dc52b6afcd511f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950998" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5294245</span>
+    <span class="meta">3 dorm · 3 baños · 172 m²</span>
+    <span class="pr">625.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-altos-de-los-monteros-r5464921/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/f09583a49d1511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787375274" alt="Casa en Altos de los Monteros" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Altos de los Monteros</span>
+    <span class="zonaRef">Altos de los Monteros, Marbella &middot; R5464921</span>
+    <span class="meta">4 dorm · 3 baños · 223 m²</span>
+    <span class="pr">620.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-bel-air-r5418031/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/91c53243698611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784634065" alt="Casa en Bel Air" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Bel Air</span>
+    <span class="zonaRef">Bel Air, Marbella &middot; R5418031</span>
+    <span class="meta">3 dorm · 2.5 baños · 136 m²</span>
+    <span class="pr">550.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5316343/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ef50b7bf12d511f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949203" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5316343</span>
+    <span class="meta">2 dorm · 2 baños · 103 m²</span>
+    <span class="pr">525.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-la-mairena-r5346583/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/9c6dcf9a2c4511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1774885293" alt="Casa en La Mairena" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en La Mairena</span>
+    <span class="zonaRef">La Mairena, Marbella &middot; R5346583</span>
+    <span class="meta">3 dorm · 3 baños · 275 m²</span>
+    <span class="pr">515.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-marbella-r5391484/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/59d6ad0e566011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951413" alt="Casa en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Marbella</span>
+    <span class="zonaRef">Marbella, Marbella &middot; R5391484</span>
+    <span class="meta">2 dorm · 2 baños · 95 m²</span>
+    <span class="pr">500.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Marbella?</summary><p>W Real Estate publica 35 propiedades en venta en Marbella del tipo casas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una casa en Marbella?</summary><p>Los precios de nuestra selección en Marbella van desde 500.000 € hasta 7.500.000 €, con un precio mediano de 1.090.000 € y una media de 6603 € por metro construido.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -501,6 +602,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/benahavis/">Benahavís (71)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/sotogrande/">Sotogrande (16)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -510,7 +612,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Properties for sale","url":"https://wrealestate.es/en/areas/","numberOfItems":394,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/marbella/apartment-marbella-r5473981/","name":"Apartment in Marbella"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/marbella/house-bahia-de-marbella-r5461684/","name":"House in Bahía de Marbella"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/marbella/apartment-marbella-r5468815/","name":"Apartment in Marbella"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/benahavis/apartment-la-quinta-r5449531/","name":"Apartment in La Quinta"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/marbella/villa-sierra-blanca-r5435704/","name":"Villa in Sierra Blanca"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/en/buy/marbella/villa-marbella-r5440210/","name":"Villa in Marbella"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/en/buy/marbella/apartment-marbella-r5423089/","name":"Apartment in Marbella"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/en/buy/benahavis/villa-benahavis-r5407639/","name":"Villa in Benahavís"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/en/buy/estepona/house-sotoserena-r5402719/","name":"House in Sotoserena"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/en/buy/marbella/apartment-marbella-r5392231/","name":"Apartment in Marbella"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/en/buy/mijas/penthouse-riviera-del-sol-r5401747/","name":"Penthouse in Riviera del Sol"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/en/buy/benahavis/villa-benahavis-r5389504/","name":"Villa in Benahavís"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/en/buy/benahavis/villa-los-flamingos-r5378227/","name":"Villa in Los Flamingos"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/en/buy/marbella/apartment-marbella-r5357131/","name":"Apartment in Marbella"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/en/buy/mijas/house-la-cala-de-mijas-r5357926/","name":"House in La Cala de Mijas"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/en/buy/benahavis/plot-los-arqueros-puerto-del-almendro-r5310508/","name":"Plot in Los Arqueros-Puerto del Almendro"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/en/buy/estepona/apartment-el-paraiso-r5469388/","name":"Apartment in El Paraiso"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/en/buy/mijas/villa-mijas-golf-r5274484/","name":"Villa in Mijas Golf"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/en/buy/marbella/apartment-la-carolina-guadalpin-r5253766/","name":"Apartment in La Carolina-Guadalpín"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/en/buy/marbella/apartment-marbella-r5225908/","name":"Apartment in Marbella"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What property types are available?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 147 apartments, 122 villas, 63 houses, 28 plots, 21 penthouses, 13 commercial premises."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
@@ -211,13 +216,13 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a></nav>
+  <nav class="izq"><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/#zonas">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
     <img class="logo tinta" src="/w-logo-tinta.png" alt="W Real Estate" width="123" height="105">
   </a>
-  <nav class="der"><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a>
+  <nav class="der"><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a>
     <span class="sep"></span>
     <a class="tel" href="tel:+34623798619">+34 623 79 86 19</a>
     <span class="idi"><a class="on" href="/zonas/" hreflang="es">ES</a><span class="barra">|</span><a class="on" href="#" hreflang="en">EN</a></span>
@@ -228,340 +233,476 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Close</button>
   </div>
-  <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+  <nav><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/#zonas">Areas</a><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/zonas/">Español</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/06696060a69011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788591702" alt="Properties for sale" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/en/">Home</a> ·
-        <a href="/en/buy/">Buy</a>
-      </nav>
-      <h1>Properties for sale</h1>
-      <span class="zona">Showing 48 of 394 properties.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Buy</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Properties for sale</h1>
+      </div>
+      <span class="cuenta">Showing 48 of 394 properties.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">394</span><span class="k">properties</span></div>
-        <div><span class="v">500.000 €</span><span class="k">From</span></div>
-        <div><span class="v">19.995.000 €</span><span class="k">to</span></div>
-        <div><span class="v">1.245.000 €</span><span class="k">Average price</span></div>
-        <div><span class="v">6932 €</span><span class="k">Average per built m²</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">394</span><span class="k">properties</span></div>
+      <div><span class="v">500.000 €</span><span class="k">From</span></div>
+      <div><span class="v">19.995.000 €</span><span class="k">to</span></div>
+      <div><span class="v">1.245.000 €</span><span class="k">Average price</span></div>
+      <div><span class="v">6932 €</span><span class="k">Average per built m²</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">About the area</span>
-      <p>W Real Estate works in the developments where there is a real market, from La Zagaleta and Sierra Blanca to Nueva Andalucía, Sotogrande and La Cala de Mijas. Each area has its own buyer, its own price range and its own way of selling, and for each one we publish what is available right now. If you are looking in a development that is not listed, ask us: the Costa del Sol network covers far more than what is published.</p></div>
+    <div class="texto"><p>W Real Estate works in the developments where there is a real market, from La Zagaleta and Sierra Blanca to Nueva Andalucía, Sotogrande and La Cala de Mijas. Each area has its own buyer, its own price range and its own way of selling, and for each one we publish what is available right now. If you are looking in a development that is not listed, ask us: the Costa del Sol network covers far more than what is published.</p></div>
 
-      <div class="rejP">
-        <a href="/en/buy/marbella/apartment-marbella-r5473981/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/06696060a69011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788591702" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella · 2 bed · 120 m²</span>
-  <span class="pr">1.100.000 €</span>
-</a>
-        <a href="/en/buy/marbella/house-bahia-de-marbella-r5461684/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/9d314760986c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195282" alt="House in Bahía de Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in Bahía de Marbella</span>
-  <span class="meta">Bahía de Marbella, Marbella · 4 bed · 295 m²</span>
-  <span class="pr">2.350.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-marbella-r5468815/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/58bbd4d7a11011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788331124" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella · 3 bed · 289 m²</span>
-  <span class="pr">1.850.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/apartment-la-quinta-r5449531/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/e3d457fb8bd711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382414" alt="Apartment in La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 2 bed · 113 m²</span>
-  <span class="pr">799.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-sierra-blanca-r5435704/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Villa in Sierra Blanca" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Sierra Blanca</span>
-  <span class="meta">Sierra Blanca, Marbella · 6 bed · 413 m²</span>
-  <span class="pr">5.490.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-marbella-r5440210/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/b4a55cf780d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787035146" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Marbella</span>
-  <span class="meta">Marbella · 5 bed · 345 m²</span>
-  <span class="pr">3.695.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-marbella-r5423089/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/1c01d4946ec711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382289" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella · 3 bed · 169 m²</span>
-  <span class="pr">749.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/villa-benahavis-r5407639/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/fed44cbc616a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382147" alt="Villa in Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Benahavís</span>
-  <span class="meta">Benahavís · 5 bed · 414 m²</span>
-  <span class="pr">1.795.000 €</span>
-</a>
-        <a href="/en/buy/estepona/house-sotoserena-r5402719/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/a84eb4225fd711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195144" alt="House in Sotoserena" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in Sotoserena</span>
-  <span class="meta">Sotoserena, Estepona · 4 bed · 235 m²</span>
-  <span class="pr">550.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-marbella-r5392231/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/b70b6adc566911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784703206" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella · 2 bed · 86 m²</span>
-  <span class="pr">519.000 €</span>
-</a>
-        <a href="/en/buy/mijas/penthouse-riviera-del-sol-r5401747/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/5d9fc9a15f0e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788850791" alt="Penthouse in Riviera del Sol" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in Riviera del Sol</span>
-  <span class="meta">Riviera del Sol, Mijas · 3 bed · 129 m²</span>
-  <span class="pr">560.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/villa-benahavis-r5389504/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/d3f17f8254d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788503961" alt="Villa in Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Benahavís</span>
-  <span class="meta">Benahavís · 5 bed · 460 m²</span>
-  <span class="pr">3.850.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/villa-los-flamingos-r5378227/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/2e719adc4b6911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382015" alt="Villa in Los Flamingos" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Los Flamingos</span>
-  <span class="meta">Los Flamingos, Benahavís · 3 bed · 260 m²</span>
-  <span class="pr">585.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-marbella-r5357131/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/aa91aa3b37c311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786776734" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella · 3 bed · 85 m²</span>
-  <span class="pr">565.000 €</span>
-</a>
-        <a href="/en/buy/mijas/house-la-cala-de-mijas-r5357926/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/039eacc0388d11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788330980" alt="House in La Cala de Mijas" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in La Cala de Mijas</span>
-  <span class="meta">La Cala de Mijas, Mijas · 5 bed · 270 m²</span>
-  <span class="pr">825.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/plot-los-arqueros-puerto-del-almendro-r5310508/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/adead21c0e2711f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195044" alt="Plot in Los Arqueros-Puerto del Almendro" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Plot in Los Arqueros-Puerto del Almendro</span>
-  <span class="meta">Los Arqueros-Puerto del Almendro, Benahavís</span>
-  <span class="pr">549.000 €</span>
-</a>
-        <a href="/en/buy/estepona/apartment-el-paraiso-r5469388/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/68b5af6ba1d911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787986078" alt="Apartment in El Paraiso" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in El Paraiso</span>
-  <span class="meta">El Paraiso, Estepona · 3 bed · 128 m²</span>
-  <span class="pr">639.000 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-mijas-golf-r5274484/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/4759231ff1d911f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787640404" alt="Villa in Mijas Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Mijas Golf</span>
-  <span class="meta">Mijas Golf, Mijas · 4 bed · 380 m²</span>
-  <span class="pr">1.380.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-la-carolina-guadalpin-r5253766/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/d41d0f3ada4611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788850633" alt="Apartment in La Carolina-Guadalpín" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in La Carolina-Guadalpín</span>
-  <span class="meta">La Carolina-Guadalpín, Marbella · 2 bed · 127 m²</span>
-  <span class="pr">1.195.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-marbella-r5225908/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/2f86ba3ac1ea11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381562" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella · 2 bed · 112 m²</span>
-  <span class="pr">849.000 €</span>
-</a>
-        <a href="/en/buy/marbella/house-marbella-r5189632/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/0cfb8194a66111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381527" alt="House in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in Marbella</span>
-  <span class="meta">Marbella · 5 bed · 242 m²</span>
-  <span class="pr">1.695.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-san-pedro-r5375722/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/83101bed4a9e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381504" alt="Apartment in San Pedro" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in San Pedro</span>
-  <span class="meta">San Pedro, Marbella · 2 bed · 203 m²</span>
-  <span class="pr">1.250.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-marbella-r5375719/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/7eca027b4a9e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381443" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Marbella</span>
-  <span class="meta">Marbella · 3 bed · 379 m²</span>
-  <span class="pr">990.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-artola-alta-r5425834/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/fdcfb30e712011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782455793" alt="Apartment in Artola Alta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Artola Alta</span>
-  <span class="meta">Artola Alta, Marbella · 3 bed · 117 m²</span>
-  <span class="pr">645.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-guadalmina-alta-r5481061/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/633ce87fab4411f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789193793" alt="Apartment in Guadalmina Alta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Guadalmina Alta</span>
-  <span class="meta">Guadalmina Alta, Marbella · 4 bed · 334 m²</span>
-  <span class="pr">1.029.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5383045/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/572486d0501811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033750" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 539 m²</span>
-  <span class="pr">3.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5481826/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/adc13768ac0811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932469" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 532 m²</span>
-  <span class="pr">5.695.000 €</span>
-</a>
-        <a href="/en/buy/estepona/apartment-selwo-r5432419/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7da6cec379b911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789189696" alt="Apartment in Selwo" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Selwo</span>
-  <span class="meta">Selwo, Estepona · 3 bed · 136 m²</span>
-  <span class="pr">985.000 €</span>
-</a>
-        <a href="/en/buy/marbella/penthouse-cabopino-r5366254/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/6141df0a405c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946084" alt="Penthouse in Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 3 bed · 290 m²</span>
-  <span class="pr">1.050.000 €</span>
-</a>
-        <a href="/en/buy/estepona/apartment-estepona-r5377963/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/a961d5a64b5c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946134" alt="Apartment in Estepona" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Estepona</span>
-  <span class="meta">Estepona · 4 bed · 164 m²</span>
-  <span class="pr">845.000 €</span>
-</a>
-        <a href="/en/buy/mijas/penthouse-la-cala-golf-r5388241/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d49851a540111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789189681" alt="Penthouse in La Cala Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in La Cala Golf</span>
-  <span class="meta">La Cala Golf, Mijas · 3 bed · 102 m²</span>
-  <span class="pr">725.000 €</span>
-</a>
-        <a href="/en/buy/estepona/villa-estepona-r5460616/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/162503ef96d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787120154" alt="Villa in Estepona" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Estepona</span>
-  <span class="meta">Estepona · 4 bed · 472 m²</span>
-  <span class="pr">2.450.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-san-pedro-de-alcantara-r5310613/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/bb81038a0e3e11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946672" alt="Villa in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 bed · 232 m²</span>
-  <span class="pr">1.749.000 €</span>
-</a>
-        <a href="/en/buy/estepona/penthouse-estepona-r5288104/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/c4fdc25cf6f211f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786708886" alt="Penthouse in Estepona" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in Estepona</span>
-  <span class="meta">Estepona · 2 bed · 99 m²</span>
-  <span class="pr">649.000 €</span>
-</a>
-        <a href="/en/buy/marbella/house-san-pedro-de-alcantara-r5387671/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/e0279332534311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789021870" alt="House in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 bed · 256 m²</span>
-  <span class="pr">1.395.000 €</span>
-</a>
-        <a href="/en/buy/estepona/villa-estepona-r5476186/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/9b5169c7a75811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788417042" alt="Villa in Estepona" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Estepona</span>
-  <span class="meta">Estepona · 5 bed · 275 m²</span>
-  <span class="pr">1.400.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-san-pedro-de-alcantara-r5450080/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/e190ec318c9e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785478544" alt="Apartment in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 2 bed · 113 m²</span>
-  <span class="pr">765.000 €</span>
-</a>
-        <a href="/en/buy/estepona/villa-estepona-r5134837/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/507d0ff778c411f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781068094" alt="Villa in Estepona" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Estepona</span>
-  <span class="meta">Estepona, Estepona · 4 bed · 316 m²</span>
-  <span class="pr">1.395.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-puerto-banus-r5449795/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/30d366538c0a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788791469" alt="Apartment in Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 2 bed · 120 m²</span>
-  <span class="pr">595.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/apartment-benahavis-r5066632/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/90bc5791136a11f08cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1749631719" alt="Apartment in Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Benahavís</span>
-  <span class="meta">Benahavís · 3 bed · 152 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/en/buy/marbella/penthouse-san-pedro-de-alcantara-r5439235/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/51036d6e800e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108417" alt="Penthouse in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 2 bed · 138 m²</span>
-  <span class="pr">649.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-san-pedro-de-alcantara-r5348671/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="Villa in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 bed · 460 m²</span>
-  <span class="pr">5.850.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/apartment-benahavis-r5411803/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/2e8a8071654b11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784264892" alt="Apartment in Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Benahavís</span>
-  <span class="meta">Benahavís, Benahavís · 2 bed · 156 m²</span>
-  <span class="pr">648.000 €</span>
-</a>
-        <a href="/en/buy/benahavis/villa-benahavis-r5375047/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d7f3eb84a9311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945345" alt="Villa in Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Benahavís</span>
-  <span class="meta">Benahavís · 5 bed · 460 m²</span>
-  <span class="pr">2.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-rio-real-r5194069/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ak9hu1cs6c/properties/64c710d7a9cf11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1760541581" alt="Villa in Río Real" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Río Real</span>
-  <span class="meta">Río Real, Marbella · 3 bed · 209 m²</span>
-  <span class="pr">2.150.000 €</span>
-</a>
-        <a href="/en/buy/fuengirola/penthouse-fuengirola-r5432974/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/625be6fd79e311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789048652" alt="Penthouse in Fuengirola" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in Fuengirola</span>
-  <span class="meta">Fuengirola · 2 bed · 112 m²</span>
-  <span class="pr">680.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-nueva-andalucia-r5365444/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/e111c50e3f9711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033650" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 bed · 162 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-nueva-andalucia-r5440489/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/00978738811a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784287740" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 bed · 112 m²</span>
-  <span class="pr">629.000 €</span>
-</a>
-      </div>
-      <p style="margin-top:30px"><a class="btn sec" style="display:inline-block" href="/?pagina=comprar">See the rest in the search (346)</a></p>
-    </section>
+    <div class="rejP">
+      <a href="/en/buy/marbella/apartment-marbella-r5473981/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/06696060a69011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788591702" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5473981</span>
+    <span class="meta">2 bed · 2 bath · 120 m²</span>
+    <span class="pr">1.100.000 €</span>
   </div>
+</a>
+      <a href="/en/buy/marbella/house-bahia-de-marbella-r5461684/">
+  <div class="foto"><span class="sel">Townhouse</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/9d314760986c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195282" alt="House in Bahía de Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in Bahía de Marbella</span>
+    <span class="zonaRef">Bahía de Marbella, Marbella &middot; R5461684</span>
+    <span class="meta">4 bed · 3 bath · 295 m²</span>
+    <span class="pr">2.350.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-marbella-r5468815/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/58bbd4d7a11011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788331124" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5468815</span>
+    <span class="meta">3 bed · 3 bath · 289 m²</span>
+    <span class="pr">1.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/apartment-la-quinta-r5449531/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/e3d457fb8bd711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382414" alt="Apartment in La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5449531</span>
+    <span class="meta">2 bed · 2 bath · 113 m²</span>
+    <span class="pr">799.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-sierra-blanca-r5435704/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Villa in Sierra Blanca" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Sierra Blanca</span>
+    <span class="zonaRef">Sierra Blanca, Marbella &middot; R5435704</span>
+    <span class="meta">6 bed · 7 bath · 413 m²</span>
+    <span class="pr">5.490.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-marbella-r5440210/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/b4a55cf780d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787035146" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5440210</span>
+    <span class="meta">5 bed · 4 bath · 345 m²</span>
+    <span class="pr">3.695.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-marbella-r5423089/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/1c01d4946ec711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382289" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5423089</span>
+    <span class="meta">3 bed · 2 bath · 169 m²</span>
+    <span class="pr">749.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/villa-benahavis-r5407639/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/fed44cbc616a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382147" alt="Villa in Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5407639</span>
+    <span class="meta">5 bed · 5 bath · 414 m²</span>
+    <span class="pr">1.795.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/house-sotoserena-r5402719/">
+  <div class="foto"><span class="sel">Townhouse</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/a84eb4225fd711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195144" alt="House in Sotoserena" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in Sotoserena</span>
+    <span class="zonaRef">Sotoserena, Estepona &middot; R5402719</span>
+    <span class="meta">4 bed · 2 bath · 235 m²</span>
+    <span class="pr">550.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-marbella-r5392231/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/b70b6adc566911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784703206" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5392231</span>
+    <span class="meta">2 bed · 2 bath · 86 m²</span>
+    <span class="pr">519.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/penthouse-riviera-del-sol-r5401747/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/5d9fc9a15f0e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788850791" alt="Penthouse in Riviera del Sol" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in Riviera del Sol</span>
+    <span class="zonaRef">Riviera del Sol, Mijas &middot; R5401747</span>
+    <span class="meta">3 bed · 2 bath · 129 m²</span>
+    <span class="pr">560.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/villa-benahavis-r5389504/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/d3f17f8254d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788503961" alt="Villa in Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5389504</span>
+    <span class="meta">5 bed · 3 bath · 460 m²</span>
+    <span class="pr">3.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/villa-los-flamingos-r5378227/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/2e719adc4b6911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382015" alt="Villa in Los Flamingos" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Los Flamingos</span>
+    <span class="zonaRef">Los Flamingos, Benahavís &middot; R5378227</span>
+    <span class="meta">3 bed · 3 bath · 260 m²</span>
+    <span class="pr">585.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-marbella-r5357131/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/aa91aa3b37c311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786776734" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5357131</span>
+    <span class="meta">3 bed · 2 bath · 85 m²</span>
+    <span class="pr">565.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/house-la-cala-de-mijas-r5357926/">
+  <div class="foto"><span class="sel">Townhouse</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/039eacc0388d11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788330980" alt="House in La Cala de Mijas" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in La Cala de Mijas</span>
+    <span class="zonaRef">La Cala de Mijas, Mijas &middot; R5357926</span>
+    <span class="meta">5 bed · 4 bath · 270 m²</span>
+    <span class="pr">825.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/plot-los-arqueros-puerto-del-almendro-r5310508/">
+  <div class="foto"><span class="sel">Residential Plot</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/adead21c0e2711f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789195044" alt="Plot in Los Arqueros-Puerto del Almendro" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Plot in Los Arqueros-Puerto del Almendro</span>
+    <span class="zonaRef">Los Arqueros-Puerto del Almendro, Benahavís &middot; R5310508</span>
+    <span class="meta"></span>
+    <span class="pr">549.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/apartment-el-paraiso-r5469388/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/68b5af6ba1d911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787986078" alt="Apartment in El Paraiso" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in El Paraiso</span>
+    <span class="zonaRef">El Paraiso, Estepona &middot; R5469388</span>
+    <span class="meta">3 bed · 2 bath · 128 m²</span>
+    <span class="pr">639.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/villa-mijas-golf-r5274484/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/4759231ff1d911f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787640404" alt="Villa in Mijas Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Mijas Golf</span>
+    <span class="zonaRef">Mijas Golf, Mijas &middot; R5274484</span>
+    <span class="meta">4 bed · 4 bath · 380 m²</span>
+    <span class="pr">1.380.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-la-carolina-guadalpin-r5253766/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/d41d0f3ada4611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788850633" alt="Apartment in La Carolina-Guadalpín" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in La Carolina-Guadalpín</span>
+    <span class="zonaRef">La Carolina-Guadalpín, Marbella &middot; R5253766</span>
+    <span class="meta">2 bed · 2 bath · 127 m²</span>
+    <span class="pr">1.195.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-marbella-r5225908/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/2f86ba3ac1ea11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381562" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5225908</span>
+    <span class="meta">2 bed · 2 bath · 112 m²</span>
+    <span class="pr">849.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/house-marbella-r5189632/">
+  <div class="foto"><span class="sel">Townhouse</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/0cfb8194a66111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381527" alt="House in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5189632</span>
+    <span class="meta">5 bed · 3 bath · 242 m²</span>
+    <span class="pr">1.695.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-san-pedro-r5375722/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/83101bed4a9e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381504" alt="Apartment in San Pedro" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in San Pedro</span>
+    <span class="zonaRef">San Pedro, Marbella &middot; R5375722</span>
+    <span class="meta">2 bed · 1 bath · 203 m²</span>
+    <span class="pr">1.250.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-marbella-r5375719/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/7eca027b4a9e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787381443" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5375719</span>
+    <span class="meta">3 bed · 3 bath · 379 m²</span>
+    <span class="pr">990.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-artola-alta-r5425834/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/fdcfb30e712011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782455793" alt="Apartment in Artola Alta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Artola Alta</span>
+    <span class="zonaRef">Artola Alta, Marbella &middot; R5425834</span>
+    <span class="meta">3 bed · 2 bath · 117 m²</span>
+    <span class="pr">645.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-guadalmina-alta-r5481061/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/633ce87fab4411f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789193793" alt="Apartment in Guadalmina Alta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Guadalmina Alta</span>
+    <span class="zonaRef">Guadalmina Alta, Marbella &middot; R5481061</span>
+    <span class="meta">4 bed · 4.5 bath · 334 m²</span>
+    <span class="pr">1.029.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5383045/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/572486d0501811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033750" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5383045</span>
+    <span class="meta">6 bed · 6 bath · 539 m²</span>
+    <span class="pr">3.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5481826/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/adc13768ac0811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932469" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5481826</span>
+    <span class="meta">5 bed · 5.5 bath · 532 m²</span>
+    <span class="pr">5.695.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/apartment-selwo-r5432419/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7da6cec379b911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789189696" alt="Apartment in Selwo" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Selwo</span>
+    <span class="zonaRef">Selwo, Estepona &middot; R5432419</span>
+    <span class="meta">3 bed · 2 bath · 136 m²</span>
+    <span class="pr">985.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/penthouse-cabopino-r5366254/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/6141df0a405c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946084" alt="Penthouse in Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R5366254</span>
+    <span class="meta">3 bed · 2 bath · 290 m²</span>
+    <span class="pr">1.050.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/apartment-estepona-r5377963/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/a961d5a64b5c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946134" alt="Apartment in Estepona" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Estepona</span>
+    <span class="zonaRef">Estepona &middot; R5377963</span>
+    <span class="meta">4 bed · 2 bath · 164 m²</span>
+    <span class="pr">845.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/penthouse-la-cala-golf-r5388241/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d49851a540111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789189681" alt="Penthouse in La Cala Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in La Cala Golf</span>
+    <span class="zonaRef">La Cala Golf, Mijas &middot; R5388241</span>
+    <span class="meta">3 bed · 2 bath · 102 m²</span>
+    <span class="pr">725.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/villa-estepona-r5460616/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/162503ef96d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787120154" alt="Villa in Estepona" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Estepona</span>
+    <span class="zonaRef">Estepona &middot; R5460616</span>
+    <span class="meta">4 bed · 4.5 bath · 472 m²</span>
+    <span class="pr">2.450.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-san-pedro-de-alcantara-r5310613/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/bb81038a0e3e11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946672" alt="Villa in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5310613</span>
+    <span class="meta">4 bed · 3 bath · 232 m²</span>
+    <span class="pr">1.749.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/penthouse-estepona-r5288104/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/c4fdc25cf6f211f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786708886" alt="Penthouse in Estepona" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in Estepona</span>
+    <span class="zonaRef">Estepona &middot; R5288104</span>
+    <span class="meta">2 bed · 2 bath · 99 m²</span>
+    <span class="pr">649.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/house-san-pedro-de-alcantara-r5387671/">
+  <div class="foto"><span class="sel">Semi-Detached House</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/e0279332534311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789021870" alt="House in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5387671</span>
+    <span class="meta">4 bed · 4 bath · 256 m²</span>
+    <span class="pr">1.395.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/villa-estepona-r5476186/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/9b5169c7a75811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788417042" alt="Villa in Estepona" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Estepona</span>
+    <span class="zonaRef">Estepona &middot; R5476186</span>
+    <span class="meta">5 bed · 5 bath · 275 m²</span>
+    <span class="pr">1.400.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-san-pedro-de-alcantara-r5450080/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/e190ec318c9e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785478544" alt="Apartment in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5450080</span>
+    <span class="meta">2 bed · 2 bath · 113 m²</span>
+    <span class="pr">765.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/estepona/villa-estepona-r5134837/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/507d0ff778c411f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781068094" alt="Villa in Estepona" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Estepona</span>
+    <span class="zonaRef">Estepona, Estepona &middot; R5134837</span>
+    <span class="meta">4 bed · 3.5 bath · 316 m²</span>
+    <span class="pr">1.395.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-puerto-banus-r5449795/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/30d366538c0a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788791469" alt="Apartment in Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5449795</span>
+    <span class="meta">2 bed · 2 bath · 120 m²</span>
+    <span class="pr">595.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/apartment-benahavis-r5066632/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/90bc5791136a11f08cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1749631719" alt="Apartment in Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5066632</span>
+    <span class="meta">3 bed · 2 bath · 152 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/penthouse-san-pedro-de-alcantara-r5439235/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/51036d6e800e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108417" alt="Penthouse in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5439235</span>
+    <span class="meta">2 bed · 2 bath · 138 m²</span>
+    <span class="pr">649.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-san-pedro-de-alcantara-r5348671/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="Villa in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5348671</span>
+    <span class="meta">4 bed · 4 bath · 460 m²</span>
+    <span class="pr">5.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/apartment-benahavis-r5411803/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/2e8a8071654b11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784264892" alt="Apartment in Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Benahavís</span>
+    <span class="zonaRef">Benahavís, Benahavís &middot; R5411803</span>
+    <span class="meta">2 bed · 2.5 bath · 156 m²</span>
+    <span class="pr">648.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/benahavis/villa-benahavis-r5375047/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d7f3eb84a9311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945345" alt="Villa in Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5375047</span>
+    <span class="meta">5 bed · 6 bath · 460 m²</span>
+    <span class="pr">2.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-rio-real-r5194069/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/ak9hu1cs6c/properties/64c710d7a9cf11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1760541581" alt="Villa in Río Real" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Río Real</span>
+    <span class="zonaRef">Río Real, Marbella &middot; R5194069</span>
+    <span class="meta">3 bed · 3.5 bath · 209 m²</span>
+    <span class="pr">2.150.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/fuengirola/penthouse-fuengirola-r5432974/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/625be6fd79e311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789048652" alt="Penthouse in Fuengirola" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in Fuengirola</span>
+    <span class="zonaRef">Fuengirola &middot; R5432974</span>
+    <span class="meta">2 bed · 3 bath · 112 m²</span>
+    <span class="pr">680.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-nueva-andalucia-r5365444/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/e111c50e3f9711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033650" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5365444</span>
+    <span class="meta">2 bed · 2 bath · 162 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-nueva-andalucia-r5440489/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/00978738811a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784287740" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5440489</span>
+    <span class="meta">2 bed · 2 bath · 112 m²</span>
+    <span class="pr">629.000 €</span>
+  </div>
+</a>
+    </div>
+    <p style="margin-top:34px"><a class="btn sec" style="display:inline-block" href="/en/?pagina=comprar">See the rest in the search (346)</a></p>
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Frequently asked questions</h2>
       <details open><summary>What property types are available?</summary><p>The current offer breaks down into 147 apartments, 122 villas, 63 houses, 28 plots, 21 penthouses, 13 commercial premises.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Keep looking</h2>
       <div class="grupo">
@@ -577,6 +718,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/en/buy/marbella/">Marbella (196)</a><a href="/en/buy/benahavis/">Benahavís (71)</a><a href="/en/buy/estepona/">Estepona (58)</a><a href="/en/buy/mijas/">Mijas (28)</a><a href="/en/buy/sotogrande/">Sotogrande (16)</a><a href="/en/buy/fuengirola/">Fuengirola (11)</a><a href="/en/buy/casares/">Casares (9)</a><a href="/en/buy/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -586,7 +728,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Luxury real estate agency on the Costa del Sol. Marbella, Estepona, Benahavís and Sotogrande.</p>
     </div>
-    <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+    <nav><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

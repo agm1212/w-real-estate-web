@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Cabopino","url":"https://wrealestate.es/zonas/cabopino/","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/marbella/villa-cabopino-r3834277/","name":"Villa en Cabopino"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/marbella/apartamento-cabopino-r5364304/","name":"Apartamento en Cabopino"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/marbella/atico-cabopino-r5366254/","name":"Ático en Cabopino"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/marbella/apartamento-cabopino-r5410597/","name":"Apartamento en Cabopino"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Cabopino?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 4 propiedades en venta en Cabopino. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Cabopino?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Cabopino van desde 925.000 € hasta 4.750.000 €, con un precio mediano de 1.099.000 € y una media de 5452 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Cabopino?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 2 apartamentos, 1 villas, 1 áticos."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,79 +233,82 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/areas/cabopino/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Propiedades en Cabopino" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a> ·
-        <a href="/comprar/marbella/">Marbella</a>
-      </nav>
-      <h1>Propiedades en Cabopino</h1>
-      <span class="zona">4 propiedades disponibles.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Propiedades en Cabopino</h1>
+      </div>
+      <span class="cuenta">4 propiedades disponibles.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">4</span><span class="k">propiedades</span></div>
-        <div><span class="v">925.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">4.750.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">1.099.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">5452 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">4</span><span class="k">propiedades</span></div>
+      <div><span class="v">925.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">4.750.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">1.099.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">5452 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>Cabopino tiene el único puerto deportivo del este de Marbella y las dunas protegidas de Artola al lado. Zona de apartamentos y adosados con ambiente de pueblo marinero.</p></div>
+    <div class="texto"><p>Cabopino tiene el único puerto deportivo del este de Marbella y las dunas protegidas de Artola al lado. Zona de apartamentos y adosados con ambiente de pueblo marinero.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/marbella/villa-cabopino-r3834277/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Villa en Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 8 dorm · 700 m²</span>
-  <span class="pr">4.750.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-cabopino-r5364304/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/b3558a263ece11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033393" alt="Apartamento en Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 3 dorm · 158 m²</span>
-  <span class="pr">1.099.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-cabopino-r5366254/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/6141df0a405c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946084" alt="Ático en Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 3 dorm · 290 m²</span>
-  <span class="pr">1.050.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-cabopino-r5410597/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/a6c1af80648611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781070091" alt="Apartamento en Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 3 dorm · 208 m²</span>
-  <span class="pr">925.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/comprar/marbella/villa-cabopino-r3834277/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Villa en Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R3834277</span>
+    <span class="meta">8 dorm · 10 baños · 700 m²</span>
+    <span class="pr">4.750.000 €</span>
   </div>
+</a>
+      <a href="/comprar/marbella/apartamento-cabopino-r5364304/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/b3558a263ece11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033393" alt="Apartamento en Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R5364304</span>
+    <span class="meta">3 dorm · 3 baños · 158 m²</span>
+    <span class="pr">1.099.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-cabopino-r5366254/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/6141df0a405c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946084" alt="Ático en Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R5366254</span>
+    <span class="meta">3 dorm · 2 baños · 290 m²</span>
+    <span class="pr">1.050.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-cabopino-r5410597/">
+  <div class="foto"><span class="sel">Apartamento Planta Baja</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/a6c1af80648611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781070091" alt="Apartamento en Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R5410597</span>
+    <span class="meta">3 dorm · 3 baños · 208 m²</span>
+    <span class="pr">925.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Cabopino?</summary><p>W Real Estate publica 4 propiedades en venta en Cabopino. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Cabopino?</summary><p>Los precios de nuestra selección en Cabopino van desde 925.000 € hasta 4.750.000 €, con un precio mediano de 1.099.000 € y una media de 5452 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Cabopino?</summary><p>La oferta actual se reparte en 2 apartamentos, 1 villas, 1 áticos.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -316,6 +324,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/benahavis/">Benahavís (71)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/sotogrande/">Sotogrande (16)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -325,7 +334,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

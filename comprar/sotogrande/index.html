@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Sotogrande","url":"https://wrealestate.es/comprar/sotogrande/","numberOfItems":16,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r4955374/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-costa-r5272627/","name":"Villa en Sotogrande Costa"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r4892221/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r4917904/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/sotogrande/villa-la-alcaidesa-r5177761/","name":"Villa en La Alcaidesa"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r5119030/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r5066233/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-alto-r5066647/","name":"Villa en Sotogrande Alto"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r5066236/","name":"Parcela en Sotogrande"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-costa-r5066656/","name":"Parcela en Sotogrande Costa"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-r5289055/","name":"Villa en Sotogrande"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/sotogrande/villa-sotogrande-costa-r5204977/","name":"Villa en Sotogrande Costa"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r5366341/","name":"Parcela en Sotogrande"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/sotogrande/apartamento-sotogrande-marina-r5462098/","name":"Apartamento en Sotogrande Marina"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r4225339/","name":"Parcela en Sotogrande"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/sotogrande/parcela-sotogrande-r5065627/","name":"Parcela en Sotogrande"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 16 propiedades en venta en Sotogrande. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Sotogrande van desde 590.000 € hasta 18.000.000 €, con un precio mediano de 3.350.000 € y una media de 4258 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Sotogrande?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 10 villas, 5 parcelas, 1 apartamentos."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,150 +233,190 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/sotogrande/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/5f247460e86a11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1739292464" alt="Propiedades en Sotogrande" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a>
-      </nav>
-      <h1>Propiedades en Sotogrande</h1>
-      <span class="zona">16 propiedades disponibles.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Propiedades en Sotogrande</h1>
+      </div>
+      <span class="cuenta">16 propiedades disponibles.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">16</span><span class="k">propiedades</span></div>
-        <div><span class="v">590.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">18.000.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">3.350.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">4258 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">16</span><span class="k">propiedades</span></div>
+      <div><span class="v">590.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">18.000.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">3.350.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">4258 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>Sotogrande es un mundo aparte: urbanización privada de los años sesenta, con puerto deportivo, polo, cuatro campos de golf y un colegio internacional dentro del propio recinto. Está a hora y media del aeropuerto de Málaga y a media hora del de Gibraltar, y su mercado se mueve con lógica propia.</p></div>
+    <div class="texto"><p>Sotogrande es un mundo aparte: urbanización privada de los años sesenta, con puerto deportivo, polo, cuatro campos de golf y un colegio internacional dentro del propio recinto. Está a hora y media del aeropuerto de Málaga y a media hora del de Gibraltar, y su mercado se mueve con lógica propia.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/sotogrande/villa-sotogrande-r4955374/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/5f247460e86a11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1739292464" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande</span>
-  <span class="meta">Sotogrande · 18 dorm · 3850 m²</span>
-  <span class="pr">18.000.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-costa-r5272627/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/0fb62e75f10c11f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949613" alt="Villa en Sotogrande Costa" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande Costa</span>
-  <span class="meta">Sotogrande Costa, Sotogrande · 7 dorm · 1880 m²</span>
-  <span class="pr">12.995.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-r4892221/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/5874c94aac0e11ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946037" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande</span>
-  <span class="meta">Sotogrande · 4 dorm · 851 m²</span>
-  <span class="pr">6.950.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-r4917904/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/8f2770f5ce7611ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948945" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande</span>
-  <span class="meta">Sotogrande · 6 dorm · 900 m²</span>
-  <span class="pr">6.900.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-la-alcaidesa-r5177761/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ec1843eb9e8011f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949904" alt="Villa en La Alcaidesa" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Alcaidesa</span>
-  <span class="meta">La Alcaidesa, Sotogrande · 6 dorm · 1077 m²</span>
-  <span class="pr">5.000.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-r5119030/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/afc7868a67c011f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753357265" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande</span>
-  <span class="meta">Sotogrande · 5 dorm · 988 m²</span>
-  <span class="pr">3.750.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-r5066233/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/2e6e39c44c7e11eea6080217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949292" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande</span>
-  <span class="meta">Sotogrande · 9 dorm · 1084 m²</span>
-  <span class="pr">3.600.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-alto-r5066647/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/0ec42fd01a7d11f08cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948398" alt="Villa en Sotogrande Alto" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande Alto</span>
-  <span class="meta">Sotogrande Alto, Sotogrande · 5 dorm · 879 m²</span>
-  <span class="pr">3.350.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/parcela-sotogrande-r5066236/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/3247056a4c7e11eea6080217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949333" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Sotogrande</span>
-  <span class="meta">Sotogrande, Sotogrande</span>
-  <span class="pr">2.917.583 €</span>
-</a>
-        <a href="/comprar/sotogrande/parcela-sotogrande-costa-r5066656/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/36a5de771ffd11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946972" alt="Parcela en Sotogrande Costa" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Sotogrande Costa</span>
-  <span class="meta">Sotogrande Costa, Sotogrande</span>
-  <span class="pr">2.100.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-r5289055/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/fbdc04d4f82211f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950038" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande</span>
-  <span class="meta">Sotogrande · 6 dorm · 653 m²</span>
-  <span class="pr">2.095.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/villa-sotogrande-costa-r5204977/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/985bd88eb16111f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949780" alt="Villa en Sotogrande Costa" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Sotogrande Costa</span>
-  <span class="meta">Sotogrande Costa, Sotogrande · 5 dorm · 509 m²</span>
-  <span class="pr">1.350.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/parcela-sotogrande-r5366341/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/07ace9a5406111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033511" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Sotogrande</span>
-  <span class="meta">Sotogrande · 6 dorm · 833 m²</span>
-  <span class="pr">750.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/apartamento-sotogrande-marina-r5462098/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/b39486569a2511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787571291" alt="Apartamento en Sotogrande Marina" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Sotogrande Marina</span>
-  <span class="meta">Sotogrande Marina, Sotogrande · 3 dorm · 139 m²</span>
-  <span class="pr">690.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/parcela-sotogrande-r4225339/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/2200ca2b9b0811eda53f0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785945996" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Sotogrande</span>
-  <span class="meta">Sotogrande · 1075 m²</span>
-  <span class="pr">685.000 €</span>
-</a>
-        <a href="/comprar/sotogrande/parcela-sotogrande-r5065627/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/23ee9b28e28211edb6600217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948847" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Sotogrande</span>
-  <span class="meta">Sotogrande, Sotogrande</span>
-  <span class="pr">590.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/comprar/sotogrande/villa-sotogrande-r4955374/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/5f247460e86a11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1739292464" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R4955374</span>
+    <span class="meta">18 dorm · 20 baños · 3850 m²</span>
+    <span class="pr">18.000.000 €</span>
   </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-costa-r5272627/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/0fb62e75f10c11f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949613" alt="Villa en Sotogrande Costa" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande Costa</span>
+    <span class="zonaRef">Sotogrande Costa, Sotogrande &middot; R5272627</span>
+    <span class="meta">7 dorm · 9 baños · 1880 m²</span>
+    <span class="pr">12.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-r4892221/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/5874c94aac0e11ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946037" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R4892221</span>
+    <span class="meta">4 dorm · 4.5 baños · 851 m²</span>
+    <span class="pr">6.950.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-r4917904/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/8f2770f5ce7611ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948945" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R4917904</span>
+    <span class="meta">6 dorm · 10.5 baños · 900 m²</span>
+    <span class="pr">6.900.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-la-alcaidesa-r5177761/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/ec1843eb9e8011f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949904" alt="Villa en La Alcaidesa" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Alcaidesa</span>
+    <span class="zonaRef">La Alcaidesa, Sotogrande &middot; R5177761</span>
+    <span class="meta">6 dorm · 6.5 baños · 1077 m²</span>
+    <span class="pr">5.000.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-r5119030/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/afc7868a67c011f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753357265" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R5119030</span>
+    <span class="meta">5 dorm · 6 baños · 988 m²</span>
+    <span class="pr">3.750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-r5066233/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/2e6e39c44c7e11eea6080217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949292" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R5066233</span>
+    <span class="meta">9 dorm · 10.5 baños · 1084 m²</span>
+    <span class="pr">3.600.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-alto-r5066647/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/0ec42fd01a7d11f08cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948398" alt="Villa en Sotogrande Alto" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande Alto</span>
+    <span class="zonaRef">Sotogrande Alto, Sotogrande &middot; R5066647</span>
+    <span class="meta">5 dorm · 5.5 baños · 879 m²</span>
+    <span class="pr">3.350.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/parcela-sotogrande-r5066236/">
+  <div class="foto"><span class="sel">Terreno Rustico</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/3247056a4c7e11eea6080217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949333" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Sotogrande</span>
+    <span class="zonaRef">Sotogrande, Sotogrande &middot; R5066236</span>
+    <span class="meta"></span>
+    <span class="pr">2.917.583 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/parcela-sotogrande-costa-r5066656/">
+  <div class="foto"><span class="sel">Terreno Rustico</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/36a5de771ffd11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946972" alt="Parcela en Sotogrande Costa" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Sotogrande Costa</span>
+    <span class="zonaRef">Sotogrande Costa, Sotogrande &middot; R5066656</span>
+    <span class="meta"></span>
+    <span class="pr">2.100.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-r5289055/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/fbdc04d4f82211f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950038" alt="Villa en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R5289055</span>
+    <span class="meta">6 dorm · 6.5 baños · 653 m²</span>
+    <span class="pr">2.095.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/villa-sotogrande-costa-r5204977/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/985bd88eb16111f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949780" alt="Villa en Sotogrande Costa" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Sotogrande Costa</span>
+    <span class="zonaRef">Sotogrande Costa, Sotogrande &middot; R5204977</span>
+    <span class="meta">5 dorm · 4 baños · 509 m²</span>
+    <span class="pr">1.350.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/parcela-sotogrande-r5366341/">
+  <div class="foto"><span class="sel">Terreno Urbano</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/07ace9a5406111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033511" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R5366341</span>
+    <span class="meta">6 dorm · 6 baños · 833 m²</span>
+    <span class="pr">750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/apartamento-sotogrande-marina-r5462098/">
+  <div class="foto"><span class="sel">Dúplex</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/b39486569a2511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787571291" alt="Apartamento en Sotogrande Marina" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Sotogrande Marina</span>
+    <span class="zonaRef">Sotogrande Marina, Sotogrande &middot; R5462098</span>
+    <span class="meta">3 dorm · 3 baños · 139 m²</span>
+    <span class="pr">690.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/parcela-sotogrande-r4225339/">
+  <div class="foto"><span class="sel">Terreno Urbano</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/2200ca2b9b0811eda53f0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785945996" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Sotogrande</span>
+    <span class="zonaRef">Sotogrande &middot; R4225339</span>
+    <span class="meta">1075 m²</span>
+    <span class="pr">685.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/sotogrande/parcela-sotogrande-r5065627/">
+  <div class="foto"><span class="sel">Terreno Rustico</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/23ee9b28e28211edb6600217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948847" alt="Parcela en Sotogrande" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Sotogrande</span>
+    <span class="zonaRef">Sotogrande, Sotogrande &middot; R5065627</span>
+    <span class="meta"></span>
+    <span class="pr">590.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Sotogrande?</summary><p>W Real Estate publica 16 propiedades en venta en Sotogrande. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Sotogrande?</summary><p>Los precios de nuestra selección en Sotogrande van desde 590.000 € hasta 18.000.000 €, con un precio mediano de 3.350.000 € y una media de 4258 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Sotogrande?</summary><p>La oferta actual se reparte en 10 villas, 5 parcelas, 1 apartamentos.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -384,6 +429,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/marbella/">Marbella (196)</a><a href="/comprar/benahavis/">Benahavís (71)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -393,7 +439,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

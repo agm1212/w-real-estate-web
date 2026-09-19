@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Propiedades en Nueva Andalucía","url":"https://wrealestate.es/zonas/nueva-andalucia/","numberOfItems":55,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5181508/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5352754/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5442331/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5229859/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/marbella/atico-nueva-andalucia-r5435302/","name":"Ático en Nueva Andalucía"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5400265/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5452222/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5365636/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5391400/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5430715/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5391448/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5481826/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r4980175/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r4802620/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5232697/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5141164/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5383045/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/marbella/apartamento-nueva-andalucia-r5253520/","name":"Apartamento en Nueva Andalucía"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5366833/","name":"Villa en Nueva Andalucía"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/marbella/villa-nueva-andalucia-r5441551/","name":"Villa en Nueva Andalucía"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Nueva Andalucía?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 55 propiedades en venta en Nueva Andalucía. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una propiedad en Nueva Andalucía?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Nueva Andalucía van desde 525.000 € hasta 11.180.000 €, con un precio mediano de 1.749.000 € y una media de 7498 € por metro construido."}},{"@type":"Question","name":"¿Qué tipos de propiedad hay disponibles en Nueva Andalucía?","acceptedAnswer":{"@type":"Answer","text":"La oferta actual se reparte en 21 apartamentos, 18 villas, 10 casas, 3 áticos, 2 locales comerciales, 1 parcelas."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,343 +233,478 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/areas/nueva-andalucia/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Propiedades en Nueva Andalucía" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a> ·
-        <a href="/comprar/marbella/">Marbella</a>
-      </nav>
-      <h1>Propiedades en Nueva Andalucía</h1>
-      <span class="zona">Mostrando 48 de 55 propiedades.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Propiedades en Nueva Andalucía</h1>
+      </div>
+      <span class="cuenta">Mostrando 48 de 55 propiedades.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">55</span><span class="k">propiedades</span></div>
-        <div><span class="v">525.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">11.180.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">1.749.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">7498 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">55</span><span class="k">propiedades</span></div>
+      <div><span class="v">525.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">11.180.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">1.749.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">7498 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>Conocida como el Valle del Golf, Nueva Andalucía reúne Las Brisas, Aloha y Los Naranjos alrededor de tres campos. Es la zona con más vida de Marbella fuera del centro, con Puerto Banús a cinco minutos y una comunidad escandinava muy asentada.</p></div>
+    <div class="texto"><p>Conocida como el Valle del Golf, Nueva Andalucía reúne Las Brisas, Aloha y Los Naranjos alrededor de tres campos. Es la zona con más vida de Marbella fuera del centro, con Puerto Banús a cinco minutos y una comunidad escandinava muy asentada.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5181508/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 701 m²</span>
-  <span class="pr">11.180.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5352754/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/875ea0e6330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949693" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 603 m²</span>
-  <span class="pr">10.850.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5442331/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/d86d84ad84bb11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788499430" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 1112 m²</span>
-  <span class="pr">10.500.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5229859/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/bb29e73dc69c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948094" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 712 m²</span>
-  <span class="pr">8.950.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-nueva-andalucia-r5435302/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 576 m²</span>
-  <span class="pr">6.900.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5400265/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/54cef0c95e3d11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780378893" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 1782 m²</span>
-  <span class="pr">6.900.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5452222/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/4574ac458f3c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785766045" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 680 m²</span>
-  <span class="pr">6.475.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5365636/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/af5dd8773f9c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949644" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 1440 m²</span>
-  <span class="pr">6.000.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5391400/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/8eece244565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949738" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 480 m²</span>
-  <span class="pr">5.995.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5430715/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/70b25dc7769911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783057281" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 455 m²</span>
-  <span class="pr">5.995.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5391448/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/cfc78ce1565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951190" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 408 m²</span>
-  <span class="pr">5.975.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5481826/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/adc13768ac0811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932469" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 532 m²</span>
-  <span class="pr">5.695.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r4980175/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/40c392f5fbfe11ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1741529396" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 7 dorm · 1133 m²</span>
-  <span class="pr">5.595.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r4802620/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/714e66e9554311ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950544" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 759 m²</span>
-  <span class="pr">4.375.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5232697/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/20de253cc9bf11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949215" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 484 m²</span>
-  <span class="pr">4.290.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5141164/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/490b8bdf7f1211f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949749" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 7 dorm · 913 m²</span>
-  <span class="pr">4.200.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5383045/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/572486d0501811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033750" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 539 m²</span>
-  <span class="pr">3.995.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5253520/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/d0f7b21ad9e411f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1765827323" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 407 m²</span>
-  <span class="pr">3.950.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5366833/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/7cfd9dfd421b11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1777286228" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 588 m²</span>
-  <span class="pr">3.850.000 €</span>
-</a>
-        <a href="/comprar/marbella/villa-nueva-andalucia-r5441551/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/5ab445fe826011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784352177" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 497 m²</span>
-  <span class="pr">3.395.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5470438/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0cmt8h9yhx/properties/d514e002a22611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787845909" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 361 m²</span>
-  <span class="pr">3.250.000 €</span>
-</a>
-        <a href="/comprar/marbella/parcela-nueva-andalucia-r5348317/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/463f3e402e4e11f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948529" alt="Parcela en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Parcela en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 1038 m²</span>
-  <span class="pr">2.975.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5242261/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/70f6b570d00f11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949892" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 198 m²</span>
-  <span class="pr">2.495.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-nueva-andalucia-r5174104/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/779050089dbc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949692" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 173 m²</span>
-  <span class="pr">2.450.000 €</span>
-</a>
-        <a href="/comprar/marbella/local-comercial-nueva-andalucia-r5426302/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/9406467c71e211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782711750" alt="Comercial en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Comercial en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 dorm · 390 m²</span>
-  <span class="pr">1.795.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5384059/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/85ba5ac650e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033896" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 300 m²</span>
-  <span class="pr">1.790.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5455732/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/678e16b4921a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787895703" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 397 m²</span>
-  <span class="pr">1.750.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5056444/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/jja1jz8h5h/properties/2e04ff043f6711f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946222" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 320 m²</span>
-  <span class="pr">1.749.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5419552/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/f2a0b7866acf11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782884472" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 129 m²</span>
-  <span class="pr">1.695.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5453452/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/4fc44e9d8fe011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785836570" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 270 m²</span>
-  <span class="pr">1.650.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5107096/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/f2ef73ed5c7e11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949043" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 125 m²</span>
-  <span class="pr">1.499.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5194399/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/670f5dfbaa4a11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949835" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 170 m²</span>
-  <span class="pr">1.350.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5465560/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/c80dcc7a9de311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787377306" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 197 m²</span>
-  <span class="pr">1.149.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5447665/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/9e24d0988a3e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785217297" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 109 m²</span>
-  <span class="pr">945.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5107108/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/0322c79e5c7f11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949106" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 102 m²</span>
-  <span class="pr">890.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5336842/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/060115c1235b11f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950215" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 179 m²</span>
-  <span class="pr">826.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5374426/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/984cab4949d511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950472" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 174 m²</span>
-  <span class="pr">825.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5076373/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/8a3c37704dea11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788785034" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 dorm · 421 m²</span>
-  <span class="pr">799.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5365444/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/e111c50e3f9711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033650" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 162 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5212939/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/729a0d64b6e511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950244" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 139 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5194192/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ak9hu1cs6c/properties/6963e3c9a9db11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1760546002" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 101 m²</span>
-  <span class="pr">795.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5108635/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/50e5f8845d8811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753349569" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 132 m²</span>
-  <span class="pr">725.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-nueva-andalucia-r5417230/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/v3ii8gsn5j/properties/e32fd195693811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786511298" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 106 m²</span>
-  <span class="pr">695.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5234815/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/c6d4935ecb5311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947796" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 125 m²</span>
-  <span class="pr">695.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5186383/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/a9ab7d0ea45a11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1775058806" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 165 m²</span>
-  <span class="pr">690.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5442355/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/75ffba3184be11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784612498" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 116 m²</span>
-  <span class="pr">675.000 €</span>
-</a>
-        <a href="/comprar/marbella/casa-nueva-andalucia-r5455510/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/445579ca919a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786033587" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Casa en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 129 m²</span>
-  <span class="pr">640.000 €</span>
-</a>
-        <a href="/comprar/marbella/apartamento-nueva-andalucia-r5440489/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/00978738811a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784287740" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartamento en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 2 dorm · 112 m²</span>
-  <span class="pr">629.000 €</span>
-</a>
-      </div>
-      <p style="margin-top:30px"><a class="btn sec" style="display:inline-block" href="/?pagina=comprar">Ver el resto en el buscador (7)</a></p>
-    </section>
+    <div class="rejP">
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5181508/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5181508</span>
+    <span class="meta">6 dorm · 7 baños · 701 m²</span>
+    <span class="pr">11.180.000 €</span>
   </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5352754/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/875ea0e6330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949693" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5352754</span>
+    <span class="meta">6 dorm · 7.5 baños · 603 m²</span>
+    <span class="pr">10.850.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5442331/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/d86d84ad84bb11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788499430" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5442331</span>
+    <span class="meta">6 dorm · 8 baños · 1112 m²</span>
+    <span class="pr">10.500.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5229859/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/bb29e73dc69c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948094" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5229859</span>
+    <span class="meta">6 dorm · 7 baños · 712 m²</span>
+    <span class="pr">8.950.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-nueva-andalucia-r5435302/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5435302</span>
+    <span class="meta">5 dorm · 5.5 baños · 576 m²</span>
+    <span class="pr">6.900.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5400265/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/54cef0c95e3d11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780378893" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5400265</span>
+    <span class="meta">6 dorm · 8 baños · 1782 m²</span>
+    <span class="pr">6.900.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5452222/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/4574ac458f3c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785766045" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5452222</span>
+    <span class="meta">6 dorm · 7 baños · 680 m²</span>
+    <span class="pr">6.475.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5365636/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/af5dd8773f9c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949644" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5365636</span>
+    <span class="meta">6 dorm · 6.5 baños · 1440 m²</span>
+    <span class="pr">6.000.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5391400/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/8eece244565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949738" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5391400</span>
+    <span class="meta">4 dorm · 5 baños · 480 m²</span>
+    <span class="pr">5.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5430715/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/70b25dc7769911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783057281" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5430715</span>
+    <span class="meta">5 dorm · 5.5 baños · 455 m²</span>
+    <span class="pr">5.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5391448/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/cfc78ce1565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951190" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5391448</span>
+    <span class="meta">4 dorm · 5.5 baños · 408 m²</span>
+    <span class="pr">5.975.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5481826/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/adc13768ac0811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932469" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5481826</span>
+    <span class="meta">5 dorm · 5.5 baños · 532 m²</span>
+    <span class="pr">5.695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r4980175/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/40c392f5fbfe11ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1741529396" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R4980175</span>
+    <span class="meta">7 dorm · 8 baños · 1133 m²</span>
+    <span class="pr">5.595.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r4802620/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/714e66e9554311ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950544" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R4802620</span>
+    <span class="meta">5 dorm · 4 baños · 759 m²</span>
+    <span class="pr">4.375.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5232697/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/20de253cc9bf11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949215" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5232697</span>
+    <span class="meta">6 dorm · 6 baños · 484 m²</span>
+    <span class="pr">4.290.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5141164/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/490b8bdf7f1211f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949749" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5141164</span>
+    <span class="meta">7 dorm · 5.5 baños · 913 m²</span>
+    <span class="pr">4.200.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5383045/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/572486d0501811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033750" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5383045</span>
+    <span class="meta">6 dorm · 6 baños · 539 m²</span>
+    <span class="pr">3.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5253520/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/d0f7b21ad9e411f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1765827323" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5253520</span>
+    <span class="meta">3 dorm · 3.5 baños · 407 m²</span>
+    <span class="pr">3.950.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5366833/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/7cfd9dfd421b11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1777286228" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5366833</span>
+    <span class="meta">5 dorm · 4 baños · 588 m²</span>
+    <span class="pr">3.850.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/villa-nueva-andalucia-r5441551/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/5ab445fe826011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784352177" alt="Villa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5441551</span>
+    <span class="meta">6 dorm · 5 baños · 497 m²</span>
+    <span class="pr">3.395.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5470438/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/0cmt8h9yhx/properties/d514e002a22611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787845909" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5470438</span>
+    <span class="meta">5 dorm · 4.5 baños · 361 m²</span>
+    <span class="pr">3.250.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/parcela-nueva-andalucia-r5348317/">
+  <div class="foto"><span class="sel">Terreno Rustico</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/463f3e402e4e11f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948529" alt="Parcela en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Parcela en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5348317</span>
+    <span class="meta">6 dorm · 7 baños · 1038 m²</span>
+    <span class="pr">2.975.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5242261/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/70f6b570d00f11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949892" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5242261</span>
+    <span class="meta">4 dorm · 4.5 baños · 198 m²</span>
+    <span class="pr">2.495.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-nueva-andalucia-r5174104/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/779050089dbc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949692" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5174104</span>
+    <span class="meta">3 dorm · 3 baños · 173 m²</span>
+    <span class="pr">2.450.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/local-comercial-nueva-andalucia-r5426302/">
+  <div class="foto"><span class="sel">Oficina</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/9406467c71e211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782711750" alt="Comercial en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Comercial en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5426302</span>
+    <span class="meta">6 dorm · 1.5 baños · 390 m²</span>
+    <span class="pr">1.795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5384059/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/85ba5ac650e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033896" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5384059</span>
+    <span class="meta">3 dorm · 3.5 baños · 300 m²</span>
+    <span class="pr">1.790.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5455732/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/678e16b4921a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787895703" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5455732</span>
+    <span class="meta">3 dorm · 3 baños · 397 m²</span>
+    <span class="pr">1.750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5056444/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/jja1jz8h5h/properties/2e04ff043f6711f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946222" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5056444</span>
+    <span class="meta">4 dorm · 3 baños · 320 m²</span>
+    <span class="pr">1.749.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5419552/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/f2a0b7866acf11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782884472" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5419552</span>
+    <span class="meta">3 dorm · 3.5 baños · 129 m²</span>
+    <span class="pr">1.695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5453452/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/4fc44e9d8fe011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785836570" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5453452</span>
+    <span class="meta">3 dorm · 3.5 baños · 270 m²</span>
+    <span class="pr">1.650.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5107096/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/f2ef73ed5c7e11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949043" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5107096</span>
+    <span class="meta">4 dorm · 2 baños · 125 m²</span>
+    <span class="pr">1.499.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5194399/">
+  <div class="foto"><span class="sel">Apartamento Planta Baja</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/670f5dfbaa4a11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949835" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5194399</span>
+    <span class="meta">3 dorm · 3 baños · 170 m²</span>
+    <span class="pr">1.350.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5465560/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/c80dcc7a9de311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787377306" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5465560</span>
+    <span class="meta">3 dorm · 2 baños · 197 m²</span>
+    <span class="pr">1.149.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5447665/">
+  <div class="foto"><span class="sel">Ático Dúplex</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/9e24d0988a3e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785217297" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5447665</span>
+    <span class="meta">2 dorm · 2 baños · 109 m²</span>
+    <span class="pr">945.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5107108/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/0322c79e5c7f11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949106" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5107108</span>
+    <span class="meta">2 dorm · 2 baños · 102 m²</span>
+    <span class="pr">890.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5336842/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/060115c1235b11f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950215" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5336842</span>
+    <span class="meta">3 dorm · 2.5 baños · 179 m²</span>
+    <span class="pr">826.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5374426/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/984cab4949d511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950472" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5374426</span>
+    <span class="meta">3 dorm · 3 baños · 174 m²</span>
+    <span class="pr">825.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5076373/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/8a3c37704dea11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788785034" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5076373</span>
+    <span class="meta">4 dorm · 5 baños · 421 m²</span>
+    <span class="pr">799.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5365444/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/e111c50e3f9711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033650" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5365444</span>
+    <span class="meta">2 dorm · 2 baños · 162 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5212939/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/729a0d64b6e511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950244" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5212939</span>
+    <span class="meta">2 dorm · 2.5 baños · 139 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5194192/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/ak9hu1cs6c/properties/6963e3c9a9db11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1760546002" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5194192</span>
+    <span class="meta">2 dorm · 2 baños · 101 m²</span>
+    <span class="pr">795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5108635/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/50e5f8845d8811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753349569" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5108635</span>
+    <span class="meta">3 dorm · 3 baños · 132 m²</span>
+    <span class="pr">725.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-nueva-andalucia-r5417230/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/v3ii8gsn5j/properties/e32fd195693811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786511298" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5417230</span>
+    <span class="meta">3 dorm · 2 baños · 106 m²</span>
+    <span class="pr">695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5234815/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/c6d4935ecb5311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947796" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5234815</span>
+    <span class="meta">2 dorm · 2 baños · 125 m²</span>
+    <span class="pr">695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5186383/">
+  <div class="foto"><span class="sel">Adosada</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/a9ab7d0ea45a11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1775058806" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5186383</span>
+    <span class="meta">3 dorm · 3 baños · 165 m²</span>
+    <span class="pr">690.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5442355/">
+  <div class="foto"><span class="sel">Apartamento Planta Media</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/75ffba3184be11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784612498" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5442355</span>
+    <span class="meta">3 dorm · 2 baños · 116 m²</span>
+    <span class="pr">675.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/casa-nueva-andalucia-r5455510/">
+  <div class="foto"><span class="sel">Pareada</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/445579ca919a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786033587" alt="Casa en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Casa en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5455510</span>
+    <span class="meta">3 dorm · 2 baños · 129 m²</span>
+    <span class="pr">640.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/apartamento-nueva-andalucia-r5440489/">
+  <div class="foto"><span class="sel">Apartamento Planta Baja</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/00978738811a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784287740" alt="Apartamento en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartamento en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5440489</span>
+    <span class="meta">2 dorm · 2 baños · 112 m²</span>
+    <span class="pr">629.000 €</span>
+  </div>
+</a>
+    </div>
+    <p style="margin-top:34px"><a class="btn sec" style="display:inline-block" href="/?pagina=comprar">Ver el resto en el buscador (7)</a></p>
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Nueva Andalucía?</summary><p>W Real Estate publica 55 propiedades en venta en Nueva Andalucía. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una propiedad en Nueva Andalucía?</summary><p>Los precios de nuestra selección en Nueva Andalucía van desde 525.000 € hasta 11.180.000 €, con un precio mediano de 1.749.000 € y una media de 7498 € por metro construido.</p></details>
       <details><summary>¿Qué tipos de propiedad hay disponibles en Nueva Andalucía?</summary><p>La oferta actual se reparte en 21 apartamentos, 18 villas, 10 casas, 3 áticos, 2 locales comerciales, 1 parcelas.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -580,6 +720,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/benahavis/">Benahavís (71)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/sotogrande/">Sotogrande (16)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -589,7 +730,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

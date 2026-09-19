@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Villas en Benahavís","url":"https://wrealestate.es/comprar/benahavis/villas/","numberOfItems":27,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/benahavis/villa-la-quinta-r5217985/","name":"Villa en La Quinta"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/benahavis/villa-la-quinta-r4930648/","name":"Villa en La Quinta"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/benahavis/villa-la-zagaleta-r5391592/","name":"Villa en La Zagaleta"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/benahavis/villa-la-quinta-r5447131/","name":"Villa en La Quinta"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5300689/","name":"Villa en Benahavís"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5106286/","name":"Villa en Benahavís"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5396848/","name":"Villa en Benahavís"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/benahavis/villa-la-quinta-r5130058/","name":"Villa en La Quinta"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/benahavis/villa-la-quinta-r5236750/","name":"Villa en La Quinta"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r4206793/","name":"Villa en Benahavís"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/benahavis/villa-la-quinta-r5236744/","name":"Villa en La Quinta"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r4668952/","name":"Villa en Benahavís"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5203351/","name":"Villa en Benahavís"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5297698/","name":"Villa en Benahavís"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r4874389/","name":"Villa en Benahavís"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5389504/","name":"Villa en Benahavís"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5375773/","name":"Villa en Benahavís"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5375047/","name":"Villa en Benahavís"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5454799/","name":"Villa en Benahavís"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/benahavis/villa-benahavis-r5211262/","name":"Villa en Benahavís"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas propiedades hay en venta en Benahavís?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate publica 27 propiedades en venta en Benahavís del tipo villas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas."}},{"@type":"Question","name":"¿Cuánto cuesta una villa en Benahavís?","acceptedAnswer":{"@type":"Answer","text":"Los precios de nuestra selección en Benahavís van desde 585.000 € hasta 18.650.000 €, con un precio mediano de 4.950.000 € y una media de 7790 € por metro construido."}},{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,216 +233,288 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/benahavis/villas/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Villas en Benahavís" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a> ·
-        <a href="/comprar/benahavis/">Benahavís</a>
-      </nav>
-      <h1>Villas en Benahavís</h1>
-      <span class="zona">27 propiedades disponibles.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Villas en Benahavís</h1>
+      </div>
+      <span class="cuenta">27 propiedades disponibles.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">27</span><span class="k">propiedades</span></div>
-        <div><span class="v">585.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">18.650.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">4.950.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">7790 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">27</span><span class="k">propiedades</span></div>
+      <div><span class="v">585.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">18.650.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">4.950.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">7790 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>Benahavís es el municipio de las urbanizaciones cerradas y las parcelas grandes: La Zagaleta, El Madroñal, La Quinta y Los Flamingos están aquí. Se compra por privacidad, por vistas y por seguridad, a cambio de estar entre diez y veinte minutos de la playa.</p></div>
+    <div class="texto"><p>Benahavís es el municipio de las urbanizaciones cerradas y las parcelas grandes: La Zagaleta, El Madroñal, La Quinta y Los Flamingos están aquí. Se compra por privacidad, por vistas y por seguridad, a cambio de estar entre diez y veinte minutos de la playa.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/benahavis/villa-la-quinta-r5217985/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 8 dorm · 1451 m²</span>
-  <span class="pr">18.650.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-quinta-r4930648/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/39e46e82d7bd11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950435" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 6 dorm · 738 m²</span>
-  <span class="pr">13.800.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-zagaleta-r5391592/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/a8e342e9566111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780983739" alt="Villa en La Zagaleta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Zagaleta</span>
-  <span class="meta">La Zagaleta, Benahavís · 5 dorm · 943 m²</span>
-  <span class="pr">10.000.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-quinta-r5447131/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/99ba937a88a911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785043343" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 6 dorm · 630 m²</span>
-  <span class="pr">8.295.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5300689/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/14e78f9b064311f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782193343" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís, Benahavís · 9 dorm · 1173 m²</span>
-  <span class="pr">8.250.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5106286/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/8d6ad5165bba11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949399" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís, Benahavís · 4 dorm · 1847 m²</span>
-  <span class="pr">7.995.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5396848/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/e249608b5b1811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033385" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 6 dorm · 622 m²</span>
-  <span class="pr">7.470.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-quinta-r5130058/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/cf9f75c1734811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947207" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 6 dorm · 631 m²</span>
-  <span class="pr">6.995.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-quinta-r5236750/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/021d1173cce611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948352" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 6 dorm · 771 m²</span>
-  <span class="pr">6.995.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r4206793/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/03f03e8f81d611ed98460217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951793" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís, Benahavís · 7 dorm · 700 m²</span>
-  <span class="pr">6.495.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-quinta-r5236744/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/fb4e2270cce511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948295" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 5 dorm · 501 m²</span>
-  <span class="pr">5.945.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r4668952/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/079483c5dd2111eebeb70217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947328" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 4 dorm · 750 m²</span>
-  <span class="pr">5.900.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5203351/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/6ffc0f60b09811f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949806" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 12 dorm · 1058 m²</span>
-  <span class="pr">4.995.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5297698/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/2cce711c014511f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1774385663" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 5 dorm · 1021 m²</span>
-  <span class="pr">4.950.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r4874389/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/8aa80563974f11ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947972" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 5 dorm · 570 m²</span>
-  <span class="pr">3.950.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5389504/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/d3f17f8254d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788503961" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 5 dorm · 460 m²</span>
-  <span class="pr">3.850.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5375773/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/d949833a4aae11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778329442" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 5 dorm · 503 m²</span>
-  <span class="pr">3.195.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5375047/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d7f3eb84a9311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945345" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 5 dorm · 460 m²</span>
-  <span class="pr">2.995.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5454799/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/152c1b3790bb11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785931085" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 4 dorm · 427 m²</span>
-  <span class="pr">2.895.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5211262/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/3c1273c1b55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950156" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís, Benahavís · 5 dorm · 610 m²</span>
-  <span class="pr">2.895.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5407261/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/fdaed0c560ef11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946391" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 3 dorm · 276 m²</span>
-  <span class="pr">2.350.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5391625/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/cd59e7af566111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779952349" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís, Benahavís · 5 dorm · 350 m²</span>
-  <span class="pr">2.200.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-la-quinta-r5109355/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/8406db905e4211f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1765544318" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 5 dorm · 562 m²</span>
-  <span class="pr">1.980.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5407639/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/fed44cbc616a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382147" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 5 dorm · 414 m²</span>
-  <span class="pr">1.795.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-benahavis-r5317465/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/1727e37513d411f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785576075" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Benahavís</span>
-  <span class="meta">Benahavís · 4 dorm · 235 m²</span>
-  <span class="pr">1.150.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-el-madronal-r5408821/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/4d06f56563c211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780985759" alt="Villa en El Madroñal" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en El Madroñal</span>
-  <span class="meta">El Madroñal, Benahavís · 3 dorm · 212 m²</span>
-  <span class="pr">720.000 €</span>
-</a>
-        <a href="/comprar/benahavis/villa-los-flamingos-r5378227/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/2e719adc4b6911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382015" alt="Villa en Los Flamingos" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa en Los Flamingos</span>
-  <span class="meta">Los Flamingos, Benahavís · 3 dorm · 260 m²</span>
-  <span class="pr">585.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/comprar/benahavis/villa-la-quinta-r5217985/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/4a5fd5b9bb9c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5217985</span>
+    <span class="meta">8 dorm · 10 baños · 1451 m²</span>
+    <span class="pr">18.650.000 €</span>
   </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-quinta-r4930648/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/39e46e82d7bd11ef8ce602e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950435" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R4930648</span>
+    <span class="meta">6 dorm · 7.5 baños · 738 m²</span>
+    <span class="pr">13.800.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-zagaleta-r5391592/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/a8e342e9566111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780983739" alt="Villa en La Zagaleta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Zagaleta</span>
+    <span class="zonaRef">La Zagaleta, Benahavís &middot; R5391592</span>
+    <span class="meta">5 dorm · 5.5 baños · 943 m²</span>
+    <span class="pr">10.000.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-quinta-r5447131/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/99ba937a88a911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785043343" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5447131</span>
+    <span class="meta">6 dorm · 8.5 baños · 630 m²</span>
+    <span class="pr">8.295.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5300689/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/14e78f9b064311f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782193343" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís, Benahavís &middot; R5300689</span>
+    <span class="meta">9 dorm · 10 baños · 1173 m²</span>
+    <span class="pr">8.250.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5106286/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/8d6ad5165bba11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949399" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís, Benahavís &middot; R5106286</span>
+    <span class="meta">4 dorm · 6.5 baños · 1847 m²</span>
+    <span class="pr">7.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5396848/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/e249608b5b1811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033385" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5396848</span>
+    <span class="meta">6 dorm · 7.5 baños · 622 m²</span>
+    <span class="pr">7.470.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-quinta-r5130058/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/cf9f75c1734811f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947207" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5130058</span>
+    <span class="meta">6 dorm · 7.5 baños · 631 m²</span>
+    <span class="pr">6.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-quinta-r5236750/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/021d1173cce611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948352" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5236750</span>
+    <span class="meta">6 dorm · 8 baños · 771 m²</span>
+    <span class="pr">6.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r4206793/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/03f03e8f81d611ed98460217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951793" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís, Benahavís &middot; R4206793</span>
+    <span class="meta">7 dorm · 5 baños · 700 m²</span>
+    <span class="pr">6.495.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-quinta-r5236744/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/fb4e2270cce511f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948295" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5236744</span>
+    <span class="meta">5 dorm · 6 baños · 501 m²</span>
+    <span class="pr">5.945.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r4668952/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/079483c5dd2111eebeb70217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947328" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R4668952</span>
+    <span class="meta">4 dorm · 4 baños · 750 m²</span>
+    <span class="pr">5.900.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5203351/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/6ffc0f60b09811f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949806" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5203351</span>
+    <span class="meta">12 dorm · 10 baños · 1058 m²</span>
+    <span class="pr">4.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5297698/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/2cce711c014511f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1774385663" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5297698</span>
+    <span class="meta">5 dorm · 6 baños · 1021 m²</span>
+    <span class="pr">4.950.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r4874389/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/8aa80563974f11ef84cf0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947972" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R4874389</span>
+    <span class="meta">5 dorm · 6 baños · 570 m²</span>
+    <span class="pr">3.950.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5389504/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/d3f17f8254d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788503961" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5389504</span>
+    <span class="meta">5 dorm · 3 baños · 460 m²</span>
+    <span class="pr">3.850.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5375773/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/d949833a4aae11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1778329442" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5375773</span>
+    <span class="meta">5 dorm · 5 baños · 503 m²</span>
+    <span class="pr">3.195.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5375047/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d7f3eb84a9311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945345" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5375047</span>
+    <span class="meta">5 dorm · 6 baños · 460 m²</span>
+    <span class="pr">2.995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5454799/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/152c1b3790bb11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785931085" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5454799</span>
+    <span class="meta">4 dorm · 4 baños · 427 m²</span>
+    <span class="pr">2.895.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5211262/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/3c1273c1b55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950156" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís, Benahavís &middot; R5211262</span>
+    <span class="meta">5 dorm · 5.5 baños · 610 m²</span>
+    <span class="pr">2.895.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5407261/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/fdaed0c560ef11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946391" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5407261</span>
+    <span class="meta">3 dorm · 3 baños · 276 m²</span>
+    <span class="pr">2.350.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5391625/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/cd59e7af566111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779952349" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís, Benahavís &middot; R5391625</span>
+    <span class="meta">5 dorm · 5 baños · 350 m²</span>
+    <span class="pr">2.200.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-la-quinta-r5109355/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/kummhh55a5/properties/8406db905e4211f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1765544318" alt="Villa en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5109355</span>
+    <span class="meta">5 dorm · 4 baños · 562 m²</span>
+    <span class="pr">1.980.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5407639/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/fed44cbc616a11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382147" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5407639</span>
+    <span class="meta">5 dorm · 5 baños · 414 m²</span>
+    <span class="pr">1.795.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-benahavis-r5317465/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/1727e37513d411f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785576075" alt="Villa en Benahavís" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Benahavís</span>
+    <span class="zonaRef">Benahavís &middot; R5317465</span>
+    <span class="meta">4 dorm · 4 baños · 235 m²</span>
+    <span class="pr">1.150.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-el-madronal-r5408821/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/4d06f56563c211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780985759" alt="Villa en El Madroñal" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en El Madroñal</span>
+    <span class="zonaRef">El Madroñal, Benahavís &middot; R5408821</span>
+    <span class="meta">3 dorm · 3 baños · 212 m²</span>
+    <span class="pr">720.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/villa-los-flamingos-r5378227/">
+  <div class="foto"><span class="sel">Villa - Chalet</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/2e719adc4b6911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787382015" alt="Villa en Los Flamingos" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa en Los Flamingos</span>
+    <span class="zonaRef">Los Flamingos, Benahavís &middot; R5378227</span>
+    <span class="meta">3 dorm · 3 baños · 260 m²</span>
+    <span class="pr">585.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cuántas propiedades hay en venta en Benahavís?</summary><p>W Real Estate publica 27 propiedades en venta en Benahavís del tipo villas. El catálogo se actualiza a diario con la red de agencias de la Costa del Sol y con nuestras exclusivas.</p></details>
       <details><summary>¿Cuánto cuesta una villa en Benahavís?</summary><p>Los precios de nuestra selección en Benahavís van desde 585.000 € hasta 18.650.000 €, con un precio mediano de 4.950.000 € y una media de 7790 € por metro construido.</p></details>
       <details><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -453,6 +530,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/marbella/">Marbella (196)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/sotogrande/">Sotogrande (16)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -462,7 +540,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

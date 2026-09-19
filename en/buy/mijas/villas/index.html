@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Villas in Mijas","url":"https://wrealestate.es/en/buy/mijas/villas/","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/mijas/villa-la-cala-de-mijas-r5325463/","name":"Villa in La Cala de Mijas"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/mijas/villa-la-cala-golf-r5234734/","name":"Villa in La Cala Golf"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/mijas/villa-la-cala-golf-r5318263/","name":"Villa in La Cala Golf"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/mijas/villa-mijas-golf-r5274484/","name":"Villa in Mijas Golf"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/mijas/villa-mijas-costa-r5469349/","name":"Villa in Mijas Costa"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/en/buy/mijas/villa-mijas-costa-r5463232/","name":"Villa in Mijas Costa"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/en/buy/mijas/villa-riviera-del-sol-r5457814/","name":"Villa in Riviera del Sol"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Mijas?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 7 properties for sale in Mijas of the villas type. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a villa cost in Mijas?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Mijas selection range from 965.000 € to 2.245.000 €, with a median of 1.380.000 € and an average of 4449 € per built square metre."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
@@ -211,13 +216,13 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a></nav>
+  <nav class="izq"><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/#zonas">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
     <img class="logo tinta" src="/w-logo-tinta.png" alt="W Real Estate" width="123" height="105">
   </a>
-  <nav class="der"><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a>
+  <nav class="der"><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a>
     <span class="sep"></span>
     <a class="tel" href="tel:+34623798619">+34 623 79 86 19</a>
     <span class="idi"><a class="on" href="/comprar/mijas/villas/" hreflang="es">ES</a><span class="barra">|</span><a class="on" href="#" hreflang="en">EN</a></span>
@@ -228,96 +233,108 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Close</button>
   </div>
-  <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+  <nav><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/#zonas">Areas</a><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/comprar/mijas/villas/">Español</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/43fc760d1d0811f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945924" alt="Villas in Mijas" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/en/">Home</a> ·
-        <a href="/en/buy/">Buy</a> ·
-        <a href="/en/buy/mijas/">Mijas</a>
-      </nav>
-      <h1>Villas in Mijas</h1>
-      <span class="zona">7 properties available.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Buy</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Villas in Mijas</h1>
+      </div>
+      <span class="cuenta">7 properties available.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">7</span><span class="k">properties</span></div>
-        <div><span class="v">965.000 €</span><span class="k">From</span></div>
-        <div><span class="v">2.245.000 €</span><span class="k">to</span></div>
-        <div><span class="v">1.380.000 €</span><span class="k">Average price</span></div>
-        <div><span class="v">4449 €</span><span class="k">Average per built m²</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">7</span><span class="k">properties</span></div>
+      <div><span class="v">965.000 €</span><span class="k">From</span></div>
+      <div><span class="v">2.245.000 €</span><span class="k">to</span></div>
+      <div><span class="v">1.380.000 €</span><span class="k">Average price</span></div>
+      <div><span class="v">4449 €</span><span class="k">Average per built m²</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">About the area</span>
-      <p>Mijas combines a white village in the hills with a coastal strip of golf resorts and developments. La Cala de Mijas and Calahonda offer quality product at more contained prices per square metre, with the airport less than half an hour away.</p></div>
+    <div class="texto"><p>Mijas combines a white village in the hills with a coastal strip of golf resorts and developments. La Cala de Mijas and Calahonda offer quality product at more contained prices per square metre, with the airport less than half an hour away.</p></div>
 
-      <div class="rejP">
-        <a href="/en/buy/mijas/villa-la-cala-de-mijas-r5325463/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/43fc760d1d0811f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945924" alt="Villa in La Cala de Mijas" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in La Cala de Mijas</span>
-  <span class="meta">La Cala de Mijas, Mijas · 4 bed · 405 m²</span>
-  <span class="pr">2.245.000 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-la-cala-golf-r5234734/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/c1f1fa96cb4e11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945048" alt="Villa in La Cala Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in La Cala Golf</span>
-  <span class="meta">La Cala Golf, Mijas · 4 bed · 470 m²</span>
-  <span class="pr">2.195.000 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-la-cala-golf-r5318263/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/afa8904315f511f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788498407" alt="Villa in La Cala Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in La Cala Golf</span>
-  <span class="meta">La Cala Golf, Mijas · 4 bed · 463 m²</span>
-  <span class="pr">1.899.500 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-mijas-golf-r5274484/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/4759231ff1d911f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787640404" alt="Villa in Mijas Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Mijas Golf</span>
-  <span class="meta">Mijas Golf, Mijas · 4 bed · 380 m²</span>
-  <span class="pr">1.380.000 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-mijas-costa-r5469349/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/5a81bf2da1d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787811343" alt="Villa in Mijas Costa" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Mijas Costa</span>
-  <span class="meta">Mijas Costa, Mijas · 4 bed · 356 m²</span>
-  <span class="pr">1.295.000 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-mijas-costa-r5463232/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/9007aeae9b8311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787116078" alt="Villa in Mijas Costa" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Mijas Costa</span>
-  <span class="meta">Mijas Costa, Mijas · 3 bed · 310 m²</span>
-  <span class="pr">995.000 €</span>
-</a>
-        <a href="/en/buy/mijas/villa-riviera-del-sol-r5457814/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/c3c66e96954311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786428970" alt="Villa in Riviera del Sol" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Riviera del Sol</span>
-  <span class="meta">Riviera del Sol, Mijas · 4 bed · 152 m²</span>
-  <span class="pr">965.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/en/buy/mijas/villa-la-cala-de-mijas-r5325463/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/43fc760d1d0811f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945924" alt="Villa in La Cala de Mijas" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in La Cala de Mijas</span>
+    <span class="zonaRef">La Cala de Mijas, Mijas &middot; R5325463</span>
+    <span class="meta">4 bed · 3.5 bath · 405 m²</span>
+    <span class="pr">2.245.000 €</span>
   </div>
+</a>
+      <a href="/en/buy/mijas/villa-la-cala-golf-r5234734/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/c1f1fa96cb4e11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945048" alt="Villa in La Cala Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in La Cala Golf</span>
+    <span class="zonaRef">La Cala Golf, Mijas &middot; R5234734</span>
+    <span class="meta">4 bed · 3.5 bath · 470 m²</span>
+    <span class="pr">2.195.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/villa-la-cala-golf-r5318263/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/hku2fpg7p6/properties/afa8904315f511f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788498407" alt="Villa in La Cala Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in La Cala Golf</span>
+    <span class="zonaRef">La Cala Golf, Mijas &middot; R5318263</span>
+    <span class="meta">4 bed · 4 bath · 463 m²</span>
+    <span class="pr">1.899.500 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/villa-mijas-golf-r5274484/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/4759231ff1d911f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787640404" alt="Villa in Mijas Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Mijas Golf</span>
+    <span class="zonaRef">Mijas Golf, Mijas &middot; R5274484</span>
+    <span class="meta">4 bed · 4 bath · 380 m²</span>
+    <span class="pr">1.380.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/villa-mijas-costa-r5469349/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/5a81bf2da1d611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787811343" alt="Villa in Mijas Costa" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Mijas Costa</span>
+    <span class="zonaRef">Mijas Costa, Mijas &middot; R5469349</span>
+    <span class="meta">4 bed · 3.5 bath · 356 m²</span>
+    <span class="pr">1.295.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/villa-mijas-costa-r5463232/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/9007aeae9b8311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787116078" alt="Villa in Mijas Costa" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Mijas Costa</span>
+    <span class="zonaRef">Mijas Costa, Mijas &middot; R5463232</span>
+    <span class="meta">3 bed · 3 bath · 310 m²</span>
+    <span class="pr">995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/mijas/villa-riviera-del-sol-r5457814/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/c3c66e96954311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786428970" alt="Villa in Riviera del Sol" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Riviera del Sol</span>
+    <span class="zonaRef">Riviera del Sol, Mijas &middot; R5457814</span>
+    <span class="meta">4 bed · 3.5 bath · 152 m²</span>
+    <span class="pr">965.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Frequently asked questions</h2>
       <details open><summary>How many properties are for sale in Mijas?</summary><p>W Real Estate lists 7 properties for sale in Mijas of the villas type. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates.</p></details>
       <details><summary>How much does a villa cost in Mijas?</summary><p>Prices in our Mijas selection range from 965.000 € to 2.245.000 €, with a median of 1.380.000 € and an average of 4449 € per built square metre.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Keep looking</h2>
       <div class="grupo">
@@ -333,6 +350,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/en/buy/marbella/">Marbella (196)</a><a href="/en/buy/benahavis/">Benahavís (71)</a><a href="/en/buy/estepona/">Estepona (58)</a><a href="/en/buy/sotogrande/">Sotogrande (16)</a><a href="/en/buy/fuengirola/">Fuengirola (11)</a><a href="/en/buy/casares/">Casares (9)</a><a href="/en/buy/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -342,7 +360,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Luxury real estate agency on the Costa del Sol. Marbella, Estepona, Benahavís and Sotogrande.</p>
     </div>
-    <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+    <nav><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Properties in Marbella","url":"https://wrealestate.es/en/buy/marbella/","numberOfItems":196,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5211253/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5073526/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5360857/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5181508/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5352754/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5442331/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/en/buy/marbella/villa-la-mairena-r5166769/","name":"Villa in La Mairena"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5229859/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/en/buy/marbella/house-marbella-r5232514/","name":"House in Marbella"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/en/buy/marbella/penthouse-nueva-andalucia-r5435302/","name":"Penthouse in Nueva Andalucía"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5400265/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/en/buy/marbella/villa-the-golden-mile-r5461600/","name":"Villa in The Golden Mile"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5452222/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/en/buy/marbella/house-the-golden-mile-r5330080/","name":"House in The Golden Mile"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5365636/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/en/buy/marbella/house-the-golden-mile-r5352748/","name":"House in The Golden Mile"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5391400/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5430715/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/en/buy/marbella/villa-nueva-andalucia-r5391448/","name":"Villa in Nueva Andalucía"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/en/buy/marbella/villa-las-chapas-r5425456/","name":"Villa in Las Chapas"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many properties are for sale in Marbella?","acceptedAnswer":{"@type":"Answer","text":"W Real Estate lists 196 properties for sale in Marbella. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates."}},{"@type":"Question","name":"How much does a property cost in Marbella?","acceptedAnswer":{"@type":"Answer","text":"Prices in our Marbella selection range from 500.000 € to 19.995.000 €, with a median of 1.495.000 € and an average of 7673 € per built square metre."}},{"@type":"Question","name":"What property types are available in Marbella?","acceptedAnswer":{"@type":"Answer","text":"The current offer breaks down into 85 apartments, 55 villas, 35 houses, 9 penthouses, 7 commercial premises, 5 plots."}},{"@type":"Question","name":"How can I view one of these properties?","acceptedAnswer":{"@type":"Answer","text":"You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English."}}]}</script>
@@ -211,13 +216,13 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a></nav>
+  <nav class="izq"><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/#zonas">Areas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
   <a class="marca" href="/en/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
     <img class="logo tinta" src="/w-logo-tinta.png" alt="W Real Estate" width="123" height="105">
   </a>
-  <nav class="der"><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a>
+  <nav class="der"><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a>
     <span class="sep"></span>
     <a class="tel" href="tel:+34623798619">+34 623 79 86 19</a>
     <span class="idi"><a class="on" href="/comprar/marbella/" hreflang="es">ES</a><span class="barra">|</span><a class="on" href="#" hreflang="en">EN</a></span>
@@ -228,342 +233,478 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Close</button>
   </div>
-  <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/en/areas/">Areas</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+  <nav><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/#zonas">Areas</a><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/comprar/marbella/">Español</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="Properties in Marbella" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/en/">Home</a> ·
-        <a href="/en/buy/">Buy</a>
-      </nav>
-      <h1>Properties in Marbella</h1>
-      <span class="zona">Showing 48 of 196 properties.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Buy</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Properties in Marbella</h1>
+      </div>
+      <span class="cuenta">Showing 48 of 196 properties.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">196</span><span class="k">properties</span></div>
-        <div><span class="v">500.000 €</span><span class="k">From</span></div>
-        <div><span class="v">19.995.000 €</span><span class="k">to</span></div>
-        <div><span class="v">1.495.000 €</span><span class="k">Average price</span></div>
-        <div><span class="v">7673 €</span><span class="k">Average per built m²</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">196</span><span class="k">properties</span></div>
+      <div><span class="v">500.000 €</span><span class="k">From</span></div>
+      <div><span class="v">19.995.000 €</span><span class="k">to</span></div>
+      <div><span class="v">1.495.000 €</span><span class="k">Average price</span></div>
+      <div><span class="v">7673 €</span><span class="k">Average per built m²</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">About the area</span>
-      <p>Marbella holds the widest and most liquid market on the Costa del Sol: from apartments in the old town to villas in Sierra Blanca or on the Golden Mile. It attracts the most international buyers, sits closest to Málaga airport and is the only market on the coast with steady demand all year round.</p></div>
+    <div class="texto"><p>Marbella holds the widest and most liquid market on the Costa del Sol: from apartments in the old town to villas in Sierra Blanca or on the Golden Mile. It attracts the most international buyers, sits closest to Málaga airport and is the only market on the coast with steady demand all year round.</p></div>
 
-      <div class="rejP">
-        <a href="/en/buy/marbella/villa-the-golden-mile-r5211253/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 20 bed · 1785 m²</span>
-  <span class="pr">19.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-the-golden-mile-r5073526/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/986c0e184bfe11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753335744" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 14 bed · 2100 m²</span>
-  <span class="pr">19.850.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-the-golden-mile-r5360857/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/cdb897203ae011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946991" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 5 bed · 802 m²</span>
-  <span class="pr">13.500.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5181508/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 701 m²</span>
-  <span class="pr">11.180.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5352754/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/875ea0e6330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949693" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 603 m²</span>
-  <span class="pr">10.850.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5442331/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/d86d84ad84bb11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788499430" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 1112 m²</span>
-  <span class="pr">10.500.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-la-mairena-r5166769/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/346a93da95dc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947698" alt="Villa in La Mairena" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in La Mairena</span>
-  <span class="meta">La Mairena, Marbella · 7 bed · 1254 m²</span>
-  <span class="pr">9.000.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5229859/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/bb29e73dc69c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948094" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 712 m²</span>
-  <span class="pr">8.950.000 €</span>
-</a>
-        <a href="/en/buy/marbella/house-marbella-r5232514/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/cb1d7b84c95611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1764007234" alt="House in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in Marbella</span>
-  <span class="meta">Marbella · 4 bed · 693 m²</span>
-  <span class="pr">7.500.000 €</span>
-</a>
-        <a href="/en/buy/marbella/penthouse-nueva-andalucia-r5435302/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Penthouse in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Penthouse in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 576 m²</span>
-  <span class="pr">6.900.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5400265/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/54cef0c95e3d11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780378893" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 1782 m²</span>
-  <span class="pr">6.900.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-the-golden-mile-r5461600/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/e892a19c986011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788499454" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 5 bed · 836 m²</span>
-  <span class="pr">6.500.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5452222/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/4574ac458f3c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785766045" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 680 m²</span>
-  <span class="pr">6.475.000 €</span>
-</a>
-        <a href="/en/buy/marbella/house-the-golden-mile-r5330080/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/38790f6d1e9f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948433" alt="House in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 bed · 373 m²</span>
-  <span class="pr">6.300.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5365636/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/af5dd8773f9c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949644" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 1440 m²</span>
-  <span class="pr">6.000.000 €</span>
-</a>
-        <a href="/en/buy/marbella/house-the-golden-mile-r5352748/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/74edfe52330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949332" alt="House in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">House in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 bed · 194 m²</span>
-  <span class="pr">5.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5391400/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/8eece244565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949738" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 bed · 480 m²</span>
-  <span class="pr">5.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5430715/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/70b25dc7769911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783057281" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 455 m²</span>
-  <span class="pr">5.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5391448/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/cfc78ce1565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951190" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 4 bed · 408 m²</span>
-  <span class="pr">5.975.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-las-chapas-r5425456/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/4fb62cdb711911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782452494" alt="Villa in Las Chapas" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Las Chapas</span>
-  <span class="meta">Las Chapas, Marbella · 6 bed · 987 m²</span>
-  <span class="pr">5.900.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-san-pedro-de-alcantara-r5348671/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="Villa in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 bed · 460 m²</span>
-  <span class="pr">5.850.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5481826/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/adc13768ac0811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932469" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 532 m²</span>
-  <span class="pr">5.695.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r4980175/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/40c392f5fbfe11ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1741529396" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 7 bed · 1133 m²</span>
-  <span class="pr">5.595.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-guadalmina-baja-r358789/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/fscrmlopdlwvxuy/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951220" alt="Villa in Guadalmina Baja" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Guadalmina Baja</span>
-  <span class="meta">Guadalmina Baja, Marbella · 6 bed · 700 m²</span>
-  <span class="pr">5.500.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-sierra-blanca-r5435704/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Villa in Sierra Blanca" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Sierra Blanca</span>
-  <span class="meta">Sierra Blanca, Marbella · 6 bed · 413 m²</span>
-  <span class="pr">5.490.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-aloha-r5127520/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/jja1jz8h5h/properties/bdee795d71b111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779944948" alt="Villa in Aloha" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Aloha</span>
-  <span class="meta">Aloha, Marbella · 7 bed · 710 m²</span>
-  <span class="pr">4.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-cabopino-r3834277/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Villa in Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 8 bed · 700 m²</span>
-  <span class="pr">4.750.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-the-golden-mile-r4975243/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/0cab2e5ef8c011ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949072" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 4 bed · 337 m²</span>
-  <span class="pr">4.500.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-the-golden-mile-r5472712/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/bb361db0a5bf11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788241432" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 bed · 136 m²</span>
-  <span class="pr">4.495.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r4802620/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/714e66e9554311ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950544" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 759 m²</span>
-  <span class="pr">4.375.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-aloha-r5066296/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/2b0ea6d56d7f11eea6080217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949419" alt="Apartment in Aloha" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Aloha</span>
-  <span class="meta">Aloha, Marbella · 7 bed · 501 m²</span>
-  <span class="pr">4.300.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-the-golden-mile-r4973467/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/7fe3d654f59b11ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949173" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 4 bed · 286 m²</span>
-  <span class="pr">4.300.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5232697/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/20de253cc9bf11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949215" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 484 m²</span>
-  <span class="pr">4.290.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-marbella-r5384053/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/722ae5b550e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785390105" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Marbella</span>
-  <span class="meta">Marbella, Marbella · 3 bed · 252 m²</span>
-  <span class="pr">4.250.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5141164/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/490b8bdf7f1211f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949749" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 7 bed · 913 m²</span>
-  <span class="pr">4.200.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-marbella-r5104507/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/1c07d07e589111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948997" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Marbella</span>
-  <span class="meta">Marbella · 4 bed · 654 m²</span>
-  <span class="pr">4.050.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5383045/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/572486d0501811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033750" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 539 m²</span>
-  <span class="pr">3.995.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-nueva-andalucia-r5253520/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/d0f7b21ad9e411f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1765827323" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 bed · 407 m²</span>
-  <span class="pr">3.950.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-the-golden-mile-r5041411/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/cd1c27ce307d11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 bed · 136 m²</span>
-  <span class="pr">3.850.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5366833/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/7cfd9dfd421b11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1777286228" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 588 m²</span>
-  <span class="pr">3.850.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-elviria-r5322091/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/le17760puz/properties/1da4649b191f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947799" alt="Villa in Elviria" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Elviria</span>
-  <span class="meta">Elviria, Marbella · 5 bed · 713 m²</span>
-  <span class="pr">3.749.900 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-marbella-r5440210/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/b4a55cf780d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787035146" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Marbella</span>
-  <span class="meta">Marbella · 5 bed · 345 m²</span>
-  <span class="pr">3.695.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-guadalmina-baja-r5209114/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/j50iqa74vg/properties/d8df5378b40711f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1762862390" alt="Villa in Guadalmina Baja" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Guadalmina Baja</span>
-  <span class="meta">Guadalmina Baja, Marbella · 6 bed · 529 m²</span>
-  <span class="pr">3.450.000 €</span>
-</a>
-        <a href="/en/buy/marbella/villa-nueva-andalucia-r5441551/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/5ab445fe826011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784352177" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Villa in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 6 bed · 497 m²</span>
-  <span class="pr">3.395.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-the-golden-mile-r5411896/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/c6462fcf654f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781156472" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 1 bed · 120 m²</span>
-  <span class="pr">3.250.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-nueva-andalucia-r5470438/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0cmt8h9yhx/properties/d514e002a22611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787845909" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 bed · 361 m²</span>
-  <span class="pr">3.250.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-the-golden-mile-r5426380/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/3f1a205071e711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782540943" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in The Golden Mile</span>
-  <span class="meta">The Golden Mile, Marbella · 3 bed · 193 m²</span>
-  <span class="pr">3.200.000 €</span>
-</a>
-        <a href="/en/buy/marbella/apartment-puerto-banus-r5395744/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Apartment in Puerto Banús" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Apartment in Puerto Banús</span>
-  <span class="meta">Puerto Banús, Marbella · 3 bed · 275 m²</span>
-  <span class="pr">3.195.000 €</span>
-</a>
-      </div>
-      <p style="margin-top:30px"><a class="btn sec" style="display:inline-block" href="/?pagina=comprar">See the rest in the search (148)</a></p>
-    </section>
+    <div class="rejP">
+      <a href="/en/buy/marbella/villa-the-golden-mile-r5211253/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/249ed39fb55311f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950040" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5211253</span>
+    <span class="meta">20 bed · 21 bath · 1785 m²</span>
+    <span class="pr">19.995.000 €</span>
   </div>
+</a>
+      <a href="/en/buy/marbella/villa-the-golden-mile-r5073526/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/986c0e184bfe11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1753335744" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5073526</span>
+    <span class="meta">14 bed · 12 bath · 2100 m²</span>
+    <span class="pr">19.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-the-golden-mile-r5360857/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/cdb897203ae011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946991" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5360857</span>
+    <span class="meta">5 bed · 7 bath · 802 m²</span>
+    <span class="pr">13.500.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5181508/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5181508</span>
+    <span class="meta">6 bed · 7 bath · 701 m²</span>
+    <span class="pr">11.180.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5352754/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/875ea0e6330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949693" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5352754</span>
+    <span class="meta">6 bed · 7.5 bath · 603 m²</span>
+    <span class="pr">10.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5442331/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/d86d84ad84bb11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788499430" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5442331</span>
+    <span class="meta">6 bed · 8 bath · 1112 m²</span>
+    <span class="pr">10.500.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-la-mairena-r5166769/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/346a93da95dc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947698" alt="Villa in La Mairena" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in La Mairena</span>
+    <span class="zonaRef">La Mairena, Marbella &middot; R5166769</span>
+    <span class="meta">7 bed · 8.5 bath · 1254 m²</span>
+    <span class="pr">9.000.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5229859/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/bb29e73dc69c11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948094" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5229859</span>
+    <span class="meta">6 bed · 7 bath · 712 m²</span>
+    <span class="pr">8.950.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/house-marbella-r5232514/">
+  <div class="foto"><span class="sel">Semi-Detached House</span><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/cb1d7b84c95611f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1764007234" alt="House in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5232514</span>
+    <span class="meta">4 bed · 5 bath · 693 m²</span>
+    <span class="pr">7.500.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/penthouse-nueva-andalucia-r5435302/">
+  <div class="foto"><span class="sel">Penthouse</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Penthouse in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Penthouse in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5435302</span>
+    <span class="meta">5 bed · 5.5 bath · 576 m²</span>
+    <span class="pr">6.900.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5400265/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/54cef0c95e3d11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780378893" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5400265</span>
+    <span class="meta">6 bed · 8 bath · 1782 m²</span>
+    <span class="pr">6.900.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-the-golden-mile-r5461600/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/e892a19c986011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788499454" alt="Villa in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5461600</span>
+    <span class="meta">5 bed · 6.5 bath · 836 m²</span>
+    <span class="pr">6.500.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5452222/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/4574ac458f3c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785766045" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5452222</span>
+    <span class="meta">6 bed · 7 bath · 680 m²</span>
+    <span class="pr">6.475.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/house-the-golden-mile-r5330080/">
+  <div class="foto"><span class="sel">Semi-Detached House</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/38790f6d1e9f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948433" alt="House in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5330080</span>
+    <span class="meta">3 bed · 4.5 bath · 373 m²</span>
+    <span class="pr">6.300.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5365636/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/6ocoehzhpl/properties/af5dd8773f9c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949644" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5365636</span>
+    <span class="meta">6 bed · 6.5 bath · 1440 m²</span>
+    <span class="pr">6.000.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/house-the-golden-mile-r5352748/">
+  <div class="foto"><span class="sel">Semi-Detached House</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/74edfe52330211f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949332" alt="House in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">House in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5352748</span>
+    <span class="meta">3 bed · 3.5 bath · 194 m²</span>
+    <span class="pr">5.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5391400/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/8eece244565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949738" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5391400</span>
+    <span class="meta">4 bed · 5 bath · 480 m²</span>
+    <span class="pr">5.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5430715/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/70b25dc7769911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783057281" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5430715</span>
+    <span class="meta">5 bed · 5.5 bath · 455 m²</span>
+    <span class="pr">5.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5391448/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/cfc78ce1565f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951190" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5391448</span>
+    <span class="meta">4 bed · 5.5 bath · 408 m²</span>
+    <span class="pr">5.975.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-las-chapas-r5425456/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/4fb62cdb711911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782452494" alt="Villa in Las Chapas" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Las Chapas</span>
+    <span class="zonaRef">Las Chapas, Marbella &middot; R5425456</span>
+    <span class="meta">6 bed · 5 bath · 987 m²</span>
+    <span class="pr">5.900.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-san-pedro-de-alcantara-r5348671/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/156ea8de2e5511f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108355" alt="Villa in San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5348671</span>
+    <span class="meta">4 bed · 4 bath · 460 m²</span>
+    <span class="pr">5.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5481826/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/adc13768ac0811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788932469" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5481826</span>
+    <span class="meta">5 bed · 5.5 bath · 532 m²</span>
+    <span class="pr">5.695.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r4980175/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/hmvml88gqh/properties/40c392f5fbfe11ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1741529396" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R4980175</span>
+    <span class="meta">7 bed · 8 bath · 1133 m²</span>
+    <span class="pr">5.595.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-guadalmina-baja-r358789/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/fscrmlopdlwvxuy/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951220" alt="Villa in Guadalmina Baja" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Guadalmina Baja</span>
+    <span class="zonaRef">Guadalmina Baja, Marbella &middot; R358789</span>
+    <span class="meta">6 bed · 6 bath · 700 m²</span>
+    <span class="pr">5.500.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-sierra-blanca-r5435704/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/55559bdb7c2311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783666262" alt="Villa in Sierra Blanca" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Sierra Blanca</span>
+    <span class="zonaRef">Sierra Blanca, Marbella &middot; R5435704</span>
+    <span class="meta">6 bed · 7 bath · 413 m²</span>
+    <span class="pr">5.490.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-aloha-r5127520/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/jja1jz8h5h/properties/bdee795d71b111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779944948" alt="Villa in Aloha" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Aloha</span>
+    <span class="zonaRef">Aloha, Marbella &middot; R5127520</span>
+    <span class="meta">7 bed · 8 bath · 710 m²</span>
+    <span class="pr">4.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-cabopino-r3834277/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/cui4rrlvpu/properties/dweybcwcimkljii/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1617788780" alt="Villa in Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R3834277</span>
+    <span class="meta">8 bed · 10 bath · 700 m²</span>
+    <span class="pr">4.750.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-the-golden-mile-r4975243/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/0cab2e5ef8c011ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949072" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R4975243</span>
+    <span class="meta">4 bed · 4.5 bath · 337 m²</span>
+    <span class="pr">4.500.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-the-golden-mile-r5472712/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/bb361db0a5bf11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788241432" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5472712</span>
+    <span class="meta">3 bed · 3 bath · 136 m²</span>
+    <span class="pr">4.495.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r4802620/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/714e66e9554311ef857e0217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779950544" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R4802620</span>
+    <span class="meta">5 bed · 4 bath · 759 m²</span>
+    <span class="pr">4.375.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-aloha-r5066296/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/2b0ea6d56d7f11eea6080217bc231ef4/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949419" alt="Apartment in Aloha" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Aloha</span>
+    <span class="zonaRef">Aloha, Marbella &middot; R5066296</span>
+    <span class="meta">7 bed · 5.5 bath · 501 m²</span>
+    <span class="pr">4.300.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-the-golden-mile-r4973467/">
+  <div class="foto"><span class="sel">Ground Floor Apartment</span><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/7fe3d654f59b11ef8cfb02e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949173" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R4973467</span>
+    <span class="meta">4 bed · 4 bath · 286 m²</span>
+    <span class="pr">4.300.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5232697/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/20de253cc9bf11f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949215" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5232697</span>
+    <span class="meta">6 bed · 6 bath · 484 m²</span>
+    <span class="pr">4.290.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-marbella-r5384053/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/722ae5b550e111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785390105" alt="Apartment in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Marbella</span>
+    <span class="zonaRef">Marbella, Marbella &middot; R5384053</span>
+    <span class="meta">3 bed · 3.5 bath · 252 m²</span>
+    <span class="pr">4.250.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5141164/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/490b8bdf7f1211f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949749" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5141164</span>
+    <span class="meta">7 bed · 5.5 bath · 913 m²</span>
+    <span class="pr">4.200.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-marbella-r5104507/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/1c07d07e589111f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779948997" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5104507</span>
+    <span class="meta">4 bed · 4.5 bath · 654 m²</span>
+    <span class="pr">4.050.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5383045/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/572486d0501811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1780033750" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5383045</span>
+    <span class="meta">6 bed · 6 bath · 539 m²</span>
+    <span class="pr">3.995.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-nueva-andalucia-r5253520/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/ud1c46n7d0/properties/d0f7b21ad9e411f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1765827323" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5253520</span>
+    <span class="meta">3 bed · 3.5 bath · 407 m²</span>
+    <span class="pr">3.950.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-the-golden-mile-r5041411/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/cd1c27ce307d11f0ad0102e0405b089b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947797" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5041411</span>
+    <span class="meta">3 bed · 3 bath · 136 m²</span>
+    <span class="pr">3.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5366833/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/q8utmqvecj/properties/7cfd9dfd421b11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1777286228" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5366833</span>
+    <span class="meta">5 bed · 4 bath · 588 m²</span>
+    <span class="pr">3.850.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-elviria-r5322091/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/le17760puz/properties/1da4649b191f11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947799" alt="Villa in Elviria" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Elviria</span>
+    <span class="zonaRef">Elviria, Marbella &middot; R5322091</span>
+    <span class="meta">5 bed · 5.5 bath · 713 m²</span>
+    <span class="pr">3.749.900 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-marbella-r5440210/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/b4a55cf780d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787035146" alt="Villa in Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5440210</span>
+    <span class="meta">5 bed · 4 bath · 345 m²</span>
+    <span class="pr">3.695.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-guadalmina-baja-r5209114/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/j50iqa74vg/properties/d8df5378b40711f09ebd02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1762862390" alt="Villa in Guadalmina Baja" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Guadalmina Baja</span>
+    <span class="zonaRef">Guadalmina Baja, Marbella &middot; R5209114</span>
+    <span class="meta">6 bed · 6.5 bath · 529 m²</span>
+    <span class="pr">3.450.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/villa-nueva-andalucia-r5441551/">
+  <div class="foto"><span class="sel">Detached Villa</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/5ab445fe826011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784352177" alt="Villa in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Villa in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5441551</span>
+    <span class="meta">6 bed · 5 bath · 497 m²</span>
+    <span class="pr">3.395.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-the-golden-mile-r5411896/">
+  <div class="foto"><span class="sel">Middle Floor Apartment</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/c6462fcf654f11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1781156472" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5411896</span>
+    <span class="meta">1 bed · 1.5 bath · 120 m²</span>
+    <span class="pr">3.250.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-nueva-andalucia-r5470438/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/0cmt8h9yhx/properties/d514e002a22611f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787845909" alt="Apartment in Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5470438</span>
+    <span class="meta">5 bed · 4.5 bath · 361 m²</span>
+    <span class="pr">3.250.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-the-golden-mile-r5426380/">
+  <div class="foto"><span class="sel">Penthouse Duplex</span><img src="https://cdn.resales-online.com/public/tm8eedgw27/properties/3f1a205071e711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782540943" alt="Apartment in The Golden Mile" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in The Golden Mile</span>
+    <span class="zonaRef">The Golden Mile, Marbella &middot; R5426380</span>
+    <span class="meta">3 bed · 3.5 bath · 193 m²</span>
+    <span class="pr">3.200.000 €</span>
+  </div>
+</a>
+      <a href="/en/buy/marbella/apartment-puerto-banus-r5395744/">
+  <div class="foto"><span class="sel">Duplex</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/3e6d3a895a7011f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779960955" alt="Apartment in Puerto Banús" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Apartment in Puerto Banús</span>
+    <span class="zonaRef">Puerto Banús, Marbella &middot; R5395744</span>
+    <span class="meta">3 bed · 3 bath · 275 m²</span>
+    <span class="pr">3.195.000 €</span>
+  </div>
+</a>
+    </div>
+    <p style="margin-top:34px"><a class="btn sec" style="display:inline-block" href="/en/?pagina=comprar">See the rest in the search (148)</a></p>
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Frequently asked questions</h2>
       <details open><summary>How many properties are for sale in Marbella?</summary><p>W Real Estate lists 196 properties for sale in Marbella. The catalogue is updated daily from the Costa del Sol agency network and from our own exclusive mandates.</p></details>
       <details><summary>How much does a property cost in Marbella?</summary><p>Prices in our Marbella selection range from 500.000 € to 19.995.000 €, with a median of 1.495.000 € and an average of 7673 € per built square metre.</p></details>
       <details><summary>What property types are available in Marbella?</summary><p>The current offer breaks down into 85 apartments, 55 villas, 35 houses, 9 penthouses, 7 commercial premises, 5 plots.</p></details>
       <details><summary>How can I view one of these properties?</summary><p>You can book a viewing or request information from each property page. You can also call or message on WhatsApp at +34 623 79 86 19, or visit the office at Av. del Carmen 5, Estepona. We work in Spanish and English.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Keep looking</h2>
       <div class="grupo">
@@ -579,6 +720,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/en/buy/benahavis/">Benahavís (71)</a><a href="/en/buy/estepona/">Estepona (58)</a><a href="/en/buy/mijas/">Mijas (28)</a><a href="/en/buy/sotogrande/">Sotogrande (16)</a><a href="/en/buy/fuengirola/">Fuengirola (11)</a><a href="/en/buy/casares/">Casares (9)</a><a href="/en/buy/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -588,7 +730,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Luxury real estate agency on the Costa del Sol. Marbella, Estepona, Benahavís and Sotogrande.</p>
     </div>
-    <nav><a href="/en/buy/">Buy</a><a href="/?pagina=vender">Sell</a><a href="/?pagina=nosotros">About</a><a href="/?pagina=contacto">Contact</a></nav>
+    <nav><a href="/en/?pagina=comprar">Buy</a><a href="/en/?pagina=vender">Sell</a><a href="/en/?pagina=nosotros">About</a><a href="/en/?pagina=contacto">Contact</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>

@@ -168,24 +168,31 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
-.listado{padding:clamp(34px,4vw,58px) 0}
-.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,32px)}
-.rejP a{display:flex;flex-direction:column}
-.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--champan)}
+.paginaLista{background:#fff;min-height:100vh;padding:calc(92px + clamp(34px,4.6vw,66px)) 6vw clamp(70px,9vw,130px)}
+.paginaLista .dentro{max-width:1360px;margin:0 auto}
+.encabezado{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,3.4vw,48px)}
+.encabezado .linea{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.encabezado .linea span.raya{width:44px;height:1px;background:rgba(122,32,39,.4)}
+.encabezado h1{margin:0;font-size:clamp(34px,4.4vw,62px);line-height:1.04}
+.encabezado .cuenta{font-size:13.5px;color:var(--gris2)}
+.rejP{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)}
+.rejP a{display:flex;flex-direction:column;gap:16px}
+.rejP .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9}
 .rejP .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.rejP a:hover .foto img{transform:scale(1.05)}
-.rejP .sel{position:absolute;top:11px;left:11px;padding:5px 10px;background:rgba(255,255,255,.94);color:var(--burdeos);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.rejP .nom{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.2;margin-top:13px}
-.rejP .meta{font-size:13px;color:var(--gris);margin-top:5px}
-.rejP .pr{font-size:15.5px;font-weight:700;margin-top:7px}
+.rejP a:hover .foto img{transform:scale(1.06)}
+.rejP .sel{position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.rejP .datos{display:flex;flex-direction:column;gap:9px}
+.rejP .nom{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.15}
+.rejP .zonaRef{font-size:13.5px;color:var(--gris)}
+.rejP .meta{font-size:13px;color:var(--gris2)}
+.rejP .pr{font-size:16px;font-weight:700;margin-top:4px}
 .resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--linea);margin:0 0 clamp(30px,3.4vw,46px)}
 .resumen div{background:#fff;padding:18px 20px 16px}
 .resumen .v{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--burdeos)}
 .resumen .k{font-size:11.5px;color:var(--gris2);margin-top:8px;line-height:1.4}
-.texto{max-width:68ch;padding:0 0 clamp(34px,4vw,54px)}
+.texto{max-width:68ch;margin:0 0 clamp(34px,4vw,54px)}
 .texto p{color:var(--gris);line-height:1.95;margin:0 0 14px}
-.faq{background:var(--champan);padding:clamp(40px,5vw,72px) 6vw}
-.faq .env{padding:0}
+.faq{margin:clamp(50px,6vw,90px) 0 0;padding:clamp(34px,4vw,56px) clamp(24px,3vw,44px);background:var(--champan)}
 .faq h2{font-size:clamp(24px,3vw,38px);margin-bottom:22px}
 .faq details{border-top:1px solid rgba(30,26,23,.16);padding:16px 0}
 .faq summary{cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
@@ -193,16 +200,14 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .faq summary::after{content:'+';color:var(--burdeos);font-size:20px;line-height:1}
 .faq details[open] summary::after{content:'−'}
 .faq p{color:var(--gris);margin:12px 0 0;max-width:64ch;line-height:1.9}
-.enlaces{padding:clamp(40px,5vw,70px) 0}
+.enlaces{margin-top:clamp(44px,5vw,76px);border-top:1px solid var(--linea);padding-top:clamp(30px,3.4vw,46px)}
 .enlaces h2{font-size:clamp(21px,2.4vw,30px);margin-bottom:18px}
 .grupo{margin-bottom:26px}
 .grupo .eyebrow{display:block;margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-.cintaHero{position:relative;height:clamp(340px,46vh,460px)!important;min-height:0!important;overflow:hidden;background:var(--carbon)}
-.cintaHero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Áticos en venta","url":"https://wrealestate.es/comprar/aticos/","numberOfItems":21,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/marbella/atico-nueva-andalucia-r5435302/","name":"Ático en Nueva Andalucía"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/marbella/atico-nueva-andalucia-r5174104/","name":"Ático en Nueva Andalucía"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/marbella/atico-marbella-r5390392/","name":"Ático en Marbella"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/marbella/atico-san-pedro-de-alcantara-r5433085/","name":"Ático en San Pedro de Alcántara"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/marbella/atico-marbella-r5294920/","name":"Ático en Marbella"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/benahavis/atico-la-quinta-r5155387/","name":"Ático en La Quinta"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/benahavis/atico-los-arqueros-r5407207/","name":"Ático en Los Arqueros"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/marbella/atico-cabopino-r5366254/","name":"Ático en Cabopino"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/marbella/atico-bel-air-r5335543/","name":"Ático en Bel Air"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/estepona/atico-el-paraiso-r5353594/","name":"Ático en El Paraiso"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/estepona/atico-atalaya-r5443516/","name":"Ático en Atalaya"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/estepona/atico-atalaya-r5462305/","name":"Ático en Atalaya"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/fuengirola/atico-fuengirola-r5425393/","name":"Ático en Fuengirola"},{"@type":"ListItem","position":14,"url":"https://wrealestate.es/comprar/mijas/atico-la-cala-golf-r5388241/","name":"Ático en La Cala Golf"},{"@type":"ListItem","position":15,"url":"https://wrealestate.es/comprar/marbella/atico-nueva-andalucia-r5417230/","name":"Ático en Nueva Andalucía"},{"@type":"ListItem","position":16,"url":"https://wrealestate.es/comprar/mijas/atico-la-cala-golf-r5433946/","name":"Ático en La Cala Golf"},{"@type":"ListItem","position":17,"url":"https://wrealestate.es/comprar/fuengirola/atico-fuengirola-r5432974/","name":"Ático en Fuengirola"},{"@type":"ListItem","position":18,"url":"https://wrealestate.es/comprar/mijas/atico-calahonda-r5440219/","name":"Ático en Calahonda"},{"@type":"ListItem","position":19,"url":"https://wrealestate.es/comprar/estepona/atico-estepona-r5288104/","name":"Ático en Estepona"},{"@type":"ListItem","position":20,"url":"https://wrealestate.es/comprar/marbella/atico-san-pedro-de-alcantara-r5439235/","name":"Ático en San Pedro de Alcántara"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
@@ -211,7 +216,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 <body>
 
 <header class="cab" id="cab">
-  <nav class="izq"><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a></nav>
+  <nav class="izq"><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a></nav>
   <button class="menuBtn" id="menuBtn" type="button" aria-label="Menú"><span></span><span></span></button>
   <a class="marca" href="/" aria-label="W Real Estate">
     <img class="logo claro" src="/w-logo-claro.png" alt="W Real Estate" width="123" height="105">
@@ -228,177 +233,232 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     <img src="/w-logo-claro.png" alt="W Real Estate" width="94" height="80">
     <button class="cerrarM" type="button" id="menuCerrar">Cerrar</button>
   </div>
-  <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/zonas/">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+  <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/#zonas">Zonas</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
   <div class="pieM"><a href="tel:+34623798619">+34 623 79 86 19</a><a href="/en/buy/penthouses/">English</a></div>
 </div>
 
-<main>
-  <section class="hero cintaHero">
-    <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Áticos en venta" fetchpriority="high" width="1600" height="900">
-    <div class="velo"></div>
-    <div class="heroTxt">
-      <nav class="miga">
-        <a href="/">Inicio</a> ·
-        <a href="/comprar/">Comprar</a>
-      </nav>
-      <h1>Áticos en venta</h1>
-      <span class="zona">21 propiedades disponibles.</span>
+<main class="paginaLista">
+  <div class="dentro">
+
+    <div class="encabezado">
+      <div>
+        <div class="linea">
+          <span class="eyebrow">Comprar</span>
+          <span class="raya"></span>
+        </div>
+        <h1>Áticos en venta</h1>
+      </div>
+      <span class="cuenta">21 propiedades disponibles.</span>
     </div>
-  </section>
 
-  <div class="env">
-    <section class="listado">
-      <div class="resumen">
-        <div><span class="v">21</span><span class="k">propiedades</span></div>
-        <div><span class="v">560.000 €</span><span class="k">Desde</span></div>
-        <div><span class="v">6.900.000 €</span><span class="k">hasta</span></div>
-        <div><span class="v">895.000 €</span><span class="k">Precio medio</span></div>
-        <div><span class="v">7757 €</span><span class="k">Media por m² construido</span></div>
-      </div>
+    <div class="resumen">
+      <div><span class="v">21</span><span class="k">propiedades</span></div>
+      <div><span class="v">560.000 €</span><span class="k">Desde</span></div>
+      <div><span class="v">6.900.000 €</span><span class="k">hasta</span></div>
+      <div><span class="v">895.000 €</span><span class="k">Precio medio</span></div>
+      <div><span class="v">7757 €</span><span class="k">Media por m² construido</span></div>
+    </div>
 
-      <div class="texto"><span class="eyebrow">Sobre la zona</span>
-      <p>W Real Estate reúne en un solo catálogo la oferta de la red de agencias de la Costa del Sol y sus propias exclusivas, desde Málaga capital hasta Sotogrande. Cada propiedad se revisa antes de publicarse: descartamos las que llegan con fotos de mala calidad o con datos incompletos.</p></div>
+    <div class="texto"><p>W Real Estate reúne en un solo catálogo la oferta de la red de agencias de la Costa del Sol y sus propias exclusivas, desde Málaga capital hasta Sotogrande. Cada propiedad se revisa antes de publicarse: descartamos las que llegan con fotos de mala calidad o con datos incompletos.</p></div>
 
-      <div class="rejP">
-        <a href="/comprar/marbella/atico-nueva-andalucia-r5435302/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 5 dorm · 576 m²</span>
-  <span class="pr">6.900.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-nueva-andalucia-r5174104/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/779050089dbc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949692" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 173 m²</span>
-  <span class="pr">2.450.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-marbella-r5390392/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/4bbd4a3555b711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779441980" alt="Ático en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Marbella</span>
-  <span class="meta">Marbella · 2 dorm · 109 m²</span>
-  <span class="pr">1.950.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-san-pedro-de-alcantara-r5433085/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/9f169a5c79f411f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783426297" alt="Ático en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 4 dorm · 230 m²</span>
-  <span class="pr">1.750.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-marbella-r5294920/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/f8d2491cfd9911f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945811" alt="Ático en Marbella" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Marbella</span>
-  <span class="meta">Marbella · 3 dorm · 247 m²</span>
-  <span class="pr">1.499.000 €</span>
-</a>
-        <a href="/comprar/benahavis/atico-la-quinta-r5155387/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/5c56d95b8d3711f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951497" alt="Ático en La Quinta" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en La Quinta</span>
-  <span class="meta">La Quinta, Benahavís · 4 dorm · 154 m²</span>
-  <span class="pr">1.300.000 €</span>
-</a>
-        <a href="/comprar/benahavis/atico-los-arqueros-r5407207/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/sdgb87dcla/properties/50b83e9660da11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788968800" alt="Ático en Los Arqueros" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Los Arqueros</span>
-  <span class="meta">Los Arqueros, Benahavís · 2 dorm · 130 m²</span>
-  <span class="pr">1.150.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-cabopino-r5366254/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/6141df0a405c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946084" alt="Ático en Cabopino" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Cabopino</span>
-  <span class="meta">Cabopino, Marbella · 3 dorm · 290 m²</span>
-  <span class="pr">1.050.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-bel-air-r5335543/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/e3b4c1fc220d11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946236" alt="Ático en Bel Air" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Bel Air</span>
-  <span class="meta">Bel Air, Marbella · 3 dorm · 154 m²</span>
-  <span class="pr">995.000 €</span>
-</a>
-        <a href="/comprar/estepona/atico-el-paraiso-r5353594/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/b9d0e312335111f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946704" alt="Ático en El Paraiso" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en El Paraiso</span>
-  <span class="meta">El Paraiso, Estepona · 3 dorm · 143 m²</span>
-  <span class="pr">899.000 €</span>
-</a>
-        <a href="/comprar/estepona/atico-atalaya-r5443516/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/aacf951c84fe11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786012864" alt="Ático en Atalaya" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Atalaya</span>
-  <span class="meta">Atalaya, Estepona · 3 dorm · 169 m²</span>
-  <span class="pr">895.000 €</span>
-</a>
-        <a href="/comprar/estepona/atico-atalaya-r5462305/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/cdugn808as/properties/748610eb9a3211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787069290" alt="Ático en Atalaya" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Atalaya</span>
-  <span class="meta">Atalaya, Estepona · 2 dorm · 88 m²</span>
-  <span class="pr">895.000 €</span>
-</a>
-        <a href="/comprar/fuengirola/atico-fuengirola-r5425393/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/387e3cd7711711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782451597" alt="Ático en Fuengirola" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Fuengirola</span>
-  <span class="meta">Fuengirola, Fuengirola · 2 dorm · 84 m²</span>
-  <span class="pr">775.000 €</span>
-</a>
-        <a href="/comprar/mijas/atico-la-cala-golf-r5388241/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d49851a540111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789189681" alt="Ático en La Cala Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en La Cala Golf</span>
-  <span class="meta">La Cala Golf, Mijas · 3 dorm · 102 m²</span>
-  <span class="pr">725.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-nueva-andalucia-r5417230/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/v3ii8gsn5j/properties/e32fd195693811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786511298" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Nueva Andalucía</span>
-  <span class="meta">Nueva Andalucía, Marbella · 3 dorm · 106 m²</span>
-  <span class="pr">695.000 €</span>
-</a>
-        <a href="/comprar/mijas/atico-la-cala-golf-r5433946/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/0f0c9bd67ad811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783523981" alt="Ático en La Cala Golf" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en La Cala Golf</span>
-  <span class="meta">La Cala Golf, Mijas · 3 dorm · 118 m²</span>
-  <span class="pr">695.000 €</span>
-</a>
-        <a href="/comprar/fuengirola/atico-fuengirola-r5432974/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/625be6fd79e311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789048652" alt="Ático en Fuengirola" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Fuengirola</span>
-  <span class="meta">Fuengirola · 2 dorm · 112 m²</span>
-  <span class="pr">680.000 €</span>
-</a>
-        <a href="/comprar/mijas/atico-calahonda-r5440219/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/d3eb6d3180d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784875051" alt="Ático en Calahonda" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Calahonda</span>
-  <span class="meta">Calahonda, Mijas · 2 dorm · 120 m²</span>
-  <span class="pr">675.000 €</span>
-</a>
-        <a href="/comprar/estepona/atico-estepona-r5288104/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/c4fdc25cf6f211f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786708886" alt="Ático en Estepona" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Estepona</span>
-  <span class="meta">Estepona · 2 dorm · 99 m²</span>
-  <span class="pr">649.000 €</span>
-</a>
-        <a href="/comprar/marbella/atico-san-pedro-de-alcantara-r5439235/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/51036d6e800e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108417" alt="Ático en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en San Pedro de Alcántara</span>
-  <span class="meta">San Pedro de Alcántara, Marbella · 2 dorm · 138 m²</span>
-  <span class="pr">649.000 €</span>
-</a>
-        <a href="/comprar/mijas/atico-riviera-del-sol-r5401747/">
-  <div class="foto"><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/5d9fc9a15f0e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788850791" alt="Ático en Riviera del Sol" loading="lazy" width="600" height="450"></div>
-  <span class="nom">Ático en Riviera del Sol</span>
-  <span class="meta">Riviera del Sol, Mijas · 3 dorm · 129 m²</span>
-  <span class="pr">560.000 €</span>
-</a>
-      </div>
-      
-    </section>
+    <div class="rejP">
+      <a href="/comprar/marbella/atico-nueva-andalucia-r5435302/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/tlme7rencq/properties/8fe525d07c1911f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783662065" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5435302</span>
+    <span class="meta">5 dorm · 5.5 baños · 576 m²</span>
+    <span class="pr">6.900.000 €</span>
   </div>
+</a>
+      <a href="/comprar/marbella/atico-nueva-andalucia-r5174104/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/11rh1goylxor91yu/properties/779050089dbc11f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779949692" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5174104</span>
+    <span class="meta">3 dorm · 3 baños · 173 m²</span>
+    <span class="pr">2.450.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-marbella-r5390392/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/cd9pzuj89n/properties/4bbd4a3555b711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779441980" alt="Ático en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5390392</span>
+    <span class="meta">2 dorm · 3 baños · 109 m²</span>
+    <span class="pr">1.950.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-san-pedro-de-alcantara-r5433085/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/xg4f70q0gc/properties/9f169a5c79f411f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783426297" alt="Ático en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5433085</span>
+    <span class="meta">4 dorm · 4 baños · 230 m²</span>
+    <span class="pr">1.750.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-marbella-r5294920/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/f8d2491cfd9911f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779945811" alt="Ático en Marbella" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Marbella</span>
+    <span class="zonaRef">Marbella &middot; R5294920</span>
+    <span class="meta">3 dorm · 3 baños · 247 m²</span>
+    <span class="pr">1.499.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/atico-la-quinta-r5155387/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/92cqrna9i0/properties/5c56d95b8d3711f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779951497" alt="Ático en La Quinta" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en La Quinta</span>
+    <span class="zonaRef">La Quinta, Benahavís &middot; R5155387</span>
+    <span class="meta">4 dorm · 3 baños · 154 m²</span>
+    <span class="pr">1.300.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/benahavis/atico-los-arqueros-r5407207/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/sdgb87dcla/properties/50b83e9660da11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788968800" alt="Ático en Los Arqueros" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Los Arqueros</span>
+    <span class="zonaRef">Los Arqueros, Benahavís &middot; R5407207</span>
+    <span class="meta">2 dorm · 2 baños · 130 m²</span>
+    <span class="pr">1.150.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-cabopino-r5366254/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/6141df0a405c11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779946084" alt="Ático en Cabopino" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Cabopino</span>
+    <span class="zonaRef">Cabopino, Marbella &middot; R5366254</span>
+    <span class="meta">3 dorm · 2 baños · 290 m²</span>
+    <span class="pr">1.050.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-bel-air-r5335543/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/e3b4c1fc220d11f1866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946236" alt="Ático en Bel Air" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Bel Air</span>
+    <span class="zonaRef">Bel Air, Marbella &middot; R5335543</span>
+    <span class="meta">3 dorm · 3 baños · 154 m²</span>
+    <span class="pr">995.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/estepona/atico-el-paraiso-r5353594/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/b9d0e312335111f186110660515b2fcd/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1785946704" alt="Ático en El Paraiso" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en El Paraiso</span>
+    <span class="zonaRef">El Paraiso, Estepona &middot; R5353594</span>
+    <span class="meta">3 dorm · 2.5 baños · 143 m²</span>
+    <span class="pr">899.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/estepona/atico-atalaya-r5443516/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/aacf951c84fe11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786012864" alt="Ático en Atalaya" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Atalaya</span>
+    <span class="zonaRef">Atalaya, Estepona &middot; R5443516</span>
+    <span class="meta">3 dorm · 3 baños · 169 m²</span>
+    <span class="pr">895.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/estepona/atico-atalaya-r5462305/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/cdugn808as/properties/748610eb9a3211f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1787069290" alt="Ático en Atalaya" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Atalaya</span>
+    <span class="zonaRef">Atalaya, Estepona &middot; R5462305</span>
+    <span class="meta">2 dorm · 2 baños · 88 m²</span>
+    <span class="pr">895.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/fuengirola/atico-fuengirola-r5425393/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/3bbmoql3c8/properties/387e3cd7711711f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1782451597" alt="Ático en Fuengirola" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Fuengirola</span>
+    <span class="zonaRef">Fuengirola, Fuengirola &middot; R5425393</span>
+    <span class="meta">2 dorm · 2 baños · 84 m²</span>
+    <span class="pr">775.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/mijas/atico-la-cala-golf-r5388241/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/7d49851a540111f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789189681" alt="Ático en La Cala Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en La Cala Golf</span>
+    <span class="zonaRef">La Cala Golf, Mijas &middot; R5388241</span>
+    <span class="meta">3 dorm · 2 baños · 102 m²</span>
+    <span class="pr">725.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-nueva-andalucia-r5417230/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/v3ii8gsn5j/properties/e32fd195693811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786511298" alt="Ático en Nueva Andalucía" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Nueva Andalucía</span>
+    <span class="zonaRef">Nueva Andalucía, Marbella &middot; R5417230</span>
+    <span class="meta">3 dorm · 2 baños · 106 m²</span>
+    <span class="pr">695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/mijas/atico-la-cala-golf-r5433946/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/0f0c9bd67ad811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1783523981" alt="Ático en La Cala Golf" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en La Cala Golf</span>
+    <span class="zonaRef">La Cala Golf, Mijas &middot; R5433946</span>
+    <span class="meta">3 dorm · 2 baños · 118 m²</span>
+    <span class="pr">695.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/fuengirola/atico-fuengirola-r5432974/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/mqt4ubvq31/properties/625be6fd79e311f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789048652" alt="Ático en Fuengirola" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Fuengirola</span>
+    <span class="zonaRef">Fuengirola &middot; R5432974</span>
+    <span class="meta">2 dorm · 3 baños · 112 m²</span>
+    <span class="pr">680.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/mijas/atico-calahonda-r5440219/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/gh3uc6ric7/properties/d3eb6d3180d811f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784875051" alt="Ático en Calahonda" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Calahonda</span>
+    <span class="zonaRef">Calahonda, Mijas &middot; R5440219</span>
+    <span class="meta">2 dorm · 2 baños · 120 m²</span>
+    <span class="pr">675.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/estepona/atico-estepona-r5288104/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/v8b00unuc7/properties/c4fdc25cf6f211f0866f069f3d650d4b/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1786708886" alt="Ático en Estepona" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Estepona</span>
+    <span class="zonaRef">Estepona &middot; R5288104</span>
+    <span class="meta">2 dorm · 2 baños · 99 m²</span>
+    <span class="pr">649.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/marbella/atico-san-pedro-de-alcantara-r5439235/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/d7syzy2hmr/properties/51036d6e800e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1789108417" alt="Ático en San Pedro de Alcántara" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en San Pedro de Alcántara</span>
+    <span class="zonaRef">San Pedro de Alcántara, Marbella &middot; R5439235</span>
+    <span class="meta">2 dorm · 2 baños · 138 m²</span>
+    <span class="pr">649.000 €</span>
+  </div>
+</a>
+      <a href="/comprar/mijas/atico-riviera-del-sol-r5401747/">
+  <div class="foto"><span class="sel">Ático</span><img src="https://cdn.resales-online.com/public/0741nl4ih1/properties/5d9fc9a15f0e11f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1788850791" alt="Ático en Riviera del Sol" loading="lazy" width="600" height="450"></div>
+  <div class="datos">
+    <span class="nom">Ático en Riviera del Sol</span>
+    <span class="zonaRef">Riviera del Sol, Mijas &middot; R5401747</span>
+    <span class="meta">3 dorm · 2 baños · 129 m²</span>
+    <span class="pr">560.000 €</span>
+  </div>
+</a>
+    </div>
+    
 
-  <section class="faq">
-    <div class="env">
+    <section class="faq">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <div class="env">
     <section class="enlaces">
       <h2>Seguir buscando</h2>
       <div class="grupo">
@@ -414,6 +474,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <div class="chips"><a href="/comprar/marbella/">Marbella (196)</a><a href="/comprar/benahavis/">Benahavís (71)</a><a href="/comprar/estepona/">Estepona (58)</a><a href="/comprar/mijas/">Mijas (28)</a><a href="/comprar/sotogrande/">Sotogrande (16)</a><a href="/comprar/fuengirola/">Fuengirola (11)</a><a href="/comprar/casares/">Casares (9)</a><a href="/comprar/manilva/">Manilva (5)</a></div>
     </div>
     </section>
+
   </div>
 </main>
 
@@ -423,7 +484,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
       <img src="/w-logo-claro.png" alt="W Real Estate" width="61" height="52">
       <p>Agencia inmobiliaria de lujo en la Costa del Sol. Marbella, Estepona, Benahavís y Sotogrande.</p>
     </div>
-    <nav><a href="/comprar/">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
+    <nav><a href="/?pagina=comprar">Comprar</a><a href="/?pagina=vender">Vender</a><a href="/?pagina=nosotros">Nosotros</a><a href="/?pagina=contacto">Contacto</a></nav>
     <nav>
       <a href="tel:+34623798619">+34 623 79 86 19</a>
       <a href="mailto:marina@wrealestate.es">marina@wrealestate.es</a>
