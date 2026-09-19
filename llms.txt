@@ -25,38 +25,70 @@
 ## Guías de zona
 Cada guía explica qué es la zona, dónde está, qué hay alrededor y qué cuesta comprar allí,
 con los precios calculados sobre el catálogo real de W Real Estate. Versión inglesa en /en/areas/ y /en/buy/.
+- Aloha (urbanización): https://wrealestate.es/zonas/aloha/
 - Altos de los Monteros (urbanización): https://wrealestate.es/zonas/altos-de-los-monteros/
 - Atalaya (urbanización): https://wrealestate.es/zonas/atalaya/
 - Bel Air (urbanización): https://wrealestate.es/zonas/bel-air/
 - Benahavís (municipio): https://wrealestate.es/comprar/benahavis/
-- Benahavís (urbanización): https://wrealestate.es/zonas/benahavis/
+- Benahavís Pueblo (urbanización): https://wrealestate.es/zonas/benahavis-pueblo/
+- Benamara (urbanización): https://wrealestate.es/zonas/benamara/
 - Cabopino (urbanización): https://wrealestate.es/zonas/cabopino/
 - Calahonda (urbanización): https://wrealestate.es/zonas/calahonda/
+- Cancelada (urbanización): https://wrealestate.es/zonas/cancelada/
 - Casares (municipio): https://wrealestate.es/comprar/casares/
 - Casares (urbanización): https://wrealestate.es/zonas/casares/
-- El Paraiso (urbanización): https://wrealestate.es/zonas/el-paraiso/
+- Cascada de Camoján (urbanización): https://wrealestate.es/zonas/cascada-de-camojan/
+- Costalita (urbanización): https://wrealestate.es/zonas/costalita/
+- El Madroñal (urbanización): https://wrealestate.es/zonas/el-madronal/
+- El Paraíso (urbanización): https://wrealestate.es/zonas/el-paraiso/
 - Elviria (urbanización): https://wrealestate.es/zonas/elviria/
 - Estepona (municipio): https://wrealestate.es/comprar/estepona/
-- Estepona (urbanización): https://wrealestate.es/zonas/estepona/
+- Estepona Centro (urbanización): https://wrealestate.es/zonas/estepona-centro/
+- Estepona Puerto (urbanización): https://wrealestate.es/zonas/estepona-puerto/
+- Finca Cortesín (urbanización): https://wrealestate.es/zonas/finca-cortesin/
 - Fuengirola (municipio): https://wrealestate.es/comprar/fuengirola/
 - Guadalmina Alta (urbanización): https://wrealestate.es/zonas/guadalmina-alta/
 - Guadalmina Baja (urbanización): https://wrealestate.es/zonas/guadalmina-baja/
+- Kings & Queens (urbanización): https://wrealestate.es/zonas/kings-queens/
 - La Cala de Mijas (urbanización): https://wrealestate.es/zonas/la-cala-de-mijas/
 - La Cala Golf (urbanización): https://wrealestate.es/zonas/la-cala-golf/
+- La Cerquilla (urbanización): https://wrealestate.es/zonas/la-cerquilla/
+- La Heredia (urbanización): https://wrealestate.es/zonas/la-heredia/
 - La Mairena (urbanización): https://wrealestate.es/zonas/la-mairena/
 - La Quinta (urbanización): https://wrealestate.es/zonas/la-quinta/
+- La Reserva de Sotogrande (urbanización): https://wrealestate.es/zonas/la-reserva-de-sotogrande/
+- La Zagaleta (urbanización): https://wrealestate.es/zonas/la-zagaleta/
+- Las Brisas (urbanización): https://wrealestate.es/zonas/las-brisas/
+- Las Mesas (urbanización): https://wrealestate.es/zonas/las-mesas/
 - Los Arqueros (urbanización): https://wrealestate.es/zonas/los-arqueros/
+- Los Flamingos (urbanización): https://wrealestate.es/zonas/los-flamingos/
+- Los Monteros (urbanización): https://wrealestate.es/zonas/los-monteros/
+- Los Naranjos (urbanización): https://wrealestate.es/zonas/los-naranjos/
 - Manilva (municipio): https://wrealestate.es/comprar/manilva/
 - Marbella (municipio): https://wrealestate.es/comprar/marbella/
-- Marbella (urbanización): https://wrealestate.es/zonas/marbella/
+- Marbella Centro (urbanización): https://wrealestate.es/zonas/marbella-centro/
+- Marbella Club Golf Resort (urbanización): https://wrealestate.es/zonas/marbella-club-golf-resort/
 - Mijas (municipio): https://wrealestate.es/comprar/mijas/
+- Mijas Pueblo (urbanización): https://wrealestate.es/zonas/mijas-pueblo/
+- Milla de Oro (urbanización): https://wrealestate.es/zonas/the-golden-mile/
+- Monte Halcones (urbanización): https://wrealestate.es/zonas/monte-halcones/
+- Nagüeles (urbanización): https://wrealestate.es/zonas/nagueles/
 - Nueva Andalucía (urbanización): https://wrealestate.es/zonas/nueva-andalucia/
+- Puente Romano (urbanización): https://wrealestate.es/zonas/puente-romano/
 - Puerto Banús (urbanización): https://wrealestate.es/zonas/puerto-banus/
+- Puerto de la Duquesa (urbanización): https://wrealestate.es/zonas/puerto-de-la-duquesa/
+- Puerto de Sotogrande (urbanización): https://wrealestate.es/zonas/puerto-de-sotogrande/
+- Real de La Quinta (urbanización): https://wrealestate.es/zonas/real-de-la-quinta/
+- Río Real (urbanización): https://wrealestate.es/zonas/rio-real/
 - Riviera del Sol (urbanización): https://wrealestate.es/zonas/riviera-del-sol/
 - San Pedro de Alcántara (urbanización): https://wrealestate.es/zonas/san-pedro-de-alcantara/
+- Seghers (urbanización): https://wrealestate.es/zonas/seghers/
+- Selwo (urbanización): https://wrealestate.es/zonas/selwo/
 - Sierra Blanca (urbanización): https://wrealestate.es/zonas/sierra-blanca/
 - Sotogrande (municipio): https://wrealestate.es/comprar/sotogrande/
-- The Golden Mile (urbanización): https://wrealestate.es/zonas/the-golden-mile/
+- Sotogrande Alto (urbanización): https://wrealestate.es/zonas/sotogrande-alto/
+- Sotogrande Costa (urbanización): https://wrealestate.es/zonas/sotogrande-costa/
+- Valle Romano (urbanización): https://wrealestate.es/zonas/valle-romano/
 
 ## Páginas
 - Inicio: https://wrealestate.es/
