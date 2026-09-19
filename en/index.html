@@ -3050,10 +3050,15 @@ class Component extends DCLogic {
     const s = String(id || '').trim().toLowerCase(); if (!s) return null;
     return this.data.find(p => String(p.referenciaCrm || '').toLowerCase() === s || String(p.ref || '').toLowerCase() === s || String(p.ref || '').toLowerCase() === 'w-' + s) || null;
   }
+  /* Direcciones de las secciones. Deben coincidir con las carpetas que genera catalogo-w. */
+  get rutasSeccion() {
+    return this.es
+      ? { home: '/', listings: '/comprar/', sell: '/vender/', about: '/nosotros/', contact: '/contacto/' }
+      : { home: '/en/', listings: '/en/buy/', sell: '/en/sell/', about: '/en/about/', contact: '/en/contact/' };
+  }
   urlDe(page, ref) {
-    const m = { listings: 'comprar', sell: 'vender', about: 'nosotros', contact: 'contacto' };
     if (page === 'property') { const p = this.data.find(x => x.ref === ref); return p ? this.rutaPropiedad(p) : '/'; }
-    return m[page] ? '?pagina=' + m[page] : location.pathname;
+    return this.rutasSeccion[page] || this.rutasSeccion.home;
   }
   aplicarRuta() {
     let q; try { q = new URLSearchParams(location.search); } catch (e) { return; }
@@ -3068,8 +3073,16 @@ class Component extends DCLogic {
     }
     const inv = { comprar: 'listings', vender: 'sell', nosotros: 'about', contacto: 'contact' };
     const pg = q.get('pagina');
-    if (pg && inv[pg]) { this.setState({ page: inv[pg], menu: false }); this.top(); }
-    else if (this.state.page !== 'home') { this.setState({ page: 'home', menu: false }); this.top(); }
+    if (pg && inv[pg]) {
+      const destino = this.rutasSeccion[inv[pg]];
+      try { if (destino && location.pathname !== destino) { location.replace(destino); return; } } catch (e) {}
+      this.setState({ page: inv[pg], menu: false }); this.top(); return;
+    }
+    const ruta = location.pathname.replace(/\/+$/, '') + '/';
+    const porRuta = {};
+    for (const [k, v] of Object.entries(this.rutasSeccion)) porRuta[v] = k;
+    const seccion = porRuta[ruta];
+    if (seccion && this.state.page !== seccion) { this.setState({ page: seccion, menu: false }); this.top(); }
   }
   setF(k, v) { this.setState({ form: Object.assign({}, this.state.form, { [k]: v }) }); }
 

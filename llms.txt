@@ -24,11 +24,10 @@
 
 ## Páginas
 - Inicio: https://wrealestate.es/
-- Todas las propiedades en venta: https://wrealestate.es/comprar/ (en inglés: https://wrealestate.es/en/buy/)
-- Buscador interactivo: https://wrealestate.es/?pagina=comprar
-- Vender una propiedad: https://wrealestate.es/?pagina=vender
-- Sobre la agencia: https://wrealestate.es/?pagina=nosotros
-- Contacto: https://wrealestate.es/?pagina=contacto
+- Buscador de propiedades: https://wrealestate.es/comprar/ (en inglés: https://wrealestate.es/en/buy/)
+- Vender una propiedad: https://wrealestate.es/vender/
+- Sobre la agencia: https://wrealestate.es/nosotros/
+- Contacto: https://wrealestate.es/contacto/
 - Todas las fichas: https://wrealestate.es/sitemap-propiedades.xml
 - Páginas por municipio, tipo y urbanización: https://wrealestate.es/sitemap-busquedas.xml
 - Ficha en español: https://wrealestate.es/comprar/<municipio>/<tipo>-<zona>-<referencia>/
