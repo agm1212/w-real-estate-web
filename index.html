@@ -1773,183 +1773,65 @@
 <!-- #                         CONTACTO                         # -->
 <!-- ############################################################ -->
 <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
-<main data-screen-label="Contacto" style="animation:pageIn .5s ease both;background:#FFFFFF;min-height:100vh;padding:calc(92px + clamp(40px,5vw,80px)) 6vw clamp(70px,9vw,130px)">
-  <div class="r1" style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(36px,5vw,90px);align-items:start">
+<main data-screen-label="Contacto" style="animation:pageIn .5s ease both;background:#FFFFFF;min-height:100vh">
 
-    <div class="rsticky" style="position:sticky;top:118px;display:flex;flex-direction:column;gap:26px">
+  <section style="background:#F6EFE3;padding:calc(92px + clamp(48px,6vw,96px)) 6vw clamp(48px,6vw,90px)">
+    <div style="max-width:1360px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center">
       <div style="display:flex;align-items:center;gap:14px">
+        <span style="width:44px;height:1px;background:rgba(122,32,39,.4)"></span>
         <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.contactoEyebrow }}</span>
         <span style="width:44px;height:1px;background:rgba(122,32,39,.4)"></span>
       </div>
-      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4.4vw,64px);line-height:1.03;text-wrap:pretty">{{ t.contactoTitulo }}</h1>
-      <p style="margin:0;font-size:15px;line-height:1.9;color:#5C534B;max-width:28em">{{ t.contactoTexto }}</p>
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5vw,72px);line-height:1.04;max-width:14em;text-wrap:balance">{{ t.contactoTitulo }}</h1>
+      <p style="margin:0;font-size:16px;line-height:1.9;color:#5C534B;max-width:34em;text-wrap:pretty">{{ t.contactoTexto }}</p>
+    </div>
+  </section>
 
-      <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(30,26,23,.14);padding-top:24px;margin-top:6px">
-        <a href="{{ telHref }}" style="font-size:16px" style-hover="color:#7A2027">{{ telLabel }}</a>
-        <a href="{{ emailHref }}" style="font-size:14px;color:#6B615A" style-hover="color:#7A2027">{{ emailLabel }}</a>
-        <span style="font-size:13px;line-height:1.75;color:#786E64;max-width:22em">{{ t.contactoDireccion }}</span>
+  <section style="padding:clamp(44px,5vw,80px) 6vw clamp(30px,3.5vw,50px)">
+    <div class="r2s" style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;background:rgba(30,26,23,.12)">
+
+      <a href="{{ telHref }}" style="background:#FFFFFF;padding:clamp(26px,3vw,40px) clamp(20px,2.4vw,32px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;transition:background .35s ease" style-hover="background:#F6EFE3">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A2027" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"></path></svg>
+        <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.contactoLlamar }}</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(21px,2vw,26px);font-weight:500;line-height:1.2">{{ telLabel }}</span>
+        <span style="font-size:12.5px;line-height:1.7;color:#786E64">{{ t.contactoLlamarPie }}</span>
+      </a>
+
+      <a href="{{ whatsappHref }}" target="_blank" rel="noopener" style="background:#FFFFFF;padding:clamp(26px,3vw,40px) clamp(20px,2.4vw,32px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;transition:background .35s ease" style-hover="background:#F6EFE3">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7A2027" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.98-.4-4.26-1.17l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.33-8.24zm-2.6 4.1c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.11 3.64.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.05.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.45-1.35-1.69-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.32-.74-1.8-.2-.48-.4-.41-.55-.42h-.47z"></path></svg>
+        <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">WhatsApp</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(21px,2vw,26px);font-weight:500;line-height:1.2">{{ t.contactoWhatsapp }}</span>
+        <span style="font-size:12.5px;line-height:1.7;color:#786E64">{{ t.contactoWhatsappPie }}</span>
+      </a>
+
+      <a href="{{ emailHref }}" style="background:#FFFFFF;padding:clamp(26px,3vw,40px) clamp(20px,2.4vw,32px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;transition:background .35s ease" style-hover="background:#F6EFE3">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A2027" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1"></rect><path d="M3 6l9 6.5L21 6"></path></svg>
+        <span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.contactoEscribir }}</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(19px,1.8vw,24px);font-weight:500;line-height:1.2;word-break:break-word">{{ emailLabel }}</span>
+        <span style="font-size:12.5px;line-height:1.7;color:#786E64">{{ t.contactoEscribirPie }}</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section style="padding:0 6vw clamp(70px,9vw,130px)">
+    <div class="r1" style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:0;border:1px solid rgba(30,26,23,.12)">
+
+      <div style="background:#1E1A17;color:#F7F0E6;padding:clamp(30px,3.4vw,52px);display:flex;flex-direction:column;justify-content:center;gap:18px">
+        <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#D9B6A9">{{ t.contactoOficina }}</span>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.15">{{ t.contactoOficinaTitulo }}</h2>
+        <p style="margin:0;font-size:15px;line-height:1.9;color:rgba(247,240,230,.82);max-width:20em">{{ t.contactoDireccion }}</p>
+        <p style="margin:0;font-size:13.5px;line-height:1.85;color:rgba(247,240,230,.62);max-width:24em">{{ t.contactoOficinaTexto }}</p>
+        <a href="{{ mapaHref }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:4px;padding:12px 26px;border:2px solid rgba(247,240,230,.8);color:#F7F0E6;font-size:14px;transition:all .35s ease" style-hover="background:#F7F0E6;color:#1E1A17">{{ t.contactoComoLlegar }}</a>
       </div>
+
+      <div style="position:relative;min-height:clamp(300px,34vw,440px);background:#F3EAD9">
+        <iframe src="{{ mapaEmbed }}" title="{{ t.contactoOficina }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(.35) contrast(1.05)"></iframe>
+      </div>
+
     </div>
+  </section>
 
-    <div style="background:#FFFFFF;border:1px solid rgba(30,26,23,.12);padding:clamp(28px,3.2vw,52px);box-shadow:0 30px 70px -55px rgba(43,10,14,.5)">
-
-      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex;flex-direction:column;gap:26px">
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px">
-              <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ stepLabel }}</span>
-              <span style="font-size:10px;letter-spacing:.1em;color:#786E64">{{ stepCount }}</span>
-            </div>
-            <div style="height:2px;background:rgba(30,26,23,.1)">
-              <div style="{{ progressStyle }}"></div>
-            </div>
-          </div>
-
-          <!-- Paso 1 -->
-          <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
-            <div style="display:flex;flex-direction:column;gap:18px;animation:fadeIn .35s ease both">
-              <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.12">{{ tituloPaso1 }}</h2>
-              <div style="display:flex;flex-direction:column;gap:10px">
-                <sc-for list="{{ intenciones }}" as="o" hint-placeholder-count="3">
-                  <button onClick="{{ o.pick }}" style="{{ o.style }}">
-                    <span style="font-size:15px">{{ o.label }}</span>
-                    <span style="font-size:12.5px;opacity:.68">{{ o.hint }}</span>
-                  </button>
-                </sc-for>
-              </div>
-              <span style="{{ errIntencion }}">{{ t.errElija }}</span>
-            </div>
-          </sc-if>
-
-          <!-- Paso 2 comprador -->
-          <sc-if value="{{ step2Comprador }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-direction:column;gap:18px;animation:fadeIn .35s ease both">
-              <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.12">{{ t.pasoZonas }}</h2>
-              <div style="display:flex;flex-wrap:wrap;gap:9px">
-                <sc-for list="{{ zonaChips }}" as="z" hint-placeholder-count="5">
-                  <button onClick="{{ z.pick }}" style="{{ z.style }}">{{ z.label }}</button>
-                </sc-for>
-              </div>
-              <span style="{{ errZonas }}">{{ t.errZona }}</span>
-            </div>
-          </sc-if>
-
-          <!-- Paso 2 vendedor -->
-          <sc-if value="{{ step2Vendedor }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-direction:column;gap:20px;animation:fadeIn .35s ease both">
-              <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.12">{{ t.pasoPropiedad }}</h2>
-              <label style="display:flex;flex-direction:column;gap:8px">
-                <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoDireccion }}</span>
-                <input value="{{ form.direccion }}" onChange="{{ setDireccion }}" placeholder="{{ t.phDireccion }}" style="{{ inDireccion }}" style-focus="border-color:#7A2027">
-                <span style="{{ errDireccion }}">{{ msgDireccion }}</span>
-              </label>
-              <div style="display:flex;flex-direction:column;gap:9px">
-                <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoTipo }}</span>
-                <div style="display:flex;flex-wrap:wrap;gap:9px">
-                  <sc-for list="{{ tipoChips }}" as="tc" hint-placeholder-count="5">
-                    <button onClick="{{ tc.pick }}" style="{{ tc.style }}">{{ tc.label }}</button>
-                  </sc-for>
-                </div>
-                <span style="{{ errTipo }}">{{ t.errTipo }}</span>
-              </div>
-              <div class="r2s" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
-                <label style="display:flex;flex-direction:column;gap:8px">
-                  <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoDorm }}</span>
-                  <input value="{{ form.dormitorios }}" onChange="{{ setDormitorios }}" inputMode="numeric" placeholder="5" style="{{ inDorm }}" style-focus="border-color:#7A2027">
-                </label>
-                <label style="display:flex;flex-direction:column;gap:8px">
-                  <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoMetros }}</span>
-                  <input value="{{ form.metros }}" onChange="{{ setMetros }}" inputMode="numeric" placeholder="620" style="{{ inMetros }}" style-focus="border-color:#7A2027">
-                </label>
-                <label style="display:flex;flex-direction:column;gap:8px">
-                  <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoParcela }}</span>
-                  <input value="{{ form.parcela }}" onChange="{{ setParcela }}" inputMode="numeric" placeholder="1.800" style="{{ inParcela }}" style-focus="border-color:#7A2027">
-                </label>
-              </div>
-              <span style="{{ errCasa }}">{{ t.errCasa }}</span>
-            </div>
-          </sc-if>
-
-          <!-- Paso 3 -->
-          <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-direction:column;gap:24px;animation:fadeIn .35s ease both">
-              <div style="display:flex;flex-direction:column;gap:14px">
-                <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.12">{{ presupuestoTitulo }}</h2>
-                <div style="display:flex;flex-wrap:wrap;gap:9px">
-                  <sc-for list="{{ presupuestos }}" as="b" hint-placeholder-count="5">
-                    <button onClick="{{ b.pick }}" style="{{ b.style }}">{{ b.label }}</button>
-                  </sc-for>
-                </div>
-                <span style="{{ errPresupuesto }}">{{ t.errRango }}</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:14px">
-                <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoPlazo }}</span>
-                <div style="display:flex;flex-wrap:wrap;gap:9px">
-                  <sc-for list="{{ plazos }}" as="pz" hint-placeholder-count="4">
-                    <button onClick="{{ pz.pick }}" style="{{ pz.style }}">{{ pz.label }}</button>
-                  </sc-for>
-                </div>
-                <span style="{{ errPlazo }}">{{ t.errPlazo }}</span>
-              </div>
-            </div>
-          </sc-if>
-
-          <!-- Paso 4 -->
-          <sc-if value="{{ step4 }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-direction:column;gap:18px;animation:fadeIn .35s ease both">
-              <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1.12">{{ t.pasoDatos }}</h2>
-              <div class="r2s" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
-                <label style="display:flex;flex-direction:column;gap:8px">
-                  <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoNombre }}</span>
-                  <input value="{{ form.nombre }}" onChange="{{ setNombre }}" style="{{ inNombre }}" style-focus="border-color:#7A2027">
-                  <span style="{{ errNombre }}">{{ msgNombre }}</span>
-                </label>
-                <label style="display:flex;flex-direction:column;gap:8px">
-                  <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoEmail }}</span>
-                  <input value="{{ form.email }}" onChange="{{ setEmail }}" style="{{ inEmail }}" style-focus="border-color:#7A2027">
-                  <span style="{{ errEmail }}">{{ msgEmail }}</span>
-                </label>
-              </div>
-              <label style="display:flex;flex-direction:column;gap:8px">
-                <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoTel }}</span>
-                <input value="{{ form.tel }}" onChange="{{ setTel }}" placeholder="+34" style="{{ inTel }}" style-focus="border-color:#7A2027">
-                <span style="{{ errTel }}">{{ msgTel }}</span>
-              </label>
-              <label style="display:flex;flex-direction:column;gap:8px">
-                <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.campoMensaje }}</span>
-                <textarea value="{{ form.mensaje }}" onChange="{{ setMensaje }}" rows="4" style="{{ areaStyle }}" style-focus="border-color:#7A2027"></textarea>
-              </label>
-              <label style="display:flex;align-items:flex-start;gap:11px;cursor:pointer">
-                <input type="checkbox" checked="{{ form.consent }}" onChange="{{ setConsent }}" style="margin-top:4px;width:15px;height:15px;accent-color:#7A2027">
-                <span style="font-size:12.5px;line-height:1.75;color:#6B615A">{{ t.consentimiento }}</span>
-              </label>
-              <span style="{{ errConsent }}">{{ t.errConsent }}</span>
-            </div>
-          </sc-if>
-
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid rgba(30,26,23,.12);padding-top:20px;margin-top:4px">
-            <button onClick="{{ back }}" style="{{ backStyle }}">{{ t.atras }}</button>
-            <button onClick="{{ next }}" style="padding:12px 30px;border:2px solid #1E1A17;background:#1E1A17;color:#FFFFFF;font-size:14px;transition:background .35s ease" style-hover="background:#1E1A17">{{ nextLabel }}</button>
-          </div>
-        </div>
-      </sc-if>
-
-      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;flex-direction:column;gap:22px;animation:fadeIn .45s ease both;padding:clamp(10px,2vw,30px) 0">
-          <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:#7A2027">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5.5 5.5L20 6.5"></path></svg>
-          </span>
-          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,3vw,42px);line-height:1.1">{{ t.enviadoTitulo }}</h2>
-          <p style="margin:0;font-size:15px;line-height:1.9;color:#5C534B;max-width:34em">{{ resumen }}</p>
-          <p style="margin:0;font-size:12px;line-height:1.8;color:#786E64">{{ t.enviadoNota }}</p>
-          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
-            <a href="#" onClick="{{ goListings }}" style="padding:12px 30px;border:2px solid #1E1A17;background:#1E1A17;color:#FFFFFF;font-size:14px">{{ t.ctaPortfolio }}</a>
-            <button onClick="{{ resetForm }}" style="padding:12px 28px;border:2px solid #1E1A17;color:#1E1A17;font-size:14px">{{ t.otraSolicitud }}</button>
-          </div>
-        </div>
-      </sc-if>
-    </div>
-  </div>
 </main>
 </sc-if>
 
@@ -2060,7 +1942,7 @@
 
 </div>
 </x-dc>
-<script data-dc-script data-props='{"telefono":{"editor":"text","default":"+34 951 00 00 00","tsType":"string","section":"Contacto"},"email":{"editor":"text","default":"hola@wrealestate.es","tsType":"string","section":"Contacto"}}'>
+<script data-dc-script data-props='{"telefono":{"editor":"text","default":"+34 623 79 86 19","tsType":"string","section":"Contacto"},"email":{"editor":"text","default":"marina@wrealestate.es","tsType":"string","section":"Contacto"}}'>
 class Component extends DCLogic {
   state = {
     lang: 'es',
@@ -2247,7 +2129,7 @@ class Component extends DCLogic {
 
       hablemosEyebrow: 'Hablemos',
       hablemosTitulo: 'Hablemos de su próxima propiedad',
-      hablemosTexto: 'Estaremos encantados de atenderle en nuestra oficina de Marbella o donde usted prefiera. Sin compromiso.',
+      hablemosTexto: 'Estaremos encantados de atenderle en nuestra oficina de Estepona o donde usted prefiera. Sin compromiso.',
 
       listadoEyebrow: 'Cartera', listadoTitulo: 'Propiedades',
       limpiarBusqueda: 'Limpiar búsqueda', limpiarFiltros: 'Limpiar filtros', verMas: 'Ver más propiedades',
@@ -2345,9 +2227,15 @@ class Component extends DCLogic {
       ],
 
       contactoEyebrow: 'Contacto',
-      contactoTitulo: 'Cuéntenos qué necesita',
-      contactoTexto: 'Cuatro preguntas rápidas para dirigirle a la persona correcta del equipo. Respondemos el mismo día laborable.',
-      contactoDireccion: 'Marbella · Estepona · Benahavís · Sotogrande — [DIRECCIÓN DE LA OFICINA]',
+      contactoTitulo: 'Hablemos de su próxima casa',
+      contactoTexto: 'Estamos en Estepona y trabajamos en toda la Costa del Sol. Llame, escriba o pásese por la oficina: le atiende una persona del equipo, en español o en inglés.',
+      contactoLlamar: 'Llamar', contactoLlamarPie: 'Le atendemos directamente, sin centralita.',
+      contactoWhatsapp: 'Escríbanos', contactoWhatsappPie: 'La vía más rápida, también para enviar fotos.',
+      contactoEscribir: 'Email', contactoEscribirPie: 'Para consultas con detalle o documentación.',
+      contactoOficina: 'La oficina', contactoOficinaTitulo: 'Av. del Carmen, 5',
+      contactoOficinaTexto: 'Estamos en el centro de Estepona, a un paso del paseo marítimo. Si prefiere vernos en persona, avísenos antes y preparamos su visita.',
+      contactoComoLlegar: 'Cómo llegar',
+      contactoDireccion: 'Av. del Carmen, 5, Loc 9\n29680 Estepona, Málaga',
       pasoZonas: '¿Dónde le gustaría comprar?',
       pasoPropiedad: 'Háblenos de su propiedad',
       pasoDatos: 'Sus datos de contacto',
@@ -2583,7 +2471,7 @@ class Component extends DCLogic {
 
       hablemosEyebrow: "Let's talk",
       hablemosTitulo: 'Let us talk about your next property',
-      hablemosTexto: 'We would be delighted to welcome you at our Marbella office, or wherever suits you best. No obligation.',
+      hablemosTexto: 'We would be delighted to welcome you at our Estepona office, or wherever suits you best. No obligation.',
 
       listadoEyebrow: 'Portfolio', listadoTitulo: 'Properties',
       limpiarBusqueda: 'Clear search', limpiarFiltros: 'Clear filters', verMas: 'Show more properties',
@@ -2681,9 +2569,15 @@ class Component extends DCLogic {
       ],
 
       contactoEyebrow: 'Contact',
-      contactoTitulo: 'Tell us what you need',
-      contactoTexto: 'Four quick questions so we can route you to the right person on the team. We reply the same working day.',
-      contactoDireccion: 'Marbella · Estepona · Benahavís · Sotogrande — [OFFICE ADDRESS]',
+      contactoTitulo: 'Let us talk about your next home',
+      contactoTexto: 'We are based in Estepona and work along the whole Costa del Sol. Call, write or visit the office: you will be looked after by someone from the team, in Spanish or English.',
+      contactoLlamar: 'Call us', contactoLlamarPie: 'You reach the team directly, no switchboard.',
+      contactoWhatsapp: 'Message us', contactoWhatsappPie: 'The quickest route, photos welcome.',
+      contactoEscribir: 'Email', contactoEscribirPie: 'For detailed enquiries or paperwork.',
+      contactoOficina: 'The office', contactoOficinaTitulo: 'Av. del Carmen, 5',
+      contactoOficinaTexto: 'We are in the centre of Estepona, a step from the seafront promenade. If you would rather meet in person, let us know in advance and we will prepare your visit.',
+      contactoComoLlegar: 'Get directions',
+      contactoDireccion: 'Av. del Carmen, 5, Loc 9\n29680 Estepona, Málaga',
       pasoZonas: 'Where would you like to buy?',
       pasoPropiedad: 'Tell us about your property',
       pasoDatos: 'Your contact details',
@@ -3462,10 +3356,13 @@ class Component extends DCLogic {
       esStyleDark: langBtn(es, true), enStyleDark: langBtn(!es, true),
       setEs: () => this.setState({ lang: 'es' }),
       setEn: () => this.setState({ lang: 'en' }),
-      telHref: 'tel:' + String(this.props.telefono || '+34951000000').replace(/\s/g, ''),
-      telLabel: this.props.telefono || '+34 951 00 00 00',
-      emailLabel: this.props.email || 'hola@wrealestate.es',
-      emailHref: 'mailto:' + (this.props.email || 'hola@wrealestate.es'),
+      telHref: 'tel:' + String(this.props.telefono || '+34623798619').replace(/[\s-]/g, ''),
+      whatsappHref: 'https://wa.me/' + String(this.props.telefono || '+34623798619').replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent(es ? 'Hola, me gustaría recibir información sobre una propiedad.' : 'Hello, I would like some information about a property.'),
+      mapaHref: 'https://maps.app.goo.gl/2Doc5xCwpezj4fey8',
+      mapaEmbed: 'https://maps.google.com/maps?q=' + encodeURIComponent('Av. del Carmen 5, 29680 Estepona, Málaga') + '&hl=' + (es ? 'es' : 'en') + '&z=16&output=embed',
+      telLabel: this.props.telefono || '+34 623 79 86 19',
+      emailLabel: this.props.email || 'marina@wrealestate.es',
+      emailHref: 'mailto:' + (this.props.email || 'marina@wrealestate.es'),
 
       menuOpen: !!st.menu,
       openMenu: () => this.setState({ menu: true }),
