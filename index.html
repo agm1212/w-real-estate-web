@@ -369,7 +369,7 @@
 
     <div class="rv r2 r2s" style="position:relative;z-index:2;max-width:1280px;margin:clamp(50px,6vw,90px) auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)">
       <sc-for list="{{ zonaCards }}" as="z" hint-placeholder-count="4">
-        <a href="#" onClick="{{ z.open }}" class="rz" style="position:relative;display:block;aspect-ratio:3/4;overflow:hidden;background:#F3EAD9;box-shadow:0 24px 50px -30px rgba(30,26,23,.5)">
+        <a href="{{ z.href }}" onClick="{{ z.open }}" class="rz" style="position:relative;display:block;aspect-ratio:3/4;overflow:hidden;background:#F3EAD9;box-shadow:0 24px 50px -30px rgba(30,26,23,.5)">
           <img src="{{ z.img }}" alt="" style="{{ z.imgStyle }}" style-hover="transform:scale(1.06)">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 40%,rgba(20,17,15,.85) 100%)"></div>
           <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 20px;display:flex;flex-direction:column;gap:5px;color:#FFFFFF">
@@ -3454,6 +3454,7 @@ class Component extends DCLogic {
       zonaCards: this.zonasData.map(z => ({
         nombre: z.nombre, dato: z.dato, texto: this.L(z.texto),
         img: this.isrc(z.img), imgStyle: this.imgCss(),
+        href: (this.es ? '/comprar/' : '/en/buy/') + this.slug(z.municipio) + '/',
         open: (e) => { if (e) e.preventDefault(); this.go('listings', { aiMode: false, aiResults: null, mostrar: 24, f: Object.assign({}, st.f, { zona: z.municipio, urb: '' }) }); }
       })),
 
