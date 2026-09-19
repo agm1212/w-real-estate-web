@@ -160,6 +160,10 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 @media (max-width:900px){
  .cab nav{display:none}
  .cab .menuBtn{display:flex}
+ /* Ocultas las dos navegaciones, el logo se iria a la derecha. Se centra como en la portada.
+    Al sacarlo del flujo deja de dar altura a la barra, asi que se fija a mano: 40 del logo + 14+14. */
+ .cab{min-height:68px}
+ .cab .marca{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
  .cab{padding:14px 6vw}
  .cab .logo{height:40px}
  .hero{height:100svh;min-height:520px}
@@ -236,7 +240,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
 /* ---- Indice de zonas ---- */
 .paginaLista.sinTope{padding-top:0}
-.heroZ{position:relative;display:flex;align-items:flex-end;min-height:min(88vh,860px);background:var(--carbon);overflow:hidden}
+.heroZ{position:relative;display:flex;align-items:flex-end;height:auto;min-height:min(88vh,860px);background:var(--carbon);overflow:hidden}
 .heroZ>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
 .heroZ .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.78) 0%,rgba(20,17,15,.14) 40%,rgba(20,17,15,.5) 72%,rgba(20,17,15,.92) 100%)}
 .heroZ .dentroH{position:relative;z-index:2;width:100%;max-width:1360px;margin:0 auto;padding:170px 6vw clamp(40px,4.4vw,70px);color:#F7F0E6}
@@ -334,7 +338,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   .guia h2,.tituloLista,.seccionZ h2{overflow-wrap:anywhere}
 }
 @media (max-width:900px){
-  .heroZ{min-height:auto}
+  .heroZ{height:auto;min-height:auto}
   .heroZ .dentroH{padding:130px 6vw 44px}
   .cifrasZ>div{flex:1 1 44%}
   .cifrasZ>div+div{border-left:0;padding-left:0}
@@ -377,7 +381,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
   <img src="https://cdn.resales-online.com/public/tlme7rencq/properties/274cc6fca01311f086ca02a3ded47a2d/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1779947295" alt="Nueva Andalucía" width="1600" height="1067" fetchpriority="high">
   <span class="velo"></span>
   <div class="dentroH">
-    <div class="linea"><span class="eyebrow">Area guide &amp;middot; Marbella</span><span class="raya"></span></div>
+    <div class="linea"><span class="eyebrow">Area guide · Marbella</span><span class="raya"></span></div>
     <h1>Nueva Andalucía</h1>
     <p class="lead">Known as the Golf Valley, Nueva Andalucía gathers Las Brisas, Aloha and Los Naranjos around three courses. It is the liveliest part of Marbella outside the centre, with Puerto Banús five minutes away and a well-established Scandinavian community.</p>
     <div class="cifrasZ">

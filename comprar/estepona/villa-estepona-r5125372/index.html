@@ -160,6 +160,10 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 @media (max-width:900px){
  .cab nav{display:none}
  .cab .menuBtn{display:flex}
+ /* Ocultas las dos navegaciones, el logo se iria a la derecha. Se centra como en la portada.
+    Al sacarlo del flujo deja de dar altura a la barra, asi que se fija a mano: 40 del logo + 14+14. */
+ .cab{min-height:68px}
+ .cab .marca{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
  .cab{padding:14px 6vw}
  .cab .logo{height:40px}
  .hero{height:100svh;min-height:520px}
