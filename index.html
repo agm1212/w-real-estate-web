@@ -676,7 +676,7 @@
     <div style="position:relative">
       <div class="car" ref="{{ carRef }}" style="display:flex;gap:18px;padding:0 6vw 10px">
         <sc-for list="{{ home8 }}" as="p" hint-placeholder-count="8">
-          <a href="#" onClick="{{ p.open }}" style="position:relative;flex:0 0 clamp(250px,24vw,330px);aspect-ratio:3/4.2;overflow:hidden;background:#EDE3D3;display:block;box-shadow:0 30px 60px -36px rgba(30,26,23,.6)">
+          <a href="{{ p.href }}" onClick="{{ p.open }}" style="position:relative;flex:0 0 clamp(250px,24vw,330px);aspect-ratio:3/4.2;overflow:hidden;background:#EDE3D3;display:block;box-shadow:0 30px 60px -36px rgba(30,26,23,.6)">
             <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
             <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 45%,rgba(20,17,15,.9) 100%)"></div>
             <span style="position:absolute;top:14px;left:14px;padding:6px 11px;background:rgba(255,255,255,.94);color:#7A2027;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">{{ p.badge }}</span>
@@ -950,7 +950,7 @@
     <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
       <div class="r2 r2s" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,2.4vw,40px)">
         <sc-for list="{{ listado }}" as="p" hint-placeholder-count="6">
-          <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:16px">
+          <a href="{{ p.href }}" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:16px">
             <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#F3EAD9">
               <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
               <span style="position:absolute;top:13px;left:13px;padding:7px 12px;background:rgba(30,26,23,.82);color:#F7F0E6;font-size:9px;letter-spacing:.18em;text-transform:uppercase">{{ p.badge }}</span>
@@ -978,7 +978,7 @@
     <sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;flex-direction:column">
         <sc-for list="{{ listado }}" as="p" hint-placeholder-count="4">
-          <a href="#" onClick="{{ p.open }}" class="r1" style="display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,1fr);gap:clamp(20px,2.6vw,44px);align-items:center;padding:26px 0;border-top:1px solid rgba(30,26,23,.14)" style-hover="background:rgba(237,215,191,.32)">
+          <a href="{{ p.href }}" onClick="{{ p.open }}" class="r1" style="display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,1fr);gap:clamp(20px,2.6vw,44px);align-items:center;padding:26px 0;border-top:1px solid rgba(30,26,23,.14)" style-hover="background:rgba(237,215,191,.32)">
             <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:#F3EAD9">
               <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.05)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
             </div>
@@ -1241,7 +1241,7 @@
       <h2 style="margin:0 0 clamp(30px,3.4vw,50px);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,3.2vw,46px);line-height:1.06">{{ t.similares }}</h2>
       <div class="r2 r2s" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,36px)">
         <sc-for list="{{ similares }}" as="p" hint-placeholder-count="3">
-          <a href="#" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:14px">
+          <a href="{{ p.href }}" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:14px">
             <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#FFFFFF">
               <img src="{{ p.img }}" alt="" style="{{ p.imgStyle }}" style-hover="transform:scale(1.06)" onLoad="{{ p.alCargar }}" onError="{{ p.alCargar }}">
             </div>
@@ -2984,6 +2984,7 @@ class Component extends DCLogic {
         const a = this.state.favs.slice(); const i = a.indexOf(p.ref);
         if (i > -1) a.splice(i, 1); else a.push(p.ref);
         this.setState({ favs: a }); },
+      href: this.rutaPropiedad(p),
       open: (e) => { if (e) e.preventDefault(); this.cargarFicha(p); this.go('property', { ref: p.ref, gi: 0 }); }
     };
   }
@@ -3020,6 +3021,20 @@ class Component extends DCLogic {
     if (this.ghl) return; this.ghl = true;
     try { const s = document.createElement('script'); s.src = 'https://link.realestaterocket.io/js/form_embed.js'; s.async = true; document.head.appendChild(s); } catch (e) {}
   }
+  /* Dirección canónica de una propiedad. Debe coincidir con catalogo-w/rutas.mjs. */
+  slug(txt) {
+    return String(txt || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'sin-nombre';
+  }
+  rutaPropiedad(p, idioma) {
+    if (!p) return '/';
+    const i = idioma || (this.es ? 'es' : 'en');
+    const T = { 'Villa': ['villa', 'villa'], 'Ático': ['atico', 'penthouse'], 'Apartamento': ['apartamento', 'apartment'],
+      'Casa': ['casa', 'house'], 'Parcela': ['parcela', 'plot'], 'Comercial': ['local-comercial', 'commercial'] };
+    const tipo = (T[p.tipo] || ['propiedad', 'property'])[i === 'en' ? 1 : 0];
+    const pieza = tipo + '-' + this.slug(p.urbanizacion || p.municipio) + '-' + this.slug(p.ref);
+    return (i === 'en' ? '/en/buy/' : '/comprar/') + this.slug(p.municipio) + '/' + pieza + '/';
+  }
   /* Identificador público de una propiedad: la referencia de Resales o la que pone el agente en el portal. */
   idPublico(p) { return (p && (p.referenciaCrm || p.ref)) || ''; }
   buscarPorId(id) {
@@ -3028,13 +3043,20 @@ class Component extends DCLogic {
   }
   urlDe(page, ref) {
     const m = { listings: 'comprar', sell: 'vender', about: 'nosotros', contact: 'contacto' };
-    if (page === 'property') { const p = this.data.find(x => x.ref === ref); return '?id_propiedad=' + encodeURIComponent(this.idPublico(p) || ref || ''); }
+    if (page === 'property') { const p = this.data.find(x => x.ref === ref); return p ? this.rutaPropiedad(p) : '/'; }
     return m[page] ? '?pagina=' + m[page] : location.pathname;
   }
   aplicarRuta() {
     let q; try { q = new URLSearchParams(location.search); } catch (e) { return; }
     const id = q.get('id_propiedad') || q.get('propiedad');
-    if (id) { const p = this.buscarPorId(id); if (p) { this.cargarFicha(p); this.setState({ page: 'property', ref: p.ref, gi: 0, menu: false }); this.top(); return; } }
+    if (id) {
+      const p = this.buscarPorId(id);
+      if (p) {
+        const destino = this.rutaPropiedad(p);
+        try { if (location.pathname !== destino) { location.replace(destino); return; } } catch (e) {}
+        this.cargarFicha(p); this.setState({ page: 'property', ref: p.ref, gi: 0, menu: false }); this.top(); return;
+      }
+    }
     const inv = { comprar: 'listings', vender: 'sell', nosotros: 'about', contacto: 'contact' };
     const pg = q.get('pagina');
     if (pg && inv[pg]) { this.setState({ page: inv[pg], menu: false }); this.top(); }

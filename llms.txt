@@ -11,7 +11,7 @@
 - Web: https://wrealestate.es
 
 ## Qué ofrece
-- Venta de propiedades de lujo en la Costa del Sol (394 propiedades publicadas).
+- Venta de propiedades de lujo en la Costa del Sol: 394 propiedades publicadas, cada una con su página en español y en inglés.
 - Servicio a propietarios que quieren vender: valoración, producción audiovisual propia, campañas internacionales y negociación.
 - Cobertura por municipio: Marbella (196), Benahavís (71), Estepona (58), Mijas (28), Sotogrande (16), Fuengirola (11), Casares (9), Manilva (5).
 
@@ -24,8 +24,10 @@
 
 ## Páginas
 - Inicio: https://wrealestate.es/
-- Comprar: https://wrealestate.es/?pagina=comprar
-- Vender: https://wrealestate.es/?pagina=vender
-- Nosotros: https://wrealestate.es/?pagina=nosotros
+- Buscador de propiedades: https://wrealestate.es/?pagina=comprar
+- Vender una propiedad: https://wrealestate.es/?pagina=vender
+- Sobre la agencia: https://wrealestate.es/?pagina=nosotros
 - Contacto: https://wrealestate.es/?pagina=contacto
-- Ficha de una propiedad: https://wrealestate.es/?id_propiedad=REFERENCIA
+- Todas las fichas: https://wrealestate.es/sitemap-propiedades.xml
+- Ficha en español: https://wrealestate.es/comprar/<municipio>/<tipo>-<zona>-<referencia>/
+- Ficha en inglés: https://wrealestate.es/en/buy/<municipio>/<tipo>-<zona>-<referencia>/
