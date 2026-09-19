@@ -214,8 +214,28 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips a{padding:8px 15px;border:1px solid var(--linea);font-size:13.5px;color:var(--gris);transition:all .25s}
 .chips a:hover{border-color:var(--burdeos);color:var(--burdeos)}
-@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}}
+.guia{margin:0 0 clamp(40px,5vw,68px)}
+.guia h2{font-size:clamp(23px,2.7vw,34px);line-height:1.15;margin:clamp(34px,3.6vw,52px) 0 14px;scroll-margin-top:110px}
+.guia h2:first-of-type{margin-top:0}
+.guia p{color:var(--gris);line-height:1.95;margin:0 0 14px;max-width:68ch}
+.indice{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:20px 0;margin:0 0 clamp(34px,4vw,52px)}
+.indice .eyebrow{display:block;margin-bottom:12px}
+.indice ol{list-style:none;display:flex;flex-wrap:wrap;gap:9px 22px;margin:0;padding:0;counter-reset:i}
+.indice li{counter-increment:i}
+.indice a{font-size:14px;color:var(--gris);border-bottom:1px solid transparent;transition:all .25s}
+.indice a::before{content:counter(i,decimal-leading-zero);color:var(--burdeos);font-size:10.5px;margin-right:7px;letter-spacing:.08em}
+.indice a:hover{color:var(--burdeos);border-bottom-color:rgba(122,32,39,.4)}
+.tablaZ{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:14.5px}
+.tablaZ th,.tablaZ td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--linea);vertical-align:baseline}
+.tablaZ th{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris2);font-weight:400}
+.tablaZ td.n{font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.tablaZ td:first-child{color:var(--carbon)}
+.envoltorioTabla{overflow-x:auto}
+.nota{font-size:12.5px;color:var(--gris2);line-height:1.7;margin:0 0 8px;max-width:68ch}
+.tituloLista{font-size:clamp(23px,2.7vw,34px);margin:clamp(40px,4.6vw,64px) 0 22px;scroll-margin-top:110px}
+@media (max-width:900px){.rejP{grid-template-columns:1fr}.paginaLista{padding-top:calc(72px + 30px)}.indice ol{flex-direction:column;gap:11px}}
 </style>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Locales comerciales en venta","url":"https://wrealestate.es/comprar/locales-comerciales/","numberOfItems":13,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://wrealestate.es/comprar/mijas/local-comercial-la-cala-de-mijas-r5445382/","name":"Comercial en La Cala de Mijas"},{"@type":"ListItem","position":2,"url":"https://wrealestate.es/comprar/estepona/local-comercial-estepona-r5454124/","name":"Comercial en Estepona"},{"@type":"ListItem","position":3,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r2763281/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":4,"url":"https://wrealestate.es/comprar/marbella/local-comercial-nueva-andalucia-r5426302/","name":"Comercial en Nueva Andalucía"},{"@type":"ListItem","position":5,"url":"https://wrealestate.es/comprar/manilva/local-comercial-manilva-r4827649/","name":"Comercial en Manilva"},{"@type":"ListItem","position":6,"url":"https://wrealestate.es/comprar/marbella/local-comercial-marbella-r5391481/","name":"Comercial en Marbella"},{"@type":"ListItem","position":7,"url":"https://wrealestate.es/comprar/estepona/local-comercial-el-paraiso-r5459236/","name":"Comercial en El Paraiso"},{"@type":"ListItem","position":8,"url":"https://wrealestate.es/comprar/estepona/local-comercial-estepona-r5370169/","name":"Comercial en Estepona"},{"@type":"ListItem","position":9,"url":"https://wrealestate.es/comprar/estepona/local-comercial-el-paraiso-r3964399/","name":"Comercial en El Paraiso"},{"@type":"ListItem","position":10,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4771051/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":11,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r4777798/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":12,"url":"https://wrealestate.es/comprar/marbella/local-comercial-puerto-banus-r5440699/","name":"Comercial en Puerto Banús"},{"@type":"ListItem","position":13,"url":"https://wrealestate.es/comprar/marbella/local-comercial-nueva-andalucia-r4819105/","name":"Comercial en Nueva Andalucía"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo puedo visitar una de estas propiedades?","acceptedAnswer":{"@type":"Answer","text":"Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://wrealestate.es/"},{"@type":"ListItem","position":2,"name":"Comprar","item":"https://wrealestate.es/comprar/"},{"@type":"ListItem","position":3,"name":"Locales comerciales en venta","item":"https://wrealestate.es/comprar/locales-comerciales/"}]}</script>
@@ -268,6 +288,9 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
 
     <div class="texto"><p>W Real Estate reúne en un solo catálogo la oferta de la red de agencias de la Costa del Sol y sus propias exclusivas, desde Málaga capital hasta Sotogrande. Cada propiedad se revisa antes de publicarse: descartamos las que llegan con fotos de mala calidad o con datos incompletos.</p></div>
 
+    
+
+    
     <div class="rejP">
       <a href="/comprar/mijas/local-comercial-la-cala-de-mijas-r5445382/">
   <div class="foto"><span class="sel">Restaurante</span><img src="https://cdn.resales-online.com/public/s9unvkbr31/properties/3f4e8de9871511f182490652962539d5/w1600/1-7020804132f1cd48fa7d0a6cde6ac64b.jpg?v=1784869675" alt="Comercial en La Cala de Mijas" loading="lazy" width="600" height="450"></div>
@@ -389,7 +412,7 @@ dialog::backdrop{background:rgba(30,26,23,.82)}
     </div>
     
 
-    <section class="faq">
+    <section class="faq" id="preguntas">
       <h2>Preguntas frecuentes</h2>
       <details open><summary>¿Cómo puedo visitar una de estas propiedades?</summary><p>Desde la ficha de cada propiedad se puede reservar una visita o pedir información. También puede llamar o escribir por WhatsApp al +34 623 79 86 19, o pasar por la oficina en Av. del Carmen, 5, Estepona. Atendemos en español e inglés.</p></details>
     </section>

@@ -22,6 +22,42 @@
 - Enrique — socio y director de tecnología
 - Carlota, Javier y María Jesús — asesores inmobiliarios
 
+## Guías de zona
+Cada guía explica qué es la zona, dónde está, qué hay alrededor y qué cuesta comprar allí,
+con los precios calculados sobre el catálogo real de W Real Estate. Versión inglesa en /en/areas/ y /en/buy/.
+- Altos de los Monteros (urbanización): https://wrealestate.es/zonas/altos-de-los-monteros/
+- Atalaya (urbanización): https://wrealestate.es/zonas/atalaya/
+- Bel Air (urbanización): https://wrealestate.es/zonas/bel-air/
+- Benahavís (municipio): https://wrealestate.es/comprar/benahavis/
+- Benahavís (urbanización): https://wrealestate.es/zonas/benahavis/
+- Cabopino (urbanización): https://wrealestate.es/zonas/cabopino/
+- Calahonda (urbanización): https://wrealestate.es/zonas/calahonda/
+- Casares (municipio): https://wrealestate.es/comprar/casares/
+- Casares (urbanización): https://wrealestate.es/zonas/casares/
+- El Paraiso (urbanización): https://wrealestate.es/zonas/el-paraiso/
+- Elviria (urbanización): https://wrealestate.es/zonas/elviria/
+- Estepona (municipio): https://wrealestate.es/comprar/estepona/
+- Estepona (urbanización): https://wrealestate.es/zonas/estepona/
+- Fuengirola (municipio): https://wrealestate.es/comprar/fuengirola/
+- Guadalmina Alta (urbanización): https://wrealestate.es/zonas/guadalmina-alta/
+- Guadalmina Baja (urbanización): https://wrealestate.es/zonas/guadalmina-baja/
+- La Cala de Mijas (urbanización): https://wrealestate.es/zonas/la-cala-de-mijas/
+- La Cala Golf (urbanización): https://wrealestate.es/zonas/la-cala-golf/
+- La Mairena (urbanización): https://wrealestate.es/zonas/la-mairena/
+- La Quinta (urbanización): https://wrealestate.es/zonas/la-quinta/
+- Los Arqueros (urbanización): https://wrealestate.es/zonas/los-arqueros/
+- Manilva (municipio): https://wrealestate.es/comprar/manilva/
+- Marbella (municipio): https://wrealestate.es/comprar/marbella/
+- Marbella (urbanización): https://wrealestate.es/zonas/marbella/
+- Mijas (municipio): https://wrealestate.es/comprar/mijas/
+- Nueva Andalucía (urbanización): https://wrealestate.es/zonas/nueva-andalucia/
+- Puerto Banús (urbanización): https://wrealestate.es/zonas/puerto-banus/
+- Riviera del Sol (urbanización): https://wrealestate.es/zonas/riviera-del-sol/
+- San Pedro de Alcántara (urbanización): https://wrealestate.es/zonas/san-pedro-de-alcantara/
+- Sierra Blanca (urbanización): https://wrealestate.es/zonas/sierra-blanca/
+- Sotogrande (municipio): https://wrealestate.es/comprar/sotogrande/
+- The Golden Mile (urbanización): https://wrealestate.es/zonas/the-golden-mile/
+
 ## Páginas
 - Inicio: https://wrealestate.es/
 - Buscador de propiedades: https://wrealestate.es/comprar/ (en inglés: https://wrealestate.es/en/buy/)
