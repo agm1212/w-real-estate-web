@@ -1070,7 +1070,12 @@
         <div style="background:#FFFFFF;border:1px solid rgba(30,26,23,.12);padding:clamp(24px,2.4vw,32px);display:flex;flex-direction:column;gap:18px">
           <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.asesor }}</span>
           <div style="display:flex;align-items:center;gap:15px">
-            <span style="{{ asesorTile }}">{{ asesorInicial }}</span>
+            <sc-if value="{{ asesorTieneFoto }}" hint-placeholder-val="{{ true }}">
+              <img src="{{ asesorFoto }}" alt="{{ prop.asesor }}" style="width:64px;height:64px;flex:none;object-fit:cover;object-position:center 22%;display:block">
+            </sc-if>
+            <sc-if value="{{ asesorSinFoto }}" hint-placeholder-val="{{ false }}">
+              <span style="{{ asesorTile }}">{{ asesorInicial }}</span>
+            </sc-if>
             <div style="display:flex;flex-direction:column;gap:4px">
               <span style="font-size:15px">{{ prop.asesor }}</span>
               <span style="font-size:12px;color:#6B615A">{{ asesorCargo }}</span>
@@ -1724,8 +1729,13 @@
         <sc-for list="{{ equipo }}" as="m" hint-placeholder-count="8">
           <div style="display:flex;flex-direction:column;gap:14px">
             <div style="{{ m.tileStyle }}" style-hover="background:#F3EAD9">
-              <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(46px,4.6vw,66px);font-weight:500;color:#7A2027;line-height:1">{{ m.inicial }}</span>
-              <span style="position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.fotoPendiente }}</span>
+              <sc-if value="{{ m.tieneFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ m.foto }}" alt="{{ m.nombre }}" style="{{ m.fotoStyle }}" style-hover="transform:scale(1.04)">
+              </sc-if>
+              <sc-if value="{{ m.sinFoto }}" hint-placeholder-val="{{ false }}">
+                <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(46px,4.6vw,66px);font-weight:500;color:#7A2027;line-height:1">{{ m.inicial }}</span>
+                <span style="position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#786E64">{{ t.fotoPendiente }}</span>
+              </sc-if>
             </div>
             <div style="display:flex;flex-direction:column;gap:5px">
               <span style="font-size:14.5px">{{ m.nombre }}</span>
@@ -2749,6 +2759,8 @@ class Component extends DCLogic {
   /* Todas las fotos van en <img>: el canvas sustituye src="nombre" por el dato incrustado,
      y un background-image con data-URI se rompe al interpretar el estilo (parte por ';'). */
   imgSrc = {
+    'equipo-ivan.jpg': 'src="equipo-ivan.jpg"',
+    'equipo-marina.jpg': 'src="equipo-marina.jpg"',
     'costa-aerea.jpg': 'src="costa-aerea.jpg"',
     'escalera.jpg': 'src="escalera.jpg"',
     'hero-atardecer.jpg': 'src="hero-atardecer.jpg"',
@@ -2897,8 +2909,8 @@ class Component extends DCLogic {
   };
 
   equipoData = [
-    { nombre: 'Iván', cargo: { es: 'Asesor inmobiliario', en: 'Real estate advisor' }, idiomas: 'ES · EN' },
-    { nombre: 'Marina', cargo: { es: 'Asesora inmobiliaria', en: 'Real estate advisor' }, idiomas: 'ES · EN' },
+    { nombre: 'Iván', cargo: { es: 'Asesor inmobiliario', en: 'Real estate advisor' }, idiomas: 'ES · EN', foto: 'equipo-ivan.jpg' },
+    { nombre: 'Marina', cargo: { es: 'Asesora inmobiliaria', en: 'Real estate advisor' }, idiomas: 'ES · EN', foto: 'equipo-marina.jpg' },
     { nombre: 'Álvaro Serrano', cargo: { es: 'Socio fundador', en: 'Founding partner' }, idiomas: 'ES · EN · FR' },
     { nombre: 'Tomás Ibáñez', cargo: { es: 'Socio · Mandatos en exclusiva', en: 'Partner · Exclusive mandates' }, idiomas: 'ES · EN · DE' },
     { nombre: 'Sofía Lund', cargo: { es: 'Asesora senior', en: 'Senior advisor' }, idiomas: 'SV · NO · DA · EN' },
@@ -3266,7 +3278,9 @@ class Component extends DCLogic {
   equipoTarjetas() {
     return this.equipoData.map(m => ({
       nombre: m.nombre, cargo: this.L(m.cargo), idiomas: m.idiomas, inicial: m.nombre.charAt(0),
-      tileStyle: 'position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;background:#EDD7BF;transition:background .45s ease'
+      tieneFoto: !!m.foto, sinFoto: !m.foto, foto: m.foto ? this.isrc(m.foto) : '',
+      fotoStyle: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)',
+      tileStyle: 'position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;background:#EDD7BF;transition:background .45s ease'
     }));
   }
 
@@ -3608,6 +3622,7 @@ class Component extends DCLogic {
       ],
       asesorTile: 'display:flex;align-items:center;justify-content:center;width:56px;height:56px;flex:none;background:#EDD7BF;font-family:\'Cormorant Garamond\',serif;font-weight:500;font-size:24px;color:#7A2027',
       asesorInicial: asesor.nombre.charAt(0),
+      asesorTieneFoto: !!asesor.foto, asesorSinFoto: !asesor.foto, asesorFoto: asesor.foto ? this.isrc(asesor.foto) : '',
       asesorCargo: this.L(asesor.cargo), asesorIdiomas: asesor.idiomas,
 
       galleryImg: shot.url || this.isrc(shot.src),
