@@ -324,6 +324,10 @@
           <div class="campo medio"><label>Segmento</label>
             <div class="segmento"><button type="button" data-seg="segunda-mano" class="on">Segunda mano</button><button type="button" data-seg="obra-nueva">Obra nueva</button></div>
           </div>
+          <div class="campo medio"><label>Mandato</label>
+            <div class="segmento" id="mandato"><button type="button" data-man="exclusiva" class="on">Exclusiva W</button><button type="button" data-man="abierto">En abierto</button></div>
+            <span class="nota" id="notaMandato"></span>
+          </div>
           <div class="campo"><label for="f_ref">Referencia</label><input id="f_ref" data-k="ref"></div>
           <div class="campo"><label for="f_tipo">Tipo</label><select id="f_tipo" data-k="tipo"><option>Villa</option><option>Ático</option><option>Apartamento</option><option>Casa</option><option>Parcela</option><option>Comercial</option></select></div>
           <div class="campo medio"><label for="f_subtipo">Subtipo o descripción corta del tipo</label><input id="f_subtipo" data-k="subtipo" placeholder="Villa de nueva construcción, ático dúplex, adosado…"></div>
@@ -513,7 +517,7 @@
     promocion: '', promotor: '', entrega: '', unidades: '', fase: 'Sobre plano', licenciaObra: '', tipologias: [],
     fotos: [], documentos: [], video: '', notas: '', saber: '',
     textos: { tituloEs: '', tituloEn: '', entradillaEs: '', entradillaEn: '', descripcionEs: '', descripcionEn: '' },
-    estadoPublicacion: 'borrador', asesor: 'Iván', creadoPor: '', creado: new Date().toISOString(), actualizado: new Date().toISOString(), modo: 'manual', ia: null, iaTextos: null });
+    estadoPublicacion: 'borrador', mandato: 'exclusiva', asesor: 'Iván', creadoPor: '', creado: new Date().toISOString(), actualizado: new Date().toISOString(), modo: 'manual', ia: null, iaTextos: null });
 
   /* ---------- números con puntos de miles y coma decimal ---------- */
   const fmtNum = (v) => { if (v === '' || v == null || !Number.isFinite(Number(v))) return ''; const [e, d] = String(v).split('.'); return e.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (d ? ',' + d : ''); };
@@ -565,7 +569,7 @@
     cont.innerHTML = items.map(p => `<div class="item ${actual && actual.id === p.id ? 'activo' : ''}" data-id="${p.id}">
       ${portadaDe(p) ? `<img class="foto" src="${portadaDe(p)}" alt="">` : '<div class="foto"></div>'}
       <div><div class="nombre">${esc(nombreDe(p))}</div><div class="meta"><span>${p.ref ? esc(p.ref) + ' · ' : ''}${p.segmento === 'obra-nueva' ? 'desde ' : ''}${eur(p.precio)}</span></div>
-      <div class="meta" style="margin-top:4px"><span class="chip ${p.estadoPublicacion}">${ESTADOS[p.estadoPublicacion] || p.estadoPublicacion}</span>${p.segmento === 'obra-nueva' ? '<span class="chip obra">Obra nueva</span>' : ''}${p.ia && p.ia.estado === 'pendiente' ? '<span class="chip ia-pendiente">IA en cola</span>' : p.ia && p.ia.estado === 'listo' ? '<span class="chip ia-listo">IA</span>' : p.ia && p.ia.estado === 'error' ? '<span class="chip ia-pendiente">IA con error</span>' : ''}<span>${(p.fotos || []).length} fotos</span></div></div></div>`).join('');
+      <div class="meta" style="margin-top:4px"><span class="chip ${p.estadoPublicacion}">${ESTADOS[p.estadoPublicacion] || p.estadoPublicacion}</span>${p.segmento === 'obra-nueva' ? '<span class="chip obra">Obra nueva</span>' : ''}${p.mandato === 'abierto' ? '<span class="chip">En abierto</span>' : '<span class="chip ia-listo">Exclusiva W</span>'}${p.ia && p.ia.estado === 'pendiente' ? '<span class="chip ia-pendiente">IA en cola</span>' : p.ia && p.ia.estado === 'listo' ? '<span class="chip ia-listo">IA</span>' : p.ia && p.ia.estado === 'error' ? '<span class="chip ia-pendiente">IA con error</span>' : ''}<span>${(p.fotos || []).length} fotos</span></div></div></div>`).join('');
   }
   $('#items').addEventListener('click', (e) => { const it = e.target.closest('.item'); if (!it) return; const p = lista.find(x => x.id === it.dataset.id); if (p) abrir(structuredClone(p)); });
   $('#filtroEstado').addEventListener('change', pintarLista);
@@ -594,7 +598,8 @@
     $$('[data-t]').forEach(el => { el.value = (p.textos || {})[el.dataset.t] || ''; });
     $$('#extras input[type=checkbox]').forEach(i => { i.checked = (p.extras || []).includes(i.value); });
     pintarPropios();
-    $$('.segmento button').forEach(b => b.classList.toggle('on', b.dataset.seg === p.segmento));
+    $$('.segmento button[data-seg]').forEach(b => b.classList.toggle('on', b.dataset.seg === p.segmento));
+    aplicarMandato();
     aplicarSegmento(); pintarFotos(); pintarTipologias(); pintarDocs(); cabecera(); estado('Sin cambios'); pintarLista(); marcarIA(); bannerIA(); vigilar(p.id);
     window.scrollTo({ top: 0 });
   }
@@ -626,7 +631,15 @@
     $('#campoPrecio label').textContent = obra ? 'Precio desde (€)' : 'Precio (€)';
     $('#ayudaDatos').textContent = obra ? 'Para una promoción, indique el rango de precios y los datos de la unidad más representativa; el detalle va en las tipologías.' : ''; $('#ayudaDatos').hidden = !obra;
   }
-  $$('.segmento button').forEach(b => b.addEventListener('click', () => { actual.segmento = b.dataset.seg; $$('.segmento button').forEach(x => x.classList.toggle('on', x === b)); aplicarSegmento(); cambiado(); }));
+  function aplicarMandato() {
+    const m = (actual && actual.mandato) || 'exclusiva';
+    $$('#mandato button').forEach(b => b.classList.toggle('on', b.dataset.man === m));
+    $('#notaMandato').textContent = m === 'exclusiva'
+      ? 'Se publica como Exclusiva W, con la ficha ampliada: expediente de documentos, galería por estancias y distintivo en el listado.'
+      : 'Se publica con la ficha estándar, igual que las propiedades de la red.';
+  }
+  $$('#mandato button').forEach(b => b.addEventListener('click', () => { actual.mandato = b.dataset.man; aplicarMandato(); cambiado(); }));
+  $$('.segmento button[data-seg]').forEach(b => b.addEventListener('click', () => { actual.segmento = b.dataset.seg; $$('.segmento button[data-seg]').forEach(x => x.classList.toggle('on', x === b)); aplicarSegmento(); cambiado(); }));
   document.addEventListener('input', (e) => {
     const el = e.target; if (!actual) return;
     if (el.hasAttribute('data-num')) { formatearEnVivo(el); if (el.dataset.k) actual[el.dataset.k] = parseNum(el.value); }

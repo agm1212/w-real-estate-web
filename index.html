@@ -62,6 +62,10 @@
   }
   @media (max-width: 640px) {
     .r2, .r2s { grid-template-columns: minmax(0, 1fr) !important; }
+    /* Galería de la ficha en móvil: tira horizontal con ajuste por foto en lugar de una columna interminable */
+    .rgal { display: flex !important; gap: 8px !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 6px; margin: 0 -6vw; padding-left: 6vw; padding-right: 6vw; }
+    .rgal::-webkit-scrollbar { display: none; }
+    .rgal > button { flex: 0 0 82% !important; scroll-snap-align: center; aspect-ratio: 4 / 3 !important; opacity: 1 !important; }
     .rm2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     .rsmall { font-size: 13px !important; }
     .rz { aspect-ratio: 4 / 3 !important; }
@@ -840,7 +844,6 @@
         </div>
         <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,62px);line-height:1.04">{{ t.listadoTitulo }}</h1>
       </div>
-      <p style="margin:0;max-width:28em;font-size:14.5px;line-height:1.85;color:#6B615A">{{ t.listadoTexto }}</p>
     </div>
 
     <!-- Buscador conversacional -->
@@ -1045,26 +1048,9 @@
           </div>
         </div>
 
-        <!-- Plan de comercializacion: el diferencial de W en la propia ficha -->
-        <div style="background:#1E1A17;color:#F7F0E6;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:22px">
-          <div style="display:flex;align-items:center;gap:12px">
-            <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#EDD7BF">{{ t.planEyebrow }}</span>
-          </div>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,34px);line-height:1.16;max-width:16em">{{ t.planTitulo }}</h3>
-          <div class="r2s" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
-            <sc-for list="{{ prop.plan }}" as="pl" hint-placeholder-count="3">
-              <div style="display:flex;flex-direction:column;gap:7px;border-top:1px solid rgba(237,215,191,.22);padding-top:14px">
-                <span style="font-size:18px;color:#EDD7BF">{{ pl.valor }}</span>
-                <span style="font-size:12px;line-height:1.65;color:rgba(247,240,230,.74)">{{ pl.etiqueta }}</span>
-              </div>
-            </sc-for>
-          </div>
-          <p style="margin:0;font-size:12.5px;line-height:1.8;color:rgba(247,240,230,.72);max-width:40em">{{ t.planPie }}</p>
-        </div>
-
         <div>
           <span style="display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027;margin-bottom:20px">{{ t.galeria }}</span>
-          <div class="r2s" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+          <div class="rgal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
             <sc-for list="{{ thumbs }}" as="th" hint-placeholder-count="5">
               <button onClick="{{ th.open }}" style="{{ th.style }}" style-hover="opacity:1">
                 <img src="{{ th.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onLoad="{{ th.alCargar }}" onError="{{ th.alCargar }}">
@@ -1102,16 +1088,18 @@
           <a href="{{ telHref }}" style="font-size:14px;border-bottom:1px solid rgba(30,26,23,.2);padding-bottom:8px" style-hover="color:#7A2027">{{ telLabel }}</a>
         </div>
 
+        <sc-if value="{{ hayDocs }}" hint-placeholder-val="{{ false }}">
         <div style="background:#FFFFFF;border:1px solid rgba(30,26,23,.12);padding:clamp(24px,2.4vw,32px);display:flex;flex-direction:column;gap:12px">
           <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7A2027">{{ t.docsTitulo }}</span>
           <sc-for list="{{ prop.docs }}" as="d" hint-placeholder-count="4">
-            <span style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:#5C534B;border-bottom:1px solid rgba(30,26,23,.09);padding-bottom:10px">
+            <a href="{{ d.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:#5C534B;border-bottom:1px solid rgba(30,26,23,.09);padding-bottom:10px" style-hover="color:#7A2027">
               {{ d.nombre }}
               <span style="font-size:10px;color:#786E64">{{ d.meta }}</span>
-            </span>
+            </a>
           </sc-for>
           <span style="font-size:11.5px;line-height:1.7;color:#786E64;margin-top:4px">{{ t.docsPie }}</span>
         </div>
+        </sc-if>
       </aside>
     </div>
   </section>
@@ -2151,7 +2139,6 @@ class Component extends DCLogic {
       hablemosTexto: 'Estaremos encantados de atenderle en nuestra oficina de Marbella o donde usted prefiera. Sin compromiso.',
 
       listadoEyebrow: 'Cartera', listadoTitulo: 'Propiedades',
-      listadoTexto: 'Cada propiedad que publicamos ha sido visitada, verificada y fotografiada por nuestro equipo. Si no encuentra lo que busca, pregúntenos por nuestra cartera privada.',
       limpiarBusqueda: 'Limpiar búsqueda', limpiarFiltros: 'Limpiar filtros', verMas: 'Ver más propiedades',
       vistaMosaico: 'Mosaico', vistaLista: 'Lista',
       vacioTitulo: 'Nada encaja todavía',
@@ -2163,9 +2150,6 @@ class Component extends DCLogic {
       ctaAccesoPrivado: 'Solicitar acceso privado',
 
       verGaleria: 'Ver galería completa', caracteristicas: 'Características',
-      planEyebrow: 'Plan de comercialización',
-      planTitulo: 'Cómo estamos presentando esta propiedad',
-      planPie: 'Datos acumulados desde el lanzamiento de la propiedad. El propietario recibe este mismo cuadro cada lunes, con el detalle por canal y por país.',
       galeria: 'Galería', precio: 'Precio', ctaVisita: 'Reservar visita', ctaInfo: 'Solicitar información',
       asesor: 'Su asesor para esta propiedad',
       docsTitulo: 'Documentación disponible', docsPie: 'Entregamos el expediente completo tras la primera visita.',
@@ -2484,7 +2468,6 @@ class Component extends DCLogic {
       hablemosTexto: 'We would be delighted to welcome you at our Marbella office, or wherever suits you best. No obligation.',
 
       listadoEyebrow: 'Portfolio', listadoTitulo: 'Properties',
-      listadoTexto: 'Every property we publish has been visited, verified and photographed by our team. If you cannot find what you are looking for, ask us about our private portfolio.',
       limpiarBusqueda: 'Clear search', limpiarFiltros: 'Clear filters', verMas: 'Show more properties',
       vistaMosaico: 'Grid', vistaLista: 'List',
       vacioTitulo: 'Nothing matches yet',
@@ -2496,9 +2479,6 @@ class Component extends DCLogic {
       ctaAccesoPrivado: 'Request private access',
 
       verGaleria: 'View full gallery', caracteristicas: 'Features',
-      planEyebrow: 'Marketing plan',
-      planTitulo: 'How we are presenting this property',
-      planPie: 'Figures accumulated since launch. The owner receives this same panel every Monday, broken down by channel and country.',
       galeria: 'Gallery', precio: 'Price', ctaVisita: 'Book a viewing', ctaInfo: 'Request information',
       asesor: 'Your advisor for this property',
       docsTitulo: 'Available documentation', docsPie: 'The full file is handed over after the first viewing.',
@@ -3403,23 +3383,10 @@ class Component extends DCLogic {
         entradilla: this.L(prop.entradilla), descripcion: this.L(prop.descripcion) || (prop.fichaUrl && !prop.cargada ? (es ? 'Cargando la ficha completa…' : 'Loading the full listing…') : ''),
         features: this.L(prop.features) || [], precio: this.eur(prop.precio),
         precioM2: this.num(Math.round(prop.precio / prop.built)) + ' €/m²',
-        plan: [
-          { valor: this.num(128400), etiqueta: es ? 'Impresiones en 14 mercados' : 'Impressions across 14 markets' },
-          { valor: this.num(2310), etiqueta: es ? 'Visitas a esta ficha' : 'Views of this listing' },
-          { valor: '17', etiqueta: es ? 'Contactos cualificados' : 'Qualified enquiries' }
-        ],
-        docs: es ? [
-          { nombre: 'Nota simple registral', meta: 'PDF' },
-          { nombre: 'Certificado energético', meta: 'PDF' },
-          { nombre: 'Planos y superficies', meta: 'PDF' },
-          { nombre: 'Dossier de la propiedad', meta: '24 pág.' }
-        ] : [
-          { nombre: 'Land registry extract', meta: 'PDF' },
-          { nombre: 'Energy certificate', meta: 'PDF' },
-          { nombre: 'Floor plans and areas', meta: 'PDF' },
-          { nombre: 'Property dossier', meta: '24 pp.' }
-        ]
+        docs: (prop.documentos || []).map(d => ({ nombre: d.nombre || '', url: d.url || '#', meta: (d.tipo || 'PDF').toUpperCase() }))
       },
+      /* El expediente solo se anuncia en las exclusivas de W con documentos cargados desde el portal. */
+      hayDocs: prop.exclusiva === true && (prop.documentos || []).length > 0,
       specs: [
         { valor: prop.dorm, etiqueta: es ? 'Dormitorios' : 'Bedrooms' },
         { valor: prop.banos, etiqueta: es ? 'Baños' : 'Bathrooms' },
