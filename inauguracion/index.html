@@ -38,14 +38,12 @@
     .nav-cta { border-bottom:1px solid var(--wine); padding-block:12px; color:var(--wine); }
     .hero { background:var(--champagne); }
     .hero-grid { display:grid; grid-template-columns:1.1fr 1fr; min-height:670px; }
-    .hero-copy { padding:80px 7vw 76px 0; align-self:center; }
+    .hero-copy { min-width:0; padding:38px 4vw 40px 0; align-self:start; }
     .eyebrow { margin:0 0 26px; color:var(--wine); font-size:11px; line-height:1.6; letter-spacing:.2em; text-transform:uppercase; }
     h1,h2 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:400; }
-    h1 { margin:0; font-size:clamp(46px,4.8vw,74px); line-height:1.04; letter-spacing:-.025em; }
+    h1 { margin:0; font-size:clamp(38px,3.5vw,54px); line-height:1.04; letter-spacing:-.025em; }
     h1 span { color:var(--wine); }
-    .intro { max-width:31em; margin:26px 0 30px; color:var(--muted); font-size:15px; line-height:1.9; }
-    .button { display:inline-flex; align-items:center; justify-content:center; gap:32px; min-height:54px; padding:14px 30px; background:var(--wine); color:white; font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; font-weight:600; transition:background .2s; }
-    .button:hover { background:var(--wine-hover); }
+    .intro { max-width:31em; margin:18px 0 22px; color:var(--muted); font-size:15px; line-height:1.9; }
     .hero-photo { position:relative; margin:0; min-width:0; }
     .hero-photo img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; object-position:55% center; }
     .hero-photo::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,#1e1a1780); }
@@ -59,12 +57,13 @@
     .registration { display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(40px,7vw,110px); padding-block:90px 100px; scroll-margin-top:30px; }
     h2 { margin:0; font-size:clamp(36px,3.5vw,52px); line-height:1.1; }
     .registration-copy p:last-child { max-width:29em; color:var(--muted); font-size:15px; line-height:1.9; margin:22px 0 0; }
-    .form-embed { min-width:0; background:var(--champagne); padding:32px; }
-    .form-embed iframe { display:block; width:100%; max-width:100%; border:0; }
-    .embed-placeholder { min-height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; padding:30px; text-align:center; border:1px solid #1e1a1726; }
-    .embed-placeholder svg { color:var(--wine); }
-    .embed-placeholder p { margin:0; font-family:'Cormorant Garamond',Georgia,serif; font-size:28px; }
-    .embed-placeholder small { color:var(--muted); font-size:13px; line-height:1.7; max-width:24em; }
+    .form-embed { min-width:0; scroll-margin-top:24px; }
+    .form-embed iframe { display:block; width:100%; max-width:100%; min-height:560px; border:0; }
+    .form-fallback { margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+    .form-fallback a { color:var(--wine); text-decoration:underline; text-underline-offset:3px; }
+    .team-photo { margin:0; min-width:0; align-self:center; }
+    .team-photo img { display:block; width:100%; height:auto; }
+    .team-photo figcaption { padding-top:14px; color:var(--muted); font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
     .footer { background:var(--ink); color:var(--champagne); padding-block:40px; }
     .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:30px; }
     .footer .logo { height:48px; }
@@ -73,12 +72,11 @@
     .footer a:focus-visible { outline-color:var(--cream); }
     @media (max-width:900px) {
       .hero-grid { grid-template-columns:1fr 1fr; min-height:610px; }
-      .hero-copy { padding:54px 5vw 54px 0; }
-      h1 { font-size:clamp(42px,6vw,56px); }
+      .hero-copy { padding:30px 4vw 32px 0; }
+      h1 { font-size:clamp(36px,4.7vw,46px); }
       .details { grid-template-columns:1fr 1.5fr; gap:24px; }
       .map-link { grid-column:2; justify-self:start; }
       .registration { gap:36px; padding-block:65px; }
-      .form-embed { padding:20px; }
     }
     @media (max-width:640px) {
       .header-inner { min-height:88px; gap:16px; }
@@ -86,19 +84,18 @@
       .nav { gap:16px; font-size:10px; letter-spacing:.08em; }
       .nav-home { display:none; }
       .hero-grid { grid-template-columns:1fr; }
-      .hero-copy { padding:48px 0; }
-      h1 { font-size:clamp(43px,11vw,66px); }
-      .intro { font-size:14px; margin-top:22px; }
+      .hero-copy { padding:28px 0 32px; }
+      h1 { font-size:clamp(34px,9vw,46px); }
+      .intro { font-size:14px; line-height:1.7; margin:16px 0 20px; }
       .hero-photo { height:280px; margin-inline:-6vw; }
       .hero-photo figcaption { left:6vw; bottom:24px; }
       .details { grid-template-columns:1fr; gap:26px; padding-block:32px; }
       .map-link { grid-column:auto; }
       .registration { grid-template-columns:1fr; padding-block:52px 60px; gap:30px; }
-      .embed-placeholder { padding:24px 16px; min-height:300px; }
       .footer-inner { flex-wrap:wrap; gap:24px; }
       .footer p { width:100%; order:3; }
     }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .button { transition:none; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
   </style>
 </head>
 <body>
@@ -119,7 +116,11 @@
           <p class="eyebrow">Inauguración · Estepona</p>
           <h1 id="titulo">Regístrate para la inauguración de <span>W Real Estate</span></h1>
           <p class="intro">Un nuevo comienzo en la Costa del Sol. Acompáñanos el 9 de octubre y celebra con nosotros la apertura de nuestra oficina en Estepona.</p>
-          <a class="button" href="#registro">Quiero asistir <span aria-hidden="true">↗</span></a>
+          <div class="form-embed" id="registro" role="region" aria-label="Registro de asistencia">
+            <iframe src="https://link.realestaterocket.io/widget/survey/8OgyxGC423bb5ZWVugO8" style="border:none;width:100%;" scrolling="no" id="8OgyxGC423bb5ZWVugO8" title="Registro para la inauguración de W Real Estate" data-cookie-consent="true" data-cookie-consent-provider="auto"></iframe>
+            <script src="https://link.realestaterocket.io/js/form_embed.js"></script>
+            <p class="form-fallback">Si el formulario no se muestra, <a href="https://link.realestaterocket.io/widget/survey/8OgyxGC423bb5ZWVugO8" target="_blank" rel="noopener noreferrer">abre el registro en una nueva pestaña</a>.</p>
+          </div>
         </div>
         <figure class="hero-photo">
           <img src="/costa-aerea.jpg" alt="Vista aérea de la costa y el mar Mediterráneo" fetchpriority="high">
@@ -132,25 +133,16 @@
       <div><span class="label">Dónde</span><address>Avenida del Carmen 5, local 9<br>Estepona 29680</address></div>
       <a class="map-link" aria-label="Cómo llegar (abre en una pestaña nueva)" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+del+Carmen+5%2C+local+9%2C+Estepona+29680" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
     </div>
-    <section class="wrap registration" id="registro" aria-labelledby="registro-titulo">
+    <section class="wrap registration" aria-labelledby="registro-titulo">
       <div class="registration-copy">
         <p class="eyebrow">Nos encantará verte</p>
         <h2 id="registro-titulo">Forma parte de<br>este nuevo comienzo.</h2>
-        <p>Queremos compartir este día contigo. Aquí podrás registrar tu asistencia a la inauguración de W Real Estate.</p>
+        <p>Queremos compartir este día contigo. Ven a conocer nuestra oficina y al equipo de W Real Estate. Te esperamos el 9 de octubre en Estepona.</p>
       </div>
-      <div class="form-embed" id="formulario-embed" role="region" aria-label="Registro de asistencia">
-        <!-- INICIO FORMULARIO EMBED
-          Sustituir únicamente el bloque .embed-placeholder por el código embed completo.
-          Si el proveedor utiliza un iframe, añadir title="Registro para la inauguración de W Real Estate".
-          Ajustar la altura según el formulario. El contenedor admite iframe o script del proveedor.
-          FIN INSTRUCCIONES -->
-        <div class="embed-placeholder">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="6" y="5" width="20" height="23"></rect><path d="M11 12h10M11 17h10M11 22h6"></path></svg>
-          <p>Registro de asistencia</p>
-          <small>El formulario de registro estará disponible próximamente.</small>
-        </div>
-        <!-- FIN FORMULARIO EMBED -->
-      </div>
+      <figure class="team-photo">
+        <img src="/equipo-grupo.jpg" alt="El equipo de W Real Estate" loading="lazy">
+        <figcaption>El equipo de W Real Estate</figcaption>
+      </figure>
     </section>
   </main>
   <footer class="footer">
